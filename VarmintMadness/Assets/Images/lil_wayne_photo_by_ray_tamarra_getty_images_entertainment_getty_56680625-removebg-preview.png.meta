@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 996adb15c2d29374fae8d4ed38154a40
+guid: 48709809a5c3cfd418a13f9a4dd535c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3405584580684439754
-    second: wayne smith_0
+      213: -1744559255823534146
+    second: lil_wayne_photo_by_ray_tamarra_getty_images_entertainment_getty_56680625-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wayne smith_0
+      name: lil_wayne_photo_by_ray_tamarra_getty_images_entertainment_getty_56680625-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 27
         y: 0
-        width: 500
-        height: 500
+        width: 473
+        height: 489
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63f91cf0edeecb0d0800000000000000
-      internalID: -3405584580684439754
+      spriteID: eb7b40399941ac7e0800000000000000
+      internalID: -1744559255823534146
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      wayne smith_0: -3405584580684439754
+      lil_wayne_photo_by_ray_tamarra_getty_images_entertainment_getty_56680625-removebg-preview_0: -1744559255823534146
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

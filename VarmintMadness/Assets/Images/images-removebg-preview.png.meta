@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 996adb15c2d29374fae8d4ed38154a40
+guid: ba3bee5cd8548514bb014916fe6013f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3405584580684439754
-    second: wayne smith_0
+      213: 6989642852348889387
+    second: images-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wayne smith_0
+      name: images-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 500
-        height: 500
+        x: 12
+        y: 9
+        width: 183
+        height: 201
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63f91cf0edeecb0d0800000000000000
-      internalID: -3405584580684439754
+      spriteID: b298a193423300160800000000000000
+      internalID: 6989642852348889387
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      wayne smith_0: -3405584580684439754
+      images-removebg-preview_0: 6989642852348889387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
