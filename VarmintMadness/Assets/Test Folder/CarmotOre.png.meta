@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ba3bee5cd8548514bb014916fe6013f8
+guid: ca15d3704521d4f4caa73bd34735ac51
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6989642852348889387
-    second: images-removebg-preview_0
+      213: -8710963306624183326
+    second: CarmotOre_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: images-removebg-preview_0
+      name: CarmotOre_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 9
-        width: 183
-        height: 201
+        x: 27
+        y: 2
+        width: 446
+        height: 496
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b298a193423300160800000000000000
-      internalID: 6989642852348889387
+      spriteID: 2e3143976017c1780800000000000000
+      internalID: -8710963306624183326
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      images-removebg-preview_0: 6989642852348889387
+      CarmotOre_0: -8710963306624183326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
