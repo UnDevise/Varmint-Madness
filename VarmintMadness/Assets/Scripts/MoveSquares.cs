@@ -11,14 +11,15 @@ public class PlayerMovement : MonoBehaviour
     private int currentPositionIndex = 0;
     private Coroutine movementCoroutine;
 
-    // A small offset for the Z-position to ensure the sprite is visible.
+    // Now a public property so other scripts can read its state.
+    public bool IsMoving { get; private set; } = false;
+
     public float spriteZPosition = -5.0f;
 
     private void Awake()
     {
         if (waypointsParent == null)
         {
-            Debug.LogError("The 'Waypoints Parent' object is not assigned. Please assign it in the Inspector.", this);
             return;
         }
         StoreChildPositions();
@@ -28,11 +29,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (targetPositions.Count == 0)
         {
-            Debug.LogWarning("No child objects found on the 'Waypoints Parent'.", this);
             return;
         }
 
-        // Set the initial position, including the Z-position.
         Vector3 initialPosition = targetPositions[currentPositionIndex];
         initialPosition.z = spriteZPosition;
         transform.position = initialPosition;
@@ -49,39 +48,55 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveCharacter(int stepsToMove)
     {
-        Debug.Log("MoveCharacter called with " + stepsToMove + " steps.");
         if (movementCoroutine != null)
         {
             StopCoroutine(movementCoroutine);
         }
+
+        IsMoving = true;
         movementCoroutine = StartCoroutine(MoveSequence(stepsToMove));
     }
 
     private IEnumerator MoveSequence(int steps)
     {
-        Debug.Log("Starting move sequence for " + steps + " steps.");
-        for (int i = 0; i < steps; i++)
+        for (int i = 0; i < Mathf.Abs(steps); i++)
         {
-            currentPositionIndex++;
+            int direction = steps > 0 ? 1 : -1;
+            currentPositionIndex += direction;
 
             if (currentPositionIndex >= targetPositions.Count)
             {
                 currentPositionIndex = 0;
             }
+            else if (currentPositionIndex < 0)
+            {
+                currentPositionIndex = targetPositions.Count - 1;
+            }
 
-            // Create a Vector3 for the target position, preserving the Z-index.
             Vector3 nextPosition = new Vector3(targetPositions[currentPositionIndex].x, targetPositions[currentPositionIndex].y, spriteZPosition);
 
             while (Vector2.Distance(transform.position, nextPosition) > 0.01f)
             {
-                // Use Vector3.MoveTowards to correctly move the character.
                 transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
                 yield return null;
             }
             transform.position = nextPosition;
-            Debug.Log("Moved to next waypoint: " + transform.position);
         }
-        movementCoroutine = null;
-        Debug.Log("Move sequence finished.");
+
+        IsMoving = false;
+        CheckForSpecialWaypoint();
+    }
+
+    private void CheckForSpecialWaypoint()
+    {
+        // This check is redundant now but kept for clarity. The IsMoving flag is set to false just above.
+        if (IsMoving) return;
+
+        GameObject currentWaypoint = waypointsParent.GetChild(currentPositionIndex).gameObject;
+
+        if (currentWaypoint.CompareTag("MoveBackSquare"))
+        {
+            MoveCharacter(-3);
+        }
     }
 }
