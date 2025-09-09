@@ -1,15 +1,18 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickToCyclePosition : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public Transform waypointsParent;
+    public float moveSpeed = 5.0f;
+
     private List<Vector2> targetPositions = new List<Vector2>();
     private int currentPositionIndex = 0;
+    private Coroutine movementCoroutine;
 
-    // A small offset for the Z-position to ensure the sprite is always visible.
-    // Ensure this value is greater than the Z-position of your waypoints.
-    private const float spriteZOffset = -0.1f;
+    // A small offset for the Z-position to ensure the sprite is visible.
+    public float spriteZPosition = -5.0f;
 
     private void Awake()
     {
@@ -25,13 +28,13 @@ public class ClickToCyclePosition : MonoBehaviour
     {
         if (targetPositions.Count == 0)
         {
-            Debug.LogWarning("No child objects found on the 'Waypoints Parent' object to use as target positions.", this);
+            Debug.LogWarning("No child objects found on the 'Waypoints Parent'.", this);
             return;
         }
 
-        // Set the initial position, including the Z-offset, so the sprite starts visible.
-        Vector3 initialPosition = targetPositions[0];
-        initialPosition.z = spriteZOffset;
+        // Set the initial position, including the Z-position.
+        Vector3 initialPosition = targetPositions[currentPositionIndex];
+        initialPosition.z = spriteZPosition;
         transform.position = initialPosition;
     }
 
@@ -40,31 +43,45 @@ public class ClickToCyclePosition : MonoBehaviour
         targetPositions.Clear();
         foreach (Transform child in waypointsParent)
         {
-            // Only store the x and y coordinates. The z-coordinate is handled separately.
             targetPositions.Add(child.position);
         }
     }
 
-    private void OnMouseDown()
+    public void MoveCharacter(int stepsToMove)
     {
-        if (targetPositions.Count == 0) return;
-
-        currentPositionIndex++;
-        if (currentPositionIndex >= targetPositions.Count)
+        Debug.Log("MoveCharacter called with " + stepsToMove + " steps.");
+        if (movementCoroutine != null)
         {
-            currentPositionIndex = 0;
+            StopCoroutine(movementCoroutine);
         }
+        movementCoroutine = StartCoroutine(MoveSequence(stepsToMove));
+    }
 
-        // Get the new 2D position.
-        Vector2 nextPosition2D = targetPositions[currentPositionIndex];
+    private IEnumerator MoveSequence(int steps)
+    {
+        Debug.Log("Starting move sequence for " + steps + " steps.");
+        for (int i = 0; i < steps; i++)
+        {
+            currentPositionIndex++;
 
-        // Create a new Vector3 with the original waypoint's x and y, and a modified z.
-        // We use the sprite's current Z-position, which was set to spriteZOffset.
-        Vector3 newPosition = new Vector3(nextPosition2D.x, nextPosition2D.y, transform.position.z);
+            if (currentPositionIndex >= targetPositions.Count)
+            {
+                currentPositionIndex = 0;
+            }
 
-        // Move the sprite to the new position.
-        transform.position = newPosition;
+            // Create a Vector3 for the target position, preserving the Z-index.
+            Vector3 nextPosition = new Vector3(targetPositions[currentPositionIndex].x, targetPositions[currentPositionIndex].y, spriteZPosition);
 
-        Debug.Log("Sprite clicked! Moving to new child position at index " + currentPositionIndex);
+            while (Vector2.Distance(transform.position, nextPosition) > 0.01f)
+            {
+                // Use Vector3.MoveTowards to correctly move the character.
+                transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
+                yield return null;
+            }
+            transform.position = nextPosition;
+            Debug.Log("Moved to next waypoint: " + transform.position);
+        }
+        movementCoroutine = null;
+        Debug.Log("Move sequence finished.");
     }
 }
