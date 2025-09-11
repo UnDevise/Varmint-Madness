@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Transform waypointsParent;
+    public Transform alternativeWaypointsParent;
     public float moveSpeed = 5.0f;
 
     private List<Vector2> targetPositions = new List<Vector2>();
@@ -18,11 +19,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        if (waypointsParent == null)
+        if (waypointsParent != null)
         {
-            return;
+            StoreChildPositions();
         }
-        StoreChildPositions();
     }
 
     private void Start()
@@ -59,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator MoveSequence(int steps)
     {
+        // Loop through each step of the movement.
         for (int i = 0; i < Mathf.Abs(steps); i++)
         {
             int direction = steps > 0 ? 1 : -1;
@@ -75,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 nextPosition = new Vector3(targetPositions[currentPositionIndex].x, targetPositions[currentPositionIndex].y, spriteZPosition);
 
+            // Move smoothly to the next position.
             while (Vector2.Distance(transform.position, nextPosition) > 0.01f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
@@ -89,14 +91,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckForSpecialWaypoint()
     {
-        // This check is redundant now but kept for clarity. The IsMoving flag is set to false just above.
         if (IsMoving) return;
 
+        // Get the current waypoint object from the currently active waypointsParent.
         GameObject currentWaypoint = waypointsParent.GetChild(currentPositionIndex).gameObject;
 
         if (currentWaypoint.CompareTag("MoveBackSquare"))
         {
             MoveCharacter(-3);
         }
+        else if (currentWaypoint.CompareTag("LayerInSquare"))
+        {
+            SwitchWaypoints(alternativeWaypointsParent);
+            // After switching, start a new move sequence to the first waypoint of the new path.
+            MoveCharacter(1);
+        }
+    }
+
+    // New method to switch the active waypoint parent without snapping.
+    public void SwitchWaypoints(Transform newWaypointsParent)
+    {
+        if (waypointsParent == newWaypointsParent)
+        {
+            return;
+        }
+
+        waypointsParent = newWaypointsParent;
+        StoreChildPositions();
+        currentPositionIndex = 0; // Reset to the start of the new path.
+        Debug.Log("Switched to new waypoint path.");
     }
 }
