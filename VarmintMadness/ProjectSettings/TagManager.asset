@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MoveBackSquare
   - LayerInSquare
+  - AddGarbageSquare
   layers:
   - Default
   - TransparentFX
