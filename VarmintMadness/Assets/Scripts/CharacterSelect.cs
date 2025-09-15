@@ -1,74 +1,149 @@
-using Mono.Cecil.Cil;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using static UnityEngine.Rendering.DebugUI.Table;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CharacterSelect : MonoBehaviour
+public class CharacterSelectUI : MonoBehaviour
 {
-    public GameObject[] characters; // Array of character prefabs
-    public Transform[] playerPositions; // Positions for selected characters
-    private int[] selectedIndices; // Tracks selected character for each player
-    private bool[] isReady; // Tracks if players are ready
-
-    private int playerCount = 4; // Number of players (adjust as needed)
-
-    void Start()
+    [System.Serializable]
+    public class PlayerPanel
     {
-        selectedIndices = new int[playerCount];
-        isReady = new bool[playerCount];
+        public string playerName = "Player 1";
+        public Transform spawnPoint;
+
+        // One button per character option, in the same order as characterPrefabs.
+        public Button[] characterButtons;
+
+        public Button readyButton;
+        public Image selectionHighlight; // optional (moves to the selected button)
+
+        [HideInInspector] public int selectedIndex = -1;
+        [HideInInspector] public bool isReady = false;
     }
 
-    void Update()
+    [Header("Character Options")]
+    public GameObject[] characterPrefabs;
+
+    [Header("Players")]
+    public PlayerPanel[] players;
+
+    [Header("Rules")]
+    public bool allowDuplicatePicks = false;
+
+    private HashSet<int> takenChoices = new HashSet<int>();
+
+    void Awake()
     {
-        for (int i = 0; i < playerCount; i++)
+        // Basic validation
+        foreach (var p in players)
         {
-            if (!isReady[i])
+            if (p.characterButtons == null || p.characterButtons.Length != characterPrefabs.Length)
             {
-                HandleInput(i);
+                Debug.LogError($"[{nameof(CharacterSelectUI)}] {p.playerName} must have exactly {characterPrefabs.Length} character buttons to match Character Prefabs.");
             }
+            if (p.readyButton) p.readyButton.interactable = false; // enable after a pick
         }
 
-        if (AllPlayersReady())
+        // Wire up button listeners
+        for (int pIndex = 0; pIndex < players.Length; pIndex++)
+        {
+            int capturedPIndex = pIndex;
+            var panel = players[pIndex];
+
+            for (int choice = 0; choice < panel.characterButtons.Length; choice++)
+            {
+                int capturedChoice = choice;
+                panel.characterButtons[choice].onClick.AddListener(() => OnPick(capturedPIndex, capturedChoice));
+            }
+
+            if (panel.readyButton != null)
+            {
+                panel.readyButton.onClick.AddListener(() => OnReady(capturedPIndex));
+            }
+        }
+    }
+
+    private void OnPick(int pIndex, int choice)
+    {
+        var panel = players[pIndex];
+        if (panel.isReady) return;
+
+        // Enforce no-duplicate rule if desired
+        if (!allowDuplicatePicks)
+        {
+            // If another player has already locked in this choice, block it
+            if (takenChoices.Contains(choice) && panel.selectedIndex != choice)
+            {
+                Debug.Log($"{panel.playerName} tried to pick an already taken character.");
+                return;
+            }
+
+            // Free previous pick (if any)
+            if (panel.selectedIndex != -1 && panel.selectedIndex != choice)
+            {
+                takenChoices.Remove(panel.selectedIndex);
+            }
+
+            takenChoices.Add(choice);
+        }
+
+        panel.selectedIndex = choice;
+
+        // Move highlight under/onto the selected button
+        if (panel.selectionHighlight != null)
+        {
+            panel.selectionHighlight.transform.SetParent(panel.characterButtons[choice].transform, false);
+            panel.selectionHighlight.rectTransform.anchoredPosition = Vector2.zero;
+            panel.selectionHighlight.gameObject.SetActive(true);
+        }
+
+        // Enable Ready once a selection is made
+        if (panel.readyButton != null) panel.readyButton.interactable = true;
+    }
+
+    private void OnReady(int pIndex)
+    {
+        var panel = players[pIndex];
+        if (panel.selectedIndex < 0 || panel.isReady) return;
+
+        panel.isReady = true;
+
+        // Spawn selected character at the player's spawn point
+        var prefab = characterPrefabs[panel.selectedIndex];
+        if (prefab != null && panel.spawnPoint != null)
+        {
+            Instantiate(prefab, panel.spawnPoint.position, Quaternion.identity);
+        }
+
+        // Lock UI for this player
+        foreach (var b in panel.characterButtons) b.interactable = false;
+        if (panel.readyButton != null) panel.readyButton.interactable = false;
+
+        // Optionally dim highlight to show "locked"
+        if (panel.selectionHighlight != null)
+        {
+            var c = panel.selectionHighlight.color;
+            panel.selectionHighlight.color = new Color(c.r, c.g, c.b, 0.6f);
+        }
+
+        if (AllReady())
         {
             StartGame();
         }
     }
 
-    void HandleInput(int playerIndex)
+    private bool AllReady()
     {
-        string horizontalAxis = $"Player{playerIndex + 1}_Horizontal";
-        string submitButton = $"Player{playerIndex + 1}_Submit";
-
-        if (Input.GetAxisRaw(horizontalAxis) > 0)
+        foreach (var p in players)
         {
-            selectedIndices[playerIndex] = (selectedIndices[playerIndex] + 1) % characters.Length;
-        }
-        else if (Input.GetAxisRaw(horizontalAxis) < 0)
-        {
-            selectedIndices[playerIndex] = (selectedIndices[playerIndex] - 1 + characters.Length) % characters.Length;
-        }
-
-        if (Input.GetButtonDown(submitButton))
-        {
-            isReady[playerIndex] = true;
-            Instantiate(characters[selectedIndices[playerIndex]], playerPositions[playerIndex].position, Quaternion.identity);
-        }
-    }
-
-    bool AllPlayersReady()
-    {
-        foreach (bool ready in isReady)
-        {
-            if (!ready) return false;
+            if (!p.isReady) return false;
         }
         return true;
     }
 
-    void StartGame()
+    private void StartGame()
     {
-        Debug.Log("All players are ready! Starting the game...");
-        // Load the next scene or start the game logic
+        Debug.Log("All players ready — start the game / load next scene here.");
+        // e.g., SceneManager.LoadScene("GameScene");
     }
 }
 
