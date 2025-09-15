@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // Add this line to access TextMeshPro functions
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,14 +13,15 @@ public class PlayerMovement : MonoBehaviour
     private int currentPositionIndex = 0;
     private Coroutine movementCoroutine;
 
-    // Now a public property so other scripts can read its state.
     public bool IsMoving { get; private set; } = false;
+    public bool IsStunned { get; set; } = false;
 
     public float spriteZPosition = -5.0f;
 
-    // --- New variables for the Garbage counter ---
-    public TextMeshProUGUI garbageText; // Reference to the TextMeshPro UI element
+    public TextMeshProUGUI garbageText;
     private int garbageCount = 0;
+
+    private DiceController diceController;
 
     private void Awake()
     {
@@ -40,15 +41,23 @@ public class PlayerMovement : MonoBehaviour
         Vector3 initialPosition = targetPositions[currentPositionIndex];
         initialPosition.z = spriteZPosition;
         transform.position = initialPosition;
-        UpdateGarbageText(); // Initialize the text display.
+        UpdateGarbageText();
+    }
+
+    public void SetDiceController(DiceController controller)
+    {
+        diceController = controller;
     }
 
     private void StoreChildPositions()
     {
         targetPositions.Clear();
-        foreach (Transform child in waypointsParent)
+        if (waypointsParent != null)
         {
-            targetPositions.Add(child.position);
+            foreach (Transform child in waypointsParent)
+            {
+                targetPositions.Add(child.position);
+            }
         }
     }
 
@@ -98,20 +107,33 @@ public class PlayerMovement : MonoBehaviour
         if (IsMoving) return;
 
         GameObject currentWaypoint = waypointsParent.GetChild(currentPositionIndex).gameObject;
+        bool bonusMoveTriggered = false;
 
         if (currentWaypoint.CompareTag("MoveBackSquare"))
         {
             MoveCharacter(-3);
+            bonusMoveTriggered = true;
         }
         else if (currentWaypoint.CompareTag("LayerInSquare"))
         {
             SwitchWaypoints(alternativeWaypointsParent);
             MoveCharacter(1);
+            bonusMoveTriggered = true;
         }
-        // --- New check for the AddGarbageSquare tag ---
         else if (currentWaypoint.CompareTag("AddGarbageSquare"))
         {
             IncrementGarbageCount();
+        }
+        else if (currentWaypoint.CompareTag("StunPlayerSquare"))
+        {
+            IsStunned = true;
+            Debug.Log(gameObject.name + " landed on a stun square and will skip their next turn.");
+        }
+
+        // Only end the turn if no bonus move was triggered.
+        if (!bonusMoveTriggered && diceController != null)
+        {
+            diceController.OnPlayerTurnFinished();
         }
     }
 
@@ -128,7 +150,6 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Switched to new waypoint path.");
     }
 
-    // --- New method to increment garbage count and update the UI ---
     private void IncrementGarbageCount()
     {
         garbageCount++;
@@ -136,7 +157,6 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Garbage count increased. New count: " + garbageCount);
     }
 
-    // --- New method to update the UI Text field ---
     private void UpdateGarbageText()
     {
         if (garbageText != null)
