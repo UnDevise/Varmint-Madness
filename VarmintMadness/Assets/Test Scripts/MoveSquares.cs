@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // Add this line to access TextMeshPro functions
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     public bool IsMoving { get; private set; } = false;
 
     public float spriteZPosition = -5.0f;
+
+    // --- New variables for the Garbage counter ---
+    public TextMeshProUGUI garbageText; // Reference to the TextMeshPro UI element
+    private int garbageCount = 0;
 
     private void Awake()
     {
@@ -35,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 initialPosition = targetPositions[currentPositionIndex];
         initialPosition.z = spriteZPosition;
         transform.position = initialPosition;
+        UpdateGarbageText(); // Initialize the text display.
     }
 
     private void StoreChildPositions()
@@ -59,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator MoveSequence(int steps)
     {
-        // Loop through each step of the movement.
         for (int i = 0; i < Mathf.Abs(steps); i++)
         {
             int direction = steps > 0 ? 1 : -1;
@@ -76,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 nextPosition = new Vector3(targetPositions[currentPositionIndex].x, targetPositions[currentPositionIndex].y, spriteZPosition);
 
-            // Move smoothly to the next position.
             while (Vector2.Distance(transform.position, nextPosition) > 0.01f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
@@ -93,7 +97,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsMoving) return;
 
-        // Get the current waypoint object from the currently active waypointsParent.
         GameObject currentWaypoint = waypointsParent.GetChild(currentPositionIndex).gameObject;
 
         if (currentWaypoint.CompareTag("MoveBackSquare"))
@@ -103,12 +106,15 @@ public class PlayerMovement : MonoBehaviour
         else if (currentWaypoint.CompareTag("LayerInSquare"))
         {
             SwitchWaypoints(alternativeWaypointsParent);
-            // After switching, start a new move sequence to the first waypoint of the new path.
             MoveCharacter(1);
+        }
+        // --- New check for the AddGarbageSquare tag ---
+        else if (currentWaypoint.CompareTag("AddGarbageSquare"))
+        {
+            IncrementGarbageCount();
         }
     }
 
-    // New method to switch the active waypoint parent without snapping.
     public void SwitchWaypoints(Transform newWaypointsParent)
     {
         if (waypointsParent == newWaypointsParent)
@@ -118,7 +124,24 @@ public class PlayerMovement : MonoBehaviour
 
         waypointsParent = newWaypointsParent;
         StoreChildPositions();
-        currentPositionIndex = 0; // Reset to the start of the new path.
+        currentPositionIndex = 0;
         Debug.Log("Switched to new waypoint path.");
+    }
+
+    // --- New method to increment garbage count and update the UI ---
+    private void IncrementGarbageCount()
+    {
+        garbageCount++;
+        UpdateGarbageText();
+        Debug.Log("Garbage count increased. New count: " + garbageCount);
+    }
+
+    // --- New method to update the UI Text field ---
+    private void UpdateGarbageText()
+    {
+        if (garbageText != null)
+        {
+            garbageText.text = "Garbage: " + garbageCount;
+        }
     }
 }
