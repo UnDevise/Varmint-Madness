@@ -18,7 +18,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float spriteZPosition = -5.0f;
 
-    public TextMeshProUGUI garbageText;
+    // Will be assigned by DiceController
+    [HideInInspector] public TextMeshProUGUI garbageText;
+    [HideInInspector] public string playerName;
     private int garbageCount = 0;
 
     private DiceController diceController;
@@ -120,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
             MoveCharacter(1);
             bonusMoveTriggered = true;
         }
+        // Check for the correct "AddGarbageSquare" tag.
         else if (currentWaypoint.CompareTag("AddGarbageSquare"))
         {
             IncrementGarbageCount();
@@ -127,10 +130,9 @@ public class PlayerMovement : MonoBehaviour
         else if (currentWaypoint.CompareTag("StunPlayerSquare"))
         {
             IsStunned = true;
-            Debug.Log(gameObject.name + " landed on a stun square and will skip their next turn.");
+            Debug.Log($"{playerName} landed on a stun square and will skip their next turn.");
         }
 
-        // Only end the turn if no bonus move was triggered.
         if (!bonusMoveTriggered && diceController != null)
         {
             diceController.OnPlayerTurnFinished();
@@ -154,14 +156,15 @@ public class PlayerMovement : MonoBehaviour
     {
         garbageCount++;
         UpdateGarbageText();
-        Debug.Log("Garbage count increased. New count: " + garbageCount);
+        Debug.Log($"Garbage count increased for {playerName}. New count: {garbageCount}");
     }
 
     private void UpdateGarbageText()
     {
         if (garbageText != null)
         {
-            garbageText.text = "Garbage: " + garbageCount;
+            // Update the text to display "Garbage" instead of "Items".
+            garbageText.text = $"{playerName}: {garbageCount} Garbage";
         }
     }
 }
