@@ -8,6 +8,8 @@ TagManager:
   - LayerInSquare
   - AddGarbageSquare
   - StunPlayerSquare
+  - RemoveGarbageSquare
+  - LayerOutSquare
   layers:
   - Default
   - TransparentFX

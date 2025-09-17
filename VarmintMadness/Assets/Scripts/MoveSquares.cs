@@ -5,13 +5,21 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // The original and alternative waypoint paths.
     public Transform waypointsParent;
     public Transform alternativeWaypointsParent;
+
+    // Adjustable teleport points for layer switching.
+    // Drag a GameObject from the scene into these fields in the Inspector.
+    public Transform layerInTeleportPoint;
+    public Transform layerOutTeleportPoint;
+
     public float moveSpeed = 5.0f;
 
     private List<Vector2> targetPositions = new List<Vector2>();
     private int currentPositionIndex = 0;
     private Coroutine movementCoroutine;
+    private Transform originalWaypointsParent; // Store the original path
 
     public bool IsMoving { get; private set; } = false;
     public bool IsStunned { get; set; } = false;
@@ -27,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        // Store the initial waypoint parent.
+        originalWaypointsParent = waypointsParent;
+
         if (waypointsParent != null)
         {
             StoreChildPositions();
@@ -118,14 +129,21 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (currentWaypoint.CompareTag("LayerInSquare"))
         {
-            SwitchWaypoints(alternativeWaypointsParent);
-            MoveCharacter(1);
+            SwitchWaypoints(alternativeWaypointsParent, layerInTeleportPoint);
             bonusMoveTriggered = true;
         }
-        // Check for the correct "AddGarbageSquare" tag.
+        else if (currentWaypoint.CompareTag("LayerOutSquare"))
+        {
+            SwitchWaypoints(originalWaypointsParent, layerOutTeleportPoint);
+            bonusMoveTriggered = true;
+        }
         else if (currentWaypoint.CompareTag("AddGarbageSquare"))
         {
             IncrementGarbageCount();
+        }
+        else if (currentWaypoint.CompareTag("RemoveGarbageSquare"))
+        {
+            DecrementGarbageCount();
         }
         else if (currentWaypoint.CompareTag("StunPlayerSquare"))
         {
@@ -139,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void SwitchWaypoints(Transform newWaypointsParent)
+    public void SwitchWaypoints(Transform newWaypointsParent, Transform teleportTarget)
     {
         if (waypointsParent == newWaypointsParent)
         {
@@ -148,8 +166,57 @@ public class PlayerMovement : MonoBehaviour
 
         waypointsParent = newWaypointsParent;
         StoreChildPositions();
-        currentPositionIndex = 0;
+
+        // Find the index of the closest waypoint to the teleport target on the new path.
+        int closestIndex = FindClosestWaypointIndex(teleportTarget);
+        currentPositionIndex = closestIndex;
+
+        // Start a separate coroutine to move to the teleport target.
+        StartCoroutine(MoveToTeleportPoint(teleportTarget));
+
         Debug.Log("Switched to new waypoint path.");
+    }
+
+    private IEnumerator MoveToTeleportPoint(Transform target)
+    {
+        IsMoving = true;
+        Vector3 nextPosition = new Vector3(target.position.x, target.position.y, spriteZPosition);
+
+        while (Vector2.Distance(transform.position, nextPosition) > 0.01f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+        transform.position = nextPosition;
+        IsMoving = false;
+
+        // Once the smooth move is finished, end the turn.
+        if (diceController != null)
+        {
+            diceController.OnPlayerTurnFinished();
+        }
+    }
+
+    private int FindClosestWaypointIndex(Transform target)
+    {
+        if (target == null || targetPositions.Count == 0)
+        {
+            return 0;
+        }
+
+        int closestIndex = 0;
+        float minDistance = float.MaxValue;
+
+        for (int i = 0; i < targetPositions.Count; i++)
+        {
+            float distance = Vector2.Distance(target.position, targetPositions[i]);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestIndex = i;
+            }
+        }
+        return closestIndex;
     }
 
     private void IncrementGarbageCount()
@@ -159,11 +226,24 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log($"Garbage count increased for {playerName}. New count: {garbageCount}");
     }
 
+    private void DecrementGarbageCount()
+    {
+        if (garbageCount > 0)
+        {
+            garbageCount--;
+            UpdateGarbageText();
+            Debug.Log($"Garbage count decreased for {playerName}. New count: {garbageCount}");
+        }
+        else
+        {
+            Debug.Log($"Garbage count is already at 0 for {playerName}.");
+        }
+    }
+
     private void UpdateGarbageText()
     {
         if (garbageText != null)
         {
-            // Update the text to display "Garbage" instead of "Items".
             garbageText.text = $"{playerName}: {garbageCount} Garbage";
         }
     }
