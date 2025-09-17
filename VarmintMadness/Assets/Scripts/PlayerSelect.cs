@@ -1,8 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSelect : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+   
+    [SerializeField] private Button TwoPlayers;
+    [SerializeField] private Button ThreePlayers;
+    [SerializeField] private Button FourPlayers;
     void Start()
     {
         

@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 778476535}
   - component: {fileID: 778476534}
   m_Layer: 0
-  m_Name: Possum Select
+  m_Name: PossumSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -860,7 +860,7 @@ GameObject:
   - component: {fileID: 910749610}
   - component: {fileID: 910749609}
   m_Layer: 0
-  m_Name: Squirrel Select
+  m_Name: SquirrelSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1085,7 +1085,7 @@ GameObject:
   - component: {fileID: 1496122278}
   - component: {fileID: 1496122277}
   m_Layer: 0
-  m_Name: Racoon Select
+  m_Name: RacoonSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1389,7 +1389,7 @@ GameObject:
   - component: {fileID: 1877104557}
   - component: {fileID: 1877104556}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1407,6 +1407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0865e3bea94c3246a0f42f0d5a8b47c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RacoonSelect: {fileID: 1496122276}
+  FoxSelect: {fileID: 2100624146}
+  SquirrelSelect: {fileID: 910749608}
+  PossumSelect: {fileID: 778476533}
   characterPrefabs: []
   players: []
   allowDuplicatePicks: 0
@@ -1419,7 +1423,7 @@ Transform:
   m_GameObject: {fileID: 1877104555}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6081922, y: 0.8372934, z: -9.946254}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1436,7 +1440,7 @@ GameObject:
   - component: {fileID: 2100624148}
   - component: {fileID: 2100624147}
   m_Layer: 0
-  m_Name: Fox Select
+  m_Name: FoxSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
