@@ -1,10 +1,19 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class CharacterSelectUI : MonoBehaviour
 {
+    [SerializeField] private GameObject RacoonSelect;
+    [SerializeField] private GameObject FoxSelect;
+    [SerializeField] private GameObject SquirrelSelect;
+    [SerializeField] private GameObject PossumSelect;
+
     [System.Serializable]
+
     public class PlayerPanel
     {
         public string playerName = "Player 1";
