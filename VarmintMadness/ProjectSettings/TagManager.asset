@@ -10,6 +10,7 @@ TagManager:
   - StunPlayerSquare
   - RemoveGarbageSquare
   - LayerOutSquare
+  - Tunnel
   layers:
   - Default
   - TransparentFX

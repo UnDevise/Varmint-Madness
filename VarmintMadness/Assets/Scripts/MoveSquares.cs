@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsStunned { get; set; } = false;
 
     public float spriteZPosition = -5.0f;
+    private SpriteRenderer spriteRenderer;
 
     // Will be assigned by DiceController
     [HideInInspector] public TextMeshProUGUI garbageText;
@@ -37,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Store the initial waypoint parent.
         originalWaypointsParent = waypointsParent;
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (waypointsParent != null)
         {
@@ -137,6 +140,11 @@ public class PlayerMovement : MonoBehaviour
             SwitchWaypoints(originalWaypointsParent, layerOutTeleportPoint);
             bonusMoveTriggered = true;
         }
+        else if (currentWaypoint.CompareTag("Tunnel"))
+        {
+            TeleportToTunnel(currentWaypoint);
+            bonusMoveTriggered = true;
+        }
         else if (currentWaypoint.CompareTag("AddGarbageSquare"))
         {
             IncrementGarbageCount();
@@ -167,11 +175,9 @@ public class PlayerMovement : MonoBehaviour
         waypointsParent = newWaypointsParent;
         StoreChildPositions();
 
-        // Find the index of the closest waypoint to the teleport target on the new path.
         int closestIndex = FindClosestWaypointIndex(teleportTarget);
         currentPositionIndex = closestIndex;
 
-        // Start a separate coroutine to move to the teleport target.
         StartCoroutine(MoveToTeleportPoint(teleportTarget));
 
         Debug.Log("Switched to new waypoint path.");
@@ -190,7 +196,6 @@ public class PlayerMovement : MonoBehaviour
         transform.position = nextPosition;
         IsMoving = false;
 
-        // Once the smooth move is finished, end the turn.
         if (diceController != null)
         {
             diceController.OnPlayerTurnFinished();
@@ -219,11 +224,107 @@ public class PlayerMovement : MonoBehaviour
         return closestIndex;
     }
 
+    private void TeleportToTunnel(GameObject currentTunnel)
+    {
+        StartCoroutine(HandleTunnelTeleport(currentTunnel));
+    }
+
+    private IEnumerator HandleTunnelTeleport(GameObject currentTunnel)
+    {
+        // Fade out
+        yield return StartCoroutine(Fade(0, 0.5f)); // Fade out over 0.5 seconds
+
+        // Normal teleport logic (teleport player while invisible)
+        string destinationName;
+        if (currentTunnel.name == "Tunnel1 (15)")
+        {
+            destinationName = "Tunnel2 (32)";
+        }
+        else if (currentTunnel.name == "Tunnel2 (32)")
+        {
+            destinationName = "Tunnel1 (15)";
+        }
+        else
+        {
+            Debug.LogError($"Tunnel name not recognized: {currentTunnel.name}");
+            if (diceController != null)
+            {
+                diceController.OnPlayerTurnFinished();
+            }
+            yield break;
+        }
+
+        GameObject destinationTunnel = GameObject.Find(destinationName);
+
+        if (destinationTunnel != null)
+        {
+            int newIndex = -1;
+            for (int i = 0; i < waypointsParent.childCount; i++)
+            {
+                if (waypointsParent.GetChild(i).gameObject == destinationTunnel)
+                {
+                    newIndex = i;
+                    break;
+                }
+            }
+
+            if (newIndex != -1)
+            {
+                currentPositionIndex = newIndex;
+            }
+
+            transform.position = new Vector3(destinationTunnel.transform.position.x, destinationTunnel.transform.position.y, spriteZPosition);
+            Debug.Log($"{playerName} teleported from {currentTunnel.name} to {destinationName}.");
+        }
+        else
+        {
+            Debug.LogError($"Could not find destination tunnel: {destinationName}");
+        }
+
+        // Fade in
+        yield return StartCoroutine(Fade(1, 0.5f)); // Fade in over 0.5 seconds
+
+        if (diceController != null)
+        {
+            diceController.OnPlayerTurnFinished();
+        }
+    }
+
+    private IEnumerator Fade(float targetAlpha, float duration)
+    {
+        if (spriteRenderer == null)
+        {
+            yield break;
+        }
+
+        Color startColor = spriteRenderer.color;
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, targetAlpha);
+        float elapsedTime = 0;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = elapsedTime / duration;
+            spriteRenderer.color = Color.Lerp(startColor, endColor, progress);
+            yield return null;
+        }
+
+        spriteRenderer.color = endColor;
+    }
+
+    private void UpdateGarbageText()
+    {
+        if (garbageText != null)
+        {
+            garbageText.text = $"{playerName}: {garbageCount} garbage";
+        }
+    }
+
     private void IncrementGarbageCount()
     {
         garbageCount++;
         UpdateGarbageText();
-        Debug.Log($"Garbage count increased for {playerName}. New count: {garbageCount}");
+        Debug.Log($"{playerName} collected garbage. Total: {garbageCount}");
     }
 
     private void DecrementGarbageCount()
@@ -232,19 +333,7 @@ public class PlayerMovement : MonoBehaviour
         {
             garbageCount--;
             UpdateGarbageText();
-            Debug.Log($"Garbage count decreased for {playerName}. New count: {garbageCount}");
-        }
-        else
-        {
-            Debug.Log($"Garbage count is already at 0 for {playerName}.");
-        }
-    }
-
-    private void UpdateGarbageText()
-    {
-        if (garbageText != null)
-        {
-            garbageText.text = $"{playerName}: {garbageCount} Garbage";
+            Debug.Log($"{playerName} removed garbage. Total: {garbageCount}");
         }
     }
 }
