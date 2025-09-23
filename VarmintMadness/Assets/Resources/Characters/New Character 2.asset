@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3db7b5568f77d41b664d57a82d9659, type: 3}
+  m_Name: New Character 2
+  m_EditorClassIdentifier: 
+  characterName: Evil Scientist Carlos
+  characterSprite: {fileID: 6876425951671771466, guid: e48d0eb648439ab44b49ba0813536fef, type: 3}
+  characterBio: I'm really not that bad of a guy as Jaidyn makes me out to be
+  backgroundColor: {r: 0.111544564, g: 0.6698113, b: 0, a: 0}
