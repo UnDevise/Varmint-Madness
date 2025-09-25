@@ -3729,7 +3729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafd3989b3b3454438f4cabc8b6ab0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomedOrthographicSize: 1
+  zoomedOrthographicSize: 1.5
   zoomSpeed: 2
   followSpeed: 5
 --- !u!1 &782729411

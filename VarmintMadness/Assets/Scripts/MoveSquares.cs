@@ -6,7 +6,6 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // ... (All other variables are the same)
     public Transform waypointsParent;
     public Transform alternativeWaypointsParent;
     public Transform layerInTeleportPoint;
@@ -80,20 +79,32 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator HandlePlayerTurn(int stepsToMove)
     {
-        // Tell the camera to start following this player with a zoom transition.
+        // 1. Tell the camera to start following this player with a zoom transition.
         if (cameraController != null)
         {
             yield return StartCoroutine(cameraController.StartFollowingCoroutine(transform));
         }
 
-        // After the zoom is complete, start the player's movement.
-        if (movementCoroutine != null)
-        {
-            StopCoroutine(movementCoroutine);
-        }
-
+        // 2. Perform the player's movement.
         IsMoving = true;
-        movementCoroutine = StartCoroutine(MoveSequence(stepsToMove));
+        yield return StartCoroutine(MoveSequence(stepsToMove));
+        IsMoving = false;
+
+        // 3. Check for the special waypoint.
+        bool bonusMoveTriggered = CheckForSpecialWaypoint();
+
+        // 4. End the turn if no bonus move was triggered.
+        if (!bonusMoveTriggered)
+        {
+            if (cameraController != null)
+            {
+                cameraController.StopFollowing();
+            }
+            if (diceController != null)
+            {
+                diceController.OnPlayerTurnFinished();
+            }
+        }
     }
 
     private IEnumerator MoveSequence(int steps)
@@ -121,38 +132,33 @@ public class PlayerMovement : MonoBehaviour
             }
             transform.position = nextPosition;
         }
-
-        IsMoving = false;
-        CheckForSpecialWaypoint();
     }
 
-    private void CheckForSpecialWaypoint()
+    private bool CheckForSpecialWaypoint()
     {
-        if (IsMoving) return;
+        if (IsMoving) return false;
 
         GameObject currentWaypoint = waypointsParent.GetChild(currentPositionIndex).gameObject;
-        bool bonusMoveTriggered = false;
 
-        // ... (Same logic for special waypoints)
         if (currentWaypoint.CompareTag("MoveBackSquare"))
         {
             MoveCharacter(-3);
-            bonusMoveTriggered = true;
+            return true;
         }
         else if (currentWaypoint.CompareTag("LayerInSquare"))
         {
             SwitchWaypoints(alternativeWaypointsParent, layerInTeleportPoint);
-            bonusMoveTriggered = true;
+            return true;
         }
         else if (currentWaypoint.CompareTag("LayerOutSquare"))
         {
             SwitchWaypoints(originalWaypointsParent, layerOutTeleportPoint);
-            bonusMoveTriggered = true;
+            return true;
         }
         else if (currentWaypoint.CompareTag("Tunnel"))
         {
             TeleportToTunnel(currentWaypoint);
-            bonusMoveTriggered = true;
+            return true;
         }
         else if (currentWaypoint.CompareTag("AddGarbageSquare"))
         {
@@ -168,18 +174,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log($"{playerName} landed on a stun square and will skip their next turn.");
         }
 
-        if (!bonusMoveTriggered)
-        {
-            if (cameraController != null)
-            {
-                cameraController.StopFollowing();
-            }
-
-            if (diceController != null)
-            {
-                diceController.OnPlayerTurnFinished();
-            }
-        }
+        return false; // Return false if no bonus move was triggered.
     }
 
     public void SwitchWaypoints(Transform newWaypointsParent, Transform teleportTarget)
@@ -195,7 +190,6 @@ public class PlayerMovement : MonoBehaviour
         int closestIndex = FindClosestWaypointIndex(teleportTarget);
         currentPositionIndex = closestIndex;
 
-        // No need to follow the camera during this short transition, the camera returns to full view afterward.
         StartCoroutine(MoveToTeleportPoint(teleportTarget));
 
         Debug.Log("Switched to new waypoint path.");
@@ -206,7 +200,6 @@ public class PlayerMovement : MonoBehaviour
         IsMoving = true;
         Vector3 nextPosition = new Vector3(target.position.x, target.position.y, spriteZPosition);
 
-        // Tell the camera to start following the player during the teleport.
         if (cameraController != null)
         {
             yield return StartCoroutine(cameraController.StartFollowingCoroutine(transform));
@@ -220,24 +213,157 @@ public class PlayerMovement : MonoBehaviour
         transform.position = nextPosition;
         IsMoving = false;
 
-        // Stop camera following after teleport is complete.
         if (cameraController != null)
         {
             cameraController.StopFollowing();
         }
-
         if (diceController != null)
         {
             diceController.OnPlayerTurnFinished();
         }
     }
 
-    // ... (Other helper methods are the same)
-    private int FindClosestWaypointIndex(Transform target) { /* ... */ return 0; }
-    private void TeleportToTunnel(GameObject currentTunnel) { /* ... */ }
-    private IEnumerator HandleTunnelTeleport(GameObject currentTunnel) { /* ... */ yield break; }
-    private IEnumerator Fade(float targetAlpha, float duration) { /* ... */ yield break; }
-    private void UpdateGarbageText() { /* ... */ }
-    private void IncrementGarbageCount() { /* ... */ }
-    private void DecrementGarbageCount() { /* ... */ }
+    private int FindClosestWaypointIndex(Transform target)
+    {
+        if (target == null || targetPositions.Count == 0)
+        {
+            return 0;
+        }
+
+        int closestIndex = 0;
+        float minDistance = float.MaxValue;
+
+        for (int i = 0; i < targetPositions.Count; i++)
+        {
+            float distance = Vector2.Distance(target.position, targetPositions[i]);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestIndex = i;
+            }
+        }
+        return closestIndex;
+    }
+
+    private void TeleportToTunnel(GameObject currentTunnel)
+    {
+        StartCoroutine(HandleTunnelTeleport(currentTunnel));
+    }
+
+    private IEnumerator HandleTunnelTeleport(GameObject currentTunnel)
+    {
+        if (cameraController != null)
+        {
+            yield return StartCoroutine(cameraController.StartFollowingCoroutine(transform));
+        }
+
+        yield return StartCoroutine(Fade(0, 0.5f));
+
+        string destinationName;
+        if (currentTunnel.name == "Tunnel1 (15)")
+        {
+            destinationName = "Tunnel2 (32)";
+        }
+        else if (currentTunnel.name == "Tunnel2 (32)")
+        {
+            destinationName = "Tunnel1 (15)";
+        }
+        else
+        {
+            Debug.LogError($"Tunnel name not recognized: {currentTunnel.name}");
+            if (diceController != null)
+            {
+                diceController.OnPlayerTurnFinished();
+            }
+            if (cameraController != null)
+            {
+                cameraController.StopFollowing();
+            }
+            yield break;
+        }
+
+        GameObject destinationTunnel = GameObject.Find(destinationName);
+
+        if (destinationTunnel != null)
+        {
+            int newIndex = -1;
+            for (int i = 0; i < waypointsParent.childCount; i++)
+            {
+                if (waypointsParent.GetChild(i).gameObject == destinationTunnel)
+                {
+                    newIndex = i;
+                    break;
+                }
+            }
+
+            if (newIndex != -1)
+            {
+                currentPositionIndex = newIndex;
+            }
+            transform.position = new Vector3(destinationTunnel.transform.position.x, destinationTunnel.transform.position.y, spriteZPosition);
+            Debug.Log($"{playerName} teleported from {currentTunnel.name} to {destinationName}.");
+        }
+        else
+        {
+            Debug.LogError($"Could not find destination tunnel: {destinationName}");
+        }
+
+        yield return StartCoroutine(Fade(1, 0.5f));
+
+        if (cameraController != null)
+        {
+            cameraController.StopFollowing();
+        }
+        if (diceController != null)
+        {
+            diceController.OnPlayerTurnFinished();
+        }
+    }
+
+    private IEnumerator Fade(float targetAlpha, float duration)
+    {
+        if (spriteRenderer == null)
+        {
+            yield break;
+        }
+
+        Color startColor = spriteRenderer.color;
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, targetAlpha);
+        float elapsedTime = 0;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = elapsedTime / duration;
+            spriteRenderer.color = Color.Lerp(startColor, endColor, progress);
+            yield return null;
+        }
+
+        spriteRenderer.color = endColor;
+    }
+
+    private void UpdateGarbageText()
+    {
+        if (garbageText != null)
+        {
+            garbageText.text = $"{playerName}: {garbageCount} garbage";
+        }
+    }
+
+    private void IncrementGarbageCount()
+    {
+        garbageCount++;
+        UpdateGarbageText();
+        Debug.Log($"{playerName} collected garbage. Total: {garbageCount}");
+    }
+
+    private void DecrementGarbageCount()
+    {
+        if (garbageCount > 0)
+        {
+            garbageCount--;
+            UpdateGarbageText();
+            Debug.Log($"{playerName} removed garbage. Total: {garbageCount}");
+        }
+    }
 }
