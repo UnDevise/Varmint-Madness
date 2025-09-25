@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 8c5390352da68664d855e09094dda258
+guid: 5ece0da787cb58442aa5b312f200d25e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6066833573244865610
-    second: Screenshot 2025-09-19 094253_0
+      213: -3090289404425776369
+    second: Jaiden Alien (1)_0
+  - first:
+      213: 7454902556639826853
+    second: Jaiden Alien (1)_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -85,19 +88,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Screenshot 2025-09-19 094253_0
+      name: Jaiden Alien (1)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1188
-        height: 890
+        x: 99
+        y: 159
+        width: 262
+        height: 522
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4c8caccdf8b13450800000000000000
-      internalID: 6066833573244865610
+      spriteID: f035c04e8261d15d0800000000000000
+      internalID: -3090289404425776369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_1
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 159
+        width: 262
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a31ba3a062257760800000000000000
+      internalID: 7454902556639826853
       vertices: []
       indices: 
       edges: []
@@ -161,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Screenshot 2025-09-19 094253_0: 6066833573244865610
+      Jaiden Alien (1)_0: -3090289404425776369
+      Jaiden Alien (1)_1: 7454902556639826853
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
