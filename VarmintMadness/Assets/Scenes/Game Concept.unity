@@ -6106,7 +6106,7 @@ GameObject:
   - component: {fileID: 1460832089}
   - component: {fileID: 1460832088}
   m_Layer: 0
-  m_Name: Buff Scientist Carlos (1)_0
+  m_Name: Buff Scientist Carlos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
