@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,7 +10,9 @@ public class PlayerMovement : MonoBehaviour
     public Transform layerInTeleportPoint;
     public Transform layerOutTeleportPoint;
     public float moveSpeed = 5.0f;
-    private List<Vector2> targetPositions = new List<Vector2>();
+
+    private List<WaypointData> targetWaypoints = new List<WaypointData>();
+
     private int currentPositionIndex = 0;
     private Coroutine movementCoroutine;
     private Transform originalWaypointsParent;
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (waypointsParent != null)
         {
-            StoreChildPositions();
+            StoreWaypointData();
         }
 
         if (CameraController.Instance != null)
@@ -43,12 +44,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        if (targetPositions.Count == 0)
+        if (targetWaypoints.Count == 0)
         {
             return;
         }
 
-        Vector3 initialPosition = targetPositions[currentPositionIndex];
+        Vector3 initialPosition = targetWaypoints[currentPositionIndex].Position;
         initialPosition.z = spriteZPosition;
         transform.position = initialPosition;
         UpdateGarbageText();
@@ -59,19 +60,18 @@ public class PlayerMovement : MonoBehaviour
         diceController = controller;
     }
 
-    private void StoreChildPositions()
+    private void StoreWaypointData()
     {
-        targetPositions.Clear();
+        targetWaypoints.Clear();
         if (waypointsParent != null)
         {
             foreach (Transform child in waypointsParent)
             {
-                targetPositions.Add(child.position);
+                targetWaypoints.Add(new WaypointData(child.position, child.tag, child.name));
             }
         }
     }
 
-    // Public method to start the player's turn, including camera zoom.
     public void MoveCharacter(int stepsToMove)
     {
         StartCoroutine(HandlePlayerTurn(stepsToMove));
@@ -79,21 +79,17 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator HandlePlayerTurn(int stepsToMove)
     {
-        // 1. Tell the camera to start following this player with a zoom transition.
         if (cameraController != null)
         {
             yield return StartCoroutine(cameraController.StartFollowingCoroutine(transform));
         }
 
-        // 2. Perform the player's movement.
         IsMoving = true;
         yield return StartCoroutine(MoveSequence(stepsToMove));
         IsMoving = false;
 
-        // 3. Check for the special waypoint.
         bool bonusMoveTriggered = CheckForSpecialWaypoint();
 
-        // 4. End the turn if no bonus move was triggered.
         if (!bonusMoveTriggered)
         {
             if (cameraController != null)
@@ -114,16 +110,16 @@ public class PlayerMovement : MonoBehaviour
             int direction = steps > 0 ? 1 : -1;
             currentPositionIndex += direction;
 
-            if (currentPositionIndex >= targetPositions.Count)
+            if (currentPositionIndex >= targetWaypoints.Count)
             {
                 currentPositionIndex = 0;
             }
             else if (currentPositionIndex < 0)
             {
-                currentPositionIndex = targetPositions.Count - 1;
+                currentPositionIndex = targetWaypoints.Count - 1;
             }
 
-            Vector3 nextPosition = new Vector3(targetPositions[currentPositionIndex].x, targetPositions[currentPositionIndex].y, spriteZPosition);
+            Vector3 nextPosition = new Vector3(targetWaypoints[currentPositionIndex].Position.x, targetWaypoints[currentPositionIndex].Position.y, spriteZPosition);
 
             while (Vector2.Distance(transform.position, nextPosition) > 0.01f)
             {
@@ -138,43 +134,44 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsMoving) return false;
 
-        GameObject currentWaypoint = waypointsParent.GetChild(currentPositionIndex).gameObject;
+        string currentWaypointTag = targetWaypoints[currentPositionIndex].Tag;
+        string currentWaypointName = targetWaypoints[currentPositionIndex].Name;
 
-        if (currentWaypoint.CompareTag("MoveBackSquare"))
+        if (currentWaypointTag == "MoveBackSquare")
         {
             MoveCharacter(-3);
             return true;
         }
-        else if (currentWaypoint.CompareTag("LayerInSquare"))
+        else if (currentWaypointTag == "LayerInSquare")
         {
             SwitchWaypoints(alternativeWaypointsParent, layerInTeleportPoint);
             return true;
         }
-        else if (currentWaypoint.CompareTag("LayerOutSquare"))
+        else if (currentWaypointTag == "LayerOutSquare")
         {
             SwitchWaypoints(originalWaypointsParent, layerOutTeleportPoint);
             return true;
         }
-        else if (currentWaypoint.CompareTag("Tunnel"))
+        else if (currentWaypointTag == "Tunnel")
         {
-            TeleportToTunnel(currentWaypoint);
+            TeleportToTunnel(currentWaypointName);
             return true;
         }
-        else if (currentWaypoint.CompareTag("AddGarbageSquare"))
+        else if (currentWaypointTag == "AddGarbageSquare")
         {
             IncrementGarbageCount();
         }
-        else if (currentWaypoint.CompareTag("RemoveGarbageSquare"))
+        else if (currentWaypointTag == "RemoveGarbageSquare")
         {
             DecrementGarbageCount();
         }
-        else if (currentWaypoint.CompareTag("StunPlayerSquare"))
+        else if (currentWaypointTag == "StunPlayerSquare")
         {
             IsStunned = true;
             Debug.Log($"{playerName} landed on a stun square and will skip their next turn.");
         }
 
-        return false; // Return false if no bonus move was triggered.
+        return false;
     }
 
     public void SwitchWaypoints(Transform newWaypointsParent, Transform teleportTarget)
@@ -185,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         waypointsParent = newWaypointsParent;
-        StoreChildPositions();
+        StoreWaypointData();
 
         int closestIndex = FindClosestWaypointIndex(teleportTarget);
         currentPositionIndex = closestIndex;
@@ -225,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
 
     private int FindClosestWaypointIndex(Transform target)
     {
-        if (target == null || targetPositions.Count == 0)
+        if (target == null || targetWaypoints.Count == 0)
         {
             return 0;
         }
@@ -233,9 +230,9 @@ public class PlayerMovement : MonoBehaviour
         int closestIndex = 0;
         float minDistance = float.MaxValue;
 
-        for (int i = 0; i < targetPositions.Count; i++)
+        for (int i = 0; i < targetWaypoints.Count; i++)
         {
-            float distance = Vector2.Distance(target.position, targetPositions[i]);
+            float distance = Vector2.Distance(target.position, targetWaypoints[i].Position);
             if (distance < minDistance)
             {
                 minDistance = distance;
@@ -245,12 +242,12 @@ public class PlayerMovement : MonoBehaviour
         return closestIndex;
     }
 
-    private void TeleportToTunnel(GameObject currentTunnel)
+    private void TeleportToTunnel(string currentTunnelName)
     {
-        StartCoroutine(HandleTunnelTeleport(currentTunnel));
+        StartCoroutine(HandleTunnelTeleport(currentTunnelName));
     }
 
-    private IEnumerator HandleTunnelTeleport(GameObject currentTunnel)
+    private IEnumerator HandleTunnelTeleport(string currentTunnelName)
     {
         if (cameraController != null)
         {
@@ -260,17 +257,17 @@ public class PlayerMovement : MonoBehaviour
         yield return StartCoroutine(Fade(0, 0.5f));
 
         string destinationName;
-        if (currentTunnel.name == "Tunnel1 (15)")
+        if (currentTunnelName == "Tunnel1 (15)")
         {
             destinationName = "Tunnel2 (32)";
         }
-        else if (currentTunnel.name == "Tunnel2 (32)")
+        else if (currentTunnelName == "Tunnel2 (32)")
         {
             destinationName = "Tunnel1 (15)";
         }
         else
         {
-            Debug.LogError($"Tunnel name not recognized: {currentTunnel.name}");
+            Debug.LogError($"Tunnel name not recognized: {currentTunnelName}");
             if (diceController != null)
             {
                 diceController.OnPlayerTurnFinished();
@@ -282,26 +279,22 @@ public class PlayerMovement : MonoBehaviour
             yield break;
         }
 
-        GameObject destinationTunnel = GameObject.Find(destinationName);
-
-        if (destinationTunnel != null)
+        int newIndex = -1;
+        for (int i = 0; i < targetWaypoints.Count; i++)
         {
-            int newIndex = -1;
-            for (int i = 0; i < waypointsParent.childCount; i++)
+            if (targetWaypoints[i].Name == destinationName)
             {
-                if (waypointsParent.GetChild(i).gameObject == destinationTunnel)
-                {
-                    newIndex = i;
-                    break;
-                }
+                newIndex = i;
+                break;
             }
+        }
 
-            if (newIndex != -1)
-            {
-                currentPositionIndex = newIndex;
-            }
-            transform.position = new Vector3(destinationTunnel.transform.position.x, destinationTunnel.transform.position.y, spriteZPosition);
-            Debug.Log($"{playerName} teleported from {currentTunnel.name} to {destinationName}.");
+        if (newIndex != -1)
+        {
+            currentPositionIndex = newIndex;
+            Vector3 destinationPosition = targetWaypoints[newIndex].Position;
+            transform.position = new Vector3(destinationPosition.x, destinationPosition.y, spriteZPosition);
+            Debug.Log($"{playerName} teleported from {currentTunnelName} to {destinationName}.");
         }
         else
         {
@@ -328,7 +321,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Color startColor = spriteRenderer.color;
-        Color endColor = new Color(startColor.r, startColor.g, startColor.b, targetAlpha);
+        Color endColor = new Color(startColor.r, startColor.g, startColor.g, targetAlpha);
         float elapsedTime = 0;
 
         while (elapsedTime < duration)

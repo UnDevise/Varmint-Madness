@@ -11,6 +11,7 @@ TagManager:
   - RemoveGarbageSquare
   - LayerOutSquare
   - Tunnel
+  - Placeholder
   layers:
   - Default
   - TransparentFX
