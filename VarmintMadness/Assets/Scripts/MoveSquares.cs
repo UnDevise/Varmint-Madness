@@ -26,10 +26,13 @@ public class PlayerMovement : MonoBehaviour
     private DiceController diceController;
     private CameraController cameraController;
 
+    private Animator playerAnimator;
+
     private void Awake()
     {
         originalWaypointsParent = waypointsParent;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerAnimator = GetComponent<Animator>();
 
         if (waypointsParent != null)
         {
@@ -85,8 +88,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         IsMoving = true;
+        SetRunningAnimation(true); // Start running animation
         yield return StartCoroutine(MoveSequence(stepsToMove));
         IsMoving = false;
+        SetRunningAnimation(false); // Stop running animation
 
         bool bonusMoveTriggered = CheckForSpecialWaypoint();
 
@@ -195,6 +200,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator MoveToTeleportPoint(Transform target)
     {
         IsMoving = true;
+        SetRunningAnimation(true); // Start running animation
         Vector3 nextPosition = new Vector3(target.position.x, target.position.y, spriteZPosition);
 
         if (cameraController != null)
@@ -209,6 +215,7 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.position = nextPosition;
         IsMoving = false;
+        SetRunningAnimation(false); // Stop running animation
 
         if (cameraController != null)
         {
@@ -357,6 +364,17 @@ public class PlayerMovement : MonoBehaviour
             garbageCount--;
             UpdateGarbageText();
             Debug.Log($"{playerName} removed garbage. Total: {garbageCount}");
+        }
+    }
+
+    /// <summary>
+    /// Sets the "Running" animation boolean in the animator if it exists.
+    /// </summary>
+    private void SetRunningAnimation(bool isRunning)
+    {
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("Running", isRunning);
         }
     }
 }
