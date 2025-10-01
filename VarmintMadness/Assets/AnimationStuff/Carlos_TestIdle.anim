@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Warf_IdleTest
+  m_Name: Carlos_TestIdle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 4791875970517402231, guid: cf88ca00c12fd974e9a2de43e8bdabe4, type: 3}
+      value: {fileID: 2503011959517257111, guid: 315f7c3585f2d7344a608dda92b0876e, type: 3}
     - time: 0.083333336
-      value: {fileID: 7549940103623667164, guid: cf88ca00c12fd974e9a2de43e8bdabe4, type: 3}
+      value: {fileID: -5016464698230326242, guid: 315f7c3585f2d7344a608dda92b0876e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 4791875970517402231, guid: cf88ca00c12fd974e9a2de43e8bdabe4, type: 3}
-    - {fileID: 7549940103623667164, guid: cf88ca00c12fd974e9a2de43e8bdabe4, type: 3}
+    - {fileID: 2503011959517257111, guid: 315f7c3585f2d7344a608dda92b0876e, type: 3}
+    - {fileID: -5016464698230326242, guid: 315f7c3585f2d7344a608dda92b0876e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
