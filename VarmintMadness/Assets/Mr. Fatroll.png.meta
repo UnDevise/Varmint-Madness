@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 8ca784321e4e6eb4bbbce283d1e850f8
+guid: 17683e0c45af92e4c8699bdd2726b1f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4025483917152348678
-    second: Chipmunk Bella (4)_0
+      213: 3714795568048712711
+    second: Mr. Fatroll_0
+  - first:
+      213: -9098117682185478346
+    second: Mr. Fatroll_1
+  - first:
+      213: -7527271052549654365
+    second: Mr. Fatroll_2
+  - first:
+      213: -2846376635081635582
+    second: Mr. Fatroll_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -85,19 +94,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chipmunk Bella (4)_0
+      name: Mr. Fatroll_0
       rect:
         serializedVersion: 2
-        x: 89
-        y: 219
-        width: 262
-        height: 382
+        x: 109
+        y: 1059
+        width: 282
+        height: 322
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af5161d84bb9228c0800000000000000
-      internalID: -4025483917152348678
+      spriteID: 70c2db623ea9d8330800000000000000
+      internalID: 3714795568048712711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mr. Fatroll_1
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 1029
+        width: 322
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63f52a40c2efcb180800000000000000
+      internalID: -9098117682185478346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mr. Fatroll_2
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 179
+        width: 282
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a872b0ebd2c98790800000000000000
+      internalID: -7527271052549654365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mr. Fatroll_3
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 249
+        width: 322
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 209ccf8f783af78d0800000000000000
+      internalID: -2846376635081635582
       vertices: []
       indices: 
       edges: []
@@ -161,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Chipmunk Bella (4)_0: -4025483917152348678
+      Mr. Fatroll_0: 3714795568048712711
+      Mr. Fatroll_1: -9098117682185478346
+      Mr. Fatroll_2: -7527271052549654365
+      Mr. Fatroll_3: -2846376635081635582
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
