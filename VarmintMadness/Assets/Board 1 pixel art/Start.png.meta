@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d53e0984fbaf7704587636baafacfb1d
+guid: 40d2a2ce160ffc446a4220fde8e21067
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1862920404534519039
-    second: road board movement intesection_0
+      213: 2660195087753647290
+    second: Start_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: road board movement intesection_0
+      name: Start_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 12
-        width: 776
-        height: 778
+        x: 234
+        y: 259
+        width: 132
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 1, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10b94e223c39526e0800000000000000
-      internalID: -1862920404534519039
+      spriteID: ab49bc68659eae420800000000000000
+      internalID: 2660195087753647290
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d1f0c9d2cae98fa4aba2e79f76a508b1
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      road board movement intesection_0: -1862920404534519039
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
