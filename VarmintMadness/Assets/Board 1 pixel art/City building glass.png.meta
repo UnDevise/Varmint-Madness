@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      City building glass_0: 2745822675725128411
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
