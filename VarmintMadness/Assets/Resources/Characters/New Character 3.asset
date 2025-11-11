@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3db7b5568f77d41b664d57a82d9659, type: 3}
   m_Name: New Character 3
   m_EditorClassIdentifier: 
-  characterName: Carmot Phase 2
-  characterSprite: {fileID: 8103849368401158806, guid: 5cba957ca1dbc8149b162d0f7f9f9d73, type: 3}
-  characterBio: I'm back baby and I am fatter than ever
-  backgroundColor: {r: 0.7264151, g: 0.013148898, b: 0, a: 0}
+  characterName: Opossum Luke
+  characterSprite: {fileID: -4660275902620348432, guid: 30d8fb137b126b244bb42c29f8954883, type: 3}
+  characterBio: Don't make me angry, my eyes turn red and I transform into an alpha
+  backgroundColor: {r: 0.5577565, g: 0, b: 0.8679245, a: 0}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e3db7b5568f77d41b664d57a82d9659, type: 3}
-  m_Name: New Character 1
+  m_Name: New Character 6
   m_EditorClassIdentifier: 
-  characterName: Chipmunk Bella
-  characterSprite: {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
-  characterBio: Jaidyn is my pookie
-  backgroundColor: {r: 0.14055783, g: 0.8867924, b: 0, a: 1}
+  characterName: Mr. Fat
+  characterSprite: {fileID: 4103287425339638092, guid: 795d61331fd50b9479dfe711ddfea32a, type: 3}
+  characterBio: 
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
