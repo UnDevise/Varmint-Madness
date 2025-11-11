@@ -12,9 +12,10 @@ public class DiceController : MonoBehaviour
     public Transform uiParentPanel;
     public float uiElementSpacing = 50f;
 
-    // Public variables for adjustable starting position.
+    // Public variables for adjustable starting position and text size.
     public float startXPosition = 0f;
     public float startYPosition = -50f;
+    public float textSize = 24f; // New variable to control the text size
 
     private SpriteRenderer spriteRenderer;
     private int currentPlayerIndex = 0;
@@ -38,6 +39,9 @@ public class DiceController : MonoBehaviour
             PlayerMovement player = playersToMove[i];
 
             TextMeshProUGUI newText = Instantiate(playerGarbageTextPrefab, uiParentPanel);
+
+            // Set the text size using the new public variable
+            newText.fontSize = textSize;
 
             // Use the adjustable starting position and spacing.
             newText.rectTransform.anchoredPosition = new Vector2(startXPosition, startYPosition - i * uiElementSpacing);
