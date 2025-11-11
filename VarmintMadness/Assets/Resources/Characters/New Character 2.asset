@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New Character 2
   m_EditorClassIdentifier: 
   characterName: Evil Scientist Carlos
-  characterSprite: {fileID: 6876425951671771466, guid: e48d0eb648439ab44b49ba0813536fef, type: 3}
+  characterSprite: {fileID: -1097158739209390414, guid: 9fe395edb9b3a74498617d064ed569d9, type: 3}
   characterBio: I'm really not that bad of a guy as Jaidyn makes me out to be
-  backgroundColor: {r: 0.111544564, g: 0.6698113, b: 0, a: 0}
+  backgroundColor: {r: 1, g: 0, b: 0.81733656, a: 0}
