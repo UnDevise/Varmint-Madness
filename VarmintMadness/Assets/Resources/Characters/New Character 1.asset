@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Chipmunk Bella
   characterSprite: {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
-  characterBio: Jaidyn is my pookie
+  characterBio: Just for two seconds, I'll be a furry
   backgroundColor: {r: 0.14055783, g: 0.8867924, b: 0, a: 1}

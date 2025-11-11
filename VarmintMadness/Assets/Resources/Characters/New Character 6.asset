@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Mr. Fat
   characterSprite: {fileID: 4103287425339638092, guid: 795d61331fd50b9479dfe711ddfea32a, type: 3}
-  characterBio: 
-  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  characterBio: This is a work of fiction. Unless otherwise indicated, all the names,
+    characters, businesses, places, events and incidents in this game are either
+    the product of the author's imagination or used in a fictitious manner. Any resemblance
+    to actual persons, living or dead, or actual events is purely coincidental
+  backgroundColor: {r: 1, g: 0.44892484, b: 0, a: 0}
