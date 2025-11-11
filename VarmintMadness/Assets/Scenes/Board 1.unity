@@ -1783,7 +1783,7 @@ GameObject:
   - component: {fileID: 244673102}
   - component: {fileID: 244673101}
   m_Layer: 0
-  m_Name: New Piskel_0
+  m_Name: Mouse Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4870,7 +4870,7 @@ GameObject:
   - component: {fileID: 771176329}
   - component: {fileID: 771176328}
   m_Layer: 0
-  m_Name: New Piskel_1
+  m_Name: Mouse Trap2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
