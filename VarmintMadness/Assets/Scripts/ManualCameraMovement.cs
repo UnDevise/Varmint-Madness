@@ -17,13 +17,11 @@ public class ManualCameraMovement : MonoBehaviour
 
     void Update()
     {
-        // Toggle movement on Left Shift
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             canMove = !canMove;
         }
 
-        // Move camera with WASD
         if (canMove)
         {
             float horizontal = Input.GetAxisRaw("Horizontal");
@@ -33,14 +31,12 @@ public class ManualCameraMovement : MonoBehaviour
             transform.position += direction * moveSpeed * Time.deltaTime;
         }
 
-        // Zoom out with Z key
         if (Input.GetKey(KeyCode.Z))
         {
             cam.orthographicSize += zoomSpeed * Time.deltaTime;
             cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
         }
 
-        // Zoom in with X key (optional)
         if (Input.GetKey(KeyCode.X))
         {
             cam.orthographicSize -= zoomSpeed * Time.deltaTime;
