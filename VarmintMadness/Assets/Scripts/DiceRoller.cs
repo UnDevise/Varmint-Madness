@@ -12,10 +12,10 @@ public class DiceController : MonoBehaviour
     public Transform uiParentPanel;
     public float uiElementSpacing = 50f;
 
-    // Public variables for adjustable starting position and text size.
+
     public float startXPosition = 0f;
     public float startYPosition = -50f;
-    public float textSize = 24f; // New variable to control the text size
+    public float textSize = 24f;
 
     private SpriteRenderer spriteRenderer;
     private int currentPlayerIndex = 0;
