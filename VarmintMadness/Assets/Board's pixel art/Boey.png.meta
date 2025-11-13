@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 837a22c1ec5403b409ffa074a8ca8849
+guid: 26a002ed341a5ea4ea285ba7ab9acbc4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1358424781675055597
-    second: New Piskel 1_0
-  - first:
-      213: 617286580049361925
-    second: New Piskel 1_1
+      213: 3240891547883161240
+    second: Boey_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,45 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New Piskel 1_0
+      name: Boey_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 209
-        width: 399
-        height: 157
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: de944d544281ad210800000000000000
-      internalID: 1358424781675055597
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: New Piskel 1_1
-      rect:
-        serializedVersion: 2
-        x: 1
+        x: 0
         y: 9
-        width: 399
-        height: 157
+        width: 200
+        height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50c3570cfda019800800000000000000
-      internalID: 617286580049361925
+      spriteID: 896442b11b5f9fc20800000000000000
+      internalID: 3240891547883161240
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d4200e4cb1adfc843b02b0d79a0b4d32
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -172,9 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      New Piskel 1_0: 1358424781675055597
-      New Piskel 1_1: 617286580049361925
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
