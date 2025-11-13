@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class ManualCameraMovement : MonoBehaviour
+public class CameraController2D : MonoBehaviour
 {
-    public Transform player;          // Assign your player GameObject in the Inspector
+    public Transform player;
     public float moveSpeed = 5f;
     public float zoomSpeed = 2f;
     public float minZoom = 2f;
     public float maxZoom = 20f;
+    public Vector2 minBounds;
+    public Vector2 maxBounds;
 
     private bool followPlayer = true;
     private Camera cam;
@@ -18,44 +20,41 @@ public class ManualCameraMovement : MonoBehaviour
 
     void Update()
     {
-        // Toggle follow mode with Left Shift
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             followPlayer = !followPlayer;
         }
 
-        // Follow player
         if (followPlayer && player != null)
         {
-            Vector3 newPos = new Vector3(player.position.x, player.position.y, transform.position.z);
-            transform.position = newPos;
+            transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
         }
-
-        // Manual movement when not following
-        if (!followPlayer)
+        else
         {
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
-
             Vector3 direction = new Vector3(horizontal, vertical, 0f);
             transform.position += direction * moveSpeed * Time.deltaTime;
         }
 
-        // Zoom out with Z
+        // Clamp camera position
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, minBounds.x, maxBounds.x);
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, minBounds.y, maxBounds.y);
+        transform.position = clampedPosition;
+
+        // Zoom controls
         if (Input.GetKey(KeyCode.Z))
         {
-            cam.orthographicSize += zoomSpeed * Time.deltaTime;
-            cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
+            cam.orthographicSize = Mathf.Clamp(cam.orthographicSize + zoomSpeed * Time.deltaTime, minZoom, maxZoom);
         }
-
-        // Zoom in with X
         if (Input.GetKey(KeyCode.X))
         {
-            cam.orthographicSize -= zoomSpeed * Time.deltaTime;
-            cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
+            cam.orthographicSize = Mathf.Clamp(cam.orthographicSize - zoomSpeed * Time.deltaTime, minZoom, maxZoom);
         }
     }
 }
+
 
 
 
