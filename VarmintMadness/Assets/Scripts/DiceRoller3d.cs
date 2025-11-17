@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Dice : MonoBehaviour
 {
@@ -47,5 +48,22 @@ public class Dice : MonoBehaviour
                 OnDiceResult?.Invoke(diceIndex, i+1);
             }
         }
+
+        Debug.Log("No sides within tolerance");
+    }
+
+    internal void RollDice(float _throwForce, float _rollForce, int _diceIndex)
+    {
+        diceIndex = _diceIndex;
+
+        float randomVarience = Random.Range(-1f, 1f);
+        rb.AddForce(transform.forward * (_throwForce + randomVarience), ForceMode.Impulse);
+
+        float rollX = Random.Range(0f, 1f);
+        float rollY = Random.Range(0f, 1f);
+        float rollZ = Random.Range(0f, 1f);
+
+        rb.AddTorque(new Vector3(rollX, rollY, rollZ) * (_rollForce + randomVarience));
+
     }
 }
