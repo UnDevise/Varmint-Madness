@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Marble Red_0: -23542456758667674
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
