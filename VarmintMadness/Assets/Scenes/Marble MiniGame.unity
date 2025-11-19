@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 45756042}
   - component: {fileID: 45756044}
   - component: {fileID: 45756045}
+  - component: {fileID: 45756046}
   m_Layer: 0
   m_Name: Marble (2)
   m_TagString: Untagged
@@ -302,6 +303,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.16
+--- !u!114 &45756046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45756041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f72c9787586394c9373f03838b8c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 2
+  maxSpeed: 6
 --- !u!1 &104566869
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,6 +825,7 @@ GameObject:
   - component: {fileID: 222968751}
   - component: {fileID: 222968753}
   - component: {fileID: 222968754}
+  - component: {fileID: 222968755}
   m_Layer: 0
   m_Name: Marble
   m_TagString: Untagged
@@ -950,6 +966,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.16
+--- !u!114 &222968755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222968750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f72c9787586394c9373f03838b8c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 2
+  maxSpeed: 6
 --- !u!1 &234290497
 GameObject:
   m_ObjectHideFlags: 0
@@ -3069,7 +3099,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3302,6 +3332,7 @@ GameObject:
   - component: {fileID: 785392004}
   - component: {fileID: 785392006}
   - component: {fileID: 785392007}
+  - component: {fileID: 785392008}
   m_Layer: 0
   m_Name: Marble (3)
   m_TagString: Untagged
@@ -3442,6 +3473,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.16
+--- !u!114 &785392008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785392003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f72c9787586394c9373f03838b8c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 2
+  maxSpeed: 6
 --- !u!1 &814307771
 GameObject:
   m_ObjectHideFlags: 0
@@ -5944,6 +5989,7 @@ GameObject:
   - component: {fileID: 1439022461}
   - component: {fileID: 1439022463}
   - component: {fileID: 1439022464}
+  - component: {fileID: 1439022465}
   m_Layer: 0
   m_Name: Marble (4)
   m_TagString: Untagged
@@ -6015,7 +6061,7 @@ Transform:
   m_GameObject: {fileID: 1439022460}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.59, y: 2.9756207, z: 0}
+  m_LocalPosition: {x: 6.26, y: 2.9756207, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6084,6 +6130,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.16
+--- !u!114 &1439022465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439022460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f72c9787586394c9373f03838b8c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 2
+  maxSpeed: 6
 --- !u!1 &1451567303
 GameObject:
   m_ObjectHideFlags: 0
@@ -8490,6 +8550,7 @@ GameObject:
   - component: {fileID: 1973179965}
   - component: {fileID: 1973179967}
   - component: {fileID: 1973179968}
+  - component: {fileID: 1973179969}
   m_Layer: 0
   m_Name: Marble (1)
   m_TagString: Untagged
@@ -8630,6 +8691,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.16
+--- !u!114 &1973179969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973179964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f72c9787586394c9373f03838b8c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 2
+  maxSpeed: 6
 --- !u!1 &1981367068
 GameObject:
   m_ObjectHideFlags: 0
