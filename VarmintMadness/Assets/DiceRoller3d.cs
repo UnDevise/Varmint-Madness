@@ -4,10 +4,9 @@ public class DiceRoller : MonoBehaviour
 {
     public float rollForce = 5f;
     public float torqueForce = 10f;
-    // Keep Use Gravity unchecked in Rigidbody Inspector, we will apply this manually
     public Vector3 customGravityDirection = new Vector3(0, -9.81f, 0);
     private Rigidbody rb;
-    private bool canRoll = true; // Prevents rolling while already rolling (optional)
+    private bool canRoll = true;
 
     void Start()
     {
@@ -17,7 +16,6 @@ public class DiceRoller : MonoBehaviour
             Debug.LogError("Dice object needs a Rigidbody component!");
         }
 
-        // Ensure global gravity is off and the dice is kinematic initially
         rb.useGravity = false;
         rb.isKinematic = true;
         canRoll = true;
@@ -25,7 +23,6 @@ public class DiceRoller : MonoBehaviour
 
     void Update()
     {
-        // Check for spacebar press
         if (Input.GetKeyDown(KeyCode.Space) && canRoll)
         {
             RollDice();
@@ -34,7 +31,6 @@ public class DiceRoller : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Apply custom gravity only when physics is active (not kinematic)
         if (!rb.isKinematic)
         {
             rb.AddForce(customGravityDirection, ForceMode.Acceleration);
