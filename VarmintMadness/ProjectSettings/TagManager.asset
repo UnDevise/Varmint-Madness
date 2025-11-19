@@ -49,5 +49,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 2D Assets
+    uniqueID: 276620195
+    locked: 0
+  - name: 3D Object
+    uniqueID: 3874156771
+    locked: 0
   m_RenderingLayers:
   - Default
