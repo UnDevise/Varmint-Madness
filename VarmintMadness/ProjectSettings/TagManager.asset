@@ -12,6 +12,7 @@ TagManager:
   - LayerOutSquare
   - Tunnel
   - Placeholder
+  - Marble
   layers:
   - Default
   - TransparentFX
