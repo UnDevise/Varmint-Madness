@@ -6709,6 +6709,7 @@ MonoBehaviour:
   startXPosition: -1000
   startYPosition: 420
   textSize: 40
+  physicsDiceTransform: {fileID: 1760388478}
 --- !u!212 &1543350820
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8165,6 +8166,21 @@ MonoBehaviour:
   rollForce: 5
   torqueForce: 10
   customGravityDirection: {x: 0, y: 0, z: 10}
+  diceController: {fileID: 1543350819}
+  waitTimeBeforeResult: 5
+  faces:
+  - localDirection: {x: 0, y: 0, z: 1}
+    value: 1
+  - localDirection: {x: 1, y: 0, z: 0}
+    value: 2
+  - localDirection: {x: 0, y: 0, z: -1}
+    value: 3
+  - localDirection: {x: -1, y: 0, z: 0}
+    value: 4
+  - localDirection: {x: 0, y: 1, z: 0}
+    value: 5
+  - localDirection: {x: 0, y: -1, z: 0}
+    value: 6
 --- !u!54 &1760388468
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8225,6 +8241,11 @@ SortingGroup:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!4 &1760388478 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1190889320536528536, guid: edc86c8e8a85f4c49b5220917519e6d5, type: 3}
+  m_PrefabInstance: {fileID: 1752196735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1778370692
 GameObject:
   m_ObjectHideFlags: 0

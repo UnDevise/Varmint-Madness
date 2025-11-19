@@ -12,14 +12,18 @@ public class DiceController : MonoBehaviour
     public Transform uiParentPanel;
     public float uiElementSpacing = 50f;
 
-
     public float startXPosition = 0f;
     public float startYPosition = -50f;
     public float textSize = 24f;
 
+    // --- New variables for the 3D physics dice management ---
+    public Transform physicsDiceTransform; // Assign the 3D dice GameObject here
+    private Vector3 originalDicePosition;
+    private Quaternion originalDiceRotation;
+    // -----------------------------------------------------
+
     private SpriteRenderer spriteRenderer;
     private int currentPlayerIndex = 0;
-    private bool isRolling = false;
 
     private void Awake()
     {
@@ -37,74 +41,76 @@ public class DiceController : MonoBehaviour
         for (int i = 0; i < playersToMove.Count; i++)
         {
             PlayerMovement player = playersToMove[i];
-
             TextMeshProUGUI newText = Instantiate(playerGarbageTextPrefab, uiParentPanel);
-
-            // Set the text size using the new public variable
             newText.fontSize = textSize;
-
-            // Use the adjustable starting position and spacing.
             newText.rectTransform.anchoredPosition = new Vector2(startXPosition, startYPosition - i * uiElementSpacing);
             player.playerName = player.gameObject.name;
-
-            // Immediately set the initial text to avoid showing "TEST".
             newText.text = $"{player.playerName}: 0 Garbage";
-
             player.garbageText = newText;
             player.SetDiceController(this);
         }
+
+        // --- Store the original position of the physics dice ---
+        if (physicsDiceTransform != null)
+        {
+            originalDicePosition = physicsDiceTransform.position;
+            originalDiceRotation = physicsDiceTransform.rotation;
+        }
     }
 
-    private void OnMouseDown()
+    public void MoveCurrentPlayer(int rollResult)
     {
-        if (playersToMove.Count == 0 || isRolling)
-        {
-            return;
-        }
-
         PlayerMovement currentPlayer = playersToMove[currentPlayerIndex];
 
         if (currentPlayer.IsStunned)
         {
             Debug.Log($"{currentPlayer.playerName} is stunned and skips their turn.");
-            currentPlayer.IsStunned = false;
-            OnPlayerTurnFinished();
-            return;
+            // OnPlayerTurnFinished() will be called after the player moves or skips
         }
-
-        if (!currentPlayer.IsMoving)
+        else
         {
-            RollAndMoveCharacter();
+            // Update the 2D sprite representation for visual consistency
+            if (spriteRenderer != null && rollResult > 0 && rollResult <= diceSprites.Length)
+            {
+                spriteRenderer.sprite = diceSprites[rollResult - 1];
+            }
         }
-    }
-
-    public void RollAndMoveCharacter()
-    {
-        isRolling = true;
-
-        int rollResult = Random.Range(1, diceSides + 1);
-
-        if (spriteRenderer != null && rollResult > 0 && rollResult <= diceSprites.Length)
-        {
-            spriteRenderer.sprite = diceSprites[rollResult - 1];
-        }
-
-        PlayerMovement currentPlayer = playersToMove[currentPlayerIndex];
 
         if (currentPlayer != null)
         {
+            // Move the character using the actual physics roll result
+            // The PlayerMovement script should call OnPlayerTurnFinished()
+            // once the movement is complete (e.g., in a movement coroutine callback).
             currentPlayer.MoveCharacter(rollResult);
         }
     }
 
     public void OnPlayerTurnFinished()
     {
-        isRolling = false;
-
+        // Increment player index for the next turn
         currentPlayerIndex++;
         if (currentPlayerIndex >= playersToMove.Count)
         {
             currentPlayerIndex = 0;
+        }
+
+        // --- Reset the physical die's position and kinematic state ---
+        if (physicsDiceTransform != null)
+        {
+            Rigidbody rb = physicsDiceTransform.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true; // Stop physics simulation
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
+
+            // Instantly move it back to the start
+            physicsDiceTransform.position = originalDicePosition;
+            physicsDiceTransform.rotation = originalDiceRotation;
+
+            // The DiceRoller script manages the 'canRoll' flag internally now, 
+            // which is re-enabled by its CheckIfAtRest coroutine.
         }
     }
 }
