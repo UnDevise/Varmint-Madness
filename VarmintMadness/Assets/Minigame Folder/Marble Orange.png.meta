@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b3662d23c1c208f498bd89f32a829423
+guid: f846ddc51542e814390f1fb15c126478
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5840926736021440027
-    second: Screenshot 2025-09-19 085819_0
+      213: 8334751821896343397
+    second: Marble Orange_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Screenshot 2025-09-19 085819_0
+      name: Marble Orange_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1126
-        height: 877
+        x: 44
+        y: 56
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b16c3ab7be32f0150800000000000000
-      internalID: 5840926736021440027
+      spriteID: 56fdb236f9cfaa370800000000000000
+      internalID: 8334751821896343397
       vertices: []
       indices: 
       edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Screenshot 2025-09-19 085819_0: 5840926736021440027
+      Marble Orange_0: 8334751821896343397
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
