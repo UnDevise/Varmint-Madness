@@ -8061,6 +8061,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 952526720525641657, guid: edc86c8e8a85f4c49b5220917519e6d5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1190889320536528536, guid: edc86c8e8a85f4c49b5220917519e6d5, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -8168,6 +8172,7 @@ MonoBehaviour:
   customGravityDirection: {x: 0, y: 0, z: 10}
   diceController: {fileID: 1543350819}
   waitTimeBeforeResult: 5
+  targetCalculationPlaneDirection: {x: 0, y: 0, z: -1}
   faces:
   - localDirection: {x: 0, y: 0, z: 1}
     value: 1
