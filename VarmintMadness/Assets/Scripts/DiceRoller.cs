@@ -16,14 +16,14 @@ public class DiceController : MonoBehaviour
     public float startYPosition = -50f;
     public float textSize = 24f;
 
-    // --- New variables for the 3D physics dice management ---
-    public Transform physicsDiceTransform; // Assign the 3D dice GameObject here
+    public Transform physicsDiceTransform;
     private Vector3 originalDicePosition;
     private Quaternion originalDiceRotation;
-    // -----------------------------------------------------
 
     private SpriteRenderer spriteRenderer;
     private int currentPlayerIndex = 0;
+
+    private const float MovementThreshold = 0.01f;
 
     private void Awake()
     {
@@ -50,13 +50,31 @@ public class DiceController : MonoBehaviour
             player.SetDiceController(this);
         }
 
-        // --- Store the original position of the physics dice ---
         if (physicsDiceTransform != null)
         {
             originalDicePosition = physicsDiceTransform.position;
             originalDiceRotation = physicsDiceTransform.rotation;
         }
     }
+
+    // Uses a variable (Rigidbody velocity) to determine whether the player is moving
+    public bool IsPlayerMoving()
+    {
+        if (playersToMove.Count > 0 && playersToMove[currentPlayerIndex] != null)
+        {
+            // NOTE: The Player GameObject must have a Rigidbody attached for this to work.
+            Rigidbody playerRb = playersToMove[currentPlayerIndex].GetComponent<Rigidbody>();
+
+            if (playerRb != null)
+            {
+                // If velocity magnitude > threshold, player is moving, so return true
+                return playerRb.linearVelocity.sqrMagnitude > MovementThreshold;
+            }
+            return false;
+        }
+        return false;
+    }
+
 
     public void MoveCurrentPlayer(int rollResult)
     {
@@ -65,11 +83,9 @@ public class DiceController : MonoBehaviour
         if (currentPlayer.IsStunned)
         {
             Debug.Log($"{currentPlayer.playerName} is stunned and skips their turn.");
-            // OnPlayerTurnFinished() will be called after the player moves or skips
         }
         else
         {
-            // Update the 2D sprite representation for visual consistency
             if (spriteRenderer != null && rollResult > 0 && rollResult <= diceSprites.Length)
             {
                 spriteRenderer.sprite = diceSprites[rollResult - 1];
@@ -78,39 +94,30 @@ public class DiceController : MonoBehaviour
 
         if (currentPlayer != null)
         {
-            // Move the character using the actual physics roll result
-            // The PlayerMovement script should call OnPlayerTurnFinished()
-            // once the movement is complete (e.g., in a movement coroutine callback).
             currentPlayer.MoveCharacter(rollResult);
         }
     }
 
     public void OnPlayerTurnFinished()
     {
-        // Increment player index for the next turn
         currentPlayerIndex++;
         if (currentPlayerIndex >= playersToMove.Count)
         {
             currentPlayerIndex = 0;
         }
 
-        // --- Reset the physical die's position and kinematic state ---
         if (physicsDiceTransform != null)
         {
             Rigidbody rb = physicsDiceTransform.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.isKinematic = true; // Stop physics simulation
+                rb.isKinematic = true;
                 rb.linearVelocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
             }
 
-            // Instantly move it back to the start
             physicsDiceTransform.position = originalDicePosition;
             physicsDiceTransform.rotation = originalDiceRotation;
-
-            // The DiceRoller script manages the 'canRoll' flag internally now, 
-            // which is re-enabled by its CheckIfAtRest coroutine.
         }
     }
 }
