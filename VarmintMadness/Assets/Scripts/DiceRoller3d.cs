@@ -18,10 +18,15 @@ public class DiceRoller : MonoBehaviour
     public DiceController diceController;
     public float waitTimeBeforeResult = 1.0f; // Time to wait after stopping
 
+    [Header("Result Calculation")]
+    // New variable to define the target direction the winning face should point towards
+    public Vector3 targetCalculationPlaneDirection = Vector3.up;
+
     // Assign your 6 faces here in the Inspector
     public DiceFace[] faces;
 
     private Rigidbody rb;
+    private Renderer diceRenderer; // Reference to the Renderer component
     private bool canRoll = true;
     private bool hasLanded = false;
     private bool thrown = false;
@@ -32,6 +37,12 @@ public class DiceRoller : MonoBehaviour
         if (rb == null)
         {
             Debug.LogError("Dice object needs a Rigidbody component!");
+        }
+
+        diceRenderer = GetComponent<Renderer>(); // Get the Renderer component
+        if (diceRenderer == null)
+        {
+            Debug.LogError("Dice object needs a Renderer component!");
         }
 
         if (diceController == null)
@@ -51,6 +62,12 @@ public class DiceRoller : MonoBehaviour
         rb.useGravity = false;
         rb.isKinematic = true;
         canRoll = true;
+
+        // Make the dice invisible when the scene starts
+        if (diceRenderer != null)
+        {
+            diceRenderer.enabled = false;
+        }
     }
 
     void Update()
@@ -76,6 +93,12 @@ public class DiceRoller : MonoBehaviour
         thrown = true;
         hasLanded = false;
 
+        // Make the dice visible when rolling
+        if (diceRenderer != null)
+        {
+            diceRenderer.enabled = true;
+        }
+
         Vector3 force = new Vector3(Random.Range(0f, rollForce), Random.Range(rollForce / 2f, rollForce), Random.Range(0f, rollForce));
         Vector3 torque = new Vector3(Random.Range(0f, torqueForce), Random.Range(0f, torqueForce), Random.Range(0f, torqueForce));
 
@@ -100,7 +123,16 @@ public class DiceRoller : MonoBehaviour
             int rollResult = CalculateDiceResult();
             Debug.Log("Dice landed on: " + rollResult);
 
-            diceController.MoveCurrentPlayer(rollResult);
+            if (diceController != null)
+            {
+                diceController.MoveCurrentPlayer(rollResult);
+            }
+
+            // Make the dice invisible again after it stops
+            if (diceRenderer != null)
+            {
+                diceRenderer.enabled = false;
+            }
 
             canRoll = true;
             thrown = false;
@@ -111,15 +143,13 @@ public class DiceRoller : MonoBehaviour
     {
         int result = 0;
         float maxDot = -Mathf.Infinity;
+        Vector3 normalizedTargetDirection = targetCalculationPlaneDirection.normalized;
 
         foreach (var face in faces)
         {
-            // Transform the local direction of the face to world space
             Vector3 worldSpaceDir = transform.TransformDirection(face.localDirection);
-            // Calculate dot product with world up direction
-            float dot = Vector3.Dot(worldSpaceDir, Vector3.up);
+            float dot = Vector3.Dot(worldSpaceDir, normalizedTargetDirection);
 
-            // The side with the highest dot product is facing upward
             if (dot > maxDot)
             {
                 maxDot = dot;
