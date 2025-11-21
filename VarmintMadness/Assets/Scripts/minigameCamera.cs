@@ -1,24 +1,41 @@
 using UnityEngine;
 
-public class AutoScrollCamera2D : MonoBehaviour
+public class minigameCamera : MonoBehaviour
 {
-    public float scrollSpeed = 2f;          // Speed at which the camera scrolls down
-    public Transform endPoint;              // Assign a GameObject at the bottom of the level
-    private bool scrolling = true;
+    public Transform[] marbles;   // Assign all marble objects in the Inspector
+    public float smoothSpeed = 2f;
+    public Transform endPoint;    // Empty GameObject at bottom of level
 
-    void Update()
+    private Camera cam;
+
+    void Start()
     {
-        if (scrolling && endPoint != null)
-        {
-            // Move camera downward
-            transform.position += Vector3.down * scrollSpeed * Time.deltaTime;
+        cam = Camera.main;
+    }
 
-            // Stop scrolling when camera reaches end point
-            if (transform.position.y <= endPoint.position.y)
-            {
-                transform.position = new Vector3(transform.position.x, endPoint.position.y, transform.position.z);
-                scrolling = false;
-            }
+    void LateUpdate()
+    {
+        if (marbles.Length == 0) return;
+
+        // Find the lowest marble (smallest Y position)
+        float lowestY = marbles[0].position.y;
+        for (int i = 1; i < marbles.Length; i++)
+        {
+            if (marbles[i].position.y < lowestY)
+                lowestY = marbles[i].position.y;
         }
+
+        // Desired camera position: follow lowest marble
+        Vector3 targetPos = new Vector3(transform.position.x, lowestY, transform.position.z);
+
+        // Clamp so camera never goes past the end point
+        if (endPoint != null)
+        {
+            targetPos.y = Mathf.Max(targetPos.y, endPoint.position.y);
+        }
+
+        // Smoothly move camera downwards
+        transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed * Time.deltaTime);
     }
 }
+

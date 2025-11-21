@@ -2885,7 +2885,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.040607214, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6844,7 +6844,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.048629045, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7763,7 +7763,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7dbfd0f79a5d0b4bb2732d343634da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 2.5
+  marbles:
+  - {fileID: 222968752}
+  - {fileID: 1973179966}
+  - {fileID: 45756043}
+  - {fileID: 785392005}
+  - {fileID: 1439022462}
+  smoothSpeed: 2
   endPoint: {fileID: 19767500}
 --- !u!1 &1716971665
 GameObject:
