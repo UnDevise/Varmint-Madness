@@ -2,37 +2,42 @@ using UnityEngine;
 
 public class MarbleMovement : MonoBehaviour
 {
-    public float minSpeed = 2f;   
-    public float maxSpeed = 6f;   
-    public Vector2 spawnAreaMin;  
-    public Vector2 spawnAreaMax; 
-
+    public float minSpeed = 5f;   // Increase these values for faster marbles
+    public float maxSpeed = 12f;
     private Rigidbody2D rb;
+    private float randomSpeed;
+    private bool raceStarted = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0; // Disable gravity if you want pure scripted movement
 
-        
-        float randomX = Random.Range(spawnAreaMin.x, spawnAreaMax.x);
-        float randomY = Random.Range(spawnAreaMin.y, spawnAreaMax.y);
-        transform.position = new Vector2(randomX, randomY);
-
-        
-        float randomSpeed = Random.Range(minSpeed, maxSpeed);
-
-        
-        rb.linearVelocity = new Vector2(0f, -randomSpeed);
+        // Each marble gets its own random speed
+        randomSpeed = Random.Range(minSpeed, maxSpeed);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public void StartRace()
     {
-        if (collision.gameObject.CompareTag("Marble"))
+        raceStarted = true;
+
+        // Give a random horizontal nudge
+        float randomX = Random.Range(-2f, 2f);
+        rb.AddForce(new Vector2(randomX, 0f), ForceMode2D.Impulse);
+
+        // Gravity will handle the downward movement
+        rb.gravityScale = 0.8f; // or higher for faster drop
+    }
+
+    void Update()
+    {
+        if (!raceStarted)
         {
-            
-            Vector2 bounceDir = (transform.position - collision.transform.position).normalized;
-            rb.AddForce(bounceDir * 2f, ForceMode2D.Impulse);
+            rb.linearVelocity = Vector2.zero; // Keep marbles still until race starts
         }
     }
 }
+
+
+
 
