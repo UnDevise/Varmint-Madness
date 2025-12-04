@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 552568}
   m_Layer: 0
   m_Name: Trash Space_0 (13)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 5618681}
   m_Layer: 0
   m_Name: Roll again space_0 (16)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 7741612}
   m_Layer: 0
   m_Name: Cage Space_0 (30)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 7890888}
   m_Layer: 0
   m_Name: Nothing space_0 (206)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 7916055}
   m_Layer: 0
   m_Name: Nothing space_0 (186)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 10829921}
   m_Layer: 0
   m_Name: Skip turn_0 (22)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 15157126}
   m_Layer: 0
   m_Name: Trash Space_0 (63)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 31281152}
   m_Layer: 0
   m_Name: Trash Space_0 (16)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -914,7 +914,7 @@ GameObject:
   - component: {fileID: 34022884}
   m_Layer: 0
   m_Name: Cage Space_0 (3)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1001,7 +1001,7 @@ GameObject:
   - component: {fileID: 42109745}
   m_Layer: 0
   m_Name: Skip turn_0 (54)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1088,7 +1088,7 @@ GameObject:
   - component: {fileID: 44470990}
   m_Layer: 0
   m_Name: Lose Trash space_0 (18)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1175,7 +1175,7 @@ GameObject:
   - component: {fileID: 45683836}
   m_Layer: 0
   m_Name: Nothing space_0 (105)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1523,7 +1523,7 @@ GameObject:
   - component: {fileID: 58933376}
   m_Layer: 0
   m_Name: Nothing space_0 (223)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1610,7 +1610,7 @@ GameObject:
   - component: {fileID: 61093425}
   m_Layer: 0
   m_Name: Cage Space_0 (24)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1697,7 +1697,7 @@ GameObject:
   - component: {fileID: 62409003}
   m_Layer: 0
   m_Name: Nothing space_0 (145)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1784,7 +1784,7 @@ GameObject:
   - component: {fileID: 70070959}
   m_Layer: 0
   m_Name: Nothing space_0 (90)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1871,7 +1871,7 @@ GameObject:
   - component: {fileID: 71676598}
   m_Layer: 0
   m_Name: Nothing space_0 (25)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 72920603}
   m_Layer: 0
   m_Name: Trap space_0 (28)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2045,7 +2045,7 @@ GameObject:
   - component: {fileID: 80288708}
   m_Layer: 0
   m_Name: Nothing space_0 (82)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2219,7 +2219,7 @@ GameObject:
   - component: {fileID: 85458128}
   m_Layer: 0
   m_Name: Nothing space_0 (79)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2306,7 +2306,7 @@ GameObject:
   - component: {fileID: 85460929}
   m_Layer: 0
   m_Name: Roll again space_0 (5)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2381,93 +2381,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &87728955
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 87728957}
-  - component: {fileID: 87728956}
-  m_Layer: 0
-  m_Name: Trash Space_0 (34)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &87728956
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87728955}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 4083406041665804724, guid: fed4f66a1ff66814da6b23631b39a605, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 5.27, y: 5.4200006}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &87728957
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87728955}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.47, y: 0, z: -2}
-  m_LocalScale: {x: 0.16, y: 0.16, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &88530046
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,7 +2393,7 @@ GameObject:
   - component: {fileID: 88530047}
   m_Layer: 0
   m_Name: Nothing space_0 (119)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2567,7 +2480,7 @@ GameObject:
   - component: {fileID: 92660514}
   m_Layer: 0
   m_Name: Nothing space_0 (271)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2741,7 +2654,7 @@ GameObject:
   - component: {fileID: 95653689}
   m_Layer: 0
   m_Name: Trap space_0 (4)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2828,7 +2741,7 @@ GameObject:
   - component: {fileID: 100137969}
   m_Layer: 0
   m_Name: Skip turn_0 (9)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2915,7 +2828,7 @@ GameObject:
   - component: {fileID: 105666634}
   m_Layer: 0
   m_Name: Nothing space_0 (104)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3089,7 +3002,7 @@ GameObject:
   - component: {fileID: 106300179}
   m_Layer: 0
   m_Name: Nothing space_0 (235)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3176,7 +3089,7 @@ GameObject:
   - component: {fileID: 108636773}
   m_Layer: 0
   m_Name: Roll again space_0 (26)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3263,7 +3176,7 @@ GameObject:
   - component: {fileID: 118407674}
   m_Layer: 0
   m_Name: Roll again space_0 (23)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3350,7 +3263,7 @@ GameObject:
   - component: {fileID: 124578051}
   m_Layer: 0
   m_Name: Nothing space_0 (176)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3437,7 +3350,7 @@ GameObject:
   - component: {fileID: 125266267}
   m_Layer: 0
   m_Name: Nothing space_0 (195)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3524,7 +3437,7 @@ GameObject:
   - component: {fileID: 127167197}
   m_Layer: 0
   m_Name: Trash Space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3611,7 +3524,7 @@ GameObject:
   - component: {fileID: 128939685}
   m_Layer: 0
   m_Name: Trash Space_0 (47)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3698,7 +3611,7 @@ GameObject:
   - component: {fileID: 131398904}
   m_Layer: 0
   m_Name: Nothing space_0 (57)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3785,7 +3698,7 @@ GameObject:
   - component: {fileID: 134284556}
   m_Layer: 0
   m_Name: Roll again space_0 (8)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3872,7 +3785,7 @@ GameObject:
   - component: {fileID: 134915264}
   m_Layer: 0
   m_Name: Nothing space_0 (217)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3959,7 +3872,7 @@ GameObject:
   - component: {fileID: 134978208}
   m_Layer: 0
   m_Name: Nothing space_0 (58)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4046,7 +3959,7 @@ GameObject:
   - component: {fileID: 135448973}
   m_Layer: 0
   m_Name: Nothing space_0 (215)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4133,7 +4046,7 @@ GameObject:
   - component: {fileID: 138847937}
   m_Layer: 0
   m_Name: Trap space_0 (9)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4481,7 +4394,7 @@ GameObject:
   - component: {fileID: 157361327}
   m_Layer: 0
   m_Name: Roll again space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4568,7 +4481,7 @@ GameObject:
   - component: {fileID: 159967825}
   m_Layer: 0
   m_Name: Nothing space_0 (46)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4655,7 +4568,7 @@ GameObject:
   - component: {fileID: 161109470}
   m_Layer: 0
   m_Name: Lose Trash space_0 (56)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4742,7 +4655,7 @@ GameObject:
   - component: {fileID: 164313921}
   m_Layer: 0
   m_Name: Gamble Space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4829,7 +4742,7 @@ GameObject:
   - component: {fileID: 165228307}
   m_Layer: 0
   m_Name: Nothing space_0 (255)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4916,7 +4829,7 @@ GameObject:
   - component: {fileID: 165536586}
   m_Layer: 0
   m_Name: Nothing space_0 (228)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5003,7 +4916,7 @@ GameObject:
   - component: {fileID: 167899755}
   m_Layer: 0
   m_Name: Nothing space_0 (73)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5090,7 +5003,7 @@ GameObject:
   - component: {fileID: 170488019}
   m_Layer: 0
   m_Name: Nothing space_0 (167)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5264,7 +5177,7 @@ GameObject:
   - component: {fileID: 171176412}
   m_Layer: 0
   m_Name: Nothing space_0 (151)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5351,7 +5264,7 @@ GameObject:
   - component: {fileID: 173343422}
   m_Layer: 0
   m_Name: Nothing space_0 (121)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5438,7 +5351,7 @@ GameObject:
   - component: {fileID: 173543831}
   m_Layer: 0
   m_Name: Nothing space_0 (30)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5525,7 +5438,7 @@ GameObject:
   - component: {fileID: 173601089}
   m_Layer: 0
   m_Name: Cage Space_0 (29)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5612,7 +5525,7 @@ GameObject:
   - component: {fileID: 176600000}
   m_Layer: 0
   m_Name: Cage Space_0 (14)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5699,7 +5612,7 @@ GameObject:
   - component: {fileID: 179135882}
   m_Layer: 0
   m_Name: Skip turn_0 (66)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5873,7 +5786,7 @@ GameObject:
   - component: {fileID: 182009966}
   m_Layer: 0
   m_Name: Nothing space_0 (218)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6047,7 +5960,7 @@ GameObject:
   - component: {fileID: 183135013}
   m_Layer: 0
   m_Name: Nothing space_0 (49)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6134,7 +6047,7 @@ GameObject:
   - component: {fileID: 183926729}
   m_Layer: 0
   m_Name: Skip turn_0 (75)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6221,7 +6134,7 @@ GameObject:
   - component: {fileID: 184522060}
   m_Layer: 0
   m_Name: Nothing space_0 (224)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6308,7 +6221,7 @@ GameObject:
   - component: {fileID: 188807270}
   m_Layer: 0
   m_Name: Nothing space_0 (242)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6395,7 +6308,7 @@ GameObject:
   - component: {fileID: 195896738}
   m_Layer: 0
   m_Name: Nothing space_0 (205)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6482,7 +6395,7 @@ GameObject:
   - component: {fileID: 196244598}
   m_Layer: 0
   m_Name: Lose Trash space_0 (57)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6569,7 +6482,7 @@ GameObject:
   - component: {fileID: 196725764}
   m_Layer: 0
   m_Name: Roll again space_0 (36)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6830,7 +6743,7 @@ GameObject:
   - component: {fileID: 206786348}
   m_Layer: 0
   m_Name: Skip turn_0 (33)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6917,7 +6830,7 @@ GameObject:
   - component: {fileID: 207967406}
   m_Layer: 0
   m_Name: Skip turn_0 (37)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7004,7 +6917,7 @@ GameObject:
   - component: {fileID: 208494419}
   m_Layer: 0
   m_Name: Skip turn_0 (67)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7091,7 +7004,7 @@ GameObject:
   - component: {fileID: 213693018}
   m_Layer: 0
   m_Name: Trap space_0 (6)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7352,7 +7265,7 @@ GameObject:
   - component: {fileID: 225905829}
   m_Layer: 0
   m_Name: Nothing space_0 (84)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7439,7 +7352,7 @@ GameObject:
   - component: {fileID: 231030922}
   m_Layer: 0
   m_Name: Trash Space_0 (70)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7526,7 +7439,7 @@ GameObject:
   - component: {fileID: 232221242}
   m_Layer: 0
   m_Name: Trash Space_0 (8)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7613,7 +7526,7 @@ GameObject:
   - component: {fileID: 236291447}
   m_Layer: 0
   m_Name: Skip turn_0 (59)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7700,7 +7613,7 @@ GameObject:
   - component: {fileID: 237372071}
   m_Layer: 0
   m_Name: Nothing space_0 (262)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7787,7 +7700,7 @@ GameObject:
   - component: {fileID: 237760797}
   m_Layer: 0
   m_Name: Nothing space_0 (147)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7874,7 +7787,7 @@ GameObject:
   - component: {fileID: 238116715}
   m_Layer: 0
   m_Name: Roll again space_0 (30)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8135,7 +8048,7 @@ GameObject:
   - component: {fileID: 241128571}
   m_Layer: 0
   m_Name: Trash Space_0 (83)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8309,7 +8222,7 @@ GameObject:
   - component: {fileID: 245754969}
   m_Layer: 0
   m_Name: Nothing space_0 (237)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8396,7 +8309,7 @@ GameObject:
   - component: {fileID: 248333329}
   m_Layer: 0
   m_Name: Skip turn_0 (46)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8483,7 +8396,7 @@ GameObject:
   - component: {fileID: 250556164}
   m_Layer: 0
   m_Name: Trap space_0 (24)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8570,7 +8483,7 @@ GameObject:
   - component: {fileID: 251782319}
   m_Layer: 0
   m_Name: Nothing space_0 (266)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8657,7 +8570,7 @@ GameObject:
   - component: {fileID: 256506696}
   m_Layer: 0
   m_Name: Nothing space_0 (158)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8744,7 +8657,7 @@ GameObject:
   - component: {fileID: 256645937}
   m_Layer: 0
   m_Name: Nothing space_0 (47)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8918,7 +8831,7 @@ GameObject:
   - component: {fileID: 257713332}
   m_Layer: 0
   m_Name: Gamble Space_0 (4)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9005,7 +8918,7 @@ GameObject:
   - component: {fileID: 259821906}
   m_Layer: 0
   m_Name: Nothing space_0 (261)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9092,7 +9005,7 @@ GameObject:
   - component: {fileID: 261808454}
   m_Layer: 0
   m_Name: Nothing space_0 (66)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9179,7 +9092,7 @@ GameObject:
   - component: {fileID: 261890452}
   m_Layer: 0
   m_Name: Trap space_0 (23)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9266,7 +9179,7 @@ GameObject:
   - component: {fileID: 262062707}
   m_Layer: 0
   m_Name: Trash Space_0 (21)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9440,7 +9353,7 @@ GameObject:
   - component: {fileID: 266807452}
   m_Layer: 0
   m_Name: Trap space_0 (29)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9527,7 +9440,7 @@ GameObject:
   - component: {fileID: 274176375}
   m_Layer: 0
   m_Name: Nothing space_0 (265)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9614,7 +9527,7 @@ GameObject:
   - component: {fileID: 274847266}
   m_Layer: 0
   m_Name: Nothing space_0 (20)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9701,7 +9614,7 @@ GameObject:
   - component: {fileID: 276364114}
   m_Layer: 0
   m_Name: Nothing space_0 (163)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9788,7 +9701,7 @@ GameObject:
   - component: {fileID: 278441743}
   m_Layer: 0
   m_Name: Gamble Space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9875,7 +9788,7 @@ GameObject:
   - component: {fileID: 279216237}
   m_Layer: 0
   m_Name: Cage Space_0 (12)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9962,7 +9875,7 @@ GameObject:
   - component: {fileID: 282107746}
   m_Layer: 0
   m_Name: Nothing space_0 (8)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10049,7 +9962,7 @@ GameObject:
   - component: {fileID: 286008846}
   m_Layer: 0
   m_Name: Lose Trash space_0 (3)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10136,7 +10049,7 @@ GameObject:
   - component: {fileID: 286078131}
   m_Layer: 0
   m_Name: Lose Trash space_0 (10)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10223,7 +10136,7 @@ GameObject:
   - component: {fileID: 286497096}
   m_Layer: 0
   m_Name: Lose Trash space_0 (55)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10310,7 +10223,7 @@ GameObject:
   - component: {fileID: 289898167}
   m_Layer: 0
   m_Name: Nothing space_0 (138)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10397,7 +10310,7 @@ GameObject:
   - component: {fileID: 290407246}
   m_Layer: 0
   m_Name: Trash Space_0 (87)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10484,7 +10397,7 @@ GameObject:
   - component: {fileID: 292008661}
   m_Layer: 0
   m_Name: Trash Space_0 (53)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10571,7 +10484,7 @@ GameObject:
   - component: {fileID: 292432905}
   m_Layer: 0
   m_Name: VS space_0 (2)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10787,7 +10700,7 @@ GameObject:
   - component: {fileID: 305249244}
   m_Layer: 0
   m_Name: Trash Space_0 (71)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10874,7 +10787,7 @@ GameObject:
   - component: {fileID: 312071730}
   m_Layer: 0
   m_Name: Nothing space_0 (155)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10961,7 +10874,7 @@ GameObject:
   - component: {fileID: 312991094}
   m_Layer: 0
   m_Name: Trash Space_0 (36)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11048,7 +10961,7 @@ GameObject:
   - component: {fileID: 314663948}
   m_Layer: 0
   m_Name: Skip turn_0 (76)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11135,7 +11048,7 @@ GameObject:
   - component: {fileID: 314817394}
   m_Layer: 0
   m_Name: Nothing space_0 (113)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11309,7 +11222,7 @@ GameObject:
   - component: {fileID: 317318398}
   m_Layer: 0
   m_Name: Nothing space_0 (192)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11396,7 +11309,7 @@ GameObject:
   - component: {fileID: 321717910}
   m_Layer: 0
   m_Name: Nothing space_0 (13)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11483,7 +11396,7 @@ GameObject:
   - component: {fileID: 323634960}
   m_Layer: 0
   m_Name: Trash Space_0 (35)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11570,7 +11483,7 @@ GameObject:
   - component: {fileID: 324479534}
   m_Layer: 0
   m_Name: Roll again space_0 (21)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11657,7 +11570,7 @@ GameObject:
   - component: {fileID: 325168356}
   m_Layer: 0
   m_Name: Cage Space_0 (18)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11744,7 +11657,7 @@ GameObject:
   - component: {fileID: 326188503}
   m_Layer: 0
   m_Name: Nothing space_0 (39)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11831,7 +11744,7 @@ GameObject:
   - component: {fileID: 327343874}
   m_Layer: 0
   m_Name: Skip turn_0 (64)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11918,7 +11831,7 @@ GameObject:
   - component: {fileID: 333400022}
   m_Layer: 0
   m_Name: Gamble Space_0 (6)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12005,7 +11918,7 @@ GameObject:
   - component: {fileID: 334007238}
   m_Layer: 0
   m_Name: Roll again space_0 (34)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12092,7 +12005,7 @@ GameObject:
   - component: {fileID: 334535502}
   m_Layer: 0
   m_Name: Trash Space_0 (14)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12179,7 +12092,7 @@ GameObject:
   - component: {fileID: 335661302}
   m_Layer: 0
   m_Name: Nothing space_0 (180)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12266,7 +12179,7 @@ GameObject:
   - component: {fileID: 337514681}
   m_Layer: 0
   m_Name: Cage Space_0 (10)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12440,7 +12353,7 @@ GameObject:
   - component: {fileID: 346566592}
   m_Layer: 0
   m_Name: Change route space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Change route Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12701,7 +12614,7 @@ GameObject:
   - component: {fileID: 348640320}
   m_Layer: 0
   m_Name: Nothing space_0 (53)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12788,7 +12701,7 @@ GameObject:
   - component: {fileID: 351844849}
   m_Layer: 0
   m_Name: Cage Space_0 (16)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12875,7 +12788,7 @@ GameObject:
   - component: {fileID: 354445534}
   m_Layer: 0
   m_Name: Trash Space_0 (37)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12962,7 +12875,7 @@ GameObject:
   - component: {fileID: 355910437}
   m_Layer: 0
   m_Name: Roll again space_0 (10)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13049,7 +12962,7 @@ GameObject:
   - component: {fileID: 362264828}
   m_Layer: 0
   m_Name: Trash Space_0 (58)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13223,7 +13136,7 @@ GameObject:
   - component: {fileID: 366792385}
   m_Layer: 0
   m_Name: Trash Space_0 (57)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13310,7 +13223,7 @@ GameObject:
   - component: {fileID: 369814703}
   m_Layer: 0
   m_Name: Roll again space_0 (19)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13397,7 +13310,7 @@ GameObject:
   - component: {fileID: 374996747}
   m_Layer: 0
   m_Name: Skip turn_0 (55)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13484,7 +13397,7 @@ GameObject:
   - component: {fileID: 375344074}
   m_Layer: 0
   m_Name: Skip turn_0 (42)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13571,7 +13484,7 @@ GameObject:
   - component: {fileID: 376400883}
   m_Layer: 0
   m_Name: Trash Space_0 (39)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13658,7 +13571,7 @@ GameObject:
   - component: {fileID: 376615672}
   m_Layer: 0
   m_Name: Nothing space_0 (214)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13745,7 +13658,7 @@ GameObject:
   - component: {fileID: 378592688}
   m_Layer: 0
   m_Name: Nothing space_0 (143)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13919,7 +13832,7 @@ GameObject:
   - component: {fileID: 381709772}
   m_Layer: 0
   m_Name: Lose Trash space_0 (34)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14180,7 +14093,7 @@ GameObject:
   - component: {fileID: 387796980}
   m_Layer: 0
   m_Name: Nothing space_0 (193)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14267,7 +14180,7 @@ GameObject:
   - component: {fileID: 388413729}
   m_Layer: 0
   m_Name: Nothing space_0 (29)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14354,7 +14267,7 @@ GameObject:
   - component: {fileID: 390654907}
   m_Layer: 0
   m_Name: Nothing space_0 (209)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14441,7 +14354,7 @@ GameObject:
   - component: {fileID: 391088613}
   m_Layer: 0
   m_Name: Nothing space_0 (60)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14528,7 +14441,7 @@ GameObject:
   - component: {fileID: 395184587}
   m_Layer: 0
   m_Name: Roll again space_0 (32)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14615,7 +14528,7 @@ GameObject:
   - component: {fileID: 399023672}
   m_Layer: 0
   m_Name: Skip turn_0 (57)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14702,7 +14615,7 @@ GameObject:
   - component: {fileID: 399211867}
   m_Layer: 0
   m_Name: Trash Space_0 (67)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14876,7 +14789,7 @@ GameObject:
   - component: {fileID: 414337704}
   m_Layer: 0
   m_Name: Nothing space_0 (33)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14963,7 +14876,7 @@ GameObject:
   - component: {fileID: 418927049}
   m_Layer: 0
   m_Name: Roll again space_0 (40)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15050,7 +14963,7 @@ GameObject:
   - component: {fileID: 421415524}
   m_Layer: 0
   m_Name: Nothing space_0 (196)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15137,7 +15050,7 @@ GameObject:
   - component: {fileID: 422306049}
   m_Layer: 0
   m_Name: Nothing space_0 (11)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15311,7 +15224,7 @@ GameObject:
   - component: {fileID: 425654261}
   m_Layer: 0
   m_Name: Gamble Space_0 (5)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15398,7 +15311,7 @@ GameObject:
   - component: {fileID: 429724172}
   m_Layer: 0
   m_Name: Nothing space_0 (126)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15485,7 +15398,7 @@ GameObject:
   - component: {fileID: 431937938}
   m_Layer: 0
   m_Name: Skip turn_0 (1)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15572,7 +15485,7 @@ GameObject:
   - component: {fileID: 432050470}
   m_Layer: 0
   m_Name: Nothing space_0 (12)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15659,7 +15572,7 @@ GameObject:
   - component: {fileID: 433855683}
   m_Layer: 0
   m_Name: Trash Space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15833,7 +15746,7 @@ GameObject:
   - component: {fileID: 456027140}
   m_Layer: 0
   m_Name: Nothing space_0 (23)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15920,7 +15833,7 @@ GameObject:
   - component: {fileID: 457707562}
   m_Layer: 0
   m_Name: Cage Space_0 (31)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16094,7 +16007,7 @@ GameObject:
   - component: {fileID: 465161994}
   m_Layer: 0
   m_Name: Roll again space_0 (17)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16181,7 +16094,7 @@ GameObject:
   - component: {fileID: 477072947}
   m_Layer: 0
   m_Name: Nothing space_0 (233)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16355,7 +16268,7 @@ GameObject:
   - component: {fileID: 481016259}
   m_Layer: 0
   m_Name: Nothing space_0 (64)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16442,7 +16355,7 @@ GameObject:
   - component: {fileID: 484081487}
   m_Layer: 0
   m_Name: Trash Space_0 (44)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16529,7 +16442,7 @@ GameObject:
   - component: {fileID: 489737266}
   m_Layer: 0
   m_Name: Nothing space_0 (177)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16616,7 +16529,7 @@ GameObject:
   - component: {fileID: 491860946}
   m_Layer: 0
   m_Name: Trash Space_0 (56)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16703,7 +16616,7 @@ GameObject:
   - component: {fileID: 498451847}
   m_Layer: 0
   m_Name: Nothing space_0 (241)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16790,7 +16703,7 @@ GameObject:
   - component: {fileID: 498768895}
   m_Layer: 0
   m_Name: Lose Trash space_0 (36)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16877,7 +16790,7 @@ GameObject:
   - component: {fileID: 502438072}
   m_Layer: 0
   m_Name: Skip turn_0 (23)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16964,7 +16877,7 @@ GameObject:
   - component: {fileID: 502512752}
   m_Layer: 0
   m_Name: Change route space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Change route Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17138,7 +17051,7 @@ GameObject:
   - component: {fileID: 506873711}
   m_Layer: 0
   m_Name: Roll again space_0 (25)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17225,7 +17138,7 @@ GameObject:
   - component: {fileID: 511038832}
   m_Layer: 0
   m_Name: Nothing space_0 (142)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17312,7 +17225,7 @@ GameObject:
   - component: {fileID: 512197446}
   m_Layer: 0
   m_Name: Lose Trash space_0 (4)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17399,7 +17312,7 @@ GameObject:
   - component: {fileID: 516183098}
   m_Layer: 0
   m_Name: Nothing space_0 (98)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17486,7 +17399,7 @@ GameObject:
   - component: {fileID: 521849822}
   m_Layer: 0
   m_Name: Nothing space_0 (110)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17573,7 +17486,7 @@ GameObject:
   - component: {fileID: 522096579}
   m_Layer: 0
   m_Name: Nothing space_0 (268)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17660,7 +17573,7 @@ GameObject:
   - component: {fileID: 524872008}
   m_Layer: 0
   m_Name: Lose Trash space_0 (13)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17747,7 +17660,7 @@ GameObject:
   - component: {fileID: 527516706}
   m_Layer: 0
   m_Name: Nothing space_0 (128)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17921,7 +17834,7 @@ GameObject:
   - component: {fileID: 531962242}
   m_Layer: 0
   m_Name: Nothing space_0 (131)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18008,7 +17921,7 @@ GameObject:
   - component: {fileID: 538213230}
   m_Layer: 0
   m_Name: Nothing space_0 (168)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18095,7 +18008,7 @@ GameObject:
   - component: {fileID: 538922767}
   m_Layer: 0
   m_Name: Trash Space_0 (24)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18269,7 +18182,7 @@ GameObject:
   - component: {fileID: 543282787}
   m_Layer: 0
   m_Name: Trash Space_0 (51)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18356,7 +18269,7 @@ GameObject:
   - component: {fileID: 543360722}
   m_Layer: 0
   m_Name: Cage Space_0 (22)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18443,7 +18356,7 @@ GameObject:
   - component: {fileID: 550516553}
   m_Layer: 0
   m_Name: Nothing space_0 (36)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18530,7 +18443,7 @@ GameObject:
   - component: {fileID: 552374376}
   m_Layer: 0
   m_Name: Trash Space_0 (80)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18617,7 +18530,7 @@ GameObject:
   - component: {fileID: 552456975}
   m_Layer: 0
   m_Name: Nothing space_0 (116)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18704,7 +18617,7 @@ GameObject:
   - component: {fileID: 552748220}
   m_Layer: 0
   m_Name: Lose Trash space_0 (45)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18791,7 +18704,7 @@ GameObject:
   - component: {fileID: 553739759}
   m_Layer: 0
   m_Name: Nothing space_0 (202)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18878,7 +18791,7 @@ GameObject:
   - component: {fileID: 556337490}
   m_Layer: 0
   m_Name: Nothing space_0 (140)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18965,7 +18878,7 @@ GameObject:
   - component: {fileID: 558428706}
   m_Layer: 0
   m_Name: Lose Trash space_0 (52)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19226,7 +19139,7 @@ GameObject:
   - component: {fileID: 563376718}
   m_Layer: 0
   m_Name: Skip turn_0 (20)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19313,7 +19226,7 @@ GameObject:
   - component: {fileID: 566173770}
   m_Layer: 0
   m_Name: VS space_0 (3)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19400,7 +19313,7 @@ GameObject:
   - component: {fileID: 572006248}
   m_Layer: 0
   m_Name: Trash Space_0 (3)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19487,7 +19400,7 @@ GameObject:
   - component: {fileID: 575381423}
   m_Layer: 0
   m_Name: Skip turn_0 (5)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19574,7 +19487,7 @@ GameObject:
   - component: {fileID: 577605925}
   m_Layer: 0
   m_Name: Skip turn_0 (49)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19661,7 +19574,7 @@ GameObject:
   - component: {fileID: 578397043}
   m_Layer: 0
   m_Name: Nothing space_0 (200)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19748,7 +19661,7 @@ GameObject:
   - component: {fileID: 578712664}
   m_Layer: 0
   m_Name: Nothing space_0 (32)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19835,7 +19748,7 @@ GameObject:
   - component: {fileID: 582765998}
   m_Layer: 0
   m_Name: Lose Trash space_0 (38)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19922,7 +19835,7 @@ GameObject:
   - component: {fileID: 584403926}
   m_Layer: 0
   m_Name: Trash Space_0 (68)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20096,7 +20009,7 @@ GameObject:
   - component: {fileID: 589738903}
   m_Layer: 0
   m_Name: Skip turn_0 (63)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20183,7 +20096,7 @@ GameObject:
   - component: {fileID: 595677216}
   m_Layer: 0
   m_Name: Roll again space_0 (14)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20270,7 +20183,7 @@ GameObject:
   - component: {fileID: 604860624}
   m_Layer: 0
   m_Name: Nothing space_0 (162)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20357,7 +20270,7 @@ GameObject:
   - component: {fileID: 606978132}
   m_Layer: 0
   m_Name: Roll again space_0 (29)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20444,7 +20357,7 @@ GameObject:
   - component: {fileID: 607603570}
   m_Layer: 0
   m_Name: Lose Trash space_0 (50)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20531,7 +20444,7 @@ GameObject:
   - component: {fileID: 612076055}
   m_Layer: 0
   m_Name: Nothing space_0 (89)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20618,7 +20531,7 @@ GameObject:
   - component: {fileID: 612812744}
   m_Layer: 0
   m_Name: Skip turn_0 (24)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20705,7 +20618,7 @@ GameObject:
   - component: {fileID: 621493717}
   m_Layer: 0
   m_Name: Nothing space_0 (91)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20966,7 +20879,7 @@ GameObject:
   - component: {fileID: 629001218}
   m_Layer: 0
   m_Name: Roll again space_0 (35)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21053,7 +20966,7 @@ GameObject:
   - component: {fileID: 642427902}
   m_Layer: 0
   m_Name: Nothing space_0 (41)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21140,7 +21053,7 @@ GameObject:
   - component: {fileID: 646509733}
   m_Layer: 0
   m_Name: Nothing space_0 (28)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21314,7 +21227,7 @@ GameObject:
   - component: {fileID: 653448803}
   m_Layer: 0
   m_Name: Trash Space_0 (49)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21401,7 +21314,7 @@ GameObject:
   - component: {fileID: 656098792}
   m_Layer: 0
   m_Name: Nothing space_0 (171)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21575,7 +21488,7 @@ GameObject:
   - component: {fileID: 659259687}
   m_Layer: 0
   m_Name: Nothing space_0 (259)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21662,7 +21575,7 @@ GameObject:
   - component: {fileID: 662657581}
   m_Layer: 0
   m_Name: Gamble Space_0 (9)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21749,7 +21662,7 @@ GameObject:
   - component: {fileID: 665089666}
   m_Layer: 0
   m_Name: Nothing space_0 (118)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21923,7 +21836,7 @@ GameObject:
   - component: {fileID: 672337352}
   m_Layer: 0
   m_Name: Nothing space_0 (69)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22010,7 +21923,7 @@ GameObject:
   - component: {fileID: 673870313}
   m_Layer: 0
   m_Name: Skip turn_0 (19)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22097,7 +22010,7 @@ GameObject:
   - component: {fileID: 674378867}
   m_Layer: 0
   m_Name: Nothing space_0 (173)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22184,7 +22097,7 @@ GameObject:
   - component: {fileID: 676684338}
   m_Layer: 0
   m_Name: Trap space_0 (7)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22271,7 +22184,7 @@ GameObject:
   - component: {fileID: 687054339}
   m_Layer: 0
   m_Name: Lose Trash space_0 (40)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22358,7 +22271,7 @@ GameObject:
   - component: {fileID: 687246679}
   m_Layer: 0
   m_Name: Trash Space_0 (82)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22445,7 +22358,7 @@ GameObject:
   - component: {fileID: 693154102}
   m_Layer: 0
   m_Name: Nothing space_0 (86)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22619,7 +22532,7 @@ GameObject:
   - component: {fileID: 699678560}
   m_Layer: 0
   m_Name: Trash Space_0 (61)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22793,7 +22706,7 @@ GameObject:
   - component: {fileID: 705747536}
   m_Layer: 0
   m_Name: Trash Space_0 (45)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22880,7 +22793,7 @@ GameObject:
   - component: {fileID: 706170943}
   m_Layer: 0
   m_Name: Nothing space_0 (249)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22967,7 +22880,7 @@ GameObject:
   - component: {fileID: 709541715}
   m_Layer: 0
   m_Name: Nothing space_0 (239)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23054,7 +22967,7 @@ GameObject:
   - component: {fileID: 712124030}
   m_Layer: 0
   m_Name: Cage Space_0 (27)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23141,7 +23054,7 @@ GameObject:
   - component: {fileID: 712683237}
   m_Layer: 0
   m_Name: Trash Space_0 (64)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23228,7 +23141,7 @@ GameObject:
   - component: {fileID: 712788340}
   m_Layer: 0
   m_Name: Nothing space_0 (207)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23315,7 +23228,7 @@ GameObject:
   - component: {fileID: 716781511}
   m_Layer: 0
   m_Name: Skip turn_0 (40)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23402,7 +23315,7 @@ GameObject:
   - component: {fileID: 724717131}
   m_Layer: 0
   m_Name: Trash Space_0 (30)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23489,7 +23402,7 @@ GameObject:
   - component: {fileID: 725294055}
   m_Layer: 0
   m_Name: Lose Trash space_0 (44)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23576,7 +23489,7 @@ GameObject:
   - component: {fileID: 728778387}
   m_Layer: 0
   m_Name: Skip turn_0 (77)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23663,7 +23576,7 @@ GameObject:
   - component: {fileID: 730083828}
   m_Layer: 0
   m_Name: Lose Trash space_0 (27)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23750,7 +23663,7 @@ GameObject:
   - component: {fileID: 733629358}
   m_Layer: 0
   m_Name: Skip turn_0 (71)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23837,7 +23750,7 @@ GameObject:
   - component: {fileID: 734081913}
   m_Layer: 0
   m_Name: Trash Space_0 (10)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24011,7 +23924,7 @@ GameObject:
   - component: {fileID: 739415904}
   m_Layer: 0
   m_Name: Trash Space_0 (40)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24098,7 +24011,7 @@ GameObject:
   - component: {fileID: 740657418}
   m_Layer: 0
   m_Name: Lose Trash space_0 (25)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24185,7 +24098,7 @@ GameObject:
   - component: {fileID: 741260769}
   m_Layer: 0
   m_Name: Roll again space_0 (27)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24272,7 +24185,7 @@ GameObject:
   - component: {fileID: 741901873}
   m_Layer: 0
   m_Name: Trash Space_0 (73)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24359,7 +24272,7 @@ GameObject:
   - component: {fileID: 747214093}
   m_Layer: 0
   m_Name: Skip turn_0 (51)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24446,7 +24359,7 @@ GameObject:
   - component: {fileID: 751165540}
   m_Layer: 0
   m_Name: Cage Space_0 (20)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24620,7 +24533,7 @@ GameObject:
   - component: {fileID: 756293041}
   m_Layer: 0
   m_Name: Skip turn_0 (29)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24707,7 +24620,7 @@ GameObject:
   - component: {fileID: 760697742}
   m_Layer: 0
   m_Name: Trap space_0 (16)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24794,7 +24707,7 @@ GameObject:
   - component: {fileID: 760905621}
   m_Layer: 0
   m_Name: Skip turn_0 (48)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24881,7 +24794,7 @@ GameObject:
   - component: {fileID: 761459106}
   m_Layer: 0
   m_Name: Cage Space_0
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24968,7 +24881,7 @@ GameObject:
   - component: {fileID: 762384063}
   m_Layer: 0
   m_Name: VS space_0 (11)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25055,7 +24968,7 @@ GameObject:
   - component: {fileID: 762584719}
   m_Layer: 0
   m_Name: Trash Space_0 (27)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25142,7 +25055,7 @@ GameObject:
   - component: {fileID: 763639822}
   m_Layer: 0
   m_Name: Nothing space_0 (62)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25316,7 +25229,7 @@ GameObject:
   - component: {fileID: 765067861}
   m_Layer: 0
   m_Name: Trash Space_0 (19)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25403,7 +25316,7 @@ GameObject:
   - component: {fileID: 766388195}
   m_Layer: 0
   m_Name: Trash Space_0 (38)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25490,7 +25403,7 @@ GameObject:
   - component: {fileID: 766704892}
   m_Layer: 0
   m_Name: Trap space_0 (17)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25577,7 +25490,7 @@ GameObject:
   - component: {fileID: 768554235}
   m_Layer: 0
   m_Name: Trap space_0 (11)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25664,7 +25577,7 @@ GameObject:
   - component: {fileID: 769306965}
   m_Layer: 0
   m_Name: Nothing space_0 (253)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25751,7 +25664,7 @@ GameObject:
   - component: {fileID: 769766126}
   m_Layer: 0
   m_Name: Nothing space_0 (83)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25925,7 +25838,7 @@ GameObject:
   - component: {fileID: 771741819}
   m_Layer: 0
   m_Name: Trash Space_0 (55)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26012,7 +25925,7 @@ GameObject:
   - component: {fileID: 771986721}
   m_Layer: 0
   m_Name: Trap space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26099,7 +26012,7 @@ GameObject:
   - component: {fileID: 784272747}
   m_Layer: 0
   m_Name: Lose Trash space_0 (5)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26186,7 +26099,7 @@ GameObject:
   - component: {fileID: 786981444}
   m_Layer: 0
   m_Name: Nothing space_0 (220)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26273,7 +26186,7 @@ GameObject:
   - component: {fileID: 790275094}
   m_Layer: 0
   m_Name: Trash Space_0 (75)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26360,7 +26273,7 @@ GameObject:
   - component: {fileID: 791737791}
   m_Layer: 0
   m_Name: VS space_0 (6)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26447,7 +26360,7 @@ GameObject:
   - component: {fileID: 796828064}
   m_Layer: 0
   m_Name: Nothing space_0 (246)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26621,7 +26534,7 @@ GameObject:
   - component: {fileID: 797066698}
   m_Layer: 0
   m_Name: Nothing space_0 (97)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26708,7 +26621,7 @@ GameObject:
   - component: {fileID: 797524655}
   m_Layer: 0
   m_Name: Skip turn_0 (73)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26795,7 +26708,7 @@ GameObject:
   - component: {fileID: 801215135}
   m_Layer: 0
   m_Name: Trash Space_0 (92)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27056,7 +26969,7 @@ GameObject:
   - component: {fileID: 805465734}
   m_Layer: 0
   m_Name: Trash Space_0 (81)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27143,7 +27056,7 @@ GameObject:
   - component: {fileID: 807666693}
   m_Layer: 0
   m_Name: Nothing space_0 (132)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27230,7 +27143,7 @@ GameObject:
   - component: {fileID: 808301279}
   m_Layer: 0
   m_Name: Trash Space_0 (69)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27404,7 +27317,7 @@ GameObject:
   - component: {fileID: 808638385}
   m_Layer: 0
   m_Name: Gamble Space_0 (10)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27491,7 +27404,7 @@ GameObject:
   - component: {fileID: 809802118}
   m_Layer: 0
   m_Name: Change route space_0
-  m_TagString: Untagged
+  m_TagString: Change route Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27578,7 +27491,7 @@ GameObject:
   - component: {fileID: 809904256}
   m_Layer: 0
   m_Name: VS space_0
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27926,7 +27839,7 @@ GameObject:
   - component: {fileID: 815025168}
   m_Layer: 0
   m_Name: Lose Trash space_0 (53)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28013,7 +27926,7 @@ GameObject:
   - component: {fileID: 818463218}
   m_Layer: 0
   m_Name: Trash Space_0 (9)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28187,7 +28100,7 @@ GameObject:
   - component: {fileID: 821953934}
   m_Layer: 0
   m_Name: Nothing space_0 (102)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28274,7 +28187,7 @@ GameObject:
   - component: {fileID: 824565134}
   m_Layer: 0
   m_Name: Nothing space_0 (269)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28361,7 +28274,7 @@ GameObject:
   - component: {fileID: 824888636}
   m_Layer: 0
   m_Name: Nothing space_0 (21)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28448,7 +28361,7 @@ GameObject:
   - component: {fileID: 830986824}
   m_Layer: 0
   m_Name: Nothing space_0 (18)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28535,7 +28448,7 @@ GameObject:
   - component: {fileID: 831134884}
   m_Layer: 0
   m_Name: Nothing space_0 (92)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28622,7 +28535,7 @@ GameObject:
   - component: {fileID: 831295687}
   m_Layer: 0
   m_Name: Lose Trash space_0 (20)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28709,7 +28622,7 @@ GameObject:
   - component: {fileID: 833787836}
   m_Layer: 0
   m_Name: Nothing space_0 (130)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28796,7 +28709,7 @@ GameObject:
   - component: {fileID: 837914923}
   m_Layer: 0
   m_Name: Nothing space_0 (260)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28883,7 +28796,7 @@ GameObject:
   - component: {fileID: 839454529}
   m_Layer: 0
   m_Name: Roll again space_0 (3)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28970,7 +28883,7 @@ GameObject:
   - component: {fileID: 848259927}
   m_Layer: 0
   m_Name: Roll again space_0 (15)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29057,7 +28970,7 @@ GameObject:
   - component: {fileID: 848940473}
   m_Layer: 0
   m_Name: Roll again space_0 (4)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29144,7 +29057,7 @@ GameObject:
   - component: {fileID: 849187321}
   m_Layer: 0
   m_Name: Skip turn_0 (12)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29231,7 +29144,7 @@ GameObject:
   - component: {fileID: 851207591}
   m_Layer: 0
   m_Name: Nothing space_0 (55)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29318,7 +29231,7 @@ GameObject:
   - component: {fileID: 852430554}
   m_Layer: 0
   m_Name: Nothing space_0 (72)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29405,7 +29318,7 @@ GameObject:
   - component: {fileID: 857713652}
   m_Layer: 0
   m_Name: Nothing space_0 (68)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29492,7 +29405,7 @@ GameObject:
   - component: {fileID: 860931233}
   m_Layer: 0
   m_Name: Nothing space_0 (232)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29579,7 +29492,7 @@ GameObject:
   - component: {fileID: 863098541}
   m_Layer: 0
   m_Name: Nothing space_0 (226)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29666,7 +29579,7 @@ GameObject:
   - component: {fileID: 864258338}
   m_Layer: 0
   m_Name: VS space_0 (5)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29753,7 +29666,7 @@ GameObject:
   - component: {fileID: 868102915}
   m_Layer: 0
   m_Name: Skip turn_0 (21)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29927,7 +29840,7 @@ GameObject:
   - component: {fileID: 873516466}
   m_Layer: 0
   m_Name: Trap space_0 (27)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30101,7 +30014,7 @@ GameObject:
   - component: {fileID: 877966599}
   m_Layer: 0
   m_Name: Nothing space_0 (52)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30275,7 +30188,7 @@ GameObject:
   - component: {fileID: 880841374}
   m_Layer: 0
   m_Name: Skip turn_0 (68)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30362,7 +30275,7 @@ GameObject:
   - component: {fileID: 883919715}
   m_Layer: 0
   m_Name: Trash Space_0 (54)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30449,7 +30362,7 @@ GameObject:
   - component: {fileID: 891878380}
   m_Layer: 0
   m_Name: Nothing space_0 (267)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30536,7 +30449,7 @@ GameObject:
   - component: {fileID: 892755717}
   m_Layer: 0
   m_Name: Nothing space_0 (123)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30623,7 +30536,7 @@ GameObject:
   - component: {fileID: 893177412}
   m_Layer: 0
   m_Name: Trash Space_0 (5)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30710,7 +30623,7 @@ GameObject:
   - component: {fileID: 897547583}
   m_Layer: 0
   m_Name: Lose Trash space_0 (47)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30884,7 +30797,7 @@ GameObject:
   - component: {fileID: 900659684}
   m_Layer: 0
   m_Name: Nothing space_0 (85)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31058,7 +30971,7 @@ GameObject:
   - component: {fileID: 910366866}
   m_Layer: 0
   m_Name: Skip turn_0 (70)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31145,7 +31058,7 @@ GameObject:
   - component: {fileID: 913253132}
   m_Layer: 0
   m_Name: Nothing space_0 (44)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31319,7 +31232,7 @@ GameObject:
   - component: {fileID: 920446624}
   m_Layer: 0
   m_Name: Skip turn_0 (61)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31406,7 +31319,7 @@ GameObject:
   - component: {fileID: 922878875}
   m_Layer: 0
   m_Name: Roll again space_0 (28)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31493,7 +31406,7 @@ GameObject:
   - component: {fileID: 923993509}
   m_Layer: 0
   m_Name: Nothing space_0 (141)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31580,7 +31493,7 @@ GameObject:
   - component: {fileID: 929324958}
   m_Layer: 0
   m_Name: Lose Trash space_0 (51)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31667,7 +31580,7 @@ GameObject:
   - component: {fileID: 932206442}
   m_Layer: 0
   m_Name: Trash Space_0 (72)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31754,7 +31667,7 @@ GameObject:
   - component: {fileID: 933523270}
   m_Layer: 0
   m_Name: Nothing space_0 (115)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31841,7 +31754,7 @@ GameObject:
   - component: {fileID: 933998652}
   m_Layer: 0
   m_Name: Trap space_0 (3)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31928,7 +31841,7 @@ GameObject:
   - component: {fileID: 935678457}
   m_Layer: 0
   m_Name: Skip turn_0 (27)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32102,7 +32015,7 @@ GameObject:
   - component: {fileID: 949168689}
   m_Layer: 0
   m_Name: Nothing space_0 (139)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32189,7 +32102,7 @@ GameObject:
   - component: {fileID: 951269190}
   m_Layer: 0
   m_Name: VS space_0 (1)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32276,7 +32189,7 @@ GameObject:
   - component: {fileID: 952126075}
   m_Layer: 0
   m_Name: Nothing space_0 (270)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32450,7 +32363,7 @@ GameObject:
   - component: {fileID: 954116600}
   m_Layer: 0
   m_Name: Cage Space_0 (23)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32537,7 +32450,7 @@ GameObject:
   - component: {fileID: 966270839}
   m_Layer: 0
   m_Name: Trap space_0 (10)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32711,7 +32624,7 @@ GameObject:
   - component: {fileID: 972242246}
   m_Layer: 0
   m_Name: Nothing space_0 (234)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32798,7 +32711,7 @@ GameObject:
   - component: {fileID: 977552000}
   m_Layer: 0
   m_Name: Skip turn_0 (52)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32885,7 +32798,7 @@ GameObject:
   - component: {fileID: 978099334}
   m_Layer: 0
   m_Name: Nothing space_0 (238)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33059,7 +32972,7 @@ GameObject:
   - component: {fileID: 980445417}
   m_Layer: 0
   m_Name: Lose Trash space_0 (58)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33146,7 +33059,7 @@ GameObject:
   - component: {fileID: 982472100}
   m_Layer: 0
   m_Name: Trash Space_0 (33)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33233,7 +33146,7 @@ GameObject:
   - component: {fileID: 982478003}
   m_Layer: 0
   m_Name: Skip turn_0 (38)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33320,7 +33233,7 @@ GameObject:
   - component: {fileID: 984691502}
   m_Layer: 0
   m_Name: Skip turn_0 (25)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33494,7 +33407,7 @@ GameObject:
   - component: {fileID: 987046474}
   m_Layer: 0
   m_Name: Nothing space_0 (38)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33581,7 +33494,7 @@ GameObject:
   - component: {fileID: 988683025}
   m_Layer: 0
   m_Name: Trap space_0 (18)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33668,7 +33581,7 @@ GameObject:
   - component: {fileID: 989245218}
   m_Layer: 0
   m_Name: Skip turn_0 (36)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33842,7 +33755,7 @@ GameObject:
   - component: {fileID: 997197231}
   m_Layer: 0
   m_Name: Nothing space_0 (15)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33929,7 +33842,7 @@ GameObject:
   - component: {fileID: 1000382210}
   m_Layer: 0
   m_Name: Skip turn_0 (3)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34016,7 +33929,7 @@ GameObject:
   - component: {fileID: 1001064981}
   m_Layer: 0
   m_Name: Trash Space_0 (86)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34103,7 +34016,7 @@ GameObject:
   - component: {fileID: 1005093654}
   m_Layer: 0
   m_Name: Trap space_0 (25)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34364,7 +34277,7 @@ GameObject:
   - component: {fileID: 1014820170}
   m_Layer: 0
   m_Name: Trash Space_0 (11)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34451,7 +34364,7 @@ GameObject:
   - component: {fileID: 1016943383}
   m_Layer: 0
   m_Name: Nothing space_0 (227)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34538,7 +34451,7 @@ GameObject:
   - component: {fileID: 1020348169}
   m_Layer: 0
   m_Name: Nothing space_0 (172)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34625,7 +34538,7 @@ GameObject:
   - component: {fileID: 1020472645}
   m_Layer: 0
   m_Name: Nothing space_0 (236)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34712,7 +34625,7 @@ GameObject:
   - component: {fileID: 1023953644}
   m_Layer: 0
   m_Name: Nothing space_0 (208)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34799,7 +34712,7 @@ GameObject:
   - component: {fileID: 1027247137}
   m_Layer: 0
   m_Name: Nothing space_0 (148)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34886,7 +34799,7 @@ GameObject:
   - component: {fileID: 1029215853}
   m_Layer: 0
   m_Name: Skip turn_0 (2)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35060,7 +34973,7 @@ GameObject:
   - component: {fileID: 1034273592}
   m_Layer: 0
   m_Name: Trash Space_0 (66)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35147,7 +35060,7 @@ GameObject:
   - component: {fileID: 1034376466}
   m_Layer: 0
   m_Name: Gamble Space_0 (12)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35321,7 +35234,7 @@ GameObject:
   - component: {fileID: 1040138395}
   m_Layer: 0
   m_Name: Nothing space_0 (251)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35408,7 +35321,7 @@ GameObject:
   - component: {fileID: 1050014690}
   m_Layer: 0
   m_Name: Cage Space_0 (15)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35495,7 +35408,7 @@ GameObject:
   - component: {fileID: 1051937017}
   m_Layer: 0
   m_Name: Nothing space_0 (258)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35582,7 +35495,7 @@ GameObject:
   - component: {fileID: 1075622081}
   m_Layer: 0
   m_Name: Trash Space_0 (18)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35669,7 +35582,7 @@ GameObject:
   - component: {fileID: 1077835168}
   m_Layer: 0
   m_Name: Nothing space_0 (182)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35756,7 +35669,7 @@ GameObject:
   - component: {fileID: 1078106041}
   m_Layer: 0
   m_Name: Lose Trash space_0 (17)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35843,7 +35756,7 @@ GameObject:
   - component: {fileID: 1081352015}
   m_Layer: 0
   m_Name: Nothing space_0 (48)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35930,7 +35843,7 @@ GameObject:
   - component: {fileID: 1082006626}
   m_Layer: 0
   m_Name: Lose Trash space_0 (30)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36017,7 +35930,7 @@ GameObject:
   - component: {fileID: 1086241904}
   m_Layer: 0
   m_Name: Nothing space_0 (56)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36104,7 +36017,7 @@ GameObject:
   - component: {fileID: 1089406130}
   m_Layer: 0
   m_Name: Roll again space_0 (37)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36191,7 +36104,7 @@ GameObject:
   - component: {fileID: 1089909522}
   m_Layer: 0
   m_Name: Trash Space_0 (62)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36365,7 +36278,7 @@ GameObject:
   - component: {fileID: 1096329956}
   m_Layer: 0
   m_Name: Nothing space_0 (45)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36452,7 +36365,7 @@ GameObject:
   - component: {fileID: 1102841185}
   m_Layer: 0
   m_Name: Nothing space_0 (125)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36539,7 +36452,7 @@ GameObject:
   - component: {fileID: 1103271582}
   m_Layer: 0
   m_Name: Cage Space_0 (13)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36626,7 +36539,7 @@ GameObject:
   - component: {fileID: 1110539936}
   m_Layer: 0
   m_Name: Skip turn_0 (11)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36713,7 +36626,7 @@ GameObject:
   - component: {fileID: 1111921640}
   m_Layer: 0
   m_Name: Lose Trash space_0 (16)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36800,7 +36713,7 @@ GameObject:
   - component: {fileID: 1122084960}
   m_Layer: 0
   m_Name: Nothing space_0 (129)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36887,7 +36800,7 @@ GameObject:
   - component: {fileID: 1127339164}
   m_Layer: 0
   m_Name: Roll again space_0 (11)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36974,7 +36887,7 @@ GameObject:
   - component: {fileID: 1128369492}
   m_Layer: 0
   m_Name: Trap space_0
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37322,7 +37235,7 @@ GameObject:
   - component: {fileID: 1140206496}
   m_Layer: 0
   m_Name: Nothing space_0 (161)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37409,7 +37322,7 @@ GameObject:
   - component: {fileID: 1149260619}
   m_Layer: 0
   m_Name: Nothing space_0 (191)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37496,7 +37409,7 @@ GameObject:
   - component: {fileID: 1161218484}
   m_Layer: 0
   m_Name: Skip turn_0 (53)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37583,7 +37496,7 @@ GameObject:
   - component: {fileID: 1163024453}
   m_Layer: 0
   m_Name: Nothing space_0 (225)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37670,7 +37583,7 @@ GameObject:
   - component: {fileID: 1163181198}
   m_Layer: 0
   m_Name: Lose Trash space_0 (6)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37745,93 +37658,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1164497204
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1164497206}
-  - component: {fileID: 1164497205}
-  m_Layer: 0
-  m_Name: Nothing space_0 (14)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1164497205
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164497204}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -7017349228787969616, guid: 2a335b5f072f08e4388e403f210996ef, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.77, y: 1.82}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1164497206
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164497204}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.47, y: 0, z: -2}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1166479956
 GameObject:
   m_ObjectHideFlags: 0
@@ -37844,7 +37670,7 @@ GameObject:
   - component: {fileID: 1166479957}
   m_Layer: 0
   m_Name: Nothing space_0 (50)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37931,7 +37757,7 @@ GameObject:
   - component: {fileID: 1168545056}
   m_Layer: 0
   m_Name: Nothing space_0 (190)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38018,7 +37844,7 @@ GameObject:
   - component: {fileID: 1171783536}
   m_Layer: 0
   m_Name: Skip turn_0 (62)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38105,7 +37931,7 @@ GameObject:
   - component: {fileID: 1173912537}
   m_Layer: 0
   m_Name: Roll again space_0
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38192,7 +38018,7 @@ GameObject:
   - component: {fileID: 1174865955}
   m_Layer: 0
   m_Name: Trap space_0 (8)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38366,7 +38192,7 @@ GameObject:
   - component: {fileID: 1181056367}
   m_Layer: 0
   m_Name: Nothing space_0 (106)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38453,7 +38279,7 @@ GameObject:
   - component: {fileID: 1182856548}
   m_Layer: 0
   m_Name: Trap space_0 (14)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38540,7 +38366,7 @@ GameObject:
   - component: {fileID: 1183938829}
   m_Layer: 0
   m_Name: Lose Trash space_0 (26)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38627,7 +38453,7 @@ GameObject:
   - component: {fileID: 1184310498}
   m_Layer: 0
   m_Name: Lose Trash space_0 (19)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38714,7 +38540,7 @@ GameObject:
   - component: {fileID: 1185765043}
   m_Layer: 0
   m_Name: Lose Trash space_0 (54)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38982,7 +38808,7 @@ GameObject:
   - component: {fileID: 1187253889}
   m_Layer: 0
   m_Name: Nothing space_0 (134)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39069,7 +38895,7 @@ GameObject:
   - component: {fileID: 1195206177}
   m_Layer: 0
   m_Name: Nothing space_0 (212)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39156,7 +38982,7 @@ GameObject:
   - component: {fileID: 1197448448}
   m_Layer: 0
   m_Name: Nothing space_0 (170)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39243,7 +39069,7 @@ GameObject:
   - component: {fileID: 1199291698}
   m_Layer: 0
   m_Name: Lose Trash space_0 (23)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39330,7 +39156,7 @@ GameObject:
   - component: {fileID: 1204623808}
   m_Layer: 0
   m_Name: Trash Space_0 (46)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39504,7 +39330,7 @@ GameObject:
   - component: {fileID: 1212666266}
   m_Layer: 0
   m_Name: Cage Space_0 (9)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39678,7 +39504,7 @@ GameObject:
   - component: {fileID: 1214174106}
   m_Layer: 0
   m_Name: Nothing space_0 (88)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39852,7 +39678,7 @@ GameObject:
   - component: {fileID: 1222924148}
   m_Layer: 0
   m_Name: Trash Space_0 (78)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39939,7 +39765,7 @@ GameObject:
   - component: {fileID: 1230503439}
   m_Layer: 0
   m_Name: Lose Trash space_0 (11)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40026,7 +39852,7 @@ GameObject:
   - component: {fileID: 1230515450}
   m_Layer: 0
   m_Name: Skip turn_0 (16)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40113,7 +39939,7 @@ GameObject:
   - component: {fileID: 1232745160}
   m_Layer: 0
   m_Name: Trash Space_0 (85)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40200,7 +40026,7 @@ GameObject:
   - component: {fileID: 1236499906}
   m_Layer: 0
   m_Name: Nothing space_0 (37)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40287,7 +40113,7 @@ GameObject:
   - component: {fileID: 1236764448}
   m_Layer: 0
   m_Name: Nothing space_0 (99)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40374,7 +40200,7 @@ GameObject:
   - component: {fileID: 1238783155}
   m_Layer: 0
   m_Name: Cage Space_0 (25)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40461,7 +40287,7 @@ GameObject:
   - component: {fileID: 1240620819}
   m_Layer: 0
   m_Name: Nothing space_0 (107)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40548,7 +40374,7 @@ GameObject:
   - component: {fileID: 1241000729}
   m_Layer: 0
   m_Name: Trap space_0 (21)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40635,7 +40461,7 @@ GameObject:
   - component: {fileID: 1244964409}
   m_Layer: 0
   m_Name: Nothing space_0 (250)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40722,7 +40548,7 @@ GameObject:
   - component: {fileID: 1246188340}
   m_Layer: 0
   m_Name: Roll again space_0 (20)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40809,7 +40635,7 @@ GameObject:
   - component: {fileID: 1246262404}
   m_Layer: 0
   m_Name: Nothing space_0 (257)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40896,7 +40722,7 @@ GameObject:
   - component: {fileID: 1249063428}
   m_Layer: 0
   m_Name: Lose Trash space_0 (24)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41070,7 +40896,7 @@ GameObject:
   - component: {fileID: 1257736453}
   m_Layer: 0
   m_Name: Skip turn_0
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41157,7 +40983,7 @@ GameObject:
   - component: {fileID: 1258345435}
   m_Layer: 0
   m_Name: Nothing space_0 (213)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41244,7 +41070,7 @@ GameObject:
   - component: {fileID: 1265527641}
   m_Layer: 0
   m_Name: Nothing space_0 (188)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41331,7 +41157,7 @@ GameObject:
   - component: {fileID: 1269652425}
   m_Layer: 0
   m_Name: Roll again space_0 (31)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41418,7 +41244,7 @@ GameObject:
   - component: {fileID: 1276017100}
   m_Layer: 0
   m_Name: Lose Trash space_0 (29)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41505,7 +41331,7 @@ GameObject:
   - component: {fileID: 1276254287}
   m_Layer: 0
   m_Name: Cage Space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41592,7 +41418,7 @@ GameObject:
   - component: {fileID: 1277428824}
   m_Layer: 0
   m_Name: Nothing space_0 (109)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41853,7 +41679,7 @@ GameObject:
   - component: {fileID: 1283372647}
   m_Layer: 0
   m_Name: Skip turn_0 (28)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41940,7 +41766,7 @@ GameObject:
   - component: {fileID: 1284146368}
   m_Layer: 0
   m_Name: Nothing space_0 (26)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42027,7 +41853,7 @@ GameObject:
   - component: {fileID: 1285275509}
   m_Layer: 0
   m_Name: Nothing space_0 (78)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42114,7 +41940,7 @@ GameObject:
   - component: {fileID: 1286840765}
   m_Layer: 0
   m_Name: Nothing space_0 (150)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42288,7 +42114,7 @@ GameObject:
   - component: {fileID: 1289212036}
   m_Layer: 0
   m_Name: Nothing space_0 (146)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42375,7 +42201,7 @@ GameObject:
   - component: {fileID: 1289924711}
   m_Layer: 0
   m_Name: Nothing space_0 (75)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42462,7 +42288,7 @@ GameObject:
   - component: {fileID: 1290756599}
   m_Layer: 0
   m_Name: Roll again space_0 (22)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42549,7 +42375,7 @@ GameObject:
   - component: {fileID: 1292099231}
   m_Layer: 0
   m_Name: Nothing space_0 (4)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42636,7 +42462,7 @@ GameObject:
   - component: {fileID: 1295184538}
   m_Layer: 0
   m_Name: Lose Trash space_0 (49)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42723,7 +42549,7 @@ GameObject:
   - component: {fileID: 1297423589}
   m_Layer: 0
   m_Name: Skip turn_0 (17)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43158,7 +42984,7 @@ GameObject:
   - component: {fileID: 1308260983}
   m_Layer: 0
   m_Name: Skip turn_0 (26)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43245,7 +43071,7 @@ GameObject:
   - component: {fileID: 1308573265}
   m_Layer: 0
   m_Name: Gamble Space_0
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43332,7 +43158,7 @@ GameObject:
   - component: {fileID: 1322314673}
   m_Layer: 0
   m_Name: Skip turn_0 (58)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43419,7 +43245,7 @@ GameObject:
   - component: {fileID: 1335090543}
   m_Layer: 0
   m_Name: Trap space_0 (20)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43506,7 +43332,7 @@ GameObject:
   - component: {fileID: 1336505290}
   m_Layer: 0
   m_Name: Skip turn_0 (72)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43680,7 +43506,7 @@ GameObject:
   - component: {fileID: 1351544389}
   m_Layer: 0
   m_Name: Nothing space_0 (65)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43767,7 +43593,7 @@ GameObject:
   - component: {fileID: 1352709927}
   m_Layer: 0
   m_Name: Skip turn_0 (45)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43854,7 +43680,7 @@ GameObject:
   - component: {fileID: 1356468747}
   m_Layer: 0
   m_Name: Skip turn_0 (74)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44028,7 +43854,7 @@ GameObject:
   - component: {fileID: 1372578775}
   m_Layer: 0
   m_Name: Skip turn_0 (32)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44202,7 +44028,7 @@ GameObject:
   - component: {fileID: 1373935563}
   m_Layer: 0
   m_Name: Skip turn_0 (69)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44289,7 +44115,7 @@ GameObject:
   - component: {fileID: 1375850461}
   m_Layer: 0
   m_Name: Roll again space_0 (33)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44376,7 +44202,7 @@ GameObject:
   - component: {fileID: 1378205767}
   m_Layer: 0
   m_Name: Nothing space_0 (63)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44463,7 +44289,7 @@ GameObject:
   - component: {fileID: 1380856112}
   m_Layer: 0
   m_Name: Cage Space_0 (8)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44550,7 +44376,7 @@ GameObject:
   - component: {fileID: 1383817691}
   m_Layer: 0
   m_Name: Nothing space_0 (230)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44637,7 +44463,7 @@ GameObject:
   - component: {fileID: 1385505916}
   m_Layer: 0
   m_Name: Nothing space_0 (254)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44898,7 +44724,7 @@ GameObject:
   - component: {fileID: 1393147854}
   m_Layer: 0
   m_Name: Nothing space_0 (199)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44985,7 +44811,7 @@ GameObject:
   - component: {fileID: 1396724878}
   m_Layer: 0
   m_Name: Lose Trash space_0 (48)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45072,7 +44898,7 @@ GameObject:
   - component: {fileID: 1398589144}
   m_Layer: 0
   m_Name: Trap space_0 (19)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45159,7 +44985,7 @@ GameObject:
   - component: {fileID: 1400361659}
   m_Layer: 0
   m_Name: Nothing space_0 (219)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45246,7 +45072,7 @@ GameObject:
   - component: {fileID: 1404929888}
   m_Layer: 0
   m_Name: Nothing space_0 (159)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45333,7 +45159,7 @@ GameObject:
   - component: {fileID: 1405016690}
   m_Layer: 0
   m_Name: Skip turn_0 (47)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45420,7 +45246,7 @@ GameObject:
   - component: {fileID: 1405925352}
   m_Layer: 0
   m_Name: Roll again space_0 (7)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45594,7 +45420,7 @@ GameObject:
   - component: {fileID: 1410192971}
   m_Layer: 0
   m_Name: Nothing space_0 (243)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45681,7 +45507,7 @@ GameObject:
   - component: {fileID: 1412012891}
   m_Layer: 0
   m_Name: Trash Space_0 (6)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45768,7 +45594,7 @@ GameObject:
   - component: {fileID: 1415421929}
   m_Layer: 0
   m_Name: Skip turn_0 (30)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45855,7 +45681,7 @@ GameObject:
   - component: {fileID: 1417730879}
   m_Layer: 0
   m_Name: Trash Space_0 (26)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46029,7 +45855,7 @@ GameObject:
   - component: {fileID: 1422570699}
   m_Layer: 0
   m_Name: Gamble Space_0 (7)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46116,7 +45942,7 @@ GameObject:
   - component: {fileID: 1424292997}
   m_Layer: 0
   m_Name: Trash Space_0 (79)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46203,7 +46029,7 @@ GameObject:
   - component: {fileID: 1425412087}
   m_Layer: 0
   m_Name: Nothing space_0 (80)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46290,7 +46116,7 @@ GameObject:
   - component: {fileID: 1426247394}
   m_Layer: 0
   m_Name: Lose Trash space_0 (28)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46377,7 +46203,7 @@ GameObject:
   - component: {fileID: 1429812418}
   m_Layer: 0
   m_Name: Trap space_0 (13)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46464,7 +46290,7 @@ GameObject:
   - component: {fileID: 1430574268}
   m_Layer: 0
   m_Name: Gamble Space_0 (11)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46551,7 +46377,7 @@ GameObject:
   - component: {fileID: 1433539261}
   m_Layer: 0
   m_Name: Roll again space_0 (18)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46638,7 +46464,7 @@ GameObject:
   - component: {fileID: 1436402674}
   m_Layer: 0
   m_Name: Skip turn_0 (14)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46725,7 +46551,7 @@ GameObject:
   - component: {fileID: 1437904146}
   m_Layer: 0
   m_Name: Skip turn_0 (15)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46812,7 +46638,7 @@ GameObject:
   - component: {fileID: 1439002348}
   m_Layer: 0
   m_Name: Lose Trash space_0 (35)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46899,7 +46725,7 @@ GameObject:
   - component: {fileID: 1443780715}
   m_Layer: 0
   m_Name: Lose Trash space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46986,7 +46812,7 @@ GameObject:
   - component: {fileID: 1446376371}
   m_Layer: 0
   m_Name: Nothing space_0 (165)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47160,7 +46986,7 @@ GameObject:
   - component: {fileID: 1453054796}
   m_Layer: 0
   m_Name: Nothing space_0 (160)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47247,7 +47073,7 @@ GameObject:
   - component: {fileID: 1454720855}
   m_Layer: 0
   m_Name: Nothing space_0 (9)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47334,7 +47160,7 @@ GameObject:
   - component: {fileID: 1457752940}
   m_Layer: 0
   m_Name: Cage Space_0 (21)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47421,7 +47247,7 @@ GameObject:
   - component: {fileID: 1459137271}
   m_Layer: 0
   m_Name: Skip turn_0 (60)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47595,7 +47421,7 @@ GameObject:
   - component: {fileID: 1460028074}
   m_Layer: 0
   m_Name: Lose Trash space_0 (42)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47682,7 +47508,7 @@ GameObject:
   - component: {fileID: 1462827056}
   m_Layer: 0
   m_Name: Nothing space_0 (40)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47769,7 +47595,7 @@ GameObject:
   - component: {fileID: 1465660432}
   m_Layer: 0
   m_Name: Trash Space_0 (42)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47943,7 +47769,7 @@ GameObject:
   - component: {fileID: 1480779689}
   m_Layer: 0
   m_Name: Skip turn_0 (4)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48030,7 +47856,7 @@ GameObject:
   - component: {fileID: 1495268875}
   m_Layer: 0
   m_Name: Nothing space_0 (3)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48117,7 +47943,7 @@ GameObject:
   - component: {fileID: 1495397889}
   m_Layer: 0
   m_Name: Nothing space_0 (22)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48204,7 +48030,7 @@ GameObject:
   - component: {fileID: 1498235399}
   m_Layer: 0
   m_Name: Nothing space_0 (185)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48378,7 +48204,7 @@ GameObject:
   - component: {fileID: 1499391533}
   m_Layer: 0
   m_Name: Roll again space_0 (42)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48552,7 +48378,7 @@ GameObject:
   - component: {fileID: 1507600780}
   m_Layer: 0
   m_Name: Cage Space_0 (5)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48639,7 +48465,7 @@ GameObject:
   - component: {fileID: 1509792227}
   m_Layer: 0
   m_Name: Nothing space_0 (211)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48813,7 +48639,7 @@ GameObject:
   - component: {fileID: 1511746849}
   m_Layer: 0
   m_Name: Nothing space_0 (210)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48900,7 +48726,7 @@ GameObject:
   - component: {fileID: 1517117032}
   m_Layer: 0
   m_Name: Trash Space_0 (60)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49074,7 +48900,7 @@ GameObject:
   - component: {fileID: 1522238289}
   m_Layer: 0
   m_Name: Gamble Space_0 (8)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49161,7 +48987,7 @@ GameObject:
   - component: {fileID: 1523656649}
   m_Layer: 0
   m_Name: Nothing space_0 (247)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49248,7 +49074,7 @@ GameObject:
   - component: {fileID: 1528208097}
   m_Layer: 0
   m_Name: Skip turn_0 (44)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49422,7 +49248,7 @@ GameObject:
   - component: {fileID: 1532736526}
   m_Layer: 0
   m_Name: Nothing space_0 (71)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49683,7 +49509,7 @@ GameObject:
   - component: {fileID: 1535232873}
   m_Layer: 0
   m_Name: Skip turn_0 (43)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49770,7 +49596,7 @@ GameObject:
   - component: {fileID: 1538620271}
   m_Layer: 0
   m_Name: Trash Space_0 (20)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49857,7 +49683,7 @@ GameObject:
   - component: {fileID: 1539213695}
   m_Layer: 0
   m_Name: Nothing space_0 (112)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49944,7 +49770,7 @@ GameObject:
   - component: {fileID: 1541692084}
   m_Layer: 0
   m_Name: Lose Trash space_0 (41)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50031,7 +49857,7 @@ GameObject:
   - component: {fileID: 1542170028}
   m_Layer: 0
   m_Name: VS space_0 (12)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50118,7 +49944,7 @@ GameObject:
   - component: {fileID: 1542853867}
   m_Layer: 0
   m_Name: Cage Space_0 (32)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50205,7 +50031,7 @@ GameObject:
   - component: {fileID: 1548449834}
   m_Layer: 0
   m_Name: Nothing space_0 (222)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50379,7 +50205,7 @@ GameObject:
   - component: {fileID: 1550417327}
   m_Layer: 0
   m_Name: Trash Space_0 (74)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50466,7 +50292,7 @@ GameObject:
   - component: {fileID: 1554342309}
   m_Layer: 0
   m_Name: Lose Trash space_0 (32)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50553,7 +50379,7 @@ GameObject:
   - component: {fileID: 1554483721}
   m_Layer: 0
   m_Name: Nothing space_0 (136)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50640,7 +50466,7 @@ GameObject:
   - component: {fileID: 1560583605}
   m_Layer: 0
   m_Name: Trash Space_0 (89)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50727,7 +50553,7 @@ GameObject:
   - component: {fileID: 1561581202}
   m_Layer: 0
   m_Name: Nothing space_0 (74)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50814,7 +50640,7 @@ GameObject:
   - component: {fileID: 1561952085}
   m_Layer: 0
   m_Name: Nothing space_0 (244)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50988,7 +50814,7 @@ GameObject:
   - component: {fileID: 1566062420}
   m_Layer: 0
   m_Name: Nothing space_0 (93)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51075,7 +50901,7 @@ GameObject:
   - component: {fileID: 1566351542}
   m_Layer: 0
   m_Name: Nothing space_0 (164)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51162,7 +50988,7 @@ GameObject:
   - component: {fileID: 1568505299}
   m_Layer: 0
   m_Name: Nothing space_0 (203)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51249,7 +51075,7 @@ GameObject:
   - component: {fileID: 1570610526}
   m_Layer: 0
   m_Name: Nothing space_0 (103)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51336,7 +51162,7 @@ GameObject:
   - component: {fileID: 1571683270}
   m_Layer: 0
   m_Name: Skip turn_0 (56)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51423,7 +51249,7 @@ GameObject:
   - component: {fileID: 1575638863}
   m_Layer: 0
   m_Name: Nothing space_0 (27)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51510,7 +51336,7 @@ GameObject:
   - component: {fileID: 1575644742}
   m_Layer: 0
   m_Name: Trash Space_0 (25)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51597,7 +51423,7 @@ GameObject:
   - component: {fileID: 1589865924}
   m_Layer: 0
   m_Name: Skip turn_0 (8)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51684,7 +51510,7 @@ GameObject:
   - component: {fileID: 1590354711}
   m_Layer: 0
   m_Name: Trash Space_0 (7)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51771,7 +51597,7 @@ GameObject:
   - component: {fileID: 1596436634}
   m_Layer: 0
   m_Name: Nothing space_0 (179)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51858,7 +51684,7 @@ GameObject:
   - component: {fileID: 1597990987}
   m_Layer: 0
   m_Name: Nothing space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51945,7 +51771,7 @@ GameObject:
   - component: {fileID: 1598192934}
   m_Layer: 0
   m_Name: Nothing space_0 (95)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52032,7 +51858,7 @@ GameObject:
   - component: {fileID: 1599670095}
   m_Layer: 0
   m_Name: Nothing space_0 (204)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52206,7 +52032,7 @@ GameObject:
   - component: {fileID: 1608064738}
   m_Layer: 0
   m_Name: Trap space_0 (22)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52293,7 +52119,7 @@ GameObject:
   - component: {fileID: 1614405790}
   m_Layer: 0
   m_Name: Nothing space_0 (7)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52380,7 +52206,7 @@ GameObject:
   - component: {fileID: 1615015200}
   m_Layer: 0
   m_Name: Trap space_0 (26)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52467,7 +52293,7 @@ GameObject:
   - component: {fileID: 1615741491}
   m_Layer: 0
   m_Name: Nothing space_0 (201)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52554,7 +52380,7 @@ GameObject:
   - component: {fileID: 1616839921}
   m_Layer: 0
   m_Name: Nothing space_0 (54)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52641,7 +52467,7 @@ GameObject:
   - component: {fileID: 1618865257}
   m_Layer: 0
   m_Name: Nothing space_0 (10)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52728,7 +52554,7 @@ GameObject:
   - component: {fileID: 1619845569}
   m_Layer: 0
   m_Name: Trash Space_0 (59)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52815,7 +52641,7 @@ GameObject:
   - component: {fileID: 1622855132}
   m_Layer: 0
   m_Name: Nothing space_0 (231)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52902,7 +52728,7 @@ GameObject:
   - component: {fileID: 1622941736}
   m_Layer: 0
   m_Name: Trash Space_0 (43)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52989,7 +52815,7 @@ GameObject:
   - component: {fileID: 1630017137}
   m_Layer: 0
   m_Name: Nothing space_0 (19)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53163,7 +52989,7 @@ GameObject:
   - component: {fileID: 1642259878}
   m_Layer: 0
   m_Name: Cage Space_0 (28)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53250,7 +53076,7 @@ GameObject:
   - component: {fileID: 1642632799}
   m_Layer: 0
   m_Name: Roll again space_0 (39)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53337,7 +53163,7 @@ GameObject:
   - component: {fileID: 1643788385}
   m_Layer: 0
   m_Name: Nothing space_0 (169)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53424,7 +53250,7 @@ GameObject:
   - component: {fileID: 1645926981}
   m_Layer: 0
   m_Name: Lose Trash space_0 (37)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53511,7 +53337,7 @@ GameObject:
   - component: {fileID: 1648121257}
   m_Layer: 0
   m_Name: Lose Trash space_0 (21)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53598,7 +53424,7 @@ GameObject:
   - component: {fileID: 1649538347}
   m_Layer: 0
   m_Name: Lose Trash space_0 (22)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53685,7 +53511,7 @@ GameObject:
   - component: {fileID: 1649661706}
   m_Layer: 0
   m_Name: Nothing space_0 (117)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53772,7 +53598,7 @@ GameObject:
   - component: {fileID: 1666721067}
   m_Layer: 0
   m_Name: Skip turn_0 (13)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53859,7 +53685,7 @@ GameObject:
   - component: {fileID: 1669178482}
   m_Layer: 0
   m_Name: Trash Space_0 (41)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53946,7 +53772,7 @@ GameObject:
   - component: {fileID: 1671141620}
   m_Layer: 0
   m_Name: Nothing space_0 (94)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54033,7 +53859,7 @@ GameObject:
   - component: {fileID: 1676996138}
   m_Layer: 0
   m_Name: Trap space_0 (12)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54207,7 +54033,7 @@ GameObject:
   - component: {fileID: 1683777002}
   m_Layer: 0
   m_Name: Trash Space_0
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54294,7 +54120,7 @@ GameObject:
   - component: {fileID: 1683920012}
   m_Layer: 0
   m_Name: Nothing space_0 (198)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54381,7 +54207,7 @@ GameObject:
   - component: {fileID: 1687394205}
   m_Layer: 0
   m_Name: Cage Space_0 (19)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54555,7 +54381,7 @@ GameObject:
   - component: {fileID: 1692487947}
   m_Layer: 0
   m_Name: Lose Trash space_0 (33)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54642,7 +54468,7 @@ GameObject:
   - component: {fileID: 1696860883}
   m_Layer: 0
   m_Name: VS space_0 (4)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54816,7 +54642,7 @@ GameObject:
   - component: {fileID: 1697460751}
   m_Layer: 0
   m_Name: Nothing space_0 (175)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54903,7 +54729,7 @@ GameObject:
   - component: {fileID: 1698982382}
   m_Layer: 0
   m_Name: Trash Space_0 (48)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54990,7 +54816,7 @@ GameObject:
   - component: {fileID: 1704797576}
   m_Layer: 0
   m_Name: Nothing space_0 (216)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55077,7 +54903,7 @@ GameObject:
   - component: {fileID: 1705131246}
   m_Layer: 0
   m_Name: Nothing space_0 (221)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55164,7 +54990,7 @@ GameObject:
   - component: {fileID: 1709376819}
   m_Layer: 0
   m_Name: Lose Trash space_0 (43)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55251,7 +55077,7 @@ GameObject:
   - component: {fileID: 1711141536}
   m_Layer: 0
   m_Name: Trash Space_0 (4)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55425,7 +55251,7 @@ GameObject:
   - component: {fileID: 1715764945}
   m_Layer: 0
   m_Name: Nothing space_0 (166)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55512,7 +55338,7 @@ GameObject:
   - component: {fileID: 1719165509}
   m_Layer: 0
   m_Name: Cage Space_0 (4)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55599,7 +55425,7 @@ GameObject:
   - component: {fileID: 1720644155}
   m_Layer: 0
   m_Name: Roll again space_0 (12)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55686,7 +55512,7 @@ GameObject:
   - component: {fileID: 1734384699}
   m_Layer: 0
   m_Name: Nothing space_0 (81)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55773,7 +55599,7 @@ GameObject:
   - component: {fileID: 1735869091}
   m_Layer: 0
   m_Name: Nothing space_0 (61)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55860,7 +55686,7 @@ GameObject:
   - component: {fileID: 1736698191}
   m_Layer: 0
   m_Name: Lose Trash space_0 (8)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55947,7 +55773,7 @@ GameObject:
   - component: {fileID: 1738130212}
   m_Layer: 0
   m_Name: Roll again space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56208,7 +56034,7 @@ GameObject:
   - component: {fileID: 1746961363}
   m_Layer: 0
   m_Name: Nothing space_0 (87)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56382,7 +56208,7 @@ GameObject:
   - component: {fileID: 1752796066}
   m_Layer: 0
   m_Name: Roll again space_0 (9)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56469,7 +56295,7 @@ GameObject:
   - component: {fileID: 1755772569}
   m_Layer: 0
   m_Name: Nothing space_0 (245)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56556,7 +56382,7 @@ GameObject:
   - component: {fileID: 1757930307}
   m_Layer: 0
   m_Name: Lose Trash space_0 (12)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56643,7 +56469,7 @@ GameObject:
   - component: {fileID: 1758108714}
   m_Layer: 0
   m_Name: VS space_0 (9)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56730,7 +56556,7 @@ GameObject:
   - component: {fileID: 1759358360}
   m_Layer: 0
   m_Name: Trash Space_0 (50)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56904,7 +56730,7 @@ GameObject:
   - component: {fileID: 1769984700}
   m_Layer: 0
   m_Name: Trash Space_0 (31)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56991,7 +56817,7 @@ GameObject:
   - component: {fileID: 1770812689}
   m_Layer: 0
   m_Name: Cage Space_0 (33)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57078,7 +56904,7 @@ GameObject:
   - component: {fileID: 1774677720}
   m_Layer: 0
   m_Name: Nothing space_0 (59)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57165,7 +56991,7 @@ GameObject:
   - component: {fileID: 1776101835}
   m_Layer: 0
   m_Name: Cage Space_0 (7)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57252,7 +57078,7 @@ GameObject:
   - component: {fileID: 1779629025}
   m_Layer: 0
   m_Name: Trash Space_0 (76)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57426,7 +57252,7 @@ GameObject:
   - component: {fileID: 1787668282}
   m_Layer: 0
   m_Name: Nothing space_0 (240)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57600,7 +57426,7 @@ GameObject:
   - component: {fileID: 1794967659}
   m_Layer: 0
   m_Name: Nothing space_0 (17)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57687,7 +57513,7 @@ GameObject:
   - component: {fileID: 1798760037}
   m_Layer: 0
   m_Name: Cage Space_0 (11)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57774,7 +57600,7 @@ GameObject:
   - component: {fileID: 1799449407}
   m_Layer: 0
   m_Name: Trash Space_0 (12)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57861,7 +57687,7 @@ GameObject:
   - component: {fileID: 1800792497}
   m_Layer: 0
   m_Name: Nothing space_0 (111)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57948,7 +57774,7 @@ GameObject:
   - component: {fileID: 1803020647}
   m_Layer: 0
   m_Name: Nothing space_0 (70)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58035,7 +57861,7 @@ GameObject:
   - component: {fileID: 1804617584}
   m_Layer: 0
   m_Name: Lose Trash space_0 (39)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58122,7 +57948,7 @@ GameObject:
   - component: {fileID: 1805109639}
   m_Layer: 0
   m_Name: Skip turn_0 (41)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58209,7 +58035,7 @@ GameObject:
   - component: {fileID: 1806794413}
   m_Layer: 0
   m_Name: Trash Space_0 (77)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58296,7 +58122,7 @@ GameObject:
   - component: {fileID: 1809484048}
   m_Layer: 0
   m_Name: Nothing space_0 (189)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58557,7 +58383,7 @@ GameObject:
   - component: {fileID: 1812378736}
   m_Layer: 0
   m_Name: Nothing space_0 (178)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58644,7 +58470,7 @@ GameObject:
   - component: {fileID: 1818751321}
   m_Layer: 0
   m_Name: Nothing space_0 (127)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58731,7 +58557,7 @@ GameObject:
   - component: {fileID: 1822306951}
   m_Layer: 0
   m_Name: Nothing space_0 (135)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58818,7 +58644,7 @@ GameObject:
   - component: {fileID: 1827985030}
   m_Layer: 0
   m_Name: Trap space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58905,7 +58731,7 @@ GameObject:
   - component: {fileID: 1830676341}
   m_Layer: 0
   m_Name: Skip turn_0 (50)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58992,7 +58818,7 @@ GameObject:
   - component: {fileID: 1838325687}
   m_Layer: 0
   m_Name: Nothing space_0 (120)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59253,7 +59079,7 @@ GameObject:
   - component: {fileID: 1849242849}
   m_Layer: 0
   m_Name: Roll again space_0 (13)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59340,7 +59166,7 @@ GameObject:
   - component: {fileID: 1852215633}
   m_Layer: 0
   m_Name: Nothing space_0 (124)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59427,7 +59253,7 @@ GameObject:
   - component: {fileID: 1852715255}
   m_Layer: 0
   m_Name: Nothing space_0 (174)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59601,7 +59427,7 @@ GameObject:
   - component: {fileID: 1855455675}
   m_Layer: 0
   m_Name: Nothing space_0 (256)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59688,7 +59514,7 @@ GameObject:
   - component: {fileID: 1859767801}
   m_Layer: 0
   m_Name: Skip turn_0 (18)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59775,7 +59601,7 @@ GameObject:
   - component: {fileID: 1864050656}
   m_Layer: 0
   m_Name: Skip turn_0 (39)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59862,7 +59688,7 @@ GameObject:
   - component: {fileID: 1870743965}
   m_Layer: 0
   m_Name: Skip turn_0 (34)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59949,7 +59775,7 @@ GameObject:
   - component: {fileID: 1874032041}
   m_Layer: 0
   m_Name: Trap space_0 (5)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60123,7 +59949,7 @@ GameObject:
   - component: {fileID: 1877397752}
   m_Layer: 0
   m_Name: Roll again space_0 (38)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60210,7 +60036,7 @@ GameObject:
   - component: {fileID: 1888338459}
   m_Layer: 0
   m_Name: Nothing space_0 (42)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60297,7 +60123,7 @@ GameObject:
   - component: {fileID: 1891034406}
   m_Layer: 0
   m_Name: Skip turn_0 (65)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60384,7 +60210,7 @@ GameObject:
   - component: {fileID: 1893003828}
   m_Layer: 0
   m_Name: Nothing space_0 (77)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60471,7 +60297,7 @@ GameObject:
   - component: {fileID: 1894863614}
   m_Layer: 0
   m_Name: Nothing space_0 (31)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60558,7 +60384,7 @@ GameObject:
   - component: {fileID: 1899234326}
   m_Layer: 0
   m_Name: Roll again space_0 (6)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60732,7 +60558,7 @@ GameObject:
   - component: {fileID: 1905199179}
   m_Layer: 0
   m_Name: Trash Space_0 (29)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60819,7 +60645,7 @@ GameObject:
   - component: {fileID: 1911445435}
   m_Layer: 0
   m_Name: Cage Space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60906,7 +60732,7 @@ GameObject:
   - component: {fileID: 1913578931}
   m_Layer: 0
   m_Name: Nothing space_0 (154)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61080,7 +60906,7 @@ GameObject:
   - component: {fileID: 1916786360}
   m_Layer: 0
   m_Name: VS space_0 (8)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61341,7 +61167,7 @@ GameObject:
   - component: {fileID: 1922316569}
   m_Layer: 0
   m_Name: Trash Space_0 (23)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61428,7 +61254,7 @@ GameObject:
   - component: {fileID: 1926693083}
   m_Layer: 0
   m_Name: Trap space_0 (30)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61515,7 +61341,7 @@ GameObject:
   - component: {fileID: 1932310751}
   m_Layer: 0
   m_Name: Nothing space_0 (252)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61689,7 +61515,7 @@ GameObject:
   - component: {fileID: 1942852659}
   m_Layer: 0
   m_Name: Roll again space_0 (41)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61776,7 +61602,7 @@ GameObject:
   - component: {fileID: 1943032557}
   m_Layer: 0
   m_Name: Nothing space_0 (181)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61950,7 +61776,7 @@ GameObject:
   - component: {fileID: 1949175303}
   m_Layer: 0
   m_Name: Trash Space_0 (91)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62124,7 +61950,7 @@ GameObject:
   - component: {fileID: 1956485145}
   m_Layer: 0
   m_Name: Lose Trash space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62211,7 +62037,7 @@ GameObject:
   - component: {fileID: 1958405924}
   m_Layer: 0
   m_Name: Cage Space_0 (6)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62298,7 +62124,7 @@ GameObject:
   - component: {fileID: 1961178268}
   m_Layer: 0
   m_Name: VS space_0 (7)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62385,7 +62211,7 @@ GameObject:
   - component: {fileID: 1962425943}
   m_Layer: 0
   m_Name: Nothing space_0 (248)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62472,7 +62298,7 @@ GameObject:
   - component: {fileID: 1968721561}
   m_Layer: 0
   m_Name: Nothing space_0 (156)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62559,7 +62385,7 @@ GameObject:
   - component: {fileID: 1970178349}
   m_Layer: 0
   m_Name: Trash Space_0 (52)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62646,7 +62472,7 @@ GameObject:
   - component: {fileID: 1970264649}
   m_Layer: 0
   m_Name: Lose Trash space_0 (31)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62820,7 +62646,7 @@ GameObject:
   - component: {fileID: 1970394688}
   m_Layer: 0
   m_Name: Lose Trash space_0 (15)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62994,7 +62820,7 @@ GameObject:
   - component: {fileID: 1978768953}
   m_Layer: 0
   m_Name: Trash Space_0 (65)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63168,7 +62994,7 @@ GameObject:
   - component: {fileID: 1980962273}
   m_Layer: 0
   m_Name: Nothing space_0 (197)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63429,7 +63255,7 @@ GameObject:
   - component: {fileID: 1990839289}
   m_Layer: 0
   m_Name: Nothing space_0 (76)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63516,7 +63342,7 @@ GameObject:
   - component: {fileID: 1991688678}
   m_Layer: 0
   m_Name: Nothing space_0 (6)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63603,7 +63429,7 @@ GameObject:
   - component: {fileID: 1992288424}
   m_Layer: 0
   m_Name: Nothing space_0 (137)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63690,7 +63516,7 @@ GameObject:
   - component: {fileID: 1992886518}
   m_Layer: 0
   m_Name: Lose Trash space_0 (14)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63777,7 +63603,7 @@ GameObject:
   - component: {fileID: 2000210128}
   m_Layer: 0
   m_Name: Nothing space_0 (263)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63951,7 +63777,7 @@ GameObject:
   - component: {fileID: 2009810860}
   m_Layer: 0
   m_Name: Nothing space_0 (101)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64038,7 +63864,7 @@ GameObject:
   - component: {fileID: 2011680424}
   m_Layer: 0
   m_Name: Lose Trash space_0 (9)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64125,7 +63951,7 @@ GameObject:
   - component: {fileID: 2011834567}
   m_Layer: 0
   m_Name: Skip turn_0 (6)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64299,7 +64125,7 @@ GameObject:
   - component: {fileID: 2017324750}
   m_Layer: 0
   m_Name: Trash Space_0 (28)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64386,7 +64212,7 @@ GameObject:
   - component: {fileID: 2018254113}
   m_Layer: 0
   m_Name: Cage Space_0 (26)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64473,7 +64299,7 @@ GameObject:
   - component: {fileID: 2025568763}
   m_Layer: 0
   m_Name: Cage Space_0 (17)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64647,7 +64473,7 @@ GameObject:
   - component: {fileID: 2027731089}
   m_Layer: 0
   m_Name: Nothing space_0 (34)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64821,7 +64647,7 @@ GameObject:
   - component: {fileID: 2035279078}
   m_Layer: 0
   m_Name: Nothing space_0 (194)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64908,7 +64734,7 @@ GameObject:
   - component: {fileID: 2036075857}
   m_Layer: 0
   m_Name: VS space_0 (13)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64995,7 +64821,7 @@ GameObject:
   - component: {fileID: 2036919154}
   m_Layer: 0
   m_Name: VS space_0 (10)
-  m_TagString: Untagged
+  m_TagString: VS Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65082,7 +64908,7 @@ GameObject:
   - component: {fileID: 2039000932}
   m_Layer: 0
   m_Name: Skip turn_0 (10)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65169,7 +64995,7 @@ GameObject:
   - component: {fileID: 2039307481}
   m_Layer: 0
   m_Name: Trash Space_0 (17)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65256,7 +65082,7 @@ GameObject:
   - component: {fileID: 2039893884}
   m_Layer: 0
   m_Name: Nothing space_0 (183)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65343,7 +65169,7 @@ GameObject:
   - component: {fileID: 2040519297}
   m_Layer: 0
   m_Name: Nothing space_0 (16)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65430,7 +65256,7 @@ GameObject:
   - component: {fileID: 2041015800}
   m_Layer: 0
   m_Name: Nothing space_0 (5)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65517,7 +65343,7 @@ GameObject:
   - component: {fileID: 2041463631}
   m_Layer: 0
   m_Name: Trash Space_0 (88)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65691,7 +65517,7 @@ GameObject:
   - component: {fileID: 2043783123}
   m_Layer: 0
   m_Name: Nothing space_0 (122)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65778,7 +65604,7 @@ GameObject:
   - component: {fileID: 2045114008}
   m_Layer: 0
   m_Name: Change route space_0 (3)
-  m_TagString: Untagged
+  m_TagString: Change route Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65865,7 +65691,7 @@ GameObject:
   - component: {fileID: 2046452053}
   m_Layer: 0
   m_Name: Skip turn_0 (31)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65952,7 +65778,7 @@ GameObject:
   - component: {fileID: 2046457958}
   m_Layer: 0
   m_Name: Trash Space_0 (90)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66039,7 +65865,7 @@ GameObject:
   - component: {fileID: 2048142650}
   m_Layer: 0
   m_Name: Nothing space_0 (229)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66126,7 +65952,7 @@ GameObject:
   - component: {fileID: 2049889574}
   m_Layer: 0
   m_Name: Nothing space_0 (100)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66213,7 +66039,7 @@ GameObject:
   - component: {fileID: 2052241823}
   m_Layer: 0
   m_Name: Nothing space_0
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66300,7 +66126,7 @@ GameObject:
   - component: {fileID: 2052648783}
   m_Layer: 0
   m_Name: Gamble Space_0 (3)
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66387,7 +66213,7 @@ GameObject:
   - component: {fileID: 2056178695}
   m_Layer: 0
   m_Name: Lose Trash space_0 (46)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66474,7 +66300,7 @@ GameObject:
   - component: {fileID: 2068610557}
   m_Layer: 0
   m_Name: Nothing space_0 (149)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66561,7 +66387,7 @@ GameObject:
   - component: {fileID: 2069737010}
   m_Layer: 0
   m_Name: Skip turn_0 (35)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66735,7 +66561,7 @@ GameObject:
   - component: {fileID: 2078045218}
   m_Layer: 0
   m_Name: Nothing space_0 (264)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66822,7 +66648,7 @@ GameObject:
   - component: {fileID: 2080227515}
   m_Layer: 0
   m_Name: Nothing space_0 (152)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66909,7 +66735,7 @@ GameObject:
   - component: {fileID: 2082858027}
   m_Layer: 0
   m_Name: Trap space_0 (15)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66996,7 +66822,7 @@ GameObject:
   - component: {fileID: 2091410500}
   m_Layer: 0
   m_Name: Trash Space_0 (32)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67257,7 +67083,7 @@ GameObject:
   - component: {fileID: 2102240869}
   m_Layer: 0
   m_Name: Trash Space_0 (84)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67692,7 +67518,7 @@ GameObject:
   - component: {fileID: 2106692579}
   m_Layer: 0
   m_Name: Nothing space_0 (157)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67779,7 +67605,7 @@ GameObject:
   - component: {fileID: 2108791867}
   m_Layer: 0
   m_Name: Nothing space_0 (187)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67866,7 +67692,7 @@ GameObject:
   - component: {fileID: 2118670463}
   m_Layer: 0
   m_Name: Skip turn_0 (7)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67953,7 +67779,7 @@ GameObject:
   - component: {fileID: 2119689421}
   m_Layer: 0
   m_Name: Lose Trash space_0
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68127,7 +67953,7 @@ GameObject:
   - component: {fileID: 2121764946}
   m_Layer: 0
   m_Name: Roll again space_0 (24)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68214,7 +68040,7 @@ GameObject:
   - component: {fileID: 2125012560}
   m_Layer: 0
   m_Name: Nothing space_0 (114)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68301,7 +68127,7 @@ GameObject:
   - component: {fileID: 2128505712}
   m_Layer: 0
   m_Name: Nothing space_0 (133)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68388,7 +68214,7 @@ GameObject:
   - component: {fileID: 2129831319}
   m_Layer: 0
   m_Name: Trash Space_0 (93)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68475,7 +68301,7 @@ GameObject:
   - component: {fileID: 2132396459}
   m_Layer: 0
   m_Name: Trash Space_0 (22)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68562,7 +68388,7 @@ GameObject:
   - component: {fileID: 2132770265}
   m_Layer: 0
   m_Name: Nothing space_0 (108)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68649,7 +68475,7 @@ GameObject:
   - component: {fileID: 2136435286}
   m_Layer: 0
   m_Name: Nothing space_0 (43)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68823,7 +68649,7 @@ GameObject:
   - component: {fileID: 2143740159}
   m_Layer: 0
   m_Name: Lose Trash space_0 (7)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68910,7 +68736,7 @@ GameObject:
   - component: {fileID: 2145718783}
   m_Layer: 0
   m_Name: Trash Space_0 (15)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69335,7 +69161,6 @@ SceneRoots:
   - {fileID: 159967826}
   - {fileID: 913253133}
   - {fileID: 173543832}
-  - {fileID: 1164497206}
   - {fileID: 1257736454}
   - {fileID: 1000382211}
   - {fileID: 2118670464}
@@ -69489,7 +69314,6 @@ SceneRoots:
   - {fileID: 232221243}
   - {fileID: 818463219}
   - {fileID: 982472101}
-  - {fileID: 87728957}
   - {fileID: 712683238}
   - {fileID: 323634961}
   - {fileID: 312991095}
