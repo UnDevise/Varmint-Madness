@@ -2123,6 +2123,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2266344317183763531, guid: effcc2e51083b3c4985828e3c4ef913f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 160574402}
     - target: {fileID: 5038362282236381990, guid: effcc2e51083b3c4985828e3c4ef913f, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -2539,7 +2543,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 2009261040}
   - {fileID: 1049183797}
-  - {fileID: 2031707772}
   - {fileID: 160574402}
   - {fileID: 115195882}
   - {fileID: 316360533}
+  - {fileID: 2031707772}
