@@ -13,6 +13,16 @@ TagManager:
   - Tunnel
   - Placeholder
   - Marble
+  - Nothing Space
+  - Cage Space
+  - Trash Space
+  - Lose Trash Space
+  - Player Mover Space
+  - Gambling Space
+  - VS Space
+  - Roll again space
+  - Skip Turn Space
+  - Change route Space
   layers:
   - Default
   - TransparentFX
