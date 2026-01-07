@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 897ec51d1136a554f85fc7a90bbf2b3e
+guid: 3424f5820c6bcb143b4d169a034188db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 165867160972854914
-    second: Opossum Luke Idle_0
-  - first:
-      213: 2011246396454235879
-    second: Opossum Luke Idle_1
+      213: -1712074998796499465
+    second: Fox Jaidyn_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -129,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Opossum Luke Idle_0
+      name: Fox Jaidyn_0
       rect:
         serializedVersion: 2
-        x: 89
+        x: 109
         y: 219
         width: 262
-        height: 372
+        height: 382
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28680b9dd474d4200800000000000000
-      internalID: 165867160972854914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Opossum Luke Idle_1
-      rect:
-        serializedVersion: 2
-        x: 589
-        y: 219
-        width: 262
-        height: 362
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7ee607801f169eb10800000000000000
-      internalID: 2011246396454235879
+      spriteID: 7f548eb0cdc7d38e0800000000000000
+      internalID: -1712074998796499465
       vertices: []
       indices: 
       edges: []
@@ -186,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Opossum Luke Idle_0: 165867160972854914
-      Opossum Luke Idle_1: 2011246396454235879
+      Fox Jaidyn_0: -1712074998796499465
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

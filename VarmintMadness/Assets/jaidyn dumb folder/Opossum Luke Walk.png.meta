@@ -142,6 +142,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -422,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Opossum Luke Walk_0: -3900716893744706361
+      Opossum Luke Walk_1: 1435983171358610977
+      Opossum Luke Walk_10: -3240754106335885805
+      Opossum Luke Walk_11: 5758159739143131482
+      Opossum Luke Walk_2: 3526675210759420653
+      Opossum Luke Walk_3: -7762027222677104608
+      Opossum Luke Walk_4: -3679940583149278150
+      Opossum Luke Walk_5: 5059940451933658932
+      Opossum Luke Walk_6: 2830295250127606305
+      Opossum Luke Walk_7: 864886053330198469
+      Opossum Luke Walk_8: -1723462720361834553
+      Opossum Luke Walk_9: 7452463587471988822
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
