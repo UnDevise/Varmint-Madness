@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 113666798a93b1f44b35c659a22c11cd
+guid: 3424f5820c6bcb143b4d169a034188db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8617929100628791996
-    second: Cage Space_0
+      213: -1712074998796499465
+    second: Fox Jaidyn_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cage Space_0
+      name: Fox Jaidyn_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 35
-        width: 53
-        height: 56
+        x: 109
+        y: 219
+        width: 262
+        height: 382
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44de4898427f66880800000000000000
-      internalID: -8617929100628791996
+      spriteID: 7f548eb0cdc7d38e0800000000000000
+      internalID: -1712074998796499465
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Cage Space_0: -8617929100628791996
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
