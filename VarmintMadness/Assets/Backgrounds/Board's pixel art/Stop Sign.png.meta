@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9c3f792e8332698479e0c95192225081
+guid: 1c54e916eaf764a4380cc42e59bb4f3c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3484287900037411390
-    second: download-removebg-preview_0
+      213: -6441155787871521025
+    second: Stop Sign_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: download-removebg-preview_0
+      name: Stop Sign_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 150
-        height: 140
+        x: 41
+        y: 14
+        width: 38
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e32fbe0726daa5030800000000000000
-      internalID: 3484287900037411390
+      spriteID: ff677f800fa6c96a0800000000000000
+      internalID: -6441155787871521025
       vertices: []
       indices: 
       edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      download-removebg-preview_0: 3484287900037411390
+      Stop Sign_0: -6441155787871521025
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
