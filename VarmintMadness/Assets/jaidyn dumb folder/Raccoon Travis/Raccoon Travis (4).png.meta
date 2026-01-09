@@ -1,40 +1,43 @@
 fileFormatVersion: 2
-guid: 1a650c6be60997b478af072f65a46dad
+guid: a811541e32a75c1469bd8a1f2b3b0a64
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4075500423554367789
-    second: Jaiden Alien (2)_0
+      213: 2104152402395574219
+    second: Raccoon Travis (4)_0
   - first:
-      213: -3705394035771822792
-    second: Jaiden Alien (2)_1
+      213: 745291683541508772
+    second: Raccoon Travis (4)_1
   - first:
-      213: 409379557650891432
-    second: Jaiden Alien (2)_2
+      213: 1256454724645405005
+    second: Raccoon Travis (4)_2
   - first:
-      213: 3444433371121309853
-    second: Jaiden Alien (2)_3
+      213: -3158002395301191410
+    second: Raccoon Travis (4)_3
   - first:
-      213: 2891996014407580795
-    second: Jaiden Alien (2)_4
+      213: 7591244826930991355
+    second: Raccoon Travis (4)_4
   - first:
-      213: 146738265423797577
-    second: Jaiden Alien (2)_5
+      213: 4738868354276227539
+    second: Raccoon Travis (4)_5
   - first:
-      213: 8598001743156648491
-    second: Jaiden Alien (2)_6
+      213: -4008344707248135101
+    second: Raccoon Travis (4)_6
   - first:
-      213: 7486821054647720612
-    second: Jaiden Alien (2)_7
+      213: -2171170155460716458
+    second: Raccoon Travis (4)_7
   - first:
-      213: 5852855096281374999
-    second: Jaiden Alien (2)_8
+      213: -2891455603553620380
+    second: Raccoon Travis (4)_8
   - first:
-      213: 7043157200809179316
-    second: Jaiden Alien (2)_9
+      213: -3789965102053501801
+    second: Raccoon Travis (4)_9
   - first:
-      213: -8671916435821744221
-    second: Jaiden Alien (2)_10
+      213: -2652838012221834461
+    second: Raccoon Travis (4)_10
+  - first:
+      213: -7587949580426558913
+    second: Raccoon Travis (4)_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -67,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -105,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,7 +130,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WindowsStoreApps
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,96 +142,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jaiden Alien (2)_0
+      name: Raccoon Travis (4)_0
       rect:
         serializedVersion: 2
-        x: 99
-        y: 1719
-        width: 262
-        height: 522
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d2189e3da061f8830800000000000000
-      internalID: 4075500423554367789
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jaiden Alien (2)_1
-      rect:
-        serializedVersion: 2
-        x: 599
-        y: 1719
-        width: 262
-        height: 522
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 83d28f8a1cbc39cc0800000000000000
-      internalID: -3705394035771822792
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jaiden Alien (2)_2
-      rect:
-        serializedVersion: 2
-        x: 1099
-        y: 1719
-        width: 262
-        height: 502
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8a28618e9886ea500800000000000000
-      internalID: 409379557650891432
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jaiden Alien (2)_3
-      rect:
-        serializedVersion: 2
-        x: 1599
+        x: 129
         y: 1779
-        width: 262
-        height: 462
+        width: 222
+        height: 372
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +161,130 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d98df22d6e51dcf20800000000000000
-      internalID: 3444433371121309853
+      spriteID: bcfa2123673733d10800000000000000
+      internalID: 2104152402395574219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jaiden Alien (2)_4
+      name: Raccoon Travis (4)_1
       rect:
         serializedVersion: 2
-        x: 99
+        x: 629
+        y: 1779
+        width: 222
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a26b8366dec75a00800000000000000
+      internalID: 745291683541508772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Travis (4)_2
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 1779
+        width: 222
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d41c9d24ae2df6110800000000000000
+      internalID: 1256454724645405005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Travis (4)_3
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 1789
+        width: 222
+        height: 362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e016d34ad858c24d0800000000000000
+      internalID: -3158002395301191410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Travis (4)_4
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1009
+        width: 222
+        height: 362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf05e3033f4895960800000000000000
+      internalID: 7591244826930991355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Travis (4)_5
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 1009
+        width: 222
+        height: 362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d979fd19a7d3c140800000000000000
+      internalID: 4738868354276227539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Travis (4)_6
+      rect:
+        serializedVersion: 2
+        x: 1129
         y: 999
-        width: 262
-        height: 452
+        width: 222
+        height: 372
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,20 +293,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7cfb9a7d0f622820800000000000000
-      internalID: 2891996014407580795
+      spriteID: 3446823d9bf7f58c0800000000000000
+      internalID: -4008344707248135101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jaiden Alien (2)_5
+      name: Raccoon Travis (4)_7
       rect:
         serializedVersion: 2
-        x: 599
+        x: 1629
         y: 999
-        width: 262
-        height: 462
+        width: 222
+        height: 372
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,64 +315,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 94dda89cca1590200800000000000000
-      internalID: 146738265423797577
+      spriteID: 65895d83f347ed1e0800000000000000
+      internalID: -2171170155460716458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jaiden Alien (2)_6
+      name: Raccoon Travis (4)_8
       rect:
         serializedVersion: 2
-        x: 1099
-        y: 939
-        width: 262
-        height: 522
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2a9a0ff70d325770800000000000000
-      internalID: 8598001743156648491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jaiden Alien (2)_7
-      rect:
-        serializedVersion: 2
-        x: 1599
-        y: 939
-        width: 262
-        height: 502
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4aa5133151886e760800000000000000
-      internalID: 7486821054647720612
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jaiden Alien (2)_8
-      rect:
-        serializedVersion: 2
-        x: 99
+        x: 129
         y: 219
-        width: 262
-        height: 462
+        width: 222
+        height: 372
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +337,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 711afa743b4893150800000000000000
-      internalID: 5852855096281374999
+      spriteID: 46eaf5ab27c7fd7d0800000000000000
+      internalID: -2891455603553620380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jaiden Alien (2)_9
+      name: Raccoon Travis (4)_9
       rect:
         serializedVersion: 2
-        x: 599
-        y: 219
-        width: 262
-        height: 452
+        x: 629
+        y: 229
+        width: 222
+        height: 362
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,20 +359,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b8377b68225eb160800000000000000
-      internalID: 7043157200809179316
+      spriteID: 79459fcd1d6576bc0800000000000000
+      internalID: -3789965102053501801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jaiden Alien (2)_10
+      name: Raccoon Travis (4)_10
       rect:
         serializedVersion: 2
-        x: 1099
-        y: 219
-        width: 262
-        height: 452
+        x: 1129
+        y: 229
+        width: 222
+        height: 362
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,8 +381,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3af29f882f927a780800000000000000
-      internalID: -8671916435821744221
+      spriteID: 32b3dda12e93f2bd0800000000000000
+      internalID: -2652838012221834461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon Travis (4)_11
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 229
+        width: 222
+        height: 362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f32c91d2f0032b690800000000000000
+      internalID: -7587949580426558913
       vertices: []
       indices: 
       edges: []
@@ -410,18 +422,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Jaiden Alien (2)_0: 4075500423554367789
-      Jaiden Alien (2)_1: -3705394035771822792
-      Jaiden Alien (2)_10: -8671916435821744221
-      Jaiden Alien (2)_2: 409379557650891432
-      Jaiden Alien (2)_3: 3444433371121309853
-      Jaiden Alien (2)_4: 2891996014407580795
-      Jaiden Alien (2)_5: 146738265423797577
-      Jaiden Alien (2)_6: 8598001743156648491
-      Jaiden Alien (2)_7: 7486821054647720612
-      Jaiden Alien (2)_8: 5852855096281374999
-      Jaiden Alien (2)_9: 7043157200809179316
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
