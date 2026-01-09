@@ -15626,7 +15626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomedOrthographicSize: 3
   zoomSpeed: 2
-  followSpeed: 5
+  followSpeed: 3
 --- !u!1 &457707561
 GameObject:
   m_ObjectHideFlags: 0
@@ -48479,8 +48479,28 @@ Transform:
   - {fileID: 1289212037}
   - {fileID: 2068610558}
   - {fileID: 1422570700}
+  - {fileID: 369814704}
   - {fileID: 988683026}
+  - {fileID: 982478004}
+  - {fileID: 791737792}
+  - {fileID: 1913578932}
+  - {fileID: 312071731}
+  - {fileID: 2106692580}
   - {fileID: 1398589145}
+  - {fileID: 1622941737}
+  - {fileID: 1246188341}
+  - {fileID: 716781512}
+  - {fileID: 1404929889}
+  - {fileID: 484081488}
+  - {fileID: 1805109640}
+  - {fileID: 705747537}
+  - {fileID: 1204623809}
+  - {fileID: 1453054797}
+  - {fileID: 128939686}
+  - {fileID: 1961178269}
+  - {fileID: 1140206497}
+  - {fileID: 1916786361}
+  - {fileID: 7916056}
   - {fileID: 768554236}
   - {fileID: 1676996139}
   - {fileID: 1429812419}
@@ -48491,11 +48511,6 @@ Transform:
   - {fileID: 250556165}
   - {fileID: 1005093655}
   - {fileID: 873516467}
-  - {fileID: 2106692580}
-  - {fileID: 1404929889}
-  - {fileID: 1453054797}
-  - {fileID: 1140206497}
-  - {fileID: 7916056}
   - {fileID: 2108791868}
   - {fileID: 1548449835}
   - {fileID: 1163024454}
@@ -48523,8 +48538,6 @@ Transform:
   - {fileID: 1244964410}
   - {fileID: 1787668283}
   - {fileID: 706170944}
-  - {fileID: 312071731}
-  - {fileID: 1913578932}
   - {fileID: 642427903}
   - {fileID: 261808455}
   - {fileID: 1734384700}
@@ -48704,9 +48717,6 @@ Transform:
   - {fileID: 159967826}
   - {fileID: 913253133}
   - {fileID: 173543832}
-  - {fileID: 982478004}
-  - {fileID: 716781512}
-  - {fileID: 1805109640}
   - {fileID: 1571683271}
   - {fileID: 1891034407}
   - {fileID: 1373935564}
@@ -48754,8 +48764,6 @@ Transform:
   - {fileID: 1375850462}
   - {fileID: 334007239}
   - {fileID: 629001219}
-  - {fileID: 369814704}
-  - {fileID: 1246188341}
   - {fileID: 741260770}
   - {fileID: 1877397753}
   - {fileID: 1942852660}
@@ -48774,11 +48782,6 @@ Transform:
   - {fileID: 72920604}
   - {fileID: 266807453}
   - {fileID: 1926693084}
-  - {fileID: 1622941737}
-  - {fileID: 484081488}
-  - {fileID: 705747537}
-  - {fileID: 1204623809}
-  - {fileID: 128939686}
   - {fileID: 1034273593}
   - {fileID: 584403927}
   - {fileID: 290407247}
@@ -48989,9 +48992,6 @@ Transform:
   - {fileID: 1970394689}
   - {fileID: 1426247395}
   - {fileID: 1276017101}
-  - {fileID: 791737792}
-  - {fileID: 1961178269}
-  - {fileID: 1916786361}
   - {fileID: 762384064}
   - {fileID: 2036075858}
   - {fileID: 1542170029}
