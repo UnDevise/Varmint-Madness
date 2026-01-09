@@ -91,17 +91,21 @@ public class CameraController : MonoBehaviour
 
     private IEnumerator ReturnToFullView()
     {
-        // Smoothly return to the original position and zoom level.
-        while (Vector3.Distance(transform.position, fullViewPosition) > 0.01f || Mathf.Abs(cam.orthographicSize - fullViewOrthographicSize) > 0.01f)
+        // Smoothly return only the zoom level, not the position.
+        while (Mathf.Abs(cam.orthographicSize - fullViewOrthographicSize) > 0.01f)
         {
-            transform.position = Vector3.Lerp(transform.position, fullViewPosition, zoomSpeed * Time.deltaTime);
             if (cam.orthographic)
             {
-                cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, fullViewOrthographicSize, zoomSpeed * Time.deltaTime);
+                cam.orthographicSize = Mathf.Lerp(
+                    cam.orthographicSize,
+                    fullViewOrthographicSize,
+                    zoomSpeed * Time.deltaTime
+                );
             }
+
             yield return null;
         }
-        transform.position = fullViewPosition;
+
         if (cam.orthographic)
         {
             cam.orthographicSize = fullViewOrthographicSize;
