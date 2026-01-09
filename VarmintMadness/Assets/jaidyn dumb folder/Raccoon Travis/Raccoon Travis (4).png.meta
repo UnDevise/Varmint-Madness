@@ -142,6 +142,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -422,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Raccoon Travis (4)_0: 2104152402395574219
+      Raccoon Travis (4)_1: 745291683541508772
+      Raccoon Travis (4)_10: -2652838012221834461
+      Raccoon Travis (4)_11: -7587949580426558913
+      Raccoon Travis (4)_2: 1256454724645405005
+      Raccoon Travis (4)_3: -3158002395301191410
+      Raccoon Travis (4)_4: 7591244826930991355
+      Raccoon Travis (4)_5: 4738868354276227539
+      Raccoon Travis (4)_6: -4008344707248135101
+      Raccoon Travis (4)_7: -2171170155460716458
+      Raccoon Travis (4)_8: -2891455603553620380
+      Raccoon Travis (4)_9: -3789965102053501801
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
