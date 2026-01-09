@@ -89,6 +89,15 @@ public class CameraController : MonoBehaviour
         StartCoroutine(ReturnToFullView());
     }
 
+    public void SwitchPlayer(Transform newPlayer)
+    {
+        StopAllCoroutines();          // Stop any zoom or return animations
+        isFollowingPlayer = false;    // Stop following the old player
+        playerToFollow = null;
+
+        StartCoroutine(StartFollowingCoroutine(newPlayer)); // Start zoom + follow on new player
+    }
+
     private IEnumerator ReturnToFullView()
     {
         // Smoothly return only the zoom level, not the position.
