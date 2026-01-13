@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c387e8b041266654f8faad25f160b0c8
+guid: f2b26aa630519de4ca2b7a8855180d18
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1542984525474939529
-    second: FoxJaidynBestImage_0
+      213: 5626522465000048143
+    second: the gladdest pear_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FoxJaidynBestImage_0
+      name: the gladdest pear_0
       rect:
         serializedVersion: 2
-        x: 109
-        y: 219
-        width: 262
-        height: 382
+        x: 0
+        y: 0
+        width: 201
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77d3429cfb7369ae0800000000000000
-      internalID: -1542984525474939529
+      spriteID: f06451f0f5c651e40800000000000000
+      internalID: 5626522465000048143
       vertices: []
       indices: 
       edges: []
@@ -160,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      FoxJaidynBestImage_0: -1542984525474939529
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
