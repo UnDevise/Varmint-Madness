@@ -9766,15 +9766,15 @@ PrefabInstance:
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'playersToMove.Array.data[3]'
       value: 
-      objectReference: {fileID: 339808346}
+      objectReference: {fileID: 733533793}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'playersToMove.Array.data[4]'
       value: 
-      objectReference: {fileID: 733533793}
+      objectReference: {fileID: 250705188}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'playersToMove.Array.data[5]'
       value: 
-      objectReference: {fileID: 250705188}
+      objectReference: {fileID: 339808346}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
