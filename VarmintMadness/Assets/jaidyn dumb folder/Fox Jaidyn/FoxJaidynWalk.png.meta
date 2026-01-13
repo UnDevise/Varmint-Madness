@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: 7c5316671315a134b9046a4448df2eef
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5271502561458547608
+    second: Fox Jaidyndfsgdvsz_0
+  - first:
+      213: 976042555326299279
+    second: Fox Jaidyndfsgdvsz_1
+  - first:
+      213: 1898688414048496253
+    second: Fox Jaidyndfsgdvsz_2
+  - first:
+      213: 2538982456896492985
+    second: Fox Jaidyndfsgdvsz_3
+  - first:
+      213: -6033468189223645621
+    second: Fox Jaidyndfsgdvsz_4
+  - first:
+      213: 4514351723127099294
+    second: Fox Jaidyndfsgdvsz_5
+  - first:
+      213: -2408748641073550515
+    second: Fox Jaidyndfsgdvsz_6
+  - first:
+      213: -986523322154210447
+    second: Fox Jaidyndfsgdvsz_7
+  - first:
+      213: 3441152359808989179
+    second: Fox Jaidyndfsgdvsz_8
+  - first:
+      213: 7869614296144680830
+    second: Fox Jaidyndfsgdvsz_9
+  - first:
+      213: 5961864990698243825
+    second: Fox Jaidyndfsgdvsz_10
+  - first:
+      213: 8383984212452933884
+    second: Fox Jaidyndfsgdvsz_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_0
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1779
+        width: 262
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86493b7995cd7d6b0800000000000000
+      internalID: -5271502561458547608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_1
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1779
+        width: 262
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8c73e368899b8d00800000000000000
+      internalID: 976042555326299279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_2
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 1779
+        width: 262
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7aa28a8d0f795a10800000000000000
+      internalID: 1898688414048496253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_3
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 1809
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b5934aa7174c3320800000000000000
+      internalID: 2538982456896492985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_4
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1029
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4e84b906a0d44ca0800000000000000
+      internalID: -6033468189223645621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_5
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1029
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9fc92069f236ae30800000000000000
+      internalID: 4514351723127099294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_6
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 999
+        width: 262
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4b2b9f7fd7629ed0800000000000000
+      internalID: -2408748641073550515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_7
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 999
+        width: 262
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b2c5ce34a2f42f0800000000000000
+      internalID: -986523322154210447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_8
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 219
+        width: 262
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf77968d6dd61cf20800000000000000
+      internalID: 3441152359808989179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_9
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 249
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e771a01e18c763d60800000000000000
+      internalID: 7869614296144680830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_10
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 249
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f608692f9cccb250800000000000000
+      internalID: 5961864990698243825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Jaidyndfsgdvsz_11
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 249
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf08db19835e95470800000000000000
+      internalID: 8383984212452933884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fox Jaidyndfsgdvsz_0: -5271502561458547608
+      Fox Jaidyndfsgdvsz_1: 976042555326299279
+      Fox Jaidyndfsgdvsz_10: 5961864990698243825
+      Fox Jaidyndfsgdvsz_11: 8383984212452933884
+      Fox Jaidyndfsgdvsz_2: 1898688414048496253
+      Fox Jaidyndfsgdvsz_3: 2538982456896492985
+      Fox Jaidyndfsgdvsz_4: -6033468189223645621
+      Fox Jaidyndfsgdvsz_5: 4514351723127099294
+      Fox Jaidyndfsgdvsz_6: -2408748641073550515
+      Fox Jaidyndfsgdvsz_7: -986523322154210447
+      Fox Jaidyndfsgdvsz_8: 3441152359808989179
+      Fox Jaidyndfsgdvsz_9: 7869614296144680830
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
