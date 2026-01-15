@@ -17889,6 +17889,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1187131202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 23}
+--- !u!1 &561684505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 561684506}
+  m_Layer: 0
+  m_Name: Loop spaces
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &561684506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561684505}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 178.76537, y: 7.649986, z: -2.7230783}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1265527642}
+  - {fileID: 1276017101}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &563177701
 GameObject:
   m_ObjectHideFlags: 0
@@ -38438,11 +38471,11 @@ Transform:
   m_GameObject: {fileID: 1265527640}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 97.02577, y: -4.15396, z: 8.108425}
+  m_LocalPosition: {x: 1.5346375, y: -10.409986, z: 0.72307825}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1535759404}
+  m_Father: {fileID: 561684506}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1269652424
 GameObject:
@@ -38612,11 +38645,11 @@ Transform:
   m_GameObject: {fileID: 1276017099}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6942291, y: 95.77604, z: 8.108425}
+  m_LocalPosition: {x: -96.18536, y: 89.52001, z: 0.72307825}
   m_LocalScale: {x: 0.16, y: 0.16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1535759404}
+  m_Father: {fileID: 561684506}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1276254286
 GameObject:
@@ -45342,6 +45375,7 @@ GameObject:
   - component: {fileID: 1511254932}
   - component: {fileID: 1511254931}
   - component: {fileID: 1511254933}
+  - component: {fileID: 1511254934}
   m_Layer: 0
   m_Name: Chipmunk Bella_0
   m_TagString: Untagged
@@ -45439,6 +45473,28 @@ MonoBehaviour:
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
+--- !u!95 &1511254934
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511254930}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1511746848
 GameObject:
   m_ObjectHideFlags: 0
@@ -46845,7 +46901,6 @@ Transform:
   - {fileID: 1571683271}
   - {fileID: 762384064}
   - {fileID: 1705131247}
-  - {fileID: 1265527642}
   - {fileID: 1012158558}
   - {fileID: 502438073}
   - {fileID: 1240620820}
@@ -46998,7 +47053,6 @@ Transform:
   - {fileID: 1446376372}
   - {fileID: 1715764946}
   - {fileID: 170488020}
-  - {fileID: 1276017101}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1538620270
@@ -65211,12 +65265,13 @@ SceneRoots:
   m_Roots:
   - {fileID: 5952829925963156249}
   - {fileID: 304823815}
-  - {fileID: 1187131202}
-  - {fileID: 1535759404}
   - {fileID: 1511254932}
   - {fileID: 821826320}
   - {fileID: 873121439}
   - {fileID: 1938905687}
+  - {fileID: 1187131202}
+  - {fileID: 561684506}
+  - {fileID: 1535759404}
   - {fileID: 2126069413}
   - {fileID: 797256775}
   - {fileID: 809852374}
