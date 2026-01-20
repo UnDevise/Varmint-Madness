@@ -650,7 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d825a43cd210eb41b6e8e05a0eeee83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 45
+  scrollSpeed: 50
 --- !u!114 &1086081787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,8 +730,37 @@ MonoBehaviour:
     Luke Johnson
 
 
-    Thanks
-    for playing :)'
+    Cutscenes
+    by
+
+    Jaidyn Musolff
+
+
+    Board space design
+
+    T.J. Credille
+
+    Luke
+    johnson
+
+
+    Written by
+
+    T.J. Credille
+
+
+    Art by
+
+    Jaidyn Musolff
+
+
+    Mini
+    Game Design
+
+    T.J. Credille
+
+
+    Thanks for playing :)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4b775fd2e279fd04a962470b83154b52, type: 2}
   m_sharedMaterial: {fileID: -7489765113027175155, guid: 4b775fd2e279fd04a962470b83154b52, type: 2}
