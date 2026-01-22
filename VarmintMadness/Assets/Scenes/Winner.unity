@@ -335,8 +335,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 03e17ac2d2dbeaa4c897efa932b7be20, type: 3}
+  m_Resource: {fileID: 8300000, guid: 03e17ac2d2dbeaa4c897efa932b7be20, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -545,8 +545,8 @@ Camera:
   m_GameObject: {fileID: 1722134761}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 0.80982506, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -826,8 +826,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 1722134764}
   - {fileID: 417737231}
+  - {fileID: 127829174}
   - {fileID: 626486844}
   - {fileID: 1796599476}
   - {fileID: 318767988}
   - {fileID: 1810554068}
-  - {fileID: 127829174}
