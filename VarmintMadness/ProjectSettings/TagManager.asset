@@ -23,6 +23,7 @@ TagManager:
   - Roll again space
   - Skip Turn Space
   - Change route Space
+  - Sewer space
   layers:
   - Default
   - TransparentFX
