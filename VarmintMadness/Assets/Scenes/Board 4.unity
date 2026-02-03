@@ -1784,7 +1784,7 @@ GameObject:
   - component: {fileID: 355587808}
   m_Layer: 0
   m_Name: Sewer space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Sewer space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9661,19 +9661,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9054456811651608997, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 17.21475
+      value: 9.037572
       objectReference: {fileID: 0}
     - target: {fileID: 9054456811651608997, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 12.154117
+      value: 8.659808
       objectReference: {fileID: 0}
     - target: {fileID: 9054456811651608997, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.8
+      value: 8.4
       objectReference: {fileID: 0}
     - target: {fileID: 9054456811651608997, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.4
+      value: 8.8
       objectReference: {fileID: 0}
     - target: {fileID: 9054456811651608997, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9814,7 +9814,7 @@ GameObject:
   - component: {fileID: 1785942512}
   m_Layer: 0
   m_Name: Sewer space_0
-  m_TagString: Untagged
+  m_TagString: Sewer space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
