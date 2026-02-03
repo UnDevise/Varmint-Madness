@@ -9,17 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: d2fc5916486fe7445bc0083f6a52eae6
   - enabled: 1
-    path: Assets/Scenes/CharacterSelect.unity
+    path: Assets/Scenes/Local or multiplayer.unity
+    guid: 04967460fd402f64b8c7df0ec3dce44d
+  - enabled: 1
+    path: Assets/Scenes/LocalMultiplayerCharacterSelect.unity
     guid: 7e49cae78947c0045b401a743f0df26b
+  - enabled: 1
+    path: Assets/Scenes/Board Select.unity
+    guid: 54735fa09e4ccff46b94d4540ab7f5b1
   - enabled: 1
     path: Assets/Scenes/Board 1.unity
     guid: 1a928e24e1a75374792be9f067dd58ed
-  - enabled: 1
-    path: Assets/Scenes/Multiplayer test.unity
-    guid: 4b9caea66a8b76542b6cd7b640e57630
-  - enabled: 1
-    path: Assets/Scenes/Board Picker.unity
-    guid: 54735fa09e4ccff46b94d4540ab7f5b1
   - enabled: 1
     path: Assets/Scenes/Board 2.unity
     guid: 479cce54c3f4e5645ab6d3fe928c5b95
@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Board 4.unity
     guid: 2693bea1eb15730488edbc1f5efd0dac
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer test.unity
+    guid: 4b9caea66a8b76542b6cd7b640e57630
   - enabled: 1
     path: Assets/Scenes/Marble MiniGame.unity
     guid: cf7c4e95b2fbaec4f997abb42e021d81
