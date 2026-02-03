@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LocalMultiplayerCharacterSelect.unity
     guid: 7e49cae78947c0045b401a743f0df26b
   - enabled: 1
-    path: Assets/Scenes/Board Picker.unity
+    path: Assets/Scenes/Board Select.unity
     guid: 54735fa09e4ccff46b94d4540ab7f5b1
   - enabled: 1
     path: Assets/Scenes/Board 1.unity
