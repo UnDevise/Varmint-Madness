@@ -8,24 +8,24 @@ public class AudioFader : MonoBehaviour
 
     void Start()
     {
+        audioSource.volume = 0f;
+        audioSource.Play();
+
         StartCoroutine(FadeIn());
     }
 
     IEnumerator FadeIn()
     {
-        audioSource.volume = 0f;
-        audioSource.Play();
+        float timer = 0f;
 
-        float elapsed = 0f;
-
-        while (elapsed < fadeDuration)
+        while (timer < fadeDuration)
         {
-            elapsed += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(0f, 1f, elapsed / fadeDuration);
+            timer += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(0f, 0.5f, timer / fadeDuration);
             yield return null;
         }
 
-        audioSource.volume = 1f;
+        audioSource.volume = 0.5f; // Final Volume
     }
 }
 
