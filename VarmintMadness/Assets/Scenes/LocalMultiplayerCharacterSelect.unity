@@ -229,7 +229,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterButtons: []
   playerIndicator: {fileID: 0}
-  playerIcons: []
+  playerIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &241934495
 Transform:
   m_ObjectHideFlags: 0
@@ -2289,5 +2293,5 @@ SceneRoots:
   - {fileID: 1453552930}
   - {fileID: 1303601838}
   - {fileID: 1118805199}
-  - {fileID: 691642373}
   - {fileID: 241934495}
+  - {fileID: 691642373}

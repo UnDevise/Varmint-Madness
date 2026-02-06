@@ -2,35 +2,40 @@ using UnityEngine;
 
 public class MiniGameFinishBlock : MonoBehaviour
 {
-    public MiniGameMusic musicPlayer; // Drag MusicManager here in Inspector
+    public MiniGameMusic musicPlayer;
+    private bool hasPlayedFinishMusic = false;
 
-    private bool hasPlayedFinishMusic = false; // NEW FLAG
+    private GameManagerMarble manager;
+
+    private void Start()
+    {
+        manager = FindObjectOfType<GameManagerMarble>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("FinishBlock triggered by: " + collision.name);
+        if (!collision.CompareTag("Marble"))
+            return;
 
-        if (collision.CompareTag("Marble"))
+        // Play finish music once
+        if (!hasPlayedFinishMusic)
         {
-            if (!hasPlayedFinishMusic) // Only play once
+            if (musicPlayer != null)
             {
-                if (musicPlayer != null)
-                {
-                    Debug.Log("Playing finish song!");
-                    musicPlayer.PlayFinishSong();
-                    hasPlayedFinishMusic = true; // Prevent future plays
-                }
-                else
-                {
-                    Debug.LogWarning("MusicPlayer reference is missing!");
-                }
+                musicPlayer.PlayFinishSong();
+                hasPlayedFinishMusic = true;
             }
-            else
-            {
-                Debug.Log("Finish music already played, ignoring.");
-            }
+        }
+
+        // Identify which marble finished
+        MarbleMovement marble = collision.GetComponent<MarbleMovement>();
+
+        if (marble != null)
+        {
+            manager.MarbleReachedFinish(marble.marbleIndex);
         }
     }
 }
+
 
 
