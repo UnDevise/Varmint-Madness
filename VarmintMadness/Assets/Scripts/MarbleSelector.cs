@@ -2,17 +2,31 @@
 
 public class MarbleSelector : MonoBehaviour
 {
-    public GameManagerMarble gameManager;
+    public int marbleIndex; // Set in Inspector
+    private GameManagerMarble manager;
 
-    private bool isSelected = false;
+    void Start()
+    {
+        manager = FindObjectOfType<GameManagerMarble>();
+    }
 
     void OnMouseDown()
     {
-        if (!isSelected && gameManager != null)
+        // Only allow clicking if the marble is still available
+        if (enabled)
         {
-            isSelected = true; // Prevent double‑clicks
-            gameManager.PlayerChoseMarble();
+            manager.PlayerPickedMarble(this);
         }
     }
+
+    public void DisableMarble()
+    {
+        // Disable clicking
+        enabled = false;
+
+        // Optional: fade the marble or change color to show it's taken
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.4f);
+    }
 }
+
 

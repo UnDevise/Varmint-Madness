@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MarbleMovement : MonoBehaviour
 {
+    public int marbleIndex;          // Set in Inspector (0,1,2,...)
     public float minSpeed = 5f;
     public float maxSpeed = 12f;
 
@@ -24,6 +25,9 @@ public class MarbleMovement : MonoBehaviour
         float randomX = Random.Range(-2f, 2f);
         rb.AddForce(new Vector2(randomX, 0f), ForceMode2D.Impulse);
 
+        float randomTorque = Random.Range(-5f, 5f);
+        rb.AddTorque(randomTorque, ForceMode2D.Impulse);
+
         rb.gravityScale = 0.8f;
     }
 
@@ -31,9 +35,17 @@ public class MarbleMovement : MonoBehaviour
     {
         if (!raceStarted)
         {
-            rb.linearVelocity = Vector2.zero; // keep still before race
+            rb.linearVelocity = Vector2.zero;
         }
-        // Once race starts, physics handles movement & bouncing
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Marble"))
+        {
+            Vector2 pushDir = (transform.position - collision.transform.position).normalized;
+            rb.AddForce(pushDir * 2f, ForceMode2D.Impulse);
+        }
     }
 }
 
