@@ -6,11 +6,13 @@ public class GameManagerMarble : MonoBehaviour
     public MarbleMovement[] marbles;          // Assign all marbles in Inspector
     public TextMeshProUGUI playerTurnText;    // Drag your UI text here
 
-    public int totalPlayers = 4;              // Set number of players (2–4)
+    public int totalPlayers = 4;              // Number of players
     private int currentPlayer = 1;
     private int playersChosen = 0;
 
     private int[] playerMarbleChoices;
+
+    private bool winnerChosen = false;        // NEW — prevents later marbles from overwriting the winner
 
     void Start()
     {
@@ -61,9 +63,15 @@ public class GameManagerMarble : MonoBehaviour
     // Called by the finish block
     public void MarbleReachedFinish(int marbleIndex)
     {
+        // If a winner was already chosen, ignore all future marbles
+        if (winnerChosen)
+            return;
+
+        winnerChosen = true; // Lock in the first winner
+
         int winningPlayer = -1;
 
-        // Find which player picked this marble
+        // Check which player picked this marble
         for (int i = 0; i < totalPlayers; i++)
         {
             if (playerMarbleChoices[i] == marbleIndex)
