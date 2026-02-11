@@ -79,7 +79,6 @@ public class DiceRoller : MonoBehaviour
 
     void RollDice()
     {
-        // NEW — camera focuses on the dice BEFORE rolling
         if (diceFocusTarget != null)
         {
             CameraController.Instance.FocusOnDice(diceFocusTarget);
