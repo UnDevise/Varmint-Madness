@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6cb3e1f3a74d48d4098f3f0767b935e6
+guid: eabd038864f36084c95c493143131782
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6501061611614576707
-    second: Mini game background 2_0
+      213: -75016663728173439
+    second: images-removebg-preview (12)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mini game background 2_0
+      name: images-removebg-preview (12)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 180
-        height: 360
+        x: 28
+        y: 31
+        width: 177
+        height: 159
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dbfd8c888e697c5a0800000000000000
-      internalID: -6501061611614576707
+      spriteID: 18e4f36edbc75fef0800000000000000
+      internalID: -75016663728173439
       vertices: []
       indices: 
       edges: []
@@ -160,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Mini game background 2_0: -6501061611614576707
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

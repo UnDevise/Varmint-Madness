@@ -9,7 +9,7 @@ public class MiniGameFinishBlock : MonoBehaviour
 
     private void Start()
     {
-        manager = FindObjectOfType<GameManagerMarble>();
+        manager = Object.FindAnyObjectByType<GameManagerMarble>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

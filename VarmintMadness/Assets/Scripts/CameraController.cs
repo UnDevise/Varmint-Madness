@@ -32,10 +32,12 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         cam = GetComponent<Camera>();
+
         if (cam.orthographic)
         {
             fullViewOrthographicSize = cam.orthographicSize;
         }
+
         fullViewPosition = transform.position;
     }
 
@@ -54,70 +56,115 @@ public class CameraController : MonoBehaviour
             playerToFollow.position.y,
             transform.position.z
         );
-        transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
+
+        transform.position = Vector3.Lerp(
+            transform.position,
+            targetPosition,
+            followSpeed * Time.deltaTime
+        );
     }
 
-    // Public coroutine for starting the follow with a zoom transition.
+    // ---------------------------------------------------------
+    // FOCUS ON DICE
+    // ---------------------------------------------------------
+    public void FocusOnDice(Transform diceTransform)
+    {
+        StopAllCoroutines();
+        isFollowingPlayer = false;
+        playerToFollow = null;
+
+        StartCoroutine(FocusDiceCoroutine(diceTransform));
+    }
+
+    private IEnumerator FocusDiceCoroutine(Transform dice)
+    {
+        float startSize = cam.orthographicSize;
+        float elapsed = 0f;
+
+        while (elapsed < 1f)
+        {
+            elapsed += Time.deltaTime * zoomSpeed;
+
+            cam.orthographicSize = Mathf.Lerp(startSize, zoomedOrthographicSize, elapsed);
+
+            Vector3 targetPos = new Vector3(
+                dice.position.x,
+                dice.position.y,
+                transform.position.z
+            );
+
+            transform.position = Vector3.Lerp(transform.position, targetPos, elapsed);
+
+            yield return null;
+        }
+
+        cam.orthographicSize = zoomedOrthographicSize;
+    }
+
+    // ---------------------------------------------------------
+    // FOCUS ON PLAYER
+    // ---------------------------------------------------------
+    public void FocusOnPlayer(Transform playerTransform)
+    {
+        StopAllCoroutines();
+        StartCoroutine(StartFollowingCoroutine(playerTransform));
+    }
+
     public IEnumerator StartFollowingCoroutine(Transform playerTransform)
     {
         playerToFollow = playerTransform;
 
-        // Smoothly zoom in first.
-        float startOrthographicSize = cam.orthographicSize;
+        float startSize = cam.orthographicSize;
         float elapsedTime = 0;
 
         while (elapsedTime < 1)
         {
             elapsedTime += Time.deltaTime * zoomSpeed;
-            cam.orthographicSize = Mathf.Lerp(startOrthographicSize, zoomedOrthographicSize, elapsedTime);
-            // Move camera towards the player while zooming
-            Vector3 targetPosition = new Vector3(playerToFollow.position.x, playerToFollow.position.y, transform.position.z);
+
+            cam.orthographicSize = Mathf.Lerp(startSize, zoomedOrthographicSize, elapsedTime);
+
+            Vector3 targetPosition = new Vector3(
+                playerToFollow.position.x,
+                playerToFollow.position.y,
+                transform.position.z
+            );
+
             transform.position = Vector3.Lerp(transform.position, targetPosition, elapsedTime);
+
             yield return null;
         }
 
         cam.orthographicSize = zoomedOrthographicSize;
-
-        // Start following once zoom is complete.
         isFollowingPlayer = true;
     }
 
+    // ---------------------------------------------------------
+    // STOP FOLLOWING
+    // ---------------------------------------------------------
     public void StopFollowing()
     {
         isFollowingPlayer = false;
         playerToFollow = null;
+
         StartCoroutine(ReturnToFullView());
     }
 
-    public void SwitchPlayer(Transform newPlayer)
-    {
-        StopAllCoroutines();          // Stop any zoom or return animations
-        isFollowingPlayer = false;    // Stop following the old player
-        playerToFollow = null;
-
-        StartCoroutine(StartFollowingCoroutine(newPlayer)); // Start zoom + follow on new player
-    }
-
+    // ---------------------------------------------------------
+    // RETURN TO FULL VIEW
+    // ---------------------------------------------------------
     private IEnumerator ReturnToFullView()
     {
-        // Smoothly return only the zoom level, not the position.
         while (Mathf.Abs(cam.orthographicSize - fullViewOrthographicSize) > 0.01f)
         {
-            if (cam.orthographic)
-            {
-                cam.orthographicSize = Mathf.Lerp(
-                    cam.orthographicSize,
-                    fullViewOrthographicSize,
-                    zoomSpeed * Time.deltaTime
-                );
-            }
+            cam.orthographicSize = Mathf.Lerp(
+                cam.orthographicSize,
+                fullViewOrthographicSize,
+                zoomSpeed * Time.deltaTime
+            );
 
             yield return null;
         }
 
-        if (cam.orthographic)
-        {
-            cam.orthographicSize = fullViewOrthographicSize;
-        }
+        cam.orthographicSize = fullViewOrthographicSize;
     }
 }
