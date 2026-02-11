@@ -5738,6 +5738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7984386cf60d26c42bdd2d1e0e8a0f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: Local or multiplayer
 --- !u!1 &1879665496
 GameObject:
   m_ObjectHideFlags: 0
