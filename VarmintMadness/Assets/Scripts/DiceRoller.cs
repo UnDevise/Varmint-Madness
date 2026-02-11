@@ -31,7 +31,7 @@ public class DiceController : MonoBehaviour
 
         if (uiParentPanel == null)
         {
-            Canvas canvas = FindObjectOfType<Canvas>();
+            Canvas canvas = Object.FindAnyObjectByType<Canvas>();
             if (canvas != null)
             {
                 uiParentPanel = canvas.transform;

@@ -7,7 +7,7 @@ public class MarbleSelector : MonoBehaviour
 
     void Start()
     {
-        manager = FindObjectOfType<GameManagerMarble>();
+        manager = Object.FindAnyObjectByType<GameManagerMarble>();
     }
 
     void OnMouseDown()
