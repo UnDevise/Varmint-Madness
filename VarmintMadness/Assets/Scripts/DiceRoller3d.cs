@@ -28,6 +28,9 @@ public class DiceRoller : MonoBehaviour
     private bool hasLanded = false;
     private bool thrown = false;
 
+    // NEW — reference to the dice object (D6_Rounded)
+    public Transform diceFocusTarget;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -53,7 +56,6 @@ public class DiceRoller : MonoBehaviour
 
     void Update()
     {
-        // THE KEY CHECK: Only roll if the player is not moving and the dice isn't rolling
         if (Input.GetKeyDown(KeyCode.Space) && canRoll)
         {
             if (diceController == null || !diceController.IsPlayerMoving())
@@ -77,6 +79,11 @@ public class DiceRoller : MonoBehaviour
 
     void RollDice()
     {
+        if (diceFocusTarget != null)
+        {
+            CameraController.Instance.FocusOnDice(diceFocusTarget);
+        }
+
         rb.isKinematic = false;
         canRoll = false;
         thrown = true;
@@ -138,3 +145,4 @@ public class DiceRoller : MonoBehaviour
         return result;
     }
 }
+
