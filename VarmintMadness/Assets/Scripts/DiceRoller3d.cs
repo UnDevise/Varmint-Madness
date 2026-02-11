@@ -38,7 +38,7 @@ public class DiceRoller : MonoBehaviour
 
         if (diceController == null)
         {
-            diceController = FindObjectOfType<DiceController>();
+            diceController = Object.FindAnyObjectByType<DiceController>();
             if (diceController == null) Debug.LogError("DiceController reference missing!");
         }
 
