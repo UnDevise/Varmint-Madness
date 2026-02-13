@@ -4,12 +4,11 @@ using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
-
     public TextMeshProUGUI dialogueText;
 
-    
     public string[] dialogueLines;
     public float typingSpeed = 0.03f; // Adjustable Speed
+    public float punctuationPause = 1f; // Adjustable pause for punctuation
 
     private int currentLineIndex = 0;
     private bool isTyping = false;
@@ -22,7 +21,6 @@ public class DialogueSystem : MonoBehaviour
 
     void Update()
     {
-        
         if (Input.GetMouseButtonDown(0))
         {
             if (isTyping)
@@ -46,7 +44,15 @@ public class DialogueSystem : MonoBehaviour
         foreach (char c in dialogueLines[currentLineIndex])
         {
             dialogueText.text += c;
-            yield return new WaitForSeconds(typingSpeed);
+
+            float delay = typingSpeed;
+
+            if (c == '.' || c == ',' || c == '!' || c == '?' || c == ':' || c == ';')
+            {
+                delay = punctuationPause;
+            }
+
+            yield return new WaitForSeconds(delay);
         }
 
         isTyping = false;
@@ -66,4 +72,3 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 }
-
