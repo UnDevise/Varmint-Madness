@@ -28,8 +28,9 @@ public class DiceRoller : MonoBehaviour
     private bool hasLanded = false;
     private bool thrown = false;
 
-    // NEW — reference to the dice object (D6_Rounded)
-    public Transform diceFocusTarget;
+    private Camera mainCamera;
+    public float cameraFollowSpeed = 5f;
+    public float diceSpawnOffsetFromCamera = 10f;
 
     void Start()
     {
@@ -52,6 +53,9 @@ public class DiceRoller : MonoBehaviour
         canRoll = true;
 
         if (diceRenderer != null) diceRenderer.enabled = false;
+
+        mainCamera = Camera.main;
+        if (mainCamera == null) Debug.LogError("Main Camera not found!");
     }
 
     void Update()
@@ -67,6 +71,21 @@ public class DiceRoller : MonoBehaviour
                 Debug.Log("Cannot roll the dice while the player is moving!");
             }
         }
+
+        if (thrown && mainCamera != null)
+        {
+            Vector3 targetPos = new Vector3(
+                transform.position.x,
+                transform.position.y,
+                mainCamera.transform.position.z
+            );
+
+            mainCamera.transform.position = Vector3.Lerp(
+                mainCamera.transform.position,
+                targetPos,
+                Time.deltaTime * cameraFollowSpeed
+            );
+        }
     }
 
     void FixedUpdate()
@@ -79,9 +98,17 @@ public class DiceRoller : MonoBehaviour
 
     void RollDice()
     {
-        if (diceFocusTarget != null)
+        if (mainCamera != null)
         {
-            CameraController.Instance.FocusOnDice(diceFocusTarget);
+            Vector3 camPos = mainCamera.transform.position;
+
+            Vector3 spawnPos = new Vector3(
+                camPos.x,
+                camPos.y - diceSpawnOffsetFromCamera,
+                transform.position.z
+            );
+
+            transform.position = spawnPos;
         }
 
         rb.isKinematic = false;
@@ -91,8 +118,17 @@ public class DiceRoller : MonoBehaviour
 
         if (diceRenderer != null) diceRenderer.enabled = true;
 
-        Vector3 force = new Vector3(Random.Range(0f, rollForce), Random.Range(rollForce / 2f, rollForce), Random.Range(0f, rollForce));
-        Vector3 torque = new Vector3(Random.Range(0f, torqueForce), Random.Range(0f, torqueForce), Random.Range(0f, torqueForce));
+        Vector3 force = new Vector3(
+            Random.Range(0f, rollForce),
+            Random.Range(rollForce / 2f, rollForce),
+            Random.Range(0f, rollForce)
+        );
+
+        Vector3 torque = new Vector3(
+            Random.Range(0f, torqueForce),
+            Random.Range(0f, torqueForce),
+            Random.Range(0f, torqueForce)
+        );
 
         rb.AddForce(force, ForceMode.Impulse);
         rb.AddTorque(torque, ForceMode.Impulse);
@@ -102,7 +138,11 @@ public class DiceRoller : MonoBehaviour
 
     IEnumerator CheckIfAtRest()
     {
-        yield return new WaitUntil(() => rb.linearVelocity.sqrMagnitude < 0.01f && rb.angularVelocity.sqrMagnitude < 0.01f);
+        yield return new WaitUntil(() =>
+            rb.linearVelocity.sqrMagnitude < 0.01f &&
+            rb.angularVelocity.sqrMagnitude < 0.01f
+        );
+
         yield return new WaitForSeconds(waitTimeBeforeResult);
 
         if (!hasLanded && thrown)
@@ -110,6 +150,7 @@ public class DiceRoller : MonoBehaviour
             hasLanded = true;
             rb.useGravity = false;
             rb.isKinematic = true;
+
             int rollResult = CalculateDiceResult();
             Debug.Log("Dice landed on: " + rollResult);
 
@@ -120,8 +161,9 @@ public class DiceRoller : MonoBehaviour
 
             if (diceRenderer != null) diceRenderer.enabled = false;
 
-            canRoll = true;
             thrown = false;
+
+            canRoll = true;
         }
     }
 
@@ -145,4 +187,3 @@ public class DiceRoller : MonoBehaviour
         return result;
     }
 }
-
