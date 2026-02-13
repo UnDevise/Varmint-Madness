@@ -44,6 +44,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 9e96bc2efb56e1244b16a4c005bf31b2
+    name: DialogueVol
   - guid: 32505e8ddf9ecd0479951ac5b257ab17
     name: MusicVol
   - guid: 09bb92f551147a4409f7e065f9a9c294

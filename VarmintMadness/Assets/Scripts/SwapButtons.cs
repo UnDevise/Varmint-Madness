@@ -33,7 +33,7 @@ public class UltimateButtonDodger : MonoBehaviour
     public void ExecutePlay()
     {
         if (isQuitting) return;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Local or multiplayer");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Title Cutscene");
     }
 
     public void ExecuteQuit()
