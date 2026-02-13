@@ -7,11 +7,11 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
+    [SerializeField] private Slider dialogueSlider; // Added dialogue slider reference
 
     public void SetMusicVolume()
     {
         float volume = musicSlider.value;
-        // Use Log10 to convert linear slider value (0.0001 to 1) to decibels (-80 to 0)
         myMixer.SetFloat("MusicVol", Mathf.Log10(volume) * 20);
     }
 
@@ -19,5 +19,13 @@ public class VolumeSettings : MonoBehaviour
     {
         float volume = sfxSlider.value;
         myMixer.SetFloat("SFXVol", Mathf.Log10(volume) * 20);
+    }
+
+    // New function for Dialogue
+    public void SetDialogueVolume()
+    {
+        float volume = dialogueSlider.value;
+        // Ensure your Dialogue group's volume is exposed as "DialogueVol"
+        myMixer.SetFloat("DialogueVol", Mathf.Log10(volume) * 20);
     }
 }
