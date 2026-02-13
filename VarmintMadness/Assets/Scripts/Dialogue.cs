@@ -1,12 +1,17 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Audio; // Required for AudioMixerGroup
 
 public class DialogueSystem : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshProUGUI mainDialogueText;      // This text appears instantly
-    public TextMeshProUGUI secondaryDialogueText; // This text types out letter by letter
+    public TextMeshProUGUI mainDialogueText;
+    public TextMeshProUGUI secondaryDialogueText;
+
+    [Header("Audio Settings")]
+    public AudioSource voiceAudioSource;
+    public AudioMixerGroup outputGroup; // Drag your Mixer Group (e.g., Dialogue) here
 
     [System.Serializable]
     public struct DialogueEntry
@@ -15,9 +20,10 @@ public class DialogueSystem : MonoBehaviour
         public string mainText;
         [TextArea(3, 10)]
         public string secondaryText;
+        public AudioClip voiceClip;
     }
 
-    [Header("Settings")]
+    [Header("Sequence Settings")]
     public DialogueEntry[] dialogueLines;
     public float typingSpeed = 0.03f;
     public float punctuationPause = 0.5f;
@@ -27,9 +33,18 @@ public class DialogueSystem : MonoBehaviour
 
     void Start()
     {
-        // Initial clear
         mainDialogueText.text = "";
         secondaryDialogueText.text = "";
+
+        if (voiceAudioSource != null)
+        {
+            voiceAudioSource.loop = true;
+            // Routes the AudioSource to your selected Mixer Group
+            if (outputGroup != null)
+            {
+                voiceAudioSource.outputAudioMixerGroup = outputGroup;
+            }
+        }
 
         if (dialogueLines.Length > 0)
         {
@@ -43,10 +58,8 @@ public class DialogueSystem : MonoBehaviour
         {
             if (isTyping)
             {
-                // Skip the typing effect for the secondary text
                 StopAllCoroutines();
-                secondaryDialogueText.text = dialogueLines[currentLineIndex].secondaryText;
-                isTyping = false;
+                FinishLineInstantly();
             }
             else
             {
@@ -58,28 +71,56 @@ public class DialogueSystem : MonoBehaviour
     IEnumerator TypeLine()
     {
         isTyping = true;
-
-        // 1. Set Main Text instantly (Static)
         mainDialogueText.text = dialogueLines[currentLineIndex].mainText;
-
-        // 2. Clear and then type out Secondary Text
         secondaryDialogueText.text = "";
+
         string secondaryStr = dialogueLines[currentLineIndex].secondaryText;
+        AudioClip currentClip = dialogueLines[currentLineIndex].voiceClip;
+
+        if (voiceAudioSource != null && currentClip != null)
+        {
+            voiceAudioSource.clip = currentClip;
+        }
 
         foreach (char c in secondaryStr)
         {
             secondaryDialogueText.text += c;
 
-            float delay = typingSpeed;
-            if (IsPunctuation(c))
+            bool isPunctuation = IsPunctuation(c);
+            float delay = isPunctuation ? punctuationPause : typingSpeed;
+
+            if (voiceAudioSource != null && currentClip != null)
             {
-                delay = punctuationPause;
+                if (!isPunctuation && !voiceAudioSource.isPlaying)
+                {
+                    voiceAudioSource.Play();
+                }
+                else if (isPunctuation && voiceAudioSource.isPlaying)
+                {
+                    voiceAudioSource.Pause();
+                }
             }
 
             yield return new WaitForSeconds(delay);
         }
 
+        StopAudio();
         isTyping = false;
+    }
+
+    void FinishLineInstantly()
+    {
+        secondaryDialogueText.text = dialogueLines[currentLineIndex].secondaryText;
+        StopAudio();
+        isTyping = false;
+    }
+
+    void StopAudio()
+    {
+        if (voiceAudioSource != null && voiceAudioSource.isPlaying)
+        {
+            voiceAudioSource.Stop();
+        }
     }
 
     bool IsPunctuation(char c)
