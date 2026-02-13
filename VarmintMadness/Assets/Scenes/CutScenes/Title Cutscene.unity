@@ -263,10 +263,10 @@ RectTransform:
   - {fileID: 1629239597}
   m_Father: {fileID: 383412205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 4, y: 179.92004}
-  m_SizeDelta: {x: 1850.6444, y: 221.43762}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -960, y: -360.08}
+  m_SizeDelta: {x: 1823.937, y: 221.4376}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &199507510
 MonoBehaviour:
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3369851867
+    rgba: 14408667
   m_fontColor: {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -890,7 +890,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: -294.92}
+  m_AnchoredPosition: {x: 0, y: -294.92}
   m_SizeDelta: {x: 2036.8, y: 589.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &654145154
@@ -1910,7 +1910,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Varmint Maddness
+  m_text: Varmint Madness
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2749094875
+    rgba: 14408667
   m_fontColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 0.6392157}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2046,7 +2046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517, y: -9.090092}
+  m_AnchoredPosition: {x: 0.000030517, y: -13}
   m_SizeDelta: {x: 1045.3965, y: 78.3824}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1629239598
@@ -2096,8 +2096,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2134,7 +2134,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -364.9839, y: -6.194702, z: -327.18457, w: -44.936386}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2160,9 +2160,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2fd240d4eb1f6408d7c399cd684a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueText: {fileID: 1629239598}
+  mainDialogueText: {fileID: 1986072513}
+  secondaryDialogueText: {fileID: 1629239598}
   dialogueLines:
-  - 
+  - mainText: Mouse Warf
+    secondaryText: Hey! Wake. NOW!
   typingSpeed: 0.05
   punctuationPause: 0.5
 --- !u!1 &1819482248
@@ -2524,7 +2526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 181}
+  m_AnchoredPosition: {x: -64, y: 181}
   m_SizeDelta: {x: 116.0197, y: 48.9503}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1986072513
@@ -2547,7 +2549,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mouse Warf
+  m_text: Name Here
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4b775fd2e279fd04a962470b83154b52, type: 2}
   m_sharedMaterial: {fileID: -7489765113027175155, guid: 4b775fd2e279fd04a962470b83154b52, type: 2}
@@ -2581,7 +2583,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 4
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2612,7 +2614,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 4.342224, y: 0, z: -116.459045, w: 0}
+  m_margin: {x: -788.7861, y: 0, z: -913.11346, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

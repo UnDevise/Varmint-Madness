@@ -4,19 +4,37 @@ using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
-    public TextMeshProUGUI dialogueText;
+    [Header("UI References")]
+    public TextMeshProUGUI mainDialogueText;      // This text appears instantly
+    public TextMeshProUGUI secondaryDialogueText; // This text types out letter by letter
 
-    public string[] dialogueLines;
-    public float typingSpeed = 0.03f; // Adjustable Speed
-    public float punctuationPause = 1f; // Adjustable pause for punctuation
+    [System.Serializable]
+    public struct DialogueEntry
+    {
+        [TextArea(3, 10)]
+        public string mainText;
+        [TextArea(3, 10)]
+        public string secondaryText;
+    }
+
+    [Header("Settings")]
+    public DialogueEntry[] dialogueLines;
+    public float typingSpeed = 0.03f;
+    public float punctuationPause = 0.5f;
 
     private int currentLineIndex = 0;
     private bool isTyping = false;
 
     void Start()
     {
-        dialogueText.text = "";
-        StartCoroutine(TypeLine());
+        // Initial clear
+        mainDialogueText.text = "";
+        secondaryDialogueText.text = "";
+
+        if (dialogueLines.Length > 0)
+        {
+            StartCoroutine(TypeLine());
+        }
     }
 
     void Update()
@@ -25,8 +43,9 @@ public class DialogueSystem : MonoBehaviour
         {
             if (isTyping)
             {
+                // Skip the typing effect for the secondary text
                 StopAllCoroutines();
-                dialogueText.text = dialogueLines[currentLineIndex];
+                secondaryDialogueText.text = dialogueLines[currentLineIndex].secondaryText;
                 isTyping = false;
             }
             else
@@ -39,15 +58,20 @@ public class DialogueSystem : MonoBehaviour
     IEnumerator TypeLine()
     {
         isTyping = true;
-        dialogueText.text = "";
 
-        foreach (char c in dialogueLines[currentLineIndex])
+        // 1. Set Main Text instantly (Static)
+        mainDialogueText.text = dialogueLines[currentLineIndex].mainText;
+
+        // 2. Clear and then type out Secondary Text
+        secondaryDialogueText.text = "";
+        string secondaryStr = dialogueLines[currentLineIndex].secondaryText;
+
+        foreach (char c in secondaryStr)
         {
-            dialogueText.text += c;
+            secondaryDialogueText.text += c;
 
             float delay = typingSpeed;
-
-            if (c == '.' || c == ',' || c == '!' || c == '?' || c == ':' || c == ';')
+            if (IsPunctuation(c))
             {
                 delay = punctuationPause;
             }
@@ -56,6 +80,11 @@ public class DialogueSystem : MonoBehaviour
         }
 
         isTyping = false;
+    }
+
+    bool IsPunctuation(char c)
+    {
+        return c == '.' || c == ',' || c == '!' || c == '?' || c == ':' || c == ';';
     }
 
     void NextLine()
@@ -67,7 +96,8 @@ public class DialogueSystem : MonoBehaviour
         }
         else
         {
-            dialogueText.text = "";
+            mainDialogueText.text = "";
+            secondaryDialogueText.text = "";
             Debug.Log("Dialogue finished.");
         }
     }
