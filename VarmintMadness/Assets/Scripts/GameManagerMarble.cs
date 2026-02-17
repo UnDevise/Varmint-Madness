@@ -4,35 +4,59 @@ using TMPro;
 public class GameManagerMarble : MonoBehaviour
 {
     public MarbleMovement[] marbles;          // Assign all marbles in Inspector
-    public TextMeshProUGUI playerTurnText;    // Drag your UI text here
+    public MarbleSelector[] marbleSelectors;  // Assign all selectors in Inspector
+    public TextMeshProUGUI playerTurnText;
 
-    public int totalPlayers = 4;              // Number of players
+    public int totalPlayers = 4;
     private int currentPlayer = 1;
     private int playersChosen = 0;
 
     private int[] playerMarbleChoices;
-
-    private bool winnerChosen = false;        // NEW — prevents later marbles from overwriting the winner
+    private bool winnerChosen = false;
 
     void Start()
     {
         playerMarbleChoices = new int[totalPlayers];
+
+        // Hide all marbles at the start
+        foreach (var selector in marbleSelectors)
+            selector.HideUnpicked();
+
         UpdateTurnText();
     }
 
-    // Called when a player clicks a marble
     public void PlayerPickedMarble(MarbleSelector marbleButton)
     {
         int marbleIndex = marbleButton.marbleIndex;
 
-        // Save the choice
+        // Save the choice (this is the marbleIndex, not array index)
         playerMarbleChoices[currentPlayer - 1] = marbleIndex;
 
-        // Disable the marble so others can't pick it
+        // Disable this marble so it can't be picked again
         marbleButton.DisableMarble();
 
         playersChosen++;
         currentPlayer++;
+
+        // Hide all marbles
+        foreach (var selector in marbleSelectors)
+            selector.HideUnpicked();
+
+        // Show only chosen marbles
+        for (int i = 0; i < playersChosen; i++)
+        {
+            int chosenMarbleIndex = playerMarbleChoices[i];
+
+            // Find the selector with this marbleIndex
+            foreach (var selector in marbleSelectors)
+            {
+                if (selector.marbleIndex == chosenMarbleIndex)
+                {
+                    selector.EnableMarble();
+                    break;
+                }
+            }
+        }
 
         // If all players have chosen, start the race
         if (playersChosen >= totalPlayers)
@@ -51,27 +75,34 @@ public class GameManagerMarble : MonoBehaviour
 
     private void StartRace()
     {
-        // Hide the picking text
         playerTurnText.gameObject.SetActive(false);
 
-        foreach (MarbleMovement marble in marbles)
+        // Start race ONLY for chosen marbles
+        for (int i = 0; i < playersChosen; i++)
         {
-            marble.StartRace();
+            int chosenMarbleIndex = playerMarbleChoices[i];
+
+            // Find the MarbleMovement with matching index
+            foreach (var marble in marbles)
+            {
+                if (marble.marbleIndex == chosenMarbleIndex)
+                {
+                    marble.StartRace();
+                    break;
+                }
+            }
         }
     }
 
-    // Called by the finish block
     public void MarbleReachedFinish(int marbleIndex)
     {
-        // If a winner was already chosen, ignore all future marbles
         if (winnerChosen)
             return;
 
-        winnerChosen = true; // Lock in the first winner
+        winnerChosen = true;
 
         int winningPlayer = -1;
 
-        // Check which player picked this marble
         for (int i = 0; i < totalPlayers; i++)
         {
             if (playerMarbleChoices[i] == marbleIndex)
@@ -81,7 +112,6 @@ public class GameManagerMarble : MonoBehaviour
             }
         }
 
-        // Show the text again
         playerTurnText.gameObject.SetActive(true);
 
         if (winningPlayer != -1)
