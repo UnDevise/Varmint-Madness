@@ -6,14 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CutScenes/Title Cutscene.unity
-    guid: 89b6b31d8a6197f4581d4a06300a2551
-  - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: 181140cafe271d943b9907ea6c54d1cd
-  - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: d2fc5916486fe7445bc0083f6a52eae6
+  - enabled: 1
+    path: Assets/Scenes/CutScenes/Title Cutscene.unity
+    guid: 89b6b31d8a6197f4581d4a06300a2551
   - enabled: 1
     path: Assets/Scenes/Local or multiplayer.unity
     guid: 04967460fd402f64b8c7df0ec3dce44d
@@ -47,6 +44,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game Concept.unity
     guid: 726ccf35191468c49a7365f9336185cd
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 181140cafe271d943b9907ea6c54d1cd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
