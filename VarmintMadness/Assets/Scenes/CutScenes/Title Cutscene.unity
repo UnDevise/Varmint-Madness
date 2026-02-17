@@ -1002,7 +1002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &654145153
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1210,7 +1210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &790031000
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2289,20 +2289,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2fd240d4eb1f6408d7c399cd684a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueBox: {fileID: 0}
   mainDialogueText: {fileID: 1986072513}
   secondaryDialogueText: {fileID: 1629239598}
   voiceAudioSource: {fileID: 527818483}
   outputGroup: {fileID: 2530815221477543561, guid: 4716fc176eb15144db40ed483df9044f, type: 2}
   dialogueLines:
   - mainText: Mouse Warf
-    secondaryText: Hey! Wake. NOW!
+    secondaryText: Hey! Wake. NOW! lalala more testing im just testing the audio
+      and working stuff lalala
     voiceClip: {fileID: 8300000, guid: 27221f509dc76454dbe0bdf1d85ae888, type: 3}
-  - mainText: Mouse Warf
-    secondaryText: LALALALAL TESTING
-    voiceClip: {fileID: 8300000, guid: 27221f509dc76454dbe0bdf1d85ae888, type: 3}
-  - mainText: Mouse Warf
-    secondaryText: LALALALAL TESTING
-    voiceClip: {fileID: 8300000, guid: 27221f509dc76454dbe0bdf1d85ae888, type: 3}
+    triggerHideBox: 1
+    postEventDelay: 1
+    onBoxClosed:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   typingSpeed: 0.05
   punctuationPause: 0.5
 --- !u!1 &1819482248
