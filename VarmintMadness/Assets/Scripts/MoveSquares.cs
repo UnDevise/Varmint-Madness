@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     public Transform layerOutTeleportPoint;
     public float moveSpeed = 5.0f;
 
+    public bool IsInCage = false;               // Tracks if the player is trapped
+    public Transform cageTeleportPoint;         // Where the player gets teleported
+
     public List<string> marbleMinigameScenes = new List<string>();
 
     [Header("Special Square Sounds")]
@@ -23,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip tunnelSound;
     public AudioClip garbageAddSound;
     public AudioClip garbageRemoveSound;
+    public AudioClip cageSound;
     public AudioClip stunSound;
 
     private List<WaypointData> targetWaypoints = new List<WaypointData>();
@@ -60,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
         UpdateGarbageText();
     }
 
-    // --- Helper to play sound once ---
     private void PlaySquareSound(AudioClip clip)
     {
         if (clip != null && audioSource != null)
@@ -83,7 +86,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void MoveCharacter(int stepsToMove) => StartCoroutine(HandlePlayerTurn(stepsToMove));
+    public void MoveCharacter(int stepsToMove)
+    {
+        if (IsInCage)
+        {
+            Debug.Log($"{playerName} is in the cage and cannot move.");
+            return;
+        }
+
+        StartCoroutine(HandlePlayerTurn(stepsToMove));
+    }
 
     private IEnumerator HandlePlayerTurn(int stepsToMove)
     {
@@ -132,10 +144,10 @@ public class PlayerMovement : MonoBehaviour
         string currentWaypointTag = targetWaypoints[currentPositionIndex].Tag;
         string currentWaypointName = targetWaypoints[currentPositionIndex].Name;
 
-        if (currentWaypointTag == "MoveBackSquare")
+        if (currentWaypointTag == "Cage Space")
         {
-            PlaySquareSound(moveBackSound);
-            MoveCharacter(-3);
+            PlaySquareSound(cageSound);
+            SendPlayerToCage();
             return true;
         }
         else if (currentWaypointTag == "Gambling Space")
@@ -252,6 +264,7 @@ public class PlayerMovement : MonoBehaviour
         }
         spriteRenderer.color = endColor;
     }
+
     private void StartMarbleMinigame()
     {
         if (marbleMinigameScenes == null || marbleMinigameScenes.Count == 0)
@@ -263,9 +276,20 @@ public class PlayerMovement : MonoBehaviour
         int index = Random.Range(0, marbleMinigameScenes.Count);
         string selectedScene = marbleMinigameScenes[index];
 
-        Debug.Log("Loading minigame: " +  selectedScene);
+        Debug.Log("Loading minigame: " + selectedScene);
 
         SceneManager.LoadScene(selectedScene);
+    }
+
+    private void SendPlayerToCage()
+    {
+        IsInCage = true;
+
+        transform.position = cageTeleportPoint.position;
+
+        currentPositionIndex = -1;
+
+        Debug.Log("Player has been sent to the cage and is out of the game.");
     }
 
     private void UpdateGarbageText() { if (garbageText != null) garbageText.text = $"{playerName}: {garbageCount} garbage"; }

@@ -42140,11 +42140,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 729741347605574973, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.49
+      value: -60.06
       objectReference: {fileID: 0}
     - target: {fileID: 729741347605574973, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.45
+      value: 40.5
       objectReference: {fileID: 0}
     - target: {fileID: 729741347605574973, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42181,6 +42181,10 @@ PrefabInstance:
     - target: {fileID: 2865597611777200372, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: m_Name
       value: D1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2865597611777200372, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3141665080337853833, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: m_Enabled
@@ -44256,6 +44260,8 @@ MonoBehaviour:
   layerInTeleportPoint: {fileID: 0}
   layerOutTeleportPoint: {fileID: 0}
   moveSpeed: 5
+  IsInCage: 0
+  cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
   - MarbleMinigame
   - MarbleMinigame 2
@@ -44265,6 +44271,7 @@ MonoBehaviour:
   tunnelSound: {fileID: 0}
   garbageAddSound: {fileID: 0}
   garbageRemoveSound: {fileID: 0}
+  cageSound: {fileID: 0}
   stunSound: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
@@ -47801,6 +47808,8 @@ MonoBehaviour:
   layerInTeleportPoint: {fileID: 0}
   layerOutTeleportPoint: {fileID: 0}
   moveSpeed: 5
+  IsInCage: 0
+  cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
   - MarbleMinigame
   - MarbleMinigame 2
@@ -47810,6 +47819,7 @@ MonoBehaviour:
   tunnelSound: {fileID: 0}
   garbageAddSound: {fileID: 0}
   garbageRemoveSound: {fileID: 0}
+  cageSound: {fileID: 0}
   stunSound: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
@@ -71072,9 +71082,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311555912}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 281.88138, y: 27.3, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -80327,6 +80337,8 @@ MonoBehaviour:
   layerInTeleportPoint: {fileID: 0}
   layerOutTeleportPoint: {fileID: 0}
   moveSpeed: 5
+  IsInCage: 0
+  cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
   - MarbleMinigame
   - MarbleMinigame 2
@@ -80336,6 +80348,7 @@ MonoBehaviour:
   tunnelSound: {fileID: 0}
   garbageAddSound: {fileID: 0}
   garbageRemoveSound: {fileID: 0}
+  cageSound: {fileID: 0}
   stunSound: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
@@ -103968,6 +103981,8 @@ MonoBehaviour:
   layerInTeleportPoint: {fileID: 0}
   layerOutTeleportPoint: {fileID: 0}
   moveSpeed: 5
+  IsInCage: 0
+  cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
   - MarbleMinigame
   - MarbleMinigame 2
@@ -103977,6 +103992,7 @@ MonoBehaviour:
   tunnelSound: {fileID: 0}
   garbageAddSound: {fileID: 0}
   garbageRemoveSound: {fileID: 0}
+  cageSound: {fileID: 0}
   stunSound: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
