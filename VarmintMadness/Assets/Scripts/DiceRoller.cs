@@ -120,4 +120,14 @@ public class DiceController : MonoBehaviour
             physicsDiceTransform.rotation = originalDiceRotation;
         }
     }
+    public void RollAgain()
+    {
+        // Simulate a dice roll
+        int rollResult = Random.Range(1, diceSides + 1);
+
+        Debug.Log($"Roll Again triggered! Rolled a {rollResult}");
+
+        MoveCurrentPlayer(rollResult);
+    }
+
 }

@@ -86,14 +86,35 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // ---------------------------------------------------------
+    // FIX #1 — If player is in cage, end turn immediately
+    // ---------------------------------------------------------
     public void MoveCharacter(int stepsToMove)
     {
+        // If player is in cage, they can't move and their turn ends
         if (IsInCage)
         {
             Debug.Log($"{playerName} is in the cage and cannot move.");
+
+            if (diceController != null)
+                diceController.OnPlayerTurnFinished();
+
             return;
         }
 
+        // If player is stunned, they skip this turn once
+        if (IsStunned)
+        {
+            Debug.Log($"{playerName} skips a turn (stunned).");
+            IsStunned = false; // consume the stun
+
+            if (diceController != null)
+                diceController.OnPlayerTurnFinished();
+
+            return;
+        }
+
+        // Normal movement
         StartCoroutine(HandlePlayerTurn(stepsToMove));
     }
 
@@ -109,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
 
         bool bonusMoveTriggered = CheckForSpecialWaypoint();
 
+        // If no bonus move, end turn
         if (!bonusMoveTriggered)
         {
             if (cameraController != null) cameraController.StopFollowing();
@@ -144,11 +166,14 @@ public class PlayerMovement : MonoBehaviour
         string currentWaypointTag = targetWaypoints[currentPositionIndex].Tag;
         string currentWaypointName = targetWaypoints[currentPositionIndex].Name;
 
+        // ---------------------------------------------------------
+        // FIX #2 — Cage space ends the turn (return false)
+        // ---------------------------------------------------------
         if (currentWaypointTag == "Cage Space")
         {
             PlaySquareSound(cageSound);
             SendPlayerToCage();
-            return true;
+            return false; // End turn immediately
         }
         else if (currentWaypointTag == "Gambling Space")
         {
@@ -184,6 +209,18 @@ public class PlayerMovement : MonoBehaviour
             IsStunned = true;
             Debug.Log($"{playerName} stunned.");
         }
+
+        else if (currentWaypointTag == "Roll Again Space")
+        {
+            Debug.Log($"{playerName} landed on a Roll Again space!");
+            PlaySquareSound(MinigameSound);
+
+            if (diceController != null)
+                diceController.RollAgain();
+
+            return true; // keeps the turn active
+        }
+
 
         return false;
     }
