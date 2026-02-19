@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 69c473987550b6348a66223c8e39be39
+guid: 21a84f4d1f355bb4295283df18936162
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -23542456758667674
-    second: Marble Red_0
+      213: 7046362281623975461
+    second: Cage_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Marble Red_0
+      name: Cage_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 56
-        width: 32
-        height: 32
+        x: 26
+        y: 23
+        width: 65
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 66672c3a24c5caff0800000000000000
-      internalID: -23542456758667674
+      spriteID: 52678e27925b9c160800000000000000
+      internalID: 7046362281623975461
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Marble Red_0: -23542456758667674
+      Cage_0: 7046362281623975461
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
