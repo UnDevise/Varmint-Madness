@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class PlayerMovement : MonoBehaviour
@@ -13,8 +14,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform layerOutTeleportPoint;
     public float moveSpeed = 5.0f;
 
+    public List<string> marbleMinigameScenes = new List<string>();
+
     [Header("Special Square Sounds")]
     public AudioClip moveBackSound;
+    public AudioClip MinigameSound;
     public AudioClip switchLayerSound;
     public AudioClip tunnelSound;
     public AudioClip garbageAddSound;
@@ -134,10 +138,10 @@ public class PlayerMovement : MonoBehaviour
             MoveCharacter(-3);
             return true;
         }
-        else if (currentWaypointTag == "LayerInSquare")
+        else if (currentWaypointTag == "Gambling Space")
         {
-            PlaySquareSound(switchLayerSound);
-            SwitchWaypoints(alternativeWaypointsParent, layerInTeleportPoint);
+            PlaySquareSound(MinigameSound);
+            StartMarbleMinigame();
             return true;
         }
         else if (currentWaypointTag == "LayerOutSquare")
@@ -146,23 +150,23 @@ public class PlayerMovement : MonoBehaviour
             SwitchWaypoints(originalWaypointsParent, layerOutTeleportPoint);
             return true;
         }
-        else if (currentWaypointTag == "Tunnel")
+        else if (currentWaypointTag == "Sewer Space")
         {
             PlaySquareSound(tunnelSound);
             TeleportToTunnel(currentWaypointName);
             return true;
         }
-        else if (currentWaypointTag == "AddGarbageSquare")
+        else if (currentWaypointTag == "Trash Space")
         {
             PlaySquareSound(garbageAddSound);
             IncrementGarbageCount();
         }
-        else if (currentWaypointTag == "RemoveGarbageSquare")
+        else if (currentWaypointTag == "Lose Trash Space")
         {
             PlaySquareSound(garbageRemoveSound);
             DecrementGarbageCount();
         }
-        else if (currentWaypointTag == "StunPlayerSquare")
+        else if (currentWaypointTag == "Skip Turn Space")
         {
             PlaySquareSound(stunSound);
             IsStunned = true;
@@ -247,6 +251,21 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         spriteRenderer.color = endColor;
+    }
+    private void StartMarbleMinigame()
+    {
+        if (marbleMinigameScenes == null || marbleMinigameScenes.Count == 0)
+        {
+            Debug.LogError("no minigame scenes assigned to marbleMinigameScenes list!");
+            return;
+        }
+
+        int index = Random.Range(0, marbleMinigameScenes.Count);
+        string selectedScene = marbleMinigameScenes[index];
+
+        Debug.Log("Loading minigame: " +  selectedScene);
+
+        SceneManager.LoadScene(selectedScene);
     }
 
     private void UpdateGarbageText() { if (garbageText != null) garbageText.text = $"{playerName}: {garbageCount} garbage"; }
