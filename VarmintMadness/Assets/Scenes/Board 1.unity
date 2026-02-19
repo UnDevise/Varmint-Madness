@@ -44264,7 +44264,7 @@ MonoBehaviour:
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
   - MarbleMinigame
-  - MarbleMinigame 2
+  - MarbleMinigame2
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -47812,7 +47812,7 @@ MonoBehaviour:
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
   - MarbleMinigame
-  - MarbleMinigame 2
+  - MarbleMinigame2
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -80259,7 +80259,7 @@ MonoBehaviour:
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
   - MarbleMinigame
-  - MarbleMinigame 2
+  - MarbleMinigame2
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -103903,7 +103903,7 @@ MonoBehaviour:
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
   - MarbleMinigame
-  - MarbleMinigame 2
+  - MarbleMinigame2
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
