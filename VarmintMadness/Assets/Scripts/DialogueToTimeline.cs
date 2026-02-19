@@ -1,17 +1,22 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.Playables;
 
-public class IntroCutsceneController : MonoBehaviour
+public class IntroCutsceneBridge : MonoBehaviour
 {
     [SerializeField] private PlayableDirector director;
-    [SerializeField] private GameObject dialogueBoxUI;
 
-    public void PlayIntroCutscene()
+    public void PlayBlinkCutscene()
     {
-        // optional: hide dialogue when cutscene starts
-        if (dialogueBoxUI != null)
-            dialogueBoxUI.SetActive(false);
+        if (director == null) director = GetComponent<PlayableDirector>();
+        if (director == null)
+        {
+            Debug.LogError("No PlayableDirector found for IntroCutsceneBridge.");
+            return;
+        }
 
-        director.Play();
+ Â  Â  Â  Â // Important: rewind so it starts from the beginning every time
+ Â  Â  Â  Â director.time = 0;
+        director.Evaluate(); Â  // forces the rewind to visually apply immediately
+ Â  Â  Â  Â director.Play();
     }
 }
