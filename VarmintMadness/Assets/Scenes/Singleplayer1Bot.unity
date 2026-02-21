@@ -119,6 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &3210892
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +207,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> main
 --- !u!1 &107961399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,10 +1716,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botSlots:
+<<<<<<< HEAD
   - {selectionUI: {fileID: 2123681533}, addBotButton: {fileID: 1325425047}, removeButton: {fileID: 884956833}}
   - {selectionUI: {fileID: 1326803797}, addBotButton: {fileID: 1405861446}, removeButton: {fileID: 764710305}}
   - {selectionUI: {fileID: 1920810730}, addBotButton: {fileID: 1997501022}, removeButton: {fileID: 1298446505}}
   activeBots: 0
+=======
+  - selectionUI: {fileID: 2123681533}
+    addBotButton: {fileID: 1325425047}
+    removeButton: {fileID: 884956833}
+  - selectionUI: {fileID: 1326803797}
+    addBotButton: {fileID: 1405861446}
+    removeButton: {fileID: 764710305}
+  - selectionUI: {fileID: 1920810730}
+    addBotButton: {fileID: 1997501022}
+    removeButton: {fileID: 1298446505}
+>>>>>>> main
 --- !u!4 &555710054
 Transform:
   m_ObjectHideFlags: 0
@@ -4137,7 +4152,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ccda5816f381c67479e3c58ce631d26c, type: 2}
   - {fileID: 11400000, guid: cae85eaac5e37c746ac789ebdc9b252c, type: 2}
   - {fileID: 11400000, guid: e71d0383baf47d24d9bf96b8bb99dff7, type: 2}
+<<<<<<< HEAD
   currentIndex: 0
+=======
+>>>>>>> main
 --- !u!1 &1143605770
 GameObject:
   m_ObjectHideFlags: 0
@@ -4327,7 +4345,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ccda5816f381c67479e3c58ce631d26c, type: 2}
   - {fileID: 11400000, guid: cae85eaac5e37c746ac789ebdc9b252c, type: 2}
   - {fileID: 11400000, guid: e71d0383baf47d24d9bf96b8bb99dff7, type: 2}
+<<<<<<< HEAD
   currentIndex: 0
+=======
+>>>>>>> main
 --- !u!1 &1197425096
 GameObject:
   m_ObjectHideFlags: 0
@@ -4517,7 +4538,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ccda5816f381c67479e3c58ce631d26c, type: 2}
   - {fileID: 11400000, guid: cae85eaac5e37c746ac789ebdc9b252c, type: 2}
   - {fileID: 11400000, guid: e71d0383baf47d24d9bf96b8bb99dff7, type: 2}
+<<<<<<< HEAD
   currentIndex: 0
+=======
+>>>>>>> main
 --- !u!1 &1213874361
 GameObject:
   m_ObjectHideFlags: 0
@@ -4999,7 +5023,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ccda5816f381c67479e3c58ce631d26c, type: 2}
   - {fileID: 11400000, guid: cae85eaac5e37c746ac789ebdc9b252c, type: 2}
   - {fileID: 11400000, guid: e71d0383baf47d24d9bf96b8bb99dff7, type: 2}
+<<<<<<< HEAD
   currentIndex: 0
+=======
+>>>>>>> main
 --- !u!1 &1295122509
 GameObject:
   m_ObjectHideFlags: 0
@@ -7636,4 +7663,7 @@ SceneRoots:
   - {fileID: 1901547192}
   - {fileID: 1254827096}
   - {fileID: 555710054}
+<<<<<<< HEAD
   - {fileID: 3210894}
+=======
+>>>>>>> main

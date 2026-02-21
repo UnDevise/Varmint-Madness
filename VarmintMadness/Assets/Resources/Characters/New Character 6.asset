@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3db7b5568f77d41b664d57a82d9659, type: 3}
+  m_Name: New Character 6
+  m_EditorClassIdentifier: 
+  characterName: Mr. Fat
+  characterSprite: {fileID: 4103287425339638092, guid: 795d61331fd50b9479dfe711ddfea32a, type: 3}
+  characterBio: This is a work of fiction. Unless otherwise indicated, all the names,
+    characters, businesses, places, events and incidents in this game are either
+    the product of the author's imagination or used in a fictitious manner. Any resemblance
+    to actual persons, living or dead, or actual events is purely coincidental
+  backgroundColor: {r: 1, g: 0.44892484, b: 0, a: 0}

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3db7b5568f77d41b664d57a82d9659, type: 3}
+  m_Name: New Character 3
+  m_EditorClassIdentifier: 
+  characterName: Opossum Luke
+  characterSprite: {fileID: -4660275902620348432, guid: 30d8fb137b126b244bb42c29f8954883, type: 3}
+  characterBio: Don't make me angry, my eyes turn red and I transform into an alpha
+  backgroundColor: {r: 0.5577565, g: 0, b: 0.8679245, a: 0}

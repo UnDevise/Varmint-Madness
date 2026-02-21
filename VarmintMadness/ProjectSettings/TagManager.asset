@@ -2,8 +2,28 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - MoveBackSquare
+  - LayerInSquare
+  - AddGarbageSquare
+  - StunPlayerSquare
+  - RemoveGarbageSquare
+  - LayerOutSquare
+  - Tunnel
+  - Placeholder
+  - Marble
+  - Nothing Space
+  - Cage Space
+  - Trash Space
+  - Lose Trash Space
+  - Player Mover Space
+  - Gambling Space
+  - VS Space
+  - Roll again space
+  - Skip Turn Space
+  - Change route Space
+  - Sewer space
   layers:
   - Default
   - TransparentFX
@@ -41,3 +61,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 2D Assets
+    uniqueID: 276620195
+    locked: 0
+  - name: 3D Object
+    uniqueID: 3874156771
+    locked: 0
+  m_RenderingLayers:
+  - Default

@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 9a8cf755b7a3cfc4ba2f7fc8e843ad45
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3090289404425776369
+    second: Jaiden Alien (1)_0
+  - first:
+      213: 7454902556639826853
+    second: Jaiden Alien (1)_1
+  - first:
+      213: -2043449265432979730
+    second: Jaiden Alien (1)_2
+  - first:
+      213: 5261267096235133327
+    second: Jaiden Alien (1)_3
+  - first:
+      213: -7542162829311662303
+    second: Jaiden Alien (1)_4
+  - first:
+      213: -1103164619648073324
+    second: Jaiden Alien (1)_5
+  - first:
+      213: -3572245844853945553
+    second: Jaiden Alien (1)_6
+  - first:
+      213: -3839347144013641543
+    second: Jaiden Alien (1)_7
+  - first:
+      213: 5691164651522430503
+    second: Jaiden Alien (1)_8
+  - first:
+      213: 5218983942284359337
+    second: Jaiden Alien (1)_9
+  - first:
+      213: 5722150279423570222
+    second: Jaiden Alien (1)_10
+  - first:
+      213: 4329379715228733517
+    second: Jaiden Alien (1)_11
+  - first:
+      213: -8146012517384665979
+    second: Jaiden Alien (1)_12
+  - first:
+      213: 4575191418465666779
+    second: Jaiden Alien (1)_13
+  - first:
+      213: 3353892453699704095
+    second: Jaiden Alien (1)_14
+  - first:
+      213: 2067761535245009362
+    second: Jaiden Alien (1)_15
+  - first:
+      213: -8119460855826468062
+    second: Jaiden Alien (1)_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_0
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 2499
+        width: 262
+        height: 522
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f035c04e8261d15d0800000000000000
+      internalID: -3090289404425776369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_1
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 2499
+        width: 262
+        height: 522
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a31ba3a062257760800000000000000
+      internalID: 7454902556639826853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_2
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 2499
+        width: 262
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee6955148b534a3e0800000000000000
+      internalID: -2043449265432979730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_3
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 2499
+        width: 262
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f89cb837c86c30940800000000000000
+      internalID: 5261267096235133327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_4
+      rect:
+        serializedVersion: 2
+        x: 2099
+        y: 2499
+        width: 262
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12729b8eddad45790800000000000000
+      internalID: -7542162829311662303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_5
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1739
+        width: 262
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 491091d8f95c0b0f0800000000000000
+      internalID: -1103164619648073324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_6
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1739
+        width: 262
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2b8d17a455dc6ec0800000000000000
+      internalID: -3572245844853945553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_7
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 1719
+        width: 262
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b808af3d16e7bac0800000000000000
+      internalID: -3839347144013641543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_8
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 1719
+        width: 262
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7261144f8141bfe40800000000000000
+      internalID: 5691164651522430503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_9
+      rect:
+        serializedVersion: 2
+        x: 1999
+        y: 1799
+        width: 482
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a6b3508e3e8d6840800000000000000
+      internalID: 5218983942284359337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1019
+        width: 481
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e21b174ac59296f40800000000000000
+      internalID: 5722150279423570222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_11
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 919
+        width: 262
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d409df7b9eb051c30800000000000000
+      internalID: 4329379715228733517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_12
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 919
+        width: 262
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 584c66d56cc83fe80800000000000000
+      internalID: -8146012517384665979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_13
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 1059
+        width: 482
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd6cf0dca585e7f30800000000000000
+      internalID: 4575191418465666779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_14
+      rect:
+        serializedVersion: 2
+        x: 2019
+        y: 1059
+        width: 481
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1552adba6b6b8e20800000000000000
+      internalID: 3353892453699704095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_15
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 159
+        width: 262
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d1ce7c292a22bc10800000000000000
+      internalID: 2067761535245009362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jaiden Alien (1)_16
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 159
+        width: 262
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22336c0de51e15f80800000000000000
+      internalID: -8119460855826468062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Jaiden Alien (1)_0: -3090289404425776369
+      Jaiden Alien (1)_1: 7454902556639826853
+      Jaiden Alien (1)_10: 5722150279423570222
+      Jaiden Alien (1)_11: 4329379715228733517
+      Jaiden Alien (1)_12: -8146012517384665979
+      Jaiden Alien (1)_13: 4575191418465666779
+      Jaiden Alien (1)_14: 3353892453699704095
+      Jaiden Alien (1)_15: 2067761535245009362
+      Jaiden Alien (1)_16: -8119460855826468062
+      Jaiden Alien (1)_2: -2043449265432979730
+      Jaiden Alien (1)_3: 5261267096235133327
+      Jaiden Alien (1)_4: -7542162829311662303
+      Jaiden Alien (1)_5: -1103164619648073324
+      Jaiden Alien (1)_6: -3572245844853945553
+      Jaiden Alien (1)_7: -3839347144013641543
+      Jaiden Alien (1)_8: 5691164651522430503
+      Jaiden Alien (1)_9: 5218983942284359337
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

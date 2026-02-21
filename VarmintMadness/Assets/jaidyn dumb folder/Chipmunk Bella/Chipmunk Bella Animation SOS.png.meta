@@ -1,0 +1,806 @@
+fileFormatVersion: 2
+guid: 171e877ce588be74ba25c0bb2b0ad34b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3428814051360944915
+    second: Chipmunk Bella Animation SOS_0
+  - first:
+      213: -1216967127613421755
+    second: Chipmunk Bella Animation SOS_1
+  - first:
+      213: -5513142653696077411
+    second: Chipmunk Bella Animation SOS_2
+  - first:
+      213: 784588644378866604
+    second: Chipmunk Bella Animation SOS_3
+  - first:
+      213: -1175654852756620617
+    second: Chipmunk Bella Animation SOS_4
+  - first:
+      213: 9003976918057714960
+    second: Chipmunk Bella Animation SOS_5
+  - first:
+      213: 4125162745347279221
+    second: Chipmunk Bella Animation SOS_6
+  - first:
+      213: 5708714375187998402
+    second: Chipmunk Bella Animation SOS_7
+  - first:
+      213: -2054730525319085326
+    second: Chipmunk Bella Animation SOS_8
+  - first:
+      213: -1373308550191343778
+    second: Chipmunk Bella Animation SOS_9
+  - first:
+      213: 2321091907622496638
+    second: Chipmunk Bella Animation SOS_10
+  - first:
+      213: 1488172440418462684
+    second: Chipmunk Bella Animation SOS_11
+  - first:
+      213: -6924632968965200016
+    second: Chipmunk Bella Animation SOS_12
+  - first:
+      213: -5658917675902750683
+    second: Chipmunk Bella Animation SOS_13
+  - first:
+      213: -1916808921244447369
+    second: Chipmunk Bella Animation SOS_14
+  - first:
+      213: -8175286841167299464
+    second: Chipmunk Bella Animation SOS_15
+  - first:
+      213: 2695322696405217873
+    second: Chipmunk Bella Animation SOS_16
+  - first:
+      213: 5712291201230322960
+    second: Chipmunk Bella Animation SOS_17
+  - first:
+      213: 1632723842906187011
+    second: Chipmunk Bella Animation SOS_18
+  - first:
+      213: -766100124003919667
+    second: Chipmunk Bella Animation SOS_19
+  - first:
+      213: 3743869886288703990
+    second: Chipmunk Bella Animation SOS_20
+  - first:
+      213: -1947860761254474794
+    second: Chipmunk Bella Animation SOS_21
+  - first:
+      213: -6408200565974840369
+    second: Chipmunk Bella Animation SOS_22
+  - first:
+      213: -7289468555540682093
+    second: Chipmunk Bella Animation SOS_23
+  - first:
+      213: 1641924410723275895
+    second: Chipmunk Bella Animation SOS_24
+  - first:
+      213: 1989760801666107886
+    second: Chipmunk Bella Animation SOS_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_0
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 3339
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 313bc3c8638959f20800000000000000
+      internalID: 3428814051360944915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_1
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 3339
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547464f58d67c1fe0800000000000000
+      internalID: -1216967127613421755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_2
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 3339
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d91146267f16d73b0800000000000000
+      internalID: -5513142653696077411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_3
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 3339
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca3f103173b63ea00800000000000000
+      internalID: 784588644378866604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_4
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 3339
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ba3afae32c3fafe0800000000000000
+      internalID: -1175654852756620617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_5
+      rect:
+        serializedVersion: 2
+        x: 2589
+        y: 3339
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01585a64d4d84fc70800000000000000
+      internalID: 9003976918057714960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_6
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 2559
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 579891d29a58f3930800000000000000
+      internalID: 4125162745347279221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_7
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 2559
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c62f396a7d693f40800000000000000
+      internalID: 5708714375187998402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_8
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 2559
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f2443149712c73e0800000000000000
+      internalID: -2054730525319085326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_9
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 2559
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5796d2562701fce0800000000000000
+      internalID: -1373308550191343778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_10
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 2559
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e796fd4dacc263020800000000000000
+      internalID: 2321091907622496638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_11
+      rect:
+        serializedVersion: 2
+        x: 2589
+        y: 2559
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdb2bab23fc07a410800000000000000
+      internalID: 1488172440418462684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_12
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 1779
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077eed4c003c6ef90800000000000000
+      internalID: -6924632968965200016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_13
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 1779
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52033a22b5c7771b0800000000000000
+      internalID: -5658917675902750683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_14
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 1779
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77dccea11702665e0800000000000000
+      internalID: -1916808921244447369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_15
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 1779
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87c3c47beeb8b8e80800000000000000
+      internalID: -8175286841167299464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_16
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 1779
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 152f74246b5b76520800000000000000
+      internalID: 2695322696405217873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_17
+      rect:
+        serializedVersion: 2
+        x: 2589
+        y: 1779
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01d3cee1592264f40800000000000000
+      internalID: 5712291201230322960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_18
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 999
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 305ebb04fa998a610800000000000000
+      internalID: 1632723842906187011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_19
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 999
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc81d560ff34e55f0800000000000000
+      internalID: -766100124003919667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_20
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 999
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f1358163d5e4f330800000000000000
+      internalID: 3743869886288703990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_21
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 999
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6db418535fec7f4e0800000000000000
+      internalID: -1947860761254474794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_22
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 999
+        width: 262
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcbcc9f898f7117a0800000000000000
+      internalID: -6408200565974840369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_23
+      rect:
+        serializedVersion: 2
+        x: 2589
+        y: 999
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a2e9158fa96da90800000000000000
+      internalID: -7289468555540682093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_24
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 219
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77414316d8949c610800000000000000
+      internalID: 1641924410723275895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chipmunk Bella Animation SOS_25
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 219
+        width: 252
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee90e4b28ec0d9b10800000000000000
+      internalID: 1989760801666107886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Chipmunk Bella Animation SOS_0: 3428814051360944915
+      Chipmunk Bella Animation SOS_1: -1216967127613421755
+      Chipmunk Bella Animation SOS_10: 2321091907622496638
+      Chipmunk Bella Animation SOS_11: 1488172440418462684
+      Chipmunk Bella Animation SOS_12: -6924632968965200016
+      Chipmunk Bella Animation SOS_13: -5658917675902750683
+      Chipmunk Bella Animation SOS_14: -1916808921244447369
+      Chipmunk Bella Animation SOS_15: -8175286841167299464
+      Chipmunk Bella Animation SOS_16: 2695322696405217873
+      Chipmunk Bella Animation SOS_17: 5712291201230322960
+      Chipmunk Bella Animation SOS_18: 1632723842906187011
+      Chipmunk Bella Animation SOS_19: -766100124003919667
+      Chipmunk Bella Animation SOS_2: -5513142653696077411
+      Chipmunk Bella Animation SOS_20: 3743869886288703990
+      Chipmunk Bella Animation SOS_21: -1947860761254474794
+      Chipmunk Bella Animation SOS_22: -6408200565974840369
+      Chipmunk Bella Animation SOS_23: -7289468555540682093
+      Chipmunk Bella Animation SOS_24: 1641924410723275895
+      Chipmunk Bella Animation SOS_25: 1989760801666107886
+      Chipmunk Bella Animation SOS_3: 784588644378866604
+      Chipmunk Bella Animation SOS_4: -1175654852756620617
+      Chipmunk Bella Animation SOS_5: 9003976918057714960
+      Chipmunk Bella Animation SOS_6: 4125162745347279221
+      Chipmunk Bella Animation SOS_7: 5708714375187998402
+      Chipmunk Bella Animation SOS_8: -2054730525319085326
+      Chipmunk Bella Animation SOS_9: -1373308550191343778
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
