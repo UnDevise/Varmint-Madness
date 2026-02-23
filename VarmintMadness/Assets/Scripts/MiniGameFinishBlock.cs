@@ -20,11 +20,8 @@ public class MiniGameFinishBlock : MonoBehaviour
         // Play finish music once
         if (!hasPlayedFinishMusic)
         {
-            if (musicPlayer != null)
-            {
-                musicPlayer.PlayFinishSong();
-                hasPlayedFinishMusic = true;
-            }
+            musicPlayer?.PlayFinishSong();
+            hasPlayedFinishMusic = true;
         }
 
         // Identify which marble finished
@@ -36,6 +33,3 @@ public class MiniGameFinishBlock : MonoBehaviour
         }
     }
 }
-
-
-

@@ -62,6 +62,21 @@ public class PlayerMovement : MonoBehaviour
         initialPosition.z = spriteZPosition;
         transform.position = initialPosition;
         UpdateGarbageText();
+
+        if (BoardStateSaver.playerBoardLayer != null)
+        {
+            int index = diceController.playersToMove.IndexOf(this);
+
+            if (index >= 0)
+            {
+                bool shouldBeOnSewer = BoardStateSaver.playerBoardLayer[index] == 1;
+
+                if (shouldBeOnSewer)
+                    MoveToSewerBoard();
+                else
+                    MoveToTopBoard();
+            }
+        }
     }
 
     private void PlaySquareSound(AudioClip clip)
@@ -421,5 +436,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerAnimator != null)
             playerAnimator.SetBool("Running", isRunning);
+    }
+    public void MoveToTopBoard()
+    {
+        waypointsParent = originalWaypointsParent;
+        StoreWaypointData();
+    }
+
+    public void MoveToSewerBoard()
+    {
+        waypointsParent = alternativeWaypointsParent;
+        StoreWaypointData();
     }
 }

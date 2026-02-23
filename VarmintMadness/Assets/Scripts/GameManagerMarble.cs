@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManagerMarble : MonoBehaviour
 {
-    public MarbleMovement[] marbles;          // Assign all marbles in Inspector
-    public MarbleSelector[] marbleSelectors;  // Assign all selectors in Inspector
+    public MarbleMovement[] marbles;
+    public MarbleSelector[] marbleSelectors;
     public TextMeshProUGUI playerTurnText;
 
     public int totalPlayers = 4;
@@ -18,7 +19,6 @@ public class GameManagerMarble : MonoBehaviour
     {
         playerMarbleChoices = new int[totalPlayers];
 
-        // Hide all marbles at the start
         foreach (var selector in marbleSelectors)
             selector.HideUnpicked();
 
@@ -29,25 +29,20 @@ public class GameManagerMarble : MonoBehaviour
     {
         int marbleIndex = marbleButton.marbleIndex;
 
-        // Save the choice (this is the marbleIndex, not array index)
         playerMarbleChoices[currentPlayer - 1] = marbleIndex;
 
-        // Disable this marble so it can't be picked again
         marbleButton.DisableMarble();
 
         playersChosen++;
         currentPlayer++;
 
-        // Hide all marbles
         foreach (var selector in marbleSelectors)
             selector.HideUnpicked();
 
-        // Show only chosen marbles
         for (int i = 0; i < playersChosen; i++)
         {
             int chosenMarbleIndex = playerMarbleChoices[i];
 
-            // Find the selector with this marbleIndex
             foreach (var selector in marbleSelectors)
             {
                 if (selector.marbleIndex == chosenMarbleIndex)
@@ -58,7 +53,6 @@ public class GameManagerMarble : MonoBehaviour
             }
         }
 
-        // If all players have chosen, start the race
         if (playersChosen >= totalPlayers)
         {
             StartRace();
@@ -77,12 +71,10 @@ public class GameManagerMarble : MonoBehaviour
     {
         playerTurnText.gameObject.SetActive(false);
 
-        // Start race ONLY for chosen marbles
         for (int i = 0; i < playersChosen; i++)
         {
             int chosenMarbleIndex = playerMarbleChoices[i];
 
-            // Find the MarbleMovement with matching index
             foreach (var marble in marbles)
             {
                 if (marble.marbleIndex == chosenMarbleIndex)
@@ -107,7 +99,7 @@ public class GameManagerMarble : MonoBehaviour
         {
             if (playerMarbleChoices[i] == marbleIndex)
             {
-                winningPlayer = i + 1;
+                winningPlayer = i;
                 break;
             }
         }
@@ -115,12 +107,35 @@ public class GameManagerMarble : MonoBehaviour
         playerTurnText.gameObject.SetActive(true);
 
         if (winningPlayer != -1)
-            playerTurnText.text = "Player " + winningPlayer + " wins!";
+        {
+            playerTurnText.text = "Player " + (winningPlayer + 1) + " wins!";
+            AwardTrashToPlayer(winningPlayer);
+        }
         else
+        {
             playerTurnText.text = "No one wins!";
+        }
+
+        Invoke(nameof(ReturnToBoard), 2f);
+    }
+
+    private void AwardTrashToPlayer(int playerIndex)
+    {
+        DiceController dice = FindAnyObjectByType<DiceController>();
+        if (dice == null)
+            return;
+
+        PlayerMovement player = dice.playersToMove[playerIndex];
+
+        if (player != null)
+        {
+            for (int i = 0; i < 10; i++)
+                player.SendMessage("IncrementGarbageCount", SendMessageOptions.DontRequireReceiver);
+        }
+    }
+
+    private void ReturnToBoard()
+    {
+        SceneManager.LoadScene("BoardSceneName"); // Replace with your board scene name
     }
 }
-
-
-
-
