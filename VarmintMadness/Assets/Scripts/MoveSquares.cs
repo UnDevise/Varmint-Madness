@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform layerOutTeleportPoint;
     public float moveSpeed = 5.0f;
 
-    public bool IsInCage = false;               // Tracks if the player is trapped
-    public Transform cageTeleportPoint;         // Where the player gets teleported
+    public bool IsInCage = false;
+    public Transform cageTeleportPoint;
 
     public List<string> marbleMinigameScenes = new List<string>();
 
@@ -57,19 +57,51 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        // Prevent board restore inside minigames
+        string scene = SceneManager.GetActiveScene().name;
+        if (scene.Contains("Marble") || scene.Contains("Minigame"))
+            return;
+
         if (targetWaypoints.Count == 0) return;
-        Vector3 initialPosition = targetWaypoints[currentPositionIndex].Position;
-        initialPosition.z = spriteZPosition;
-        transform.position = initialPosition;
+
+        // Restore board layer
+        if (BoardStateSaver.playerBoardLayer != null)
+        {
+            int index = diceController.playersToMove.IndexOf(this);
+
+            if (index >= 0)
+            {
+                bool shouldBeOnSewer = BoardStateSaver.playerBoardLayer[index] == 1;
+
+                if (shouldBeOnSewer)
+                    MoveToSewerBoard();
+                else
+                    MoveToTopBoard();
+            }
+        }
+
+        // Restore tile index
+        if (BoardStateSaver.playerTileIndex != null)
+        {
+            int index = diceController.playersToMove.IndexOf(this);
+
+            if (index >= 0)
+            {
+                currentPositionIndex = BoardStateSaver.playerTileIndex[index];
+
+                Vector3 pos = targetWaypoints[currentPositionIndex].Position;
+                pos.z = spriteZPosition;
+                transform.position = pos;
+            }
+        }
+
         UpdateGarbageText();
     }
 
     private void PlaySquareSound(AudioClip clip)
     {
         if (clip != null && audioSource != null)
-        {
             audioSource.PlayOneShot(clip);
-        }
     }
 
     public void SetDiceController(DiceController controller) => diceController = controller;
@@ -80,47 +112,37 @@ public class PlayerMovement : MonoBehaviour
         if (waypointsParent != null)
         {
             foreach (Transform child in waypointsParent)
-            {
                 targetWaypoints.Add(new WaypointData(child.position, child.tag, child.name));
-            }
         }
     }
 
     // ---------------------------------------------------------
-    // FIX #1 — If player is in cage, end turn immediately
+    // TURN ENTRY POINT
     // ---------------------------------------------------------
     public void MoveCharacter(int stepsToMove)
     {
-        // If player is in cage, they can't move and their turn ends
         if (IsInCage)
         {
             Debug.Log($"{playerName} is in the cage and cannot move.");
-
-            if (diceController != null)
-                diceController.OnPlayerTurnFinished();
-
+            diceController?.OnPlayerTurnFinished();
             return;
         }
 
-        // If player is stunned, they skip this turn once
         if (IsStunned)
         {
             Debug.Log($"{playerName} skips a turn (stunned).");
-            IsStunned = false; // consume the stun
-
-            if (diceController != null)
-                diceController.OnPlayerTurnFinished();
-
+            IsStunned = false;
+            diceController?.OnPlayerTurnFinished();
             return;
         }
 
-        // Normal movement
         StartCoroutine(HandlePlayerTurn(stepsToMove));
     }
 
     private IEnumerator HandlePlayerTurn(int stepsToMove)
     {
-        if (cameraController != null) yield return StartCoroutine(cameraController.StartFollowingCoroutine(transform));
+        if (cameraController != null)
+            yield return StartCoroutine(cameraController.StartFollowingCoroutine(transform));
 
         IsMoving = true;
         SetRunningAnimation(true);
@@ -130,11 +152,10 @@ public class PlayerMovement : MonoBehaviour
 
         bool bonusMoveTriggered = CheckForSpecialWaypoint();
 
-        // If no bonus move, end turn
         if (!bonusMoveTriggered)
         {
-            if (cameraController != null) cameraController.StopFollowing();
-            if (diceController != null) diceController.OnPlayerTurnFinished();
+            cameraController?.StopFollowing();
+            diceController?.OnPlayerTurnFinished();
         }
     }
 
@@ -148,17 +169,25 @@ public class PlayerMovement : MonoBehaviour
             if (currentPositionIndex >= targetWaypoints.Count) currentPositionIndex = 0;
             else if (currentPositionIndex < 0) currentPositionIndex = targetWaypoints.Count - 1;
 
-            Vector3 nextPosition = new Vector3(targetWaypoints[currentPositionIndex].Position.x, targetWaypoints[currentPositionIndex].Position.y, spriteZPosition);
+            Vector3 nextPosition = new Vector3(
+                targetWaypoints[currentPositionIndex].Position.x,
+                targetWaypoints[currentPositionIndex].Position.y,
+                spriteZPosition
+            );
 
             while (Vector2.Distance(transform.position, nextPosition) > 0.01f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
                 yield return null;
             }
+
             transform.position = nextPosition;
         }
     }
 
+    // ---------------------------------------------------------
+    // SPECIAL SQUARE LOGIC
+    // ---------------------------------------------------------
     private bool CheckForSpecialWaypoint()
     {
         if (IsMoving) return false;
@@ -166,43 +195,65 @@ public class PlayerMovement : MonoBehaviour
         string currentWaypointTag = targetWaypoints[currentPositionIndex].Tag;
         string currentWaypointName = targetWaypoints[currentPositionIndex].Name;
 
-        // ---------------------------------------------------------
-        // FIX #2 — Cage space ends the turn (return false)
-        // ---------------------------------------------------------
+        // CAGE SPACE
         if (currentWaypointTag == "Cage Space")
         {
             PlaySquareSound(cageSound);
             SendPlayerToCage();
-            return false; // End turn immediately
+            return true; // keep turn active
         }
+
+        // ROLL AGAIN SPACE
+        else if (currentWaypointTag == "Roll Again Space")
+        {
+            Debug.Log($"{playerName} landed on a Roll Again space!");
+            PlaySquareSound(MinigameSound); // or a dedicated roll-again sound
+
+            if (diceController != null)
+                diceController.RollAgain();
+
+            return true; // keep turn active so it doesn't advance to next player
+        }
+
+        // MINIGAME
         else if (currentWaypointTag == "Gambling Space")
         {
             PlaySquareSound(MinigameSound);
             StartMarbleMinigame();
             return true;
         }
+
+        // LAYER OUT
         else if (currentWaypointTag == "LayerOutSquare")
         {
             PlaySquareSound(switchLayerSound);
             SwitchWaypoints(originalWaypointsParent, layerOutTeleportPoint);
             return true;
         }
+
+        // TUNNEL
         else if (currentWaypointTag == "Sewer Space")
         {
             PlaySquareSound(tunnelSound);
             TeleportToTunnel(currentWaypointName);
             return true;
         }
+
+        // TRASH
         else if (currentWaypointTag == "Trash Space")
         {
             PlaySquareSound(garbageAddSound);
             IncrementGarbageCount();
         }
+
+        // LOSE TRASH
         else if (currentWaypointTag == "Lose Trash Space")
         {
             PlaySquareSound(garbageRemoveSound);
             DecrementGarbageCount();
         }
+
+        // SKIP TURN
         else if (currentWaypointTag == "Skip Turn Space")
         {
             PlaySquareSound(stunSound);
@@ -210,24 +261,74 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log($"{playerName} stunned.");
         }
 
-        else if (currentWaypointTag == "Roll Again Space")
-        {
-            Debug.Log($"{playerName} landed on a Roll Again space!");
-            PlaySquareSound(MinigameSound);
-
-            if (diceController != null)
-                diceController.RollAgain();
-
-            return true; // keeps the turn active
-        }
-
-
         return false;
     }
 
+    // ---------------------------------------------------------
+    // CAMERA FOCUS ON CAGE
+    // ---------------------------------------------------------
+    private IEnumerator FocusCameraOnCage()
+    {
+        if (cameraController == null || cageTeleportPoint == null)
+            yield break;
+
+        // Stop any camera movement currently happening
+        cameraController.StopAllCoroutines();
+
+        // Move camera to cage
+        yield return StartCoroutine(cameraController.StartFollowingCoroutine(cageTeleportPoint));
+
+        // Hold for dramatic effect
+        yield return new WaitForSeconds(1.0f);
+
+        // Stop following and zoom out
+        cameraController.StopFollowing();
+
+        // NOW end the turn
+        if (diceController != null)
+            diceController.OnPlayerTurnFinished();
+    }
+
+    // ---------------------------------------------------------
+    // CAGE LOGIC
+    // ---------------------------------------------------------
+    private void SendPlayerToCage()
+    {
+        IsInCage = true;
+
+        transform.position = cageTeleportPoint.position;
+        currentPositionIndex = -1;
+
+        Debug.Log("Player has been sent to the cage and is out of the game.");
+
+        StartCoroutine(FocusCameraOnCage());
+    }
+
+    // ---------------------------------------------------------
+    // MINIGAME
+    // ---------------------------------------------------------
+    private void StartMarbleMinigame()
+    {
+        if (marbleMinigameScenes == null || marbleMinigameScenes.Count == 0)
+        {
+            Debug.LogError("No minigame scenes assigned!");
+            return;
+        }
+
+        int index = Random.Range(0, marbleMinigameScenes.Count);
+        string selectedScene = marbleMinigameScenes[index];
+
+        Debug.Log("Loading minigame: " + selectedScene);
+        SceneManager.LoadScene(selectedScene);
+    }
+
+    // ---------------------------------------------------------
+    // TELEPORT / LAYER / TUNNEL
+    // ---------------------------------------------------------
     public void SwitchWaypoints(Transform newWaypointsParent, Transform teleportTarget)
     {
         if (waypointsParent == newWaypointsParent) return;
+
         waypointsParent = newWaypointsParent;
         StoreWaypointData();
         currentPositionIndex = FindClosestWaypointIndex(teleportTarget);
@@ -238,39 +339,54 @@ public class PlayerMovement : MonoBehaviour
     {
         IsMoving = true;
         SetRunningAnimation(true);
+
         Vector3 nextPosition = new Vector3(target.position.x, target.position.y, spriteZPosition);
-        if (cameraController != null) yield return StartCoroutine(cameraController.StartFollowingCoroutine(transform));
+
+        if (cameraController != null)
+            yield return StartCoroutine(cameraController.StartFollowingCoroutine(transform));
 
         while (Vector2.Distance(transform.position, nextPosition) > 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, nextPosition, moveSpeed * Time.deltaTime);
             yield return null;
         }
+
         transform.position = nextPosition;
         IsMoving = false;
         SetRunningAnimation(false);
-        if (cameraController != null) cameraController.StopFollowing();
-        if (diceController != null) diceController.OnPlayerTurnFinished();
+
+        cameraController?.StopFollowing();
+        diceController?.OnPlayerTurnFinished();
     }
 
     private int FindClosestWaypointIndex(Transform target)
     {
         if (target == null || targetWaypoints.Count == 0) return 0;
+
         int closestIndex = 0;
         float minDistance = float.MaxValue;
+
         for (int i = 0; i < targetWaypoints.Count; i++)
         {
             float distance = Vector2.Distance(target.position, targetWaypoints[i].Position);
-            if (distance < minDistance) { minDistance = distance; closestIndex = i; }
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestIndex = i;
+            }
         }
+
         return closestIndex;
     }
 
-    private void TeleportToTunnel(string currentTunnelName) => StartCoroutine(HandleTunnelTeleport(currentTunnelName));
+    private void TeleportToTunnel(string currentTunnelName)
+        => StartCoroutine(HandleTunnelTeleport(currentTunnelName));
 
     private IEnumerator HandleTunnelTeleport(string currentTunnelName)
     {
-        if (cameraController != null) yield return StartCoroutine(cameraController.StartFollowingCoroutine(transform));
+        if (cameraController != null)
+            yield return StartCoroutine(cameraController.StartFollowingCoroutine(transform));
+
         yield return StartCoroutine(Fade(0, 0.5f));
 
         string destinationName = (currentTunnelName == "Tunnel1 (15)") ? "Tunnel2 (32)" : "Tunnel1 (15)";
@@ -279,58 +395,81 @@ public class PlayerMovement : MonoBehaviour
         if (newIndex != -1)
         {
             currentPositionIndex = newIndex;
-            transform.position = new Vector3(targetWaypoints[newIndex].Position.x, targetWaypoints[newIndex].Position.y, spriteZPosition);
+            transform.position = new Vector3(
+                targetWaypoints[newIndex].Position.x,
+                targetWaypoints[newIndex].Position.y,
+                spriteZPosition
+            );
         }
 
         yield return StartCoroutine(Fade(1, 0.5f));
-        if (cameraController != null) cameraController.StopFollowing();
-        if (diceController != null) diceController.OnPlayerTurnFinished();
+
+        cameraController?.StopFollowing();
+        diceController?.OnPlayerTurnFinished();
     }
 
     private IEnumerator Fade(float targetAlpha, float duration)
     {
         if (spriteRenderer == null) yield break;
+
         Color startColor = spriteRenderer.color;
         Color endColor = new Color(startColor.r, startColor.g, startColor.b, targetAlpha);
+
         float elapsedTime = 0;
+
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
             spriteRenderer.color = Color.Lerp(startColor, endColor, elapsedTime / duration);
             yield return null;
         }
+
         spriteRenderer.color = endColor;
     }
 
-    private void StartMarbleMinigame()
+    // ---------------------------------------------------------
+    // UI / GARBAGE
+    // ---------------------------------------------------------
+    private void UpdateGarbageText()
     {
-        if (marbleMinigameScenes == null || marbleMinigameScenes.Count == 0)
+        if (garbageText != null)
+            garbageText.text = $"{playerName}: {garbageCount} garbage";
+    }
+
+    private void IncrementGarbageCount()
+    {
+        garbageCount++;
+        UpdateGarbageText();
+    }
+
+    private void DecrementGarbageCount()
+    {
+        if (garbageCount > 0)
         {
-            Debug.LogError("no minigame scenes assigned to marbleMinigameScenes list!");
-            return;
+            garbageCount--;
+            UpdateGarbageText();
         }
-
-        int index = Random.Range(0, marbleMinigameScenes.Count);
-        string selectedScene = marbleMinigameScenes[index];
-
-        Debug.Log("Loading minigame: " + selectedScene);
-
-        SceneManager.LoadScene(selectedScene);
     }
 
-    private void SendPlayerToCage()
+    private void SetRunningAnimation(bool isRunning)
     {
-        IsInCage = true;
-
-        transform.position = cageTeleportPoint.position;
-
-        currentPositionIndex = -1;
-
-        Debug.Log("Player has been sent to the cage and is out of the game.");
+        if (playerAnimator != null)
+            playerAnimator.SetBool("Running", isRunning);
+    }
+    public void MoveToTopBoard()
+    {
+        waypointsParent = originalWaypointsParent;
+        StoreWaypointData();
     }
 
-    private void UpdateGarbageText() { if (garbageText != null) garbageText.text = $"{playerName}: {garbageCount} garbage"; }
-    private void IncrementGarbageCount() { garbageCount++; UpdateGarbageText(); }
-    private void DecrementGarbageCount() { if (garbageCount > 0) { garbageCount--; UpdateGarbageText(); } }
-    private void SetRunningAnimation(bool isRunning) { if (playerAnimator != null) playerAnimator.SetBool("Running", isRunning); }
+    public void MoveToSewerBoard()
+    {
+        waypointsParent = alternativeWaypointsParent;
+        StoreWaypointData();
+    }
+    public int GetCurrentTileIndex()
+    {
+        return currentPositionIndex;
+    }
+
 }
