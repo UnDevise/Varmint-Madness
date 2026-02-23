@@ -122,11 +122,12 @@ public class DiceController : MonoBehaviour
     }
     public void RollAgain()
     {
-        // Simulate a dice roll
+        // Roll a new value
         int rollResult = Random.Range(1, diceSides + 1);
 
         Debug.Log($"Roll Again triggered! Rolled a {rollResult}");
 
+        // Move the SAME current player again
         MoveCurrentPlayer(rollResult);
     }
 
