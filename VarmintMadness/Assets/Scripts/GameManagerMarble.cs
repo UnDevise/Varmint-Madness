@@ -161,6 +161,6 @@ public class GameManagerMarble : MonoBehaviour
 
     private void ReturnToBoard()
     {
-        SceneManager.LoadScene("Board1"); // Your board scene
+        SceneManager.LoadScene("Board 1"); // Your board scene
     }
 }
