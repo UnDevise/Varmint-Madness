@@ -115195,6 +115195,10 @@ PrefabInstance:
       value: Plane
       objectReference: {fileID: 0}
     - target: {fileID: 9054456811651608997, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 45.698
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054456811651608997, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 84.8
       objectReference: {fileID: 0}
