@@ -57,12 +57,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        if (targetWaypoints.Count == 0) return;
-        Vector3 initialPosition = targetWaypoints[currentPositionIndex].Position;
-        initialPosition.z = spriteZPosition;
-        transform.position = initialPosition;
-        UpdateGarbageText();
+        // Prevent board restore inside minigames
+        string scene = SceneManager.GetActiveScene().name;
+        if (scene.Contains("Marble") || scene.Contains("Minigame"))
+            return;
 
+        if (targetWaypoints.Count == 0) return;
+
+        // Restore board layer
         if (BoardStateSaver.playerBoardLayer != null)
         {
             int index = diceController.playersToMove.IndexOf(this);
@@ -77,6 +79,23 @@ public class PlayerMovement : MonoBehaviour
                     MoveToTopBoard();
             }
         }
+
+        // Restore tile index
+        if (BoardStateSaver.playerTileIndex != null)
+        {
+            int index = diceController.playersToMove.IndexOf(this);
+
+            if (index >= 0)
+            {
+                currentPositionIndex = BoardStateSaver.playerTileIndex[index];
+
+                Vector3 pos = targetWaypoints[currentPositionIndex].Position;
+                pos.z = spriteZPosition;
+                transform.position = pos;
+            }
+        }
+
+        UpdateGarbageText();
     }
 
     private void PlaySquareSound(AudioClip clip)
@@ -448,4 +467,9 @@ public class PlayerMovement : MonoBehaviour
         waypointsParent = alternativeWaypointsParent;
         StoreWaypointData();
     }
+    public int GetCurrentTileIndex()
+    {
+        return currentPositionIndex;
+    }
+
 }

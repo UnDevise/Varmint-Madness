@@ -15,12 +15,16 @@ public class GameManagerMarble : MonoBehaviour
     private int[] playerMarbleChoices;
     private bool winnerChosen = false;
 
+    private int lastWinningMarbleIndex = -1;
+    private int lastWinningPlayerIndex = -1;
+
     void Start()
     {
         playerMarbleChoices = new int[totalPlayers];
 
+        // Show all marbles at the start
         foreach (var selector in marbleSelectors)
-            selector.HideUnpicked();
+            selector.EnableMarble();
 
         UpdateTurnText();
     }
@@ -29,30 +33,45 @@ public class GameManagerMarble : MonoBehaviour
     {
         int marbleIndex = marbleButton.marbleIndex;
 
+        // Save the choice
         playerMarbleChoices[currentPlayer - 1] = marbleIndex;
 
+        // Disable this marble so it cannot be picked again
         marbleButton.DisableMarble();
 
         playersChosen++;
         currentPlayer++;
 
+        // Hide ALL marbles
         foreach (var selector in marbleSelectors)
-            selector.HideUnpicked();
+            selector.gameObject.SetActive(false);
 
+        // Show chosen marbles
         for (int i = 0; i < playersChosen; i++)
         {
-            int chosenMarbleIndex = playerMarbleChoices[i];
+            int chosenIndex = playerMarbleChoices[i];
 
             foreach (var selector in marbleSelectors)
             {
-                if (selector.marbleIndex == chosenMarbleIndex)
+                if (selector.marbleIndex == chosenIndex)
                 {
-                    selector.EnableMarble();
-                    break;
+                    selector.gameObject.SetActive(true);
+                    selector.DisableMarble();
                 }
             }
         }
 
+        // Show remaining marbles for next player
+        if (playersChosen < totalPlayers)
+        {
+            foreach (var selector in marbleSelectors)
+            {
+                if (selector.enabled)
+                    selector.gameObject.SetActive(true);
+            }
+        }
+
+        // If all players have chosen, start the race
         if (playersChosen >= totalPlayers)
         {
             StartRace();
@@ -93,6 +112,9 @@ public class GameManagerMarble : MonoBehaviour
 
         winnerChosen = true;
 
+        lastWinningMarbleIndex = marbleIndex;
+        lastWinningPlayerIndex = -1;
+
         int winningPlayer = -1;
 
         for (int i = 0; i < totalPlayers; i++)
@@ -103,6 +125,9 @@ public class GameManagerMarble : MonoBehaviour
                 break;
             }
         }
+
+        if (winningPlayer != -1)
+            lastWinningPlayerIndex = winningPlayer;
 
         playerTurnText.gameObject.SetActive(true);
 
@@ -136,6 +161,6 @@ public class GameManagerMarble : MonoBehaviour
 
     private void ReturnToBoard()
     {
-        SceneManager.LoadScene("BoardSceneName"); // Replace with your board scene name
+        SceneManager.LoadScene("Board1"); // Your board scene
     }
 }
