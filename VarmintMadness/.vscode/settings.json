@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "VarmintMadness.sln"
+    "dotnet.defaultSolution": "VarmintMadness.sln",
+    "kiroAgent.configureMCP": "Disabled"
 }
