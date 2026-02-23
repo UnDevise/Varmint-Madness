@@ -51,6 +51,9 @@ public class CameraController : MonoBehaviour
 
     private void FollowPlayer()
     {
+        if (playerToFollow == null)
+            return;
+
         Vector3 targetPosition = new Vector3(
             playerToFollow.position.x,
             playerToFollow.position.y,
@@ -69,6 +72,9 @@ public class CameraController : MonoBehaviour
     // ---------------------------------------------------------
     public void FocusOnDice(Transform diceTransform)
     {
+        if (diceTransform == null)
+            return;
+
         StopAllCoroutines();
         isFollowingPlayer = false;
         playerToFollow = null;
@@ -78,11 +84,17 @@ public class CameraController : MonoBehaviour
 
     private IEnumerator FocusDiceCoroutine(Transform dice)
     {
+        if (dice == null)
+            yield break;
+
         float startSize = cam.orthographicSize;
         float elapsed = 0f;
 
         while (elapsed < 1f)
         {
+            if (dice == null)
+                yield break;
+
             elapsed += Time.deltaTime * zoomSpeed;
 
             cam.orthographicSize = Mathf.Lerp(startSize, zoomedOrthographicSize, elapsed);
@@ -106,12 +118,18 @@ public class CameraController : MonoBehaviour
     // ---------------------------------------------------------
     public void FocusOnPlayer(Transform playerTransform)
     {
+        if (playerTransform == null)
+            return;
+
         StopAllCoroutines();
         StartCoroutine(StartFollowingCoroutine(playerTransform));
     }
 
     public IEnumerator StartFollowingCoroutine(Transform playerTransform)
     {
+        if (playerTransform == null)
+            yield break;
+
         playerToFollow = playerTransform;
 
         float startSize = cam.orthographicSize;
@@ -119,6 +137,9 @@ public class CameraController : MonoBehaviour
 
         while (elapsedTime < 1)
         {
+            if (playerToFollow == null)
+                yield break;
+
             elapsedTime += Time.deltaTime * zoomSpeed;
 
             cam.orthographicSize = Mathf.Lerp(startSize, zoomedOrthographicSize, elapsedTime);

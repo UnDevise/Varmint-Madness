@@ -7,6 +7,7 @@ public class IntroCutsceneBridge : MonoBehaviour
 
     public void PlayBlinkCutscene()
     {
+        Debug.Log("Dialogue closed → trying to play timeline: " + director.name);
         if (director == null) director = GetComponent<PlayableDirector>();
         if (director == null)
         {

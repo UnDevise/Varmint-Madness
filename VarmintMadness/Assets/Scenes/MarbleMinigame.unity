@@ -2605,6 +2605,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 513012467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &635424558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5341956665222290234, guid: d928b822f77644f488353d167bea1469, type: 3}
+  m_PrefabInstance: {fileID: 1330387297041280390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b608ab77f85494db50da6ed0272835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &646702887
 GameObject:
   m_ObjectHideFlags: 0
@@ -5961,6 +5972,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f72c9787586394c9373f03838b8c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1439022466 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3059704267152674952, guid: 32e876c75dba17e40b4e31a3960d8ddb, type: 3}
+  m_PrefabInstance: {fileID: 5796450368155138079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b608ab77f85494db50da6ed0272835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1451567303
 GameObject:
   m_ObjectHideFlags: 0
@@ -7098,6 +7120,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1624433347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2444616568149642266, guid: 0f30be1787fb85246a72c7a202d237d2, type: 3}
+  m_PrefabInstance: {fileID: 7795525051566861037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b608ab77f85494db50da6ed0272835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1635963097
 GameObject:
   m_ObjectHideFlags: 0
@@ -8710,6 +8743,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1903500668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6452797700252168869, guid: 567199bedb5f93d4b81e6036de630d5f, type: 3}
+  m_PrefabInstance: {fileID: 8013381004233789149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b608ab77f85494db50da6ed0272835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1918340125
 GameObject:
   m_ObjectHideFlags: 0
@@ -8848,6 +8892,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8f72c9787586394c9373f03838b8c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1973179970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5730246822282857115, guid: 73a973fa94667894bbf04aea51815d90, type: 3}
+  m_PrefabInstance: {fileID: 6744942589250212591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b608ab77f85494db50da6ed0272835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1981367068
@@ -9626,6 +9681,30 @@ PrefabInstance:
       propertyPath: 'marbles.Array.data[4]'
       value: 
       objectReference: {fileID: 1439022465}
+    - target: {fileID: 142892535673004494, guid: ae8f1b9da2bdcdf4bab7d9740438b841, type: 3}
+      propertyPath: marbleSelectors.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 142892535673004494, guid: ae8f1b9da2bdcdf4bab7d9740438b841, type: 3}
+      propertyPath: 'marbleSelectors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 635424558}
+    - target: {fileID: 142892535673004494, guid: ae8f1b9da2bdcdf4bab7d9740438b841, type: 3}
+      propertyPath: 'marbleSelectors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1973179970}
+    - target: {fileID: 142892535673004494, guid: ae8f1b9da2bdcdf4bab7d9740438b841, type: 3}
+      propertyPath: 'marbleSelectors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1624433347}
+    - target: {fileID: 142892535673004494, guid: ae8f1b9da2bdcdf4bab7d9740438b841, type: 3}
+      propertyPath: 'marbleSelectors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1903500668}
+    - target: {fileID: 142892535673004494, guid: ae8f1b9da2bdcdf4bab7d9740438b841, type: 3}
+      propertyPath: 'marbleSelectors.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1439022466}
     - target: {fileID: 6487465696905991766, guid: ae8f1b9da2bdcdf4bab7d9740438b841, type: 3}
       propertyPath: m_Name
       value: GameManager

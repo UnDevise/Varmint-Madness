@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DiceController : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class DiceController : MonoBehaviour
     private int currentPlayerIndex = 0;
 
     private const float MovementThreshold = 0.01f;
+
+    private int turnsCompleted = 0;
+
+    [Header("Minigame Settings")]
+    public List<string> roundMinigames = new List<string>();
 
     private void Awake()
     {
@@ -57,24 +63,20 @@ public class DiceController : MonoBehaviour
         }
     }
 
-    // Uses a variable (Rigidbody velocity) to determine whether the player is moving
     public bool IsPlayerMoving()
     {
         if (playersToMove.Count > 0 && playersToMove[currentPlayerIndex] != null)
         {
-            // NOTE: The Player GameObject must have a Rigidbody attached for this to work.
             Rigidbody playerRb = playersToMove[currentPlayerIndex].GetComponent<Rigidbody>();
 
             if (playerRb != null)
             {
-                // If velocity magnitude > threshold, player is moving, so return true
                 return playerRb.linearVelocity.sqrMagnitude > MovementThreshold;
             }
             return false;
         }
         return false;
     }
-
 
     public void MoveCurrentPlayer(int rollResult)
     {
@@ -98,14 +100,35 @@ public class DiceController : MonoBehaviour
         }
     }
 
+    public void RollAgain()
+    {
+        int rollResult = Random.Range(1, diceSides + 1);
+        Debug.Log($"Roll Again triggered! Rolled a {rollResult}");
+        MoveCurrentPlayer(rollResult);
+    }
+
     public void OnPlayerTurnFinished()
     {
+        turnsCompleted++;
+
+        if (turnsCompleted >= playersToMove.Count)
+        {
+            turnsCompleted = 0;
+            StartMinigameRound();
+            return;
+        }
+
         currentPlayerIndex++;
         if (currentPlayerIndex >= playersToMove.Count)
         {
             currentPlayerIndex = 0;
         }
 
+        ResetDicePhysics();
+    }
+
+    private void ResetDicePhysics()
+    {
         if (physicsDiceTransform != null)
         {
             Rigidbody rb = physicsDiceTransform.GetComponent<Rigidbody>();
@@ -120,14 +143,25 @@ public class DiceController : MonoBehaviour
             physicsDiceTransform.rotation = originalDiceRotation;
         }
     }
-    public void RollAgain()
+
+    private void StartMinigameRound()
     {
-        // Simulate a dice roll
-        int rollResult = Random.Range(1, diceSides + 1);
+        Debug.Log("All players have moved. Starting a random minigame!");
 
-        Debug.Log($"Roll Again triggered! Rolled a {rollResult}");
+        // Save which board each player is on
+        BoardStateSaver.SaveBoardState(playersToMove.Count, this);
 
-        MoveCurrentPlayer(rollResult);
+        currentPlayerIndex = 0;
+
+        if (roundMinigames == null || roundMinigames.Count == 0)
+        {
+            Debug.LogError("No minigames assigned!");
+            return;
+        }
+
+        int index = Random.Range(0, roundMinigames.Count);
+        string selectedMinigame = roundMinigames[index];
+
+        SceneManager.LoadScene(selectedMinigame);
     }
-
 }

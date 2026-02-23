@@ -2,7 +2,7 @@
 
 public class MarbleSelector : MonoBehaviour
 {
-    public int marbleIndex; // Set in Inspector
+    public int marbleIndex;
     private GameManagerMarble manager;
     private SpriteRenderer sr;
 
@@ -14,14 +14,10 @@ public class MarbleSelector : MonoBehaviour
 
     void OnMouseDown()
     {
-        // Only allow clicking if this marble is still available
         if (enabled)
-        {
             manager.PlayerPickedMarble(this);
-        }
     }
 
-    // Called when this marble is chosen by a player
     public void EnableMarble()
     {
         gameObject.SetActive(true);
@@ -31,13 +27,12 @@ public class MarbleSelector : MonoBehaviour
             sr.color = Color.white;
     }
 
-    // Called when this marble is NOT chosen
     public void HideUnpicked()
     {
-        gameObject.SetActive(false);
+        if (enabled)
+            gameObject.SetActive(false);
     }
 
-    // Called when another player picks this marble
     public void DisableMarble()
     {
         enabled = false;
@@ -46,5 +41,3 @@ public class MarbleSelector : MonoBehaviour
             sr.color = new Color(1f, 1f, 1f, 0.4f);
     }
 }
-
-

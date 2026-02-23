@@ -316,18 +316,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 199507507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b2fd240d4eb1f6408d7c399cd684a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: c04b29a8581552e4ba57875568c7f9c5, type: 2}
-    m_Events:
-    - m_PersistentCalls:
+  dialogueBox: {fileID: 199507507}
+  mainDialogueText: {fileID: 1986072513}
+  secondaryDialogueText: {fileID: 1629239598}
+  voiceAudioSource: {fileID: 527818483}
+  outputGroup: {fileID: 2530815221477543561, guid: 4716fc176eb15144db40ed483df9044f, type: 2}
+  dialogueLines:
+  - mainText: Mouse Warf
+    secondaryText: omg i really hope this works this is even more frustrating than
+      the stupid 3d dice omg
+    voiceClip: {fileID: 8300000, guid: 27221f509dc76454dbe0bdf1d85ae888, type: 3}
+    triggerHideBox: 1
+    postEventDelay: 0
+    onBoxClosed:
+      m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 199507512}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: 
+        - m_Target: {fileID: 1300592824}
+          m_TargetAssemblyTypeName: IntroCutsceneBridge, Assembly-CSharp
+          m_MethodName: PlayBlinkCutscene
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -335,8 +344,10 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
+  typingSpeed: 0.03
+  punctuationPause: 0.5
 --- !u!1 &295498625
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +502,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1440472027
+    rgba: 3369851867
   m_fontColor: {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1309,7 +1320,7 @@ Animator:
   m_GameObject: {fileID: 790030999}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1045f6780e1dd0c4cbadc6572b83f25a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1773,6 +1784,94 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1300592821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1300592823}
+  - component: {fileID: 1300592822}
+  - component: {fileID: 1300592824}
+  - component: {fileID: 1300592825}
+  m_Layer: 0
+  m_Name: TriggerPlayTimeline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1300592822
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300592821}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 8d050bf1ba4294644a64fc21207d6727, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -5739507439868925782, guid: 8d050bf1ba4294644a64fc21207d6727, type: 2}
+    value: {fileID: 790031003}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1300592823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300592821}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 616.41797, y: 702.145, z: -8.429997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1300592824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300592821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcc484c04590644895672d6f60d3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  director: {fileID: 1300592822}
+--- !u!95 &1300592825
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300592821}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0ceb7e51f9954a48afdcb3e6789b31d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1328707266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,7 +2178,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 14408667
+    rgba: 2749094875
   m_fontColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 0.6392157}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2182,9 +2281,8 @@ GameObject:
   - component: {fileID: 1629239597}
   - component: {fileID: 1629239599}
   - component: {fileID: 1629239598}
-  - component: {fileID: 1629239600}
   m_Layer: 5
-  m_Name: SpeakingLine1
+  m_Name: SpeakingLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2308,46 +2406,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629239596}
   m_CullTransparentMesh: 1
---- !u!114 &1629239600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629239596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b2fd240d4eb1f6408d7c399cd684a2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 199507507}
-  mainDialogueText: {fileID: 1986072513}
-  secondaryDialogueText: {fileID: 1629239598}
-  voiceAudioSource: {fileID: 527818483}
-  outputGroup: {fileID: 2530815221477543561, guid: 4716fc176eb15144db40ed483df9044f, type: 2}
-  dialogueLines:
-  - mainText: Mouse Warf
-    secondaryText: LALALALALALALALAALALLALALALALALALALALALLKLLALALALALALLALALALALALALALALALAL
-    voiceClip: {fileID: 8300000, guid: 27221f509dc76454dbe0bdf1d85ae888, type: 3}
-    triggerHideBox: 1
-    postEventDelay: 0.5
-    onBoxClosed:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
-          m_MethodName: Resume
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  typingSpeed: 0.05
-  punctuationPause: 0.5
 --- !u!1 &1819482248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,7 +2417,7 @@ GameObject:
   - component: {fileID: 1819482250}
   - component: {fileID: 1819482249}
   m_Layer: 0
-  m_Name: MainTimeline
+  m_Name: AutoPlayTimeline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2428,14 +2486,14 @@ PlayableDirector:
     value: {fileID: 1939393215}
   - key: {fileID: 0}
     value: {fileID: 946586857}
-  - key: {fileID: 9163696271634051084, guid: 612be41c360aecb4b8fe90d463e46922, type: 2}
-    value: {fileID: 1160294661}
   - key: {fileID: -4664479611594636465, guid: 612be41c360aecb4b8fe90d463e46922, type: 2}
     value: {fileID: 1094011957}
   - key: {fileID: 2887781124000915560, guid: 612be41c360aecb4b8fe90d463e46922, type: 2}
     value: {fileID: 1500431081}
-  - key: {fileID: 8739245632037169487, guid: 612be41c360aecb4b8fe90d463e46922, type: 2}
-    value: {fileID: 199507512}
+  - key: {fileID: 0}
+    value: {fileID: 790031003}
+  - key: {fileID: 0}
+    value: {fileID: 654145156}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1819482250
@@ -2820,6 +2878,7 @@ SceneRoots:
   - {fileID: 1861543602}
   - {fileID: 357233293}
   - {fileID: 1819482250}
+  - {fileID: 1300592823}
   - {fileID: 1893138328}
   - {fileID: 383412205}
   - {fileID: 1160294660}
