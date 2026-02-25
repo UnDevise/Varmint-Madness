@@ -218,12 +218,14 @@ public class DiceController : MonoBehaviour
             }
         }
 
-        // If only one player is not in a cage, they win
         if (activePlayers == 1 && lastStanding != null)
         {
             Debug.Log($"{lastStanding.playerName} WINS THE GAME!");
 
-            // Load your win scene here
+            // ⭐ Save winner name and prefab path
+            WinnerData.WinnerName = lastStanding.playerName;
+            WinnerData.WinnerPrefab = lastStanding.gameObject;
+
             SceneManager.LoadScene("Winner");
         }
     }

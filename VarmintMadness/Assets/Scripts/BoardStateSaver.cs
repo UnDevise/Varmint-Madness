@@ -32,5 +32,6 @@ public static class BoardStateSaver
             playerIsInCage[i] = p.IsInCage;
         }
     }
+
 }
 
