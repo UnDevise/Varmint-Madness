@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -12,6 +12,7 @@ public class DiceController : MonoBehaviour
     public TextMeshProUGUI playerGarbageTextPrefab;
     public Transform uiParentPanel;
     public float uiElementSpacing = 50f;
+    public int currentPlayerIndex = 0;
 
     public float startXPosition = 0f;
     public float startYPosition = -50f;
@@ -22,7 +23,6 @@ public class DiceController : MonoBehaviour
     private Quaternion originalDiceRotation;
 
     private SpriteRenderer spriteRenderer;
-    private int currentPlayerIndex = 0;
 
     private const float MovementThreshold = 0.01f;
 
@@ -63,6 +63,15 @@ public class DiceController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        // ⭐ FIX: Restore camera follow after returning from a minigame
+        if (CameraController.Instance != null && playersToMove.Count > 0)
+        {
+            CameraController.Instance.FocusOnPlayer(playersToMove[currentPlayerIndex].transform);
+        }
+    }
+
     public bool IsPlayerMoving()
     {
         if (playersToMove.Count > 0 && playersToMove[currentPlayerIndex] != null)
@@ -96,6 +105,10 @@ public class DiceController : MonoBehaviour
 
         if (currentPlayer != null)
         {
+            // ⭐ Camera switches to player when they start moving
+            if (CameraController.Instance != null)
+                CameraController.Instance.FocusOnPlayer(currentPlayer.transform);
+
             currentPlayer.MoveCharacter(rollResult);
         }
     }

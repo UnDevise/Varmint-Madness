@@ -29,6 +29,16 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    public enum CameraMode
+    {
+        None,
+        FollowPlayer,
+        FocusDice
+    }
+
+    public CameraMode currentMode = CameraMode.None;
+
+
     private void Start()
     {
         cam = GetComponent<Camera>();
@@ -67,14 +77,12 @@ public class CameraController : MonoBehaviour
         );
     }
 
-    // ---------------------------------------------------------
-    // FOCUS ON DICE
-    // ---------------------------------------------------------
     public void FocusOnDice(Transform diceTransform)
     {
         if (diceTransform == null)
             return;
 
+        currentMode = CameraMode.FocusDice;
         StopAllCoroutines();
         isFollowingPlayer = false;
         playerToFollow = null;
@@ -113,14 +121,12 @@ public class CameraController : MonoBehaviour
         cam.orthographicSize = zoomedOrthographicSize;
     }
 
-    // ---------------------------------------------------------
-    // FOCUS ON PLAYER
-    // ---------------------------------------------------------
     public void FocusOnPlayer(Transform playerTransform)
     {
         if (playerTransform == null)
             return;
 
+        currentMode = CameraMode.FollowPlayer;
         StopAllCoroutines();
         StartCoroutine(StartFollowingCoroutine(playerTransform));
     }
@@ -159,9 +165,6 @@ public class CameraController : MonoBehaviour
         isFollowingPlayer = true;
     }
 
-    // ---------------------------------------------------------
-    // STOP FOLLOWING
-    // ---------------------------------------------------------
     public void StopFollowing()
     {
         isFollowingPlayer = false;
@@ -170,9 +173,6 @@ public class CameraController : MonoBehaviour
         StartCoroutine(ReturnToFullView());
     }
 
-    // ---------------------------------------------------------
-    // RETURN TO FULL VIEW
-    // ---------------------------------------------------------
     private IEnumerator ReturnToFullView()
     {
         while (Mathf.Abs(cam.orthographicSize - fullViewOrthographicSize) > 0.01f)
