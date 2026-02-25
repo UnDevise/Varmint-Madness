@@ -7,17 +7,22 @@ public class IntroCutsceneBridge : MonoBehaviour
 
     public void PlayBlinkCutscene()
     {
-        Debug.Log("Dialogue closed → trying to play timeline: " + director.name);
-        if (director == null) director = GetComponent<PlayableDirector>();
         if (director == null)
         {
-            Debug.LogError("No PlayableDirector found for IntroCutsceneBridge.");
+            director = GetComponent<PlayableDirector>();
+        }
+        
+        if (director == null)
+        {
+            Debug.LogError("No PlayableDirector found for IntroCutsceneBridge. Make sure it's assigned in Inspector or on same GameObject.");
             return;
         }
 
-        // Important: rewind so it starts from the beginning every time
-        director.time = 0;
-        director.Evaluate();   // forces the rewind to visually apply immediately
-        director.Play();
+        Debug.Log("Dialogue closed → playing timeline: " + director.name);
+        
+        // Important: rewind so it starts from the beginning every time
+        director.time = 0;
+        director.Evaluate();   // forces the rewind to visually apply immediately
+        director.Play();
     }
 }
