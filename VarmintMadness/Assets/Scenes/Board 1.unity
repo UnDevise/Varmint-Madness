@@ -42195,6 +42195,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: diceSides
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: uiParentPanel
       value: 
       objectReference: {fileID: 1355901444}
@@ -115194,6 +115198,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
+    - target: {fileID: 6475922267783764858, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9054456811651608997, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
       propertyPath: m_LocalScale.x
       value: 45.698
@@ -115359,6 +115367,26 @@ PrefabInstance:
     - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
       propertyPath: diceSpawnOffsetFromCamera
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+      propertyPath: faces.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+      propertyPath: faces.Array.data[2].value
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+      propertyPath: faces.Array.data[3].value
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+      propertyPath: faces.Array.data[4].value
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+      propertyPath: faces.Array.data[5].value
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7938712182316308869, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
       propertyPath: m_Name

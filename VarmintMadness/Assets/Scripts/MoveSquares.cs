@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -64,7 +64,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (targetWaypoints.Count == 0) return;
 
-        // Restore board layer
+        // ---------------------------------------------------------
+        // RESTORE BOARD LAYER (TOP BOARD / SEWER BOARD)
+        // ---------------------------------------------------------
         if (BoardStateSaver.playerBoardLayer != null)
         {
             int index = diceController.playersToMove.IndexOf(this);
@@ -80,7 +82,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // Restore tile index
+        // ---------------------------------------------------------
+        // RESTORE TILE INDEX
+        // ---------------------------------------------------------
         if (BoardStateSaver.playerTileIndex != null)
         {
             int index = diceController.playersToMove.IndexOf(this);
@@ -95,6 +99,46 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        // ---------------------------------------------------------
+        // RESTORE STUNNED STATE
+        // ---------------------------------------------------------
+        if (BoardStateSaver.playerIsStunned != null)
+        {
+            int index = diceController.playersToMove.IndexOf(this);
+
+            if (index >= 0)
+                IsStunned = BoardStateSaver.playerIsStunned[index];
+        }
+
+        // ---------------------------------------------------------
+        // RESTORE CAGE STATE
+        // ---------------------------------------------------------
+        if (BoardStateSaver.playerIsInCage != null)
+        {
+            int index = diceController.playersToMove.IndexOf(this);
+
+            if (index >= 0)
+                IsInCage = BoardStateSaver.playerIsInCage[index];
+        }
+
+        // ---------------------------------------------------------
+        // ⭐ TELEPORT BACK INTO CAGE IF NECESSARY
+        // ---------------------------------------------------------
+        if (IsInCage && cageTeleportPoint != null)
+        {
+            transform.position = cageTeleportPoint.position;
+            currentPositionIndex = -1;
+        }
+
+        // ⭐ Check if only one player remains after minigame restore
+        diceController.CheckForWinner();
+
+        UpdateGarbageText();
+
+
+        // ---------------------------------------------------------
+        // UPDATE UI
+        // ---------------------------------------------------------
         UpdateGarbageText();
     }
 
@@ -161,6 +205,10 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator MoveSequence(int steps)
     {
+        // ⭐ If we're in the cage or off the board, do not move along waypoints
+        if (currentPositionIndex < 0 || targetWaypoints.Count == 0)
+            yield break;
+
         for (int i = 0; i < Mathf.Abs(steps); i++)
         {
             int direction = steps > 0 ? 1 : -1;
@@ -185,6 +233,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     // ---------------------------------------------------------
     // SPECIAL SQUARE LOGIC
     // ---------------------------------------------------------
@@ -192,8 +241,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsMoving) return false;
 
+        // ⭐ If we're not on the board, don't try to read waypoints
+        if (currentPositionIndex < 0 || currentPositionIndex >= targetWaypoints.Count)
+            return false;
+
         string currentWaypointTag = targetWaypoints[currentPositionIndex].Tag;
         string currentWaypointName = targetWaypoints[currentPositionIndex].Name;
+
+        // ...rest of your existing logic...
+
 
         // CAGE SPACE
         if (currentWaypointTag == "Cage Space")
@@ -302,7 +358,11 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Player has been sent to the cage and is out of the game.");
 
         StartCoroutine(FocusCameraOnCage());
+
+        // ⭐ Check if this caused a win
+        diceController.CheckForWinner();
     }
+
 
     // ---------------------------------------------------------
     // MINIGAME
@@ -469,7 +529,17 @@ public class PlayerMovement : MonoBehaviour
     }
     public int GetCurrentTileIndex()
     {
+        if (currentPositionIndex < 0 || currentPositionIndex >= targetWaypoints.Count)
+            return 0; // or any safe default
+
         return currentPositionIndex;
+    }
+
+    public bool ShouldSkipTurn()
+    {
+        if (IsInCage) return true;
+        if (IsStunned) return true;
+        return false;
     }
 
 }
