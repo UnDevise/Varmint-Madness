@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 318767988}
   - component: {fileID: 318767987}
   m_Layer: 0
-  m_Name: Opossum Luke_0
+  m_Name: Opossum Luke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 626486844}
   - component: {fileID: 626486843}
   m_Layer: 0
-  m_Name: Fox Jaidyn_0
+  m_Name: Fox Jaidyn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -672,9 +672,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 170840986}
-  walkTarget: {fileID: 1796346851}
+  targetPoint: {fileID: 1796346851}
   winnerNameText: {fileID: 1484215672}
-  walkSpeed: 2
+  moveSpeed: 2
 --- !u!4 &1173320836
 Transform:
   m_ObjectHideFlags: 0
@@ -1084,7 +1084,7 @@ GameObject:
   - component: {fileID: 1796599476}
   - component: {fileID: 1796599475}
   m_Layer: 0
-  m_Name: Chipmunk Bella_0
+  m_Name: Chipmunk Bella
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1171,7 +1171,7 @@ GameObject:
   - component: {fileID: 1810554068}
   - component: {fileID: 1810554067}
   m_Layer: 0
-  m_Name: Raccoon Travis (2)_0
+  m_Name: Raccoon Travis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

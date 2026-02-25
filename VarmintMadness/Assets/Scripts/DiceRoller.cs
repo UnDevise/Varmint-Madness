@@ -222,9 +222,14 @@ public class DiceController : MonoBehaviour
         {
             Debug.Log($"{lastStanding.playerName} WINS THE GAME!");
 
-            // ⭐ Save winner name and prefab path
+            // ⭐ Store name and sprite (not the scene object)
             WinnerData.WinnerName = lastStanding.playerName;
-            WinnerData.WinnerPrefab = lastStanding.gameObject;
+
+            SpriteRenderer sr = lastStanding.GetComponent<SpriteRenderer>();
+            if (sr != null)
+                WinnerData.WinnerSprite = sr.sprite;
+            else
+                WinnerData.WinnerSprite = null;
 
             SceneManager.LoadScene("Winner");
         }
