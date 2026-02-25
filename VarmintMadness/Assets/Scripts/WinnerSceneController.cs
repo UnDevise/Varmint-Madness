@@ -3,46 +3,51 @@ using TMPro;
 
 public class WinnerSceneController : MonoBehaviour
 {
-    public Transform spawnPoint;
-    public Transform walkTarget;
     public TextMeshProUGUI winnerNameText;
+    public float moveSpeed = 2f;
 
     private GameObject winnerInstance;
-    private Animator winnerAnimator;
-
-    public float walkSpeed = 2f;
+    private Vector3 targetPosition;
 
     private void Start()
     {
-        // Display winner name
+        Camera cam = Camera.main;
+        if (cam == null)
+        {
+            Debug.LogError("No Main Camera found in WinScene.");
+            return;
+        }
+
+        // Show winner name
         winnerNameText.text = WinnerData.WinnerName + " Wins!";
 
-        // Spawn the winner's character
-        if (WinnerData.WinnerPrefab != null)
+        if (WinnerData.WinnerSprite == null)
         {
-            winnerInstance = Instantiate(WinnerData.WinnerPrefab, spawnPoint.position, Quaternion.identity);
-
-            // Remove scripts that shouldn't run in the win scene
-            Destroy(winnerInstance.GetComponent<PlayerMovement>());
-            Destroy(winnerInstance.GetComponent<Rigidbody>());
-            Destroy(winnerInstance.GetComponent<Collider>());
-
-            winnerAnimator = winnerInstance.GetComponent<Animator>();
-
-            if (winnerAnimator != null)
-                winnerAnimator.SetBool("Running", true);
+            Debug.LogError("WinnerData.WinnerSprite is null.");
+            return;
         }
+
+        // World positions based on camera viewport
+        Vector3 spawnWorld = cam.ViewportToWorldPoint(new Vector3(0.5f, -0.2f, 10f));
+        targetPosition = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.3f, 10f));
+
+        // Create a new object for the winner sprite
+        winnerInstance = new GameObject("WinnerSprite");
+        var sr = winnerInstance.AddComponent<SpriteRenderer>();
+        sr.sprite = WinnerData.WinnerSprite;
+        sr.sortingOrder = 100;
+
+        winnerInstance.transform.position = spawnWorld;
     }
 
     private void Update()
     {
         if (winnerInstance == null) return;
 
-        // Move toward the camera target
         winnerInstance.transform.position = Vector3.MoveTowards(
             winnerInstance.transform.position,
-            walkTarget.position,
-            walkSpeed * Time.deltaTime
+            targetPosition,
+            moveSpeed * Time.deltaTime
         );
     }
 }
