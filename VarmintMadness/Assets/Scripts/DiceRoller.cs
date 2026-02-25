@@ -65,11 +65,40 @@ public class DiceController : MonoBehaviour
 
     private void Start()
     {
-        // ⭐ FIX: Restore camera follow after returning from a minigame
+        // Restore camera follow after returning from a minigame
         if (CameraController.Instance != null && playersToMove.Count > 0)
         {
             CameraController.Instance.FocusOnPlayer(playersToMove[currentPlayerIndex].transform);
         }
+
+        // Start the first player's turn
+        StartPlayerTurn();
+    }
+
+    // ---------------------------------------------------------
+    // TURN ENTRY POINT
+    // ---------------------------------------------------------
+    public void StartPlayerTurn()
+    {
+        PlayerMovement current = playersToMove[currentPlayerIndex];
+
+        // ⭐ SKIP TURN CHECK
+        if (current.ShouldSkipTurn())
+        {
+            Debug.Log($"{current.playerName} skips their turn immediately.");
+
+            current.IsStunned = false; // consume the skip
+
+            OnPlayerTurnFinished();
+            return;
+        }
+
+
+        // ⭐ Otherwise focus camera on dice
+        if (CameraController.Instance != null)
+            CameraController.Instance.FocusOnDice(physicsDiceTransform);
+
+        // Dice UI appears here if you have one
     }
 
     public bool IsPlayerMoving()
@@ -105,7 +134,7 @@ public class DiceController : MonoBehaviour
 
         if (currentPlayer != null)
         {
-            // ⭐ Camera switches to player when they start moving
+            // Camera switches to player when they start moving
             if (CameraController.Instance != null)
                 CameraController.Instance.FocusOnPlayer(currentPlayer.transform);
 
@@ -138,6 +167,9 @@ public class DiceController : MonoBehaviour
         }
 
         ResetDicePhysics();
+
+        // ⭐ Start next player's turn
+        StartPlayerTurn();
     }
 
     private void ResetDicePhysics()

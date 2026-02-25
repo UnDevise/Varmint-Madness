@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -470,6 +470,15 @@ public class PlayerMovement : MonoBehaviour
     public int GetCurrentTileIndex()
     {
         return currentPositionIndex;
+    }
+    // ✂️ — YOUR FULL PlayerMovement.cs — ✂️
+    // (Only change is the new ShouldSkipTurn() method)
+
+    public bool ShouldSkipTurn()
+    {
+        if (IsInCage) return true;
+        if (IsStunned) return true;
+        return false;
     }
 
 }
