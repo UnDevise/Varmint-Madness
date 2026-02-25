@@ -80,25 +80,20 @@ public class DiceController : MonoBehaviour
     // ---------------------------------------------------------
     public void StartPlayerTurn()
     {
+        CheckForWinner();
+
         PlayerMovement current = playersToMove[currentPlayerIndex];
 
-        // ⭐ SKIP TURN CHECK
         if (current.ShouldSkipTurn())
         {
             Debug.Log($"{current.playerName} skips their turn immediately.");
-
-            current.IsStunned = false; // consume the skip
-
+            current.IsStunned = false;
             OnPlayerTurnFinished();
             return;
         }
 
-
-        // ⭐ Otherwise focus camera on dice
         if (CameraController.Instance != null)
             CameraController.Instance.FocusOnDice(physicsDiceTransform);
-
-        // Dice UI appears here if you have one
     }
 
     public bool IsPlayerMoving()
@@ -208,5 +203,28 @@ public class DiceController : MonoBehaviour
         string selectedMinigame = roundMinigames[index];
 
         SceneManager.LoadScene(selectedMinigame);
+    }
+    public void CheckForWinner()
+    {
+        int activePlayers = 0;
+        PlayerMovement lastStanding = null;
+
+        foreach (PlayerMovement p in playersToMove)
+        {
+            if (!p.IsInCage)
+            {
+                activePlayers++;
+                lastStanding = p;
+            }
+        }
+
+        // If only one player is not in a cage, they win
+        if (activePlayers == 1 && lastStanding != null)
+        {
+            Debug.Log($"{lastStanding.playerName} WINS THE GAME!");
+
+            // Load your win scene here
+            SceneManager.LoadScene("Winner");
+        }
     }
 }

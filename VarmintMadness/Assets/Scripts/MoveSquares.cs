@@ -127,8 +127,14 @@ public class PlayerMovement : MonoBehaviour
         if (IsInCage && cageTeleportPoint != null)
         {
             transform.position = cageTeleportPoint.position;
-            currentPositionIndex = -1; // no longer on the board path
+            currentPositionIndex = -1;
         }
+
+        // ⭐ Check if only one player remains after minigame restore
+        diceController.CheckForWinner();
+
+        UpdateGarbageText();
+
 
         // ---------------------------------------------------------
         // UPDATE UI
@@ -199,6 +205,10 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator MoveSequence(int steps)
     {
+        // ⭐ If we're in the cage or off the board, do not move along waypoints
+        if (currentPositionIndex < 0 || targetWaypoints.Count == 0)
+            yield break;
+
         for (int i = 0; i < Mathf.Abs(steps); i++)
         {
             int direction = steps > 0 ? 1 : -1;
@@ -223,6 +233,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     // ---------------------------------------------------------
     // SPECIAL SQUARE LOGIC
     // ---------------------------------------------------------
@@ -230,8 +241,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsMoving) return false;
 
+        // ⭐ If we're not on the board, don't try to read waypoints
+        if (currentPositionIndex < 0 || currentPositionIndex >= targetWaypoints.Count)
+            return false;
+
         string currentWaypointTag = targetWaypoints[currentPositionIndex].Tag;
         string currentWaypointName = targetWaypoints[currentPositionIndex].Name;
+
+        // ...rest of your existing logic...
+
 
         // CAGE SPACE
         if (currentWaypointTag == "Cage Space")
@@ -340,7 +358,11 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Player has been sent to the cage and is out of the game.");
 
         StartCoroutine(FocusCameraOnCage());
+
+        // ⭐ Check if this caused a win
+        diceController.CheckForWinner();
     }
+
 
     // ---------------------------------------------------------
     // MINIGAME
@@ -507,10 +529,11 @@ public class PlayerMovement : MonoBehaviour
     }
     public int GetCurrentTileIndex()
     {
+        if (currentPositionIndex < 0 || currentPositionIndex >= targetWaypoints.Count)
+            return 0; // or any safe default
+
         return currentPositionIndex;
     }
-    // ✂️ — YOUR FULL PlayerMovement.cs — ✂️
-    // (Only change is the new ShouldSkipTurn() method)
 
     public bool ShouldSkipTurn()
     {
