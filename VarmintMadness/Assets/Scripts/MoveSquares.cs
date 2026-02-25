@@ -64,7 +64,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (targetWaypoints.Count == 0) return;
 
-        // Restore board layer
+        // ---------------------------------------------------------
+        // RESTORE BOARD LAYER (TOP BOARD / SEWER BOARD)
+        // ---------------------------------------------------------
         if (BoardStateSaver.playerBoardLayer != null)
         {
             int index = diceController.playersToMove.IndexOf(this);
@@ -80,7 +82,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // Restore tile index
+        // ---------------------------------------------------------
+        // RESTORE TILE INDEX
+        // ---------------------------------------------------------
         if (BoardStateSaver.playerTileIndex != null)
         {
             int index = diceController.playersToMove.IndexOf(this);
@@ -95,6 +99,40 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        // ---------------------------------------------------------
+        // RESTORE STUNNED STATE
+        // ---------------------------------------------------------
+        if (BoardStateSaver.playerIsStunned != null)
+        {
+            int index = diceController.playersToMove.IndexOf(this);
+
+            if (index >= 0)
+                IsStunned = BoardStateSaver.playerIsStunned[index];
+        }
+
+        // ---------------------------------------------------------
+        // RESTORE CAGE STATE
+        // ---------------------------------------------------------
+        if (BoardStateSaver.playerIsInCage != null)
+        {
+            int index = diceController.playersToMove.IndexOf(this);
+
+            if (index >= 0)
+                IsInCage = BoardStateSaver.playerIsInCage[index];
+        }
+
+        // ---------------------------------------------------------
+        // ⭐ TELEPORT BACK INTO CAGE IF NECESSARY
+        // ---------------------------------------------------------
+        if (IsInCage && cageTeleportPoint != null)
+        {
+            transform.position = cageTeleportPoint.position;
+            currentPositionIndex = -1; // no longer on the board path
+        }
+
+        // ---------------------------------------------------------
+        // UPDATE UI
+        // ---------------------------------------------------------
         UpdateGarbageText();
     }
 
