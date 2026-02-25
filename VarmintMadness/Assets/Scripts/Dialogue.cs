@@ -37,6 +37,7 @@ public class DialogueSystem : MonoBehaviour
 
     private int currentLineIndex = 0;
     private bool isTyping = false;
+    private bool dialogueFinished = false;
 
     void Start()
     {
@@ -55,6 +56,8 @@ public class DialogueSystem : MonoBehaviour
 
     void Update()
     {
+        if (dialogueFinished) return; // Stop listening for clicks once dialogue is done
+        
         if (Input.GetMouseButtonDown(0))
         {
             if (isTyping)
@@ -120,6 +123,7 @@ public class DialogueSystem : MonoBehaviour
         // If this line is set to trigger an event, start the closure sequence
         if (dialogueLines[currentLineIndex].triggerHideBox)
         {
+            dialogueFinished = true; // Stop accepting input
             // Hide box first
             dialogueBox.SetActive(false);
             Debug.Log("Dialogue box closed, triggering event after " + dialogueLines[currentLineIndex].postEventDelay + " seconds...");
@@ -137,6 +141,7 @@ public class DialogueSystem : MonoBehaviour
         }
         else
         {
+            dialogueFinished = true; // Stop accepting input
             // Auto-trigger if it's the absolute last line
             dialogueBox.SetActive(false);
             Invoke(nameof(TriggerEvent), dialogueLines[currentLineIndex].postEventDelay);
