@@ -120,7 +120,12 @@ public class DialogueSystem : MonoBehaviour
         // If this line is set to trigger an event, start the closure sequence
         if (dialogueLines[currentLineIndex].triggerHideBox)
         {
-            StartCoroutine(CloseBoxAndTriggerDelayedEvent());
+            // Hide box first
+            dialogueBox.SetActive(false);
+            Debug.Log("Dialogue box closed, triggering event after " + dialogueLines[currentLineIndex].postEventDelay + " seconds...");
+            
+            // Invoke after delay without coroutine (in case this script is on the box itself)
+            Invoke(nameof(TriggerEvent), dialogueLines[currentLineIndex].postEventDelay);
             return;
         }
 
@@ -133,19 +138,14 @@ public class DialogueSystem : MonoBehaviour
         else
         {
             // Auto-trigger if it's the absolute last line
-            StartCoroutine(CloseBoxAndTriggerDelayedEvent());
+            dialogueBox.SetActive(false);
+            Invoke(nameof(TriggerEvent), dialogueLines[currentLineIndex].postEventDelay);
         }
     }
 
-    IEnumerator CloseBoxAndTriggerDelayedEvent()
+    void TriggerEvent()
     {
-        // 1. Hide the box immediately upon click
-        dialogueBox.SetActive(false);
-
-        // 2. Wait for the specified delay
-        yield return new WaitForSeconds(dialogueLines[currentLineIndex].postEventDelay);
-
-        // 3. Trigger the Timeline event (PlayableDirector.Play)
+        Debug.Log("Invoking onBoxClosed event now! Event listener count: " + dialogueLines[currentLineIndex].onBoxClosed.GetPersistentEventCount());
         dialogueLines[currentLineIndex].onBoxClosed?.Invoke();
     }
 }
