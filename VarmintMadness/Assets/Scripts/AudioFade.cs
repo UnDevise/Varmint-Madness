@@ -4,7 +4,8 @@ using System.Collections;
 public class AudioFader : MonoBehaviour
 {
     public AudioSource audioSource;
-    public float fadeDuration = 5f; // Adjust for fade
+    public float fadeDuration = 10f;
+    public float targetVolume = 0.3f; // Set your desired final volume here
 
     void Start()
     {
@@ -21,11 +22,11 @@ public class AudioFader : MonoBehaviour
         while (timer < fadeDuration)
         {
             timer += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(0f, 0.5f, timer / fadeDuration);
+            audioSource.volume = Mathf.Lerp(0f, targetVolume, timer / fadeDuration);
             yield return null;
         }
 
-        audioSource.volume = 0.3f; // Adjust for final volume
+        audioSource.volume = targetVolume; // Ensure it ends exactly at target
     }
 }
 
