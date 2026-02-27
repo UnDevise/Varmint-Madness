@@ -2,6 +2,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class DiceController : MonoBehaviour
 {
@@ -71,7 +72,16 @@ public class DiceController : MonoBehaviour
             CameraController.Instance.FocusOnPlayer(playersToMove[currentPlayerIndex].transform);
         }
 
-        // Start the first player's turn
+        // ⭐ Wait one frame so PlayerMovement.Start() can restore cage/stun
+        StartCoroutine(BeginAfterRestore());
+    }
+
+    private IEnumerator BeginAfterRestore()
+    {
+        // Wait for all PlayerMovement.Start() to run
+        yield return null;
+
+        // Now all IsInCage / IsStunned flags are restored
         StartPlayerTurn();
     }
 
