@@ -4,7 +4,7 @@ using System.Collections;
 public class AudioFader : MonoBehaviour
 {
     public AudioSource audioSource;
-    public float fadeDuration = 2f;
+    public float fadeDuration = 5f; // Adjust for fade
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class AudioFader : MonoBehaviour
             yield return null;
         }
 
-        audioSource.volume = 0.5f; // Final Volume
+        audioSource.volume = 0.3f; // Adjust for final volume
     }
 }
 

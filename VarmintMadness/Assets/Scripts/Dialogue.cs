@@ -38,6 +38,7 @@ public class DialogueSystem : MonoBehaviour
     private int currentLineIndex = 0;
     private bool isTyping = false;
     private bool dialogueFinished = false;
+    private bool dialogueActive = false; // Only accept input when dialogue is active
 
     void Start()
     {
@@ -47,8 +48,15 @@ public class DialogueSystem : MonoBehaviour
             if (outputGroup != null) voiceAudioSource.outputAudioMixerGroup = outputGroup;
         }
 
+        // Don't auto-start anymore - wait for signal
+        dialogueBox.SetActive(false);
+    }
+
+    public void StartDialogue()
+    {
         if (dialogueLines.Length > 0)
         {
+            dialogueActive = true; // Enable input
             dialogueBox.SetActive(true);
             StartCoroutine(TypeLine());
         }
@@ -56,7 +64,7 @@ public class DialogueSystem : MonoBehaviour
 
     void Update()
     {
-        if (dialogueFinished) return; // Stop listening for clicks once dialogue is done
+        if (!dialogueActive || dialogueFinished) return; // Only listen when dialogue is active and not finished
         
         if (Input.GetMouseButtonDown(0))
         {
