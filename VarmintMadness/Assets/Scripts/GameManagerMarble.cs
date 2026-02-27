@@ -12,44 +12,133 @@ public class GameManagerMarble : MonoBehaviour
     private int currentPlayer = 1;
     private int playersChosen = 0;
 
+    // By player index: which marble each player owns
     private int[] playerMarbleChoices;
+
+    // By pick order: which marbles were picked in sequence
+    private int[] pickedMarblesInOrder;
+
     private bool winnerChosen = false;
 
     private int lastWinningMarbleIndex = -1;
     private int lastWinningPlayerIndex = -1;
 
+    // How many players are actually allowed to pick (not in cage)
+    private int eligiblePlayers = 0;
+
     void Start()
     {
         playerMarbleChoices = new int[totalPlayers];
+        pickedMarblesInOrder = new int[totalPlayers];
 
         // Show all marbles at the start
         foreach (var selector in marbleSelectors)
             selector.EnableMarble();
 
+        // Determine how many players are eligible (not in cage)
+        CalculateEligiblePlayers();
+
+        // Ensure we start on an eligible player
+        SkipCagedPlayersAtStart();
+
         UpdateTurnText();
+    }
+
+    // Count how many players are NOT in a cage
+    private void CalculateEligiblePlayers()
+    {
+        eligiblePlayers = 0;
+
+        if (BoardStateSaver.playerIsInCage != null &&
+            BoardStateSaver.playerIsInCage.Length >= totalPlayers)
+        {
+            for (int i = 0; i < totalPlayers; i++)
+            {
+                if (!BoardStateSaver.playerIsInCage[i])
+                    eligiblePlayers++;
+            }
+        }
+        else
+        {
+            // Fallback: if we don't have cage data, assume all are eligible
+            eligiblePlayers = totalPlayers;
+        }
+    }
+
+    // Skip caged players before the first turn
+    private void SkipCagedPlayersAtStart()
+    {
+        if (BoardStateSaver.playerIsInCage == null ||
+            BoardStateSaver.playerIsInCage.Length < totalPlayers)
+            return;
+
+        int safety = 0;
+        while (BoardStateSaver.playerIsInCage[currentPlayer - 1])
+        {
+            currentPlayer++;
+            if (currentPlayer > totalPlayers)
+                currentPlayer = 1;
+
+            safety++;
+            if (safety > totalPlayers) break; // avoid infinite loop if all caged
+        }
+    }
+
+    // Skip caged players when advancing turns
+    private void AdvanceToNextEligiblePlayer()
+    {
+        if (BoardStateSaver.playerIsInCage == null ||
+            BoardStateSaver.playerIsInCage.Length < totalPlayers)
+        {
+            // No cage data: just advance normally
+            currentPlayer++;
+            if (currentPlayer > totalPlayers)
+                currentPlayer = 1;
+            return;
+        }
+
+        int safety = 0;
+        do
+        {
+            currentPlayer++;
+
+            if (currentPlayer > totalPlayers)
+                currentPlayer = 1;
+
+            safety++;
+            if (safety > totalPlayers) break; // all caged? then stop
+
+        } while (BoardStateSaver.playerIsInCage[currentPlayer - 1]);
     }
 
     public void PlayerPickedMarble(MarbleSelector marbleButton)
     {
         int marbleIndex = marbleButton.marbleIndex;
+        int playerIndex = currentPlayer - 1;
 
-        // Save the choice
-        playerMarbleChoices[currentPlayer - 1] = marbleIndex;
+        // Save the choice for this player index
+        playerMarbleChoices[playerIndex] = marbleIndex;
+
+        // Save the choice in pick order
+        pickedMarblesInOrder[playersChosen] = marbleIndex;
 
         // Disable this marble so it cannot be picked again
         marbleButton.DisableMarble();
 
         playersChosen++;
-        currentPlayer++;
+
+        // Move to the next eligible (non-caged) player
+        if (playersChosen < eligiblePlayers)
+            AdvanceToNextEligiblePlayer();
 
         // Hide ALL marbles
         foreach (var selector in marbleSelectors)
             selector.gameObject.SetActive(false);
 
-        // Show chosen marbles
+        // Show chosen marbles in the order they were picked
         for (int i = 0; i < playersChosen; i++)
         {
-            int chosenIndex = playerMarbleChoices[i];
+            int chosenIndex = pickedMarblesInOrder[i];
 
             foreach (var selector in marbleSelectors)
             {
@@ -62,7 +151,7 @@ public class GameManagerMarble : MonoBehaviour
         }
 
         // Show remaining marbles for next player
-        if (playersChosen < totalPlayers)
+        if (playersChosen < eligiblePlayers)
         {
             foreach (var selector in marbleSelectors)
             {
@@ -71,8 +160,8 @@ public class GameManagerMarble : MonoBehaviour
             }
         }
 
-        // If all players have chosen, start the race
-        if (playersChosen >= totalPlayers)
+        // If all eligible players have chosen, start the race
+        if (playersChosen >= eligiblePlayers)
         {
             StartRace();
             return;
@@ -90,9 +179,10 @@ public class GameManagerMarble : MonoBehaviour
     {
         playerTurnText.gameObject.SetActive(false);
 
+        // Start only the marbles that were actually picked
         for (int i = 0; i < playersChosen; i++)
         {
-            int chosenMarbleIndex = playerMarbleChoices[i];
+            int chosenMarbleIndex = pickedMarblesInOrder[i];
 
             foreach (var marble in marbles)
             {
@@ -117,6 +207,7 @@ public class GameManagerMarble : MonoBehaviour
 
         int winningPlayer = -1;
 
+        // Find which player owned the winning marble
         for (int i = 0; i < totalPlayers; i++)
         {
             if (playerMarbleChoices[i] == marbleIndex)
@@ -161,6 +252,6 @@ public class GameManagerMarble : MonoBehaviour
 
     private void ReturnToBoard()
     {
-        SceneManager.LoadScene("Board 1"); // Your board scene
+        SceneManager.LoadScene("Board 1");
     }
 }

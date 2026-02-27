@@ -10,6 +10,9 @@ public class DiceController : MonoBehaviour
     public int diceSides = 6;
     public Sprite[] diceSprites;
 
+    // ⭐ Dice is a GameObject with a collider (no UI button)
+    public Collider diceCollider;
+
     public TextMeshProUGUI playerGarbageTextPrefab;
     public Transform uiParentPanel;
     public float uiElementSpacing = 50f;
@@ -78,10 +81,7 @@ public class DiceController : MonoBehaviour
 
     private IEnumerator BeginAfterRestore()
     {
-        // Wait for all PlayerMovement.Start() to run
-        yield return null;
-
-        // Now all IsInCage / IsStunned flags are restored
+        yield return null; // wait for PlayerMovement.Start() to finish
         StartPlayerTurn();
     }
 
@@ -91,6 +91,8 @@ public class DiceController : MonoBehaviour
     public void StartPlayerTurn()
     {
         CheckForWinner();
+
+        DisableDice();   // ⭐ prevent rolling during movement
 
         PlayerMovement current = playersToMove[currentPlayerIndex];
 
@@ -104,6 +106,8 @@ public class DiceController : MonoBehaviour
 
         if (CameraController.Instance != null)
             CameraController.Instance.FocusOnDice(physicsDiceTransform);
+
+        EnableDice();   // ⭐ allow rolling only when it's safe
     }
 
     public bool IsPlayerMoving()
@@ -156,6 +160,8 @@ public class DiceController : MonoBehaviour
 
     public void OnPlayerTurnFinished()
     {
+        EnableDice();   // ⭐ next player can roll
+
         turnsCompleted++;
 
         if (turnsCompleted >= playersToMove.Count)
@@ -172,7 +178,6 @@ public class DiceController : MonoBehaviour
         }
 
         ResetDicePhysics();
-
         StartPlayerTurn();
     }
 
@@ -241,5 +246,20 @@ public class DiceController : MonoBehaviour
 
             SceneManager.LoadScene("Winner");
         }
+    }
+
+    // ---------------------------------------------------------
+    // ⭐ ENABLE / DISABLE DICE (GameObject Collider Only)
+    // ---------------------------------------------------------
+    public void DisableDice()
+    {
+        if (diceCollider != null)
+            diceCollider.enabled = false;
+    }
+
+    public void EnableDice()
+    {
+        if (diceCollider != null)
+            diceCollider.enabled = true;
     }
 }
