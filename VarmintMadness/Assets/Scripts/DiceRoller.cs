@@ -10,8 +10,9 @@ public class DiceController : MonoBehaviour
     public int diceSides = 6;
     public Sprite[] diceSprites;
 
-    // ⭐ Dice is a GameObject with a collider (no UI button)
-    public Collider diceCollider;
+    public Collider diceCollider; // Dice is a GameObject with a collider
+
+    public ShopManager shopManager; // ⭐ Added for shop access
 
     public TextMeshProUGUI playerGarbageTextPrefab;
     public Transform uiParentPanel;
@@ -69,20 +70,38 @@ public class DiceController : MonoBehaviour
 
     private void Start()
     {
-        // Restore camera follow after returning from a minigame
         if (CameraController.Instance != null && playersToMove.Count > 0)
         {
             CameraController.Instance.FocusOnPlayer(playersToMove[currentPlayerIndex].transform);
         }
 
-        // ⭐ Wait one frame so PlayerMovement.Start() can restore cage/stun
         StartCoroutine(BeginAfterRestore());
     }
 
     private IEnumerator BeginAfterRestore()
     {
-        yield return null; // wait for PlayerMovement.Start() to finish
+        yield return null;
         StartPlayerTurn();
+    }
+
+    // ⭐ SHOP INPUT HANDLING
+    private void Update()
+    {
+        // Simple debug version – no conditions
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("E pressed in DiceController.Update");
+
+            if (shopManager != null)
+            {
+                Debug.Log("Toggling shop from DiceController");
+                shopManager.ToggleShop();
+            }
+            else
+            {
+                Debug.LogWarning("shopManager is NOT assigned on DiceController");
+            }
+        }
     }
 
     // ---------------------------------------------------------
@@ -92,7 +111,7 @@ public class DiceController : MonoBehaviour
     {
         CheckForWinner();
 
-        DisableDice();   // ⭐ prevent rolling during movement
+        DisableDice();
 
         PlayerMovement current = playersToMove[currentPlayerIndex];
 
@@ -107,7 +126,7 @@ public class DiceController : MonoBehaviour
         if (CameraController.Instance != null)
             CameraController.Instance.FocusOnDice(physicsDiceTransform);
 
-        EnableDice();   // ⭐ allow rolling only when it's safe
+        EnableDice();
     }
 
     public bool IsPlayerMoving()
@@ -143,7 +162,6 @@ public class DiceController : MonoBehaviour
 
         if (currentPlayer != null)
         {
-            // Camera switches to player when they start moving
             if (CameraController.Instance != null)
                 CameraController.Instance.FocusOnPlayer(currentPlayer.transform);
 
@@ -160,7 +178,7 @@ public class DiceController : MonoBehaviour
 
     public void OnPlayerTurnFinished()
     {
-        EnableDice();   // ⭐ next player can roll
+        EnableDice();
 
         turnsCompleted++;
 
@@ -198,7 +216,7 @@ public class DiceController : MonoBehaviour
         }
     }
 
-    private void StartMinigameRound()
+    private void StartMiniggameRound()
     {
         Debug.Log("All players have moved. Starting a random minigame!");
 
@@ -249,7 +267,30 @@ public class DiceController : MonoBehaviour
     }
 
     // ---------------------------------------------------------
-    // ⭐ ENABLE / DISABLE DICE (GameObject Collider Only)
+    // ⭐ SHOP ABILITY: MOVE RANDOM PLAYER
+    // ---------------------------------------------------------
+    public void MoveRandomPlayer()
+    {
+        if (playersToMove.Count <= 1)
+            return;
+
+        int randomIndex = currentPlayerIndex;
+
+        while (randomIndex == currentPlayerIndex)
+        {
+            randomIndex = Random.Range(0, playersToMove.Count);
+        }
+
+        PlayerMovement target = playersToMove[randomIndex];
+
+        Debug.Log("Random player chosen: " + target.playerName);
+
+        int roll = Random.Range(1, 7);
+        target.MoveCharacter(roll);
+    }
+
+    // ---------------------------------------------------------
+    // ENABLE / DISABLE DICE
     // ---------------------------------------------------------
     public void DisableDice()
     {
@@ -261,5 +302,24 @@ public class DiceController : MonoBehaviour
     {
         if (diceCollider != null)
             diceCollider.enabled = true;
+    }
+    private void StartMinigameRound()
+    {
+        Debug.Log("All players have moved. Starting a random minigame!");
+
+        BoardStateSaver.SaveBoardState(playersToMove.Count, this);
+
+        currentPlayerIndex = 0;
+
+        if (roundMinigames == null || roundMinigames.Count == 0)
+        {
+            Debug.LogError("No minigames assigned!");
+            return;
+        }
+
+        int index = Random.Range(0, roundMinigames.Count);
+        string selectedMinigame = roundMinigames[index];
+
+        SceneManager.LoadScene(selectedMinigame);
     }
 }

@@ -560,4 +560,16 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log($"{playerName} teleported to tile {randomIndex}!");
     }
+    public int GetGarbage()
+    {
+        return garbageCount;
+    }
+
+    public void SpendGarbage(int amount)
+    {
+        garbageCount -= amount;
+        if (garbageCount < 0) garbageCount = 0;
+        UpdateGarbageText();
+    }
+
 }

@@ -26,22 +26,36 @@ public class GameManagerMarble : MonoBehaviour
     // How many players are actually allowed to pick (not in cage)
     private int eligiblePlayers = 0;
 
+    // ⭐ Stuck detection
+    private float stuckCheckInterval = 1.0f;
+    private float stuckCheckTimer = 0f;
+    private bool raceStarted = false;
+
     void Start()
     {
         playerMarbleChoices = new int[totalPlayers];
         pickedMarblesInOrder = new int[totalPlayers];
 
-        // Show all marbles at the start
         foreach (var selector in marbleSelectors)
             selector.EnableMarble();
 
-        // Determine how many players are eligible (not in cage)
         CalculateEligiblePlayers();
-
-        // Ensure we start on an eligible player
         SkipCagedPlayersAtStart();
-
         UpdateTurnText();
+    }
+
+    private void Update()
+    {
+        if (!raceStarted)
+            return;
+
+        stuckCheckTimer += Time.deltaTime;
+
+        if (stuckCheckTimer >= stuckCheckInterval)
+        {
+            stuckCheckTimer = 0f;
+            CheckForStuckMarbles();
+        }
     }
 
     // Count how many players are NOT in a cage
@@ -60,16 +74,13 @@ public class GameManagerMarble : MonoBehaviour
         }
         else
         {
-            // Fallback: if we don't have cage data, assume all are eligible
             eligiblePlayers = totalPlayers;
         }
     }
 
-    // Skip caged players before the first turn
     private void SkipCagedPlayersAtStart()
     {
-        if (BoardStateSaver.playerIsInCage == null ||
-            BoardStateSaver.playerIsInCage.Length < totalPlayers)
+        if (BoardStateSaver.playerIsInCage == null)
             return;
 
         int safety = 0;
@@ -80,17 +91,14 @@ public class GameManagerMarble : MonoBehaviour
                 currentPlayer = 1;
 
             safety++;
-            if (safety > totalPlayers) break; // avoid infinite loop if all caged
+            if (safety > totalPlayers) break;
         }
     }
 
-    // Skip caged players when advancing turns
     private void AdvanceToNextEligiblePlayer()
     {
-        if (BoardStateSaver.playerIsInCage == null ||
-            BoardStateSaver.playerIsInCage.Length < totalPlayers)
+        if (BoardStateSaver.playerIsInCage == null)
         {
-            // No cage data: just advance normally
             currentPlayer++;
             if (currentPlayer > totalPlayers)
                 currentPlayer = 1;
@@ -106,7 +114,7 @@ public class GameManagerMarble : MonoBehaviour
                 currentPlayer = 1;
 
             safety++;
-            if (safety > totalPlayers) break; // all caged? then stop
+            if (safety > totalPlayers) break;
 
         } while (BoardStateSaver.playerIsInCage[currentPlayer - 1]);
     }
@@ -116,26 +124,19 @@ public class GameManagerMarble : MonoBehaviour
         int marbleIndex = marbleButton.marbleIndex;
         int playerIndex = currentPlayer - 1;
 
-        // Save the choice for this player index
         playerMarbleChoices[playerIndex] = marbleIndex;
-
-        // Save the choice in pick order
         pickedMarblesInOrder[playersChosen] = marbleIndex;
 
-        // Disable this marble so it cannot be picked again
         marbleButton.DisableMarble();
 
         playersChosen++;
 
-        // Move to the next eligible (non-caged) player
         if (playersChosen < eligiblePlayers)
             AdvanceToNextEligiblePlayer();
 
-        // Hide ALL marbles
         foreach (var selector in marbleSelectors)
             selector.gameObject.SetActive(false);
 
-        // Show chosen marbles in the order they were picked
         for (int i = 0; i < playersChosen; i++)
         {
             int chosenIndex = pickedMarblesInOrder[i];
@@ -150,7 +151,6 @@ public class GameManagerMarble : MonoBehaviour
             }
         }
 
-        // Show remaining marbles for next player
         if (playersChosen < eligiblePlayers)
         {
             foreach (var selector in marbleSelectors)
@@ -160,7 +160,6 @@ public class GameManagerMarble : MonoBehaviour
             }
         }
 
-        // If all eligible players have chosen, start the race
         if (playersChosen >= eligiblePlayers)
         {
             StartRace();
@@ -178,8 +177,8 @@ public class GameManagerMarble : MonoBehaviour
     private void StartRace()
     {
         playerTurnText.gameObject.SetActive(false);
+        raceStarted = true;
 
-        // Start only the marbles that were actually picked
         for (int i = 0; i < playersChosen; i++)
         {
             int chosenMarbleIndex = pickedMarblesInOrder[i];
@@ -190,6 +189,48 @@ public class GameManagerMarble : MonoBehaviour
                 {
                     marble.StartRace();
                     break;
+                }
+            }
+        }
+    }
+
+    // ⭐ Detect if all marbles are stuck
+    private void CheckForStuckMarbles()
+    {
+        bool allStuck = true;
+
+        for (int i = 0; i < playersChosen; i++)
+        {
+            int chosenIndex = pickedMarblesInOrder[i];
+
+            foreach (var marble in marbles)
+            {
+                if (marble.marbleIndex == chosenIndex)
+                {
+                    marble.CheckIfStuck();
+
+                    if (!marble.IsStuck)
+                        allStuck = false;
+                }
+            }
+        }
+
+        if (allStuck)
+            PushAllMarblesFree();
+    }
+
+    // ⭐ Push all marbles free
+    private void PushAllMarblesFree()
+    {
+        for (int i = 0; i < playersChosen; i++)
+        {
+            int chosenIndex = pickedMarblesInOrder[i];
+
+            foreach (var marble in marbles)
+            {
+                if (marble.marbleIndex == chosenIndex)
+                {
+                    marble.PushFree();
                 }
             }
         }
@@ -207,7 +248,6 @@ public class GameManagerMarble : MonoBehaviour
 
         int winningPlayer = -1;
 
-        // Find which player owned the winning marble
         for (int i = 0; i < totalPlayers; i++)
         {
             if (playerMarbleChoices[i] == marbleIndex)
