@@ -163,7 +163,6 @@ public class DiceController : MonoBehaviour
 
         ResetDicePhysics();
 
-        // ⭐ Start next player's turn
         StartPlayerTurn();
     }
 
@@ -188,7 +187,6 @@ public class DiceController : MonoBehaviour
     {
         Debug.Log("All players have moved. Starting a random minigame!");
 
-        // Save which board each player is on
         BoardStateSaver.SaveBoardState(playersToMove.Count, this);
 
         currentPlayerIndex = 0;
@@ -204,6 +202,7 @@ public class DiceController : MonoBehaviour
 
         SceneManager.LoadScene(selectedMinigame);
     }
+
     public void CheckForWinner()
     {
         int activePlayers = 0;
@@ -222,7 +221,6 @@ public class DiceController : MonoBehaviour
         {
             Debug.Log($"{lastStanding.playerName} WINS THE GAME!");
 
-            // ⭐ Store name and sprite (not the scene object)
             WinnerData.WinnerName = lastStanding.playerName;
 
             SpriteRenderer sr = lastStanding.GetComponent<SpriteRenderer>();
