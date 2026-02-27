@@ -933,6 +933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 477339265}
   - component: {fileID: 477339266}
+  - component: {fileID: 477339267}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -996,6 +997,36 @@ MonoBehaviour:
           m_CallState: 2
   typingSpeed: 0.03
   punctuationPause: 0.5
+--- !u!114 &477339267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477339264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 0a19e6cd253a2b84a99a9bc4b60e1756, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 477339266}
+          m_TargetAssemblyTypeName: DialogueSystem, Assembly-CSharp
+          m_MethodName: StartDialogue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &484451715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,7 +1865,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: dbf264cf6c6028b469a9c8bfdeccaba6, type: 3}
   m_Resource: {fileID: 8300000, guid: dbf264cf6c6028b469a9c8bfdeccaba6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1931,7 +1962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1094011957}
-  fadeDuration: 5
+  fadeDuration: 10
 --- !u!1 &1160294659
 GameObject:
   m_ObjectHideFlags: 0
@@ -2839,6 +2870,8 @@ PlayableDirector:
     value: {fileID: 790031003}
   - key: {fileID: 0}
     value: {fileID: 654145156}
+  - key: {fileID: 4072750995021998694, guid: 612be41c360aecb4b8fe90d463e46922, type: 2}
+    value: {fileID: 477339267}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1819482250
