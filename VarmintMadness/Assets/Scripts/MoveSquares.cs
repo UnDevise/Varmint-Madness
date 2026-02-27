@@ -298,6 +298,16 @@ public class PlayerMovement : MonoBehaviour
             IsStunned = true;
             Debug.Log($"{playerName} stunned.");
         }
+        // PLAYER MOVER SPACE — teleport to a random tile
+        else if (currentWaypointTag == "Player Mover Space")
+        {
+            Debug.Log($"{playerName} landed on a Player Mover Space!");
+            PlaySquareSound(MinigameSound);
+
+            TeleportToRandomTile();
+            return true; // keep turn active
+        }
+
 
         return false;
     }
@@ -510,5 +520,22 @@ public class PlayerMovement : MonoBehaviour
             return 0;
 
         return currentPositionIndex;
+    }
+    private void TeleportToRandomTile()
+    {
+        if (targetWaypoints == null || targetWaypoints.Count == 0)
+            return;
+
+        // Pick a random tile index
+        int randomIndex = Random.Range(0, targetWaypoints.Count);
+
+        currentPositionIndex = randomIndex;
+
+        // Move player to that tile
+        Vector3 pos = targetWaypoints[randomIndex].Position;
+        pos.z = spriteZPosition;
+        transform.position = pos;
+
+        Debug.Log($"{playerName} teleported to tile {randomIndex}!");
     }
 }
