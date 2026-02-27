@@ -146,6 +146,19 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // ---------------------------------------------------------
+    // ⭐ NEW — FACE THE DIRECTION OF MOVEMENT
+    // ---------------------------------------------------------
+    private void FaceTowards(Vector3 targetPos)
+    {
+        float direction = targetPos.x - transform.position.x;
+
+        if (direction > 0.01f)
+            spriteRenderer.flipX = false; // face right
+        else if (direction < -0.01f)
+            spriteRenderer.flipX = true;  // face left
+    }
+
+    // ---------------------------------------------------------
     // SKIP TURN CHECK
     // ---------------------------------------------------------
     public bool ShouldSkipTurn()
@@ -216,6 +229,9 @@ public class PlayerMovement : MonoBehaviour
                 targetWaypoints[currentPositionIndex].Position.y,
                 spriteZPosition
             );
+
+            // ⭐ NEW — flip before moving
+            FaceTowards(nextPosition);
 
             while (Vector2.Distance(transform.position, nextPosition) > 0.01f)
             {
@@ -298,6 +314,15 @@ public class PlayerMovement : MonoBehaviour
             IsStunned = true;
             Debug.Log($"{playerName} stunned.");
         }
+        // PLAYER MOVER SPACE
+        else if (currentWaypointTag == "Player Mover Space")
+        {
+            Debug.Log($"{playerName} landed on a Player Mover Space!");
+            PlaySquareSound(MinigameSound);
+
+            TeleportToRandomTile();
+            return true;
+        }
 
         return false;
     }
@@ -329,6 +354,7 @@ public class PlayerMovement : MonoBehaviour
     {
         IsInCage = true;
 
+        FaceTowards(cageTeleportPoint.position); // ⭐ NEW
         transform.position = cageTeleportPoint.position;
         currentPositionIndex = -1;
 
@@ -376,6 +402,8 @@ public class PlayerMovement : MonoBehaviour
         SetRunningAnimation(true);
 
         Vector3 nextPosition = new Vector3(target.position.x, target.position.y, spriteZPosition);
+
+        FaceTowards(nextPosition); // ⭐ NEW
 
         if (cameraController != null)
             yield return StartCoroutine(cameraController.StartFollowingCoroutine(transform));
@@ -430,11 +458,12 @@ public class PlayerMovement : MonoBehaviour
         if (newIndex != -1)
         {
             currentPositionIndex = newIndex;
-            transform.position = new Vector3(
-                targetWaypoints[newIndex].Position.x,
-                targetWaypoints[newIndex].Position.y,
-                spriteZPosition
-            );
+
+            Vector3 pos = targetWaypoints[newIndex].Position;
+            pos.z = spriteZPosition;
+
+            FaceTowards(pos); // ⭐ NEW
+            transform.position = pos;
         }
 
         yield return StartCoroutine(Fade(1, 0.5f));
@@ -511,4 +540,36 @@ public class PlayerMovement : MonoBehaviour
 
         return currentPositionIndex;
     }
+
+    // ---------------------------------------------------------
+    // ⭐ UPDATED — RANDOM TELEPORT WITH DIRECTION FIX
+    // ---------------------------------------------------------
+    private void TeleportToRandomTile()
+    {
+        if (targetWaypoints == null || targetWaypoints.Count == 0)
+            return;
+
+        int randomIndex = Random.Range(0, targetWaypoints.Count);
+        currentPositionIndex = randomIndex;
+
+        Vector3 pos = targetWaypoints[randomIndex].Position;
+        pos.z = spriteZPosition;
+
+        FaceTowards(pos); // ⭐ NEW
+        transform.position = pos;
+
+        Debug.Log($"{playerName} teleported to tile {randomIndex}!");
+    }
+    public int GetGarbage()
+    {
+        return garbageCount;
+    }
+
+    public void SpendGarbage(int amount)
+    {
+        garbageCount -= amount;
+        if (garbageCount < 0) garbageCount = 0;
+        UpdateGarbageText();
+    }
+
 }
