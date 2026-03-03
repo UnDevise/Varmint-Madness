@@ -12,21 +12,13 @@ public class GameManagerMarble : MonoBehaviour
     private int currentPlayer = 1;
     private int playersChosen = 0;
 
-    // By player index: which marble each player owns
     private int[] playerMarbleChoices;
-
-    // By pick order: which marbles were picked in sequence
     private int[] pickedMarblesInOrder;
 
     private bool winnerChosen = false;
 
-    private int lastWinningMarbleIndex = -1;
-    private int lastWinningPlayerIndex = -1;
-
-    // How many players are actually allowed to pick (not in cage)
     private int eligiblePlayers = 0;
 
-    // ⭐ Stuck detection
     private float stuckCheckInterval = 1.0f;
     private float stuckCheckTimer = 0f;
     private bool raceStarted = false;
@@ -58,31 +50,19 @@ public class GameManagerMarble : MonoBehaviour
         }
     }
 
-    // Count how many players are NOT in a cage
     private void CalculateEligiblePlayers()
     {
         eligiblePlayers = 0;
 
-        if (BoardStateSaver.playerIsInCage != null &&
-            BoardStateSaver.playerIsInCage.Length >= totalPlayers)
+        for (int i = 0; i < totalPlayers; i++)
         {
-            for (int i = 0; i < totalPlayers; i++)
-            {
-                if (!BoardStateSaver.playerIsInCage[i])
-                    eligiblePlayers++;
-            }
-        }
-        else
-        {
-            eligiblePlayers = totalPlayers;
+            if (!BoardStateSaver.playerIsInCage[i])
+                eligiblePlayers++;
         }
     }
 
     private void SkipCagedPlayersAtStart()
     {
-        if (BoardStateSaver.playerIsInCage == null)
-            return;
-
         int safety = 0;
         while (BoardStateSaver.playerIsInCage[currentPlayer - 1])
         {
@@ -91,30 +71,24 @@ public class GameManagerMarble : MonoBehaviour
                 currentPlayer = 1;
 
             safety++;
-            if (safety > totalPlayers) break;
+            if (safety > totalPlayers)
+                break;
         }
     }
 
     private void AdvanceToNextEligiblePlayer()
     {
-        if (BoardStateSaver.playerIsInCage == null)
-        {
-            currentPlayer++;
-            if (currentPlayer > totalPlayers)
-                currentPlayer = 1;
-            return;
-        }
-
         int safety = 0;
+
         do
         {
             currentPlayer++;
-
             if (currentPlayer > totalPlayers)
                 currentPlayer = 1;
 
             safety++;
-            if (safety > totalPlayers) break;
+            if (safety > totalPlayers)
+                break;
 
         } while (BoardStateSaver.playerIsInCage[currentPlayer - 1]);
     }
@@ -194,7 +168,6 @@ public class GameManagerMarble : MonoBehaviour
         }
     }
 
-    // ⭐ Detect if all marbles are stuck
     private void CheckForStuckMarbles()
     {
         bool allStuck = true;
@@ -219,7 +192,6 @@ public class GameManagerMarble : MonoBehaviour
             PushAllMarblesFree();
     }
 
-    // ⭐ Push all marbles free
     private void PushAllMarblesFree()
     {
         for (int i = 0; i < playersChosen; i++)
@@ -229,9 +201,7 @@ public class GameManagerMarble : MonoBehaviour
             foreach (var marble in marbles)
             {
                 if (marble.marbleIndex == chosenIndex)
-                {
                     marble.PushFree();
-                }
             }
         }
     }
@@ -243,9 +213,6 @@ public class GameManagerMarble : MonoBehaviour
 
         winnerChosen = true;
 
-        lastWinningMarbleIndex = marbleIndex;
-        lastWinningPlayerIndex = -1;
-
         int winningPlayer = -1;
 
         for (int i = 0; i < totalPlayers; i++)
@@ -256,9 +223,6 @@ public class GameManagerMarble : MonoBehaviour
                 break;
             }
         }
-
-        if (winningPlayer != -1)
-            lastWinningPlayerIndex = winningPlayer;
 
         playerTurnText.gameObject.SetActive(true);
 
@@ -272,6 +236,7 @@ public class GameManagerMarble : MonoBehaviour
             playerTurnText.text = "No one wins!";
         }
 
+        SaveTrashBeforeReturn();
         Invoke(nameof(ReturnToBoard), 2f);
     }
 
@@ -283,11 +248,20 @@ public class GameManagerMarble : MonoBehaviour
 
         PlayerMovement player = dice.playersToMove[playerIndex];
 
-        if (player != null)
-        {
-            for (int i = 0; i < 10; i++)
-                player.SendMessage("IncrementGarbageCount", SendMessageOptions.DontRequireReceiver);
-        }
+        for (int i = 0; i < 10; i++)
+            player.IncrementGarbageCount();
+    }
+
+    private void SaveTrashBeforeReturn()
+    {
+        DiceController dice = FindAnyObjectByType<DiceController>();
+        if (dice == null)
+            return;
+
+        BoardStateSaver.savedGarbageCounts = new int[dice.playersToMove.Count];
+
+        for (int i = 0; i < dice.playersToMove.Count; i++)
+            BoardStateSaver.savedGarbageCounts[i] = dice.playersToMove[i].garbageCount;
     }
 
     private void ReturnToBoard()
