@@ -11,10 +11,12 @@ public class DiceRoller : MonoBehaviour
     }
 
     public float rollForce = 5f;
+    [SerializeField] private bool isRolling = false;
     public float torqueForce = 10f;
     public Vector3 customGravityDirection = new Vector3(0, -9.81f, 0);
     public DiceController diceController;
     public float waitTimeBeforeResult = 1.0f;
+    public bool IsRolling => isRolling;
 
     [Header("Result Calculation")]
     public Vector3 targetCalculationPlaneDirection = Vector3.up;

@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform layerInTeleportPoint;
     public Transform layerOutTeleportPoint;
     public float moveSpeed = 5.0f;
+    public bool isMoving = false;
 
     public bool IsInCage = false;
     public Transform cageTeleportPoint;
@@ -55,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         if (waypointsParent != null) StoreWaypointData();
         if (CameraController.Instance != null) cameraController = CameraController.Instance;
     }
-
     private void Start()
     {
         string scene = SceneManager.GetActiveScene().name;
@@ -572,5 +572,4 @@ public class PlayerMovement : MonoBehaviour
         if (garbageCount < 0) garbageCount = 0;
         UpdateGarbageText();
     }
-
 }

@@ -10,6 +10,8 @@ public class DiceController : MonoBehaviour
 
     public int diceSides = 6; // ⭐ Needed for RollAgain()
     public Sprite[] diceSprites;
+    public DiceRoller diceRoller;
+
 
     public Collider diceCollider;
 
@@ -85,15 +87,31 @@ public class DiceController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            if (shopManager != null && shopManager.shopOpen)
+            {
+                shopManager.CloseShop();
+                return;
+            }
+
             PlayerMovement current = playersToMove[currentPlayerIndex];
+
+            if (diceRoller != null && diceRoller.IsRolling)
+                return;
+
+            if (current != null && current.IsMoving)
+                return;
 
             if (CameraController.Instance != null)
             {
                 CameraController.Instance.FollowPlayer(current.transform);
             }
+
+            if (shopManager != null)
+            {
+                shopManager.OpenShop();
+            }
         }
     }
-
     // ⭐ Restore saved board state
     private void RestoreBoardState()
     {
