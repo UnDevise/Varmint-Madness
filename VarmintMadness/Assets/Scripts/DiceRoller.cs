@@ -2,12 +2,17 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class DiceController : MonoBehaviour
 {
     public List<PlayerMovement> playersToMove;
     public int diceSides = 6;
     public Sprite[] diceSprites;
+
+    public Collider diceCollider; // Dice is a GameObject with a collider
+
+    public ShopManager shopManager; // ⭐ Added for shop access
 
     public TextMeshProUGUI playerGarbageTextPrefab;
     public Transform uiParentPanel;
@@ -65,14 +70,38 @@ public class DiceController : MonoBehaviour
 
     private void Start()
     {
-        // Restore camera follow after returning from a minigame
         if (CameraController.Instance != null && playersToMove.Count > 0)
         {
             CameraController.Instance.FocusOnPlayer(playersToMove[currentPlayerIndex].transform);
         }
 
-        // Start the first player's turn
+        StartCoroutine(BeginAfterRestore());
+    }
+
+    private IEnumerator BeginAfterRestore()
+    {
+        yield return null;
         StartPlayerTurn();
+    }
+
+    // ⭐ SHOP INPUT HANDLING
+    private void Update()
+    {
+        // Simple debug version – no conditions
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("E pressed in DiceController.Update");
+
+            if (shopManager != null)
+            {
+                Debug.Log("Toggling shop from DiceController");
+                shopManager.ToggleShop();
+            }
+            else
+            {
+                Debug.LogWarning("shopManager is NOT assigned on DiceController");
+            }
+        }
     }
 
     // ---------------------------------------------------------
@@ -81,6 +110,8 @@ public class DiceController : MonoBehaviour
     public void StartPlayerTurn()
     {
         CheckForWinner();
+
+        DisableDice();
 
         PlayerMovement current = playersToMove[currentPlayerIndex];
 
@@ -94,6 +125,8 @@ public class DiceController : MonoBehaviour
 
         if (CameraController.Instance != null)
             CameraController.Instance.FocusOnDice(physicsDiceTransform);
+
+        EnableDice();
     }
 
     public bool IsPlayerMoving()
@@ -129,7 +162,6 @@ public class DiceController : MonoBehaviour
 
         if (currentPlayer != null)
         {
-            // Camera switches to player when they start moving
             if (CameraController.Instance != null)
                 CameraController.Instance.FocusOnPlayer(currentPlayer.transform);
 
@@ -146,6 +178,8 @@ public class DiceController : MonoBehaviour
 
     public void OnPlayerTurnFinished()
     {
+        EnableDice();
+
         turnsCompleted++;
 
         if (turnsCompleted >= playersToMove.Count)
@@ -162,8 +196,6 @@ public class DiceController : MonoBehaviour
         }
 
         ResetDicePhysics();
-
-        // ⭐ Start next player's turn
         StartPlayerTurn();
     }
 
@@ -184,11 +216,10 @@ public class DiceController : MonoBehaviour
         }
     }
 
-    private void StartMinigameRound()
+    private void StartMiniggameRound()
     {
         Debug.Log("All players have moved. Starting a random minigame!");
 
-        // Save which board each player is on
         BoardStateSaver.SaveBoardState(playersToMove.Count, this);
 
         currentPlayerIndex = 0;
@@ -204,6 +235,7 @@ public class DiceController : MonoBehaviour
 
         SceneManager.LoadScene(selectedMinigame);
     }
+
     public void CheckForWinner()
     {
         int activePlayers = 0;
@@ -222,7 +254,6 @@ public class DiceController : MonoBehaviour
         {
             Debug.Log($"{lastStanding.playerName} WINS THE GAME!");
 
-            // ⭐ Store name and sprite (not the scene object)
             WinnerData.WinnerName = lastStanding.playerName;
 
             SpriteRenderer sr = lastStanding.GetComponent<SpriteRenderer>();
@@ -232,6 +263,95 @@ public class DiceController : MonoBehaviour
                 WinnerData.WinnerSprite = null;
 
             SceneManager.LoadScene("Winner");
+        }
+    }
+
+    // ---------------------------------------------------------
+    // ⭐ SHOP ABILITY: MOVE RANDOM PLAYER
+    // ---------------------------------------------------------
+    public void MoveRandomPlayer()
+    {
+        if (playersToMove.Count <= 1)
+            return;
+
+        int randomIndex = currentPlayerIndex;
+
+        while (randomIndex == currentPlayerIndex)
+        {
+            randomIndex = Random.Range(0, playersToMove.Count);
+        }
+
+        PlayerMovement target = playersToMove[randomIndex];
+
+        Debug.Log("Random player chosen: " + target.playerName);
+
+        int roll = Random.Range(1, 7);
+        target.MoveCharacter(roll);
+    }
+
+    // ---------------------------------------------------------
+    // ENABLE / DISABLE DICE
+    // ---------------------------------------------------------
+    public void DisableDice()
+    {
+        if (diceCollider != null)
+            diceCollider.enabled = false;
+    }
+
+    public void EnableDice()
+    {
+        if (diceCollider != null)
+            diceCollider.enabled = true;
+    }
+    private void StartMinigameRound()
+    {
+        Debug.Log("All players have moved. Starting a random minigame!");
+
+        BoardStateSaver.SaveBoardState(playersToMove.Count, this);
+
+        currentPlayerIndex = 0;
+
+        if (roundMinigames == null || roundMinigames.Count == 0)
+        {
+            Debug.LogError("No minigames assigned!");
+            return;
+        }
+
+        int index = Random.Range(0, roundMinigames.Count);
+        string selectedMinigame = roundMinigames[index];
+
+        SceneManager.LoadScene(selectedMinigame);
+    }
+    public void ForceRandomPlayerIntoCage()
+    {
+        if (playersToMove.Count <= 1)
+            return;
+
+        int randomIndex = currentPlayerIndex;
+
+        while (randomIndex == currentPlayerIndex)
+        {
+            randomIndex = Random.Range(0, playersToMove.Count);
+        }
+
+        PlayerMovement target = playersToMove[randomIndex];
+
+        Debug.Log("Random player forced into cage: " + target.playerName);
+
+        target.IsInCage = true;
+
+        // EITHER use a fixed position:
+        target.transform.position = new Vector3(-10f, 0f, 0f);
+
+        // OR, if you added cagePosition to PlayerMovement:
+        // if (target.cagePosition != null)
+        //     target.transform.position = target.cagePosition.position;
+
+        Rigidbody rb = target.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
     }
 }

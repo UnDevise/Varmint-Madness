@@ -2,10 +2,10 @@
 
 public static class BoardStateSaver
 {
-    public static int[] playerBoardLayer;     // 0 = top board, 1 = sewer
-    public static int[] playerTileIndex;      // tile index
-    public static bool[] playerIsStunned;     // skip-turn state
-    public static bool[] playerIsInCage;      // cage state
+    public static int[] playerBoardLayer;   // 0 = top board, 1 = sewer
+    public static int[] playerTileIndex;    // tile index on path
+    public static bool[] playerIsStunned;   // skip-turn state
+    public static bool[] playerIsInCage;    // cage state
 
     public static void SaveBoardState(int playerCount, DiceController dice)
     {
@@ -18,20 +18,16 @@ public static class BoardStateSaver
         {
             PlayerMovement p = dice.playersToMove[i];
 
-            // Save board layer (top or sewer)
+            // Board layer
             bool isOnSewer = (p.waypointsParent == p.alternativeWaypointsParent);
             playerBoardLayer[i] = isOnSewer ? 1 : 0;
 
-            // Save tile index
+            // Tile index (safe)
             playerTileIndex[i] = p.GetCurrentTileIndex();
 
-            // ⭐ Save skip-turn state
+            // Stun / cage
             playerIsStunned[i] = p.IsStunned;
-
-            // ⭐ Save cage state
             playerIsInCage[i] = p.IsInCage;
         }
     }
-
 }
-
