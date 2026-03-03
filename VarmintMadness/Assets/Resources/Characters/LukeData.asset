@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e3db7b5568f77d41b664d57a82d9659, type: 3}
-  m_Name: New Character 7
+  m_Name: LukeData
   m_EditorClassIdentifier: 
-  characterName: 
-  characterSprite: {fileID: 0}
-  characterBio: Hey, it's me! The best character in the game! You soooo wanna play
-    as me.
-  backgroundColor: {r: 0.9960785, g: 0.9960785, b: 0.9960785, a: 1}
+  characterName: Opossum Luke
+  characterSprite: {fileID: -4660275902620348432, guid: 30d8fb137b126b244bb42c29f8954883, type: 3}
+  characterBio: Don't make me angry, my eyes turn red and I transform into an alpha
+  backgroundColor: {r: 0.5577565, g: 0, b: 0.8679245, a: 0}
