@@ -85,14 +85,12 @@ public class DiceController : MonoBehaviour
         // ⭐ Shop open key
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (diceCollider != null && diceCollider.enabled)
-            {
-                PlayerMovement current = playersToMove[currentPlayerIndex];
+            PlayerMovement current = playersToMove[currentPlayerIndex];
 
-                if (!current.IsMoving && !current.IsStunned && !current.IsInCage)
-                {
-                    shopManager.ToggleShop();
-                }
+            if (CameraController.Instance != null)
+            {
+                CameraController.Instance.StopFollowing();
+                CameraController.Instance.StartFollowing(current.transform);
             }
         }
     }
@@ -123,6 +121,13 @@ public class DiceController : MonoBehaviour
 
         PlayerMovement current = playersToMove[currentPlayerIndex];
 
+        // ⭐ FIX — force camera to follow the correct player every turn
+        if (CameraController.Instance != null)
+        {
+            CameraController.Instance.StopFollowing();
+            CameraController.Instance.StartFollowing(current.transform);
+        }
+
         if (current.ShouldSkipTurn())
         {
             current.IsStunned = false;
@@ -132,6 +137,7 @@ public class DiceController : MonoBehaviour
 
         EnableDice();
     }
+
 
     // ⭐ Move player after dice roll
     public void MoveCurrentPlayer(int rollResult)

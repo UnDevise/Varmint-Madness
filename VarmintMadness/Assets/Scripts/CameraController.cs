@@ -188,4 +188,9 @@ public class CameraController : MonoBehaviour
 
         cam.orthographicSize = fullViewOrthographicSize;
     }
+    public void StartFollowing(Transform target)
+    {
+        StartCoroutine(StartFollowingCoroutine(target));
+    }
+
 }
