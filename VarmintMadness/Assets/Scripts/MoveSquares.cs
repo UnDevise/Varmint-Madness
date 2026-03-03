@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private CameraController cameraController;
     private Animator playerAnimator;
     private AudioSource audioSource;
+    public string playerId;
 
     private void Awake()
     {

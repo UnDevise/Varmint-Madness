@@ -71,6 +71,7 @@ public class DiceController : MonoBehaviour
     private void Start()
     {
         RestoreBoardState();
+        RestoreGarbageCounts();   // ⭐ Add this
         StartCoroutine(BeginAfterRestore());
     }
 
@@ -304,6 +305,17 @@ public class DiceController : MonoBehaviour
         }
 
         return false;
+    }
+    private void RestoreGarbageCounts()
+    {
+        if (BoardStateSaver.savedGarbageCounts == null)
+            return;
+
+        for (int i = 0; i < playersToMove.Count; i++)
+        {
+            playersToMove[i].garbageCount = BoardStateSaver.savedGarbageCounts[i];
+            playersToMove[i].UpdateGarbageText();
+        }
     }
 
 }

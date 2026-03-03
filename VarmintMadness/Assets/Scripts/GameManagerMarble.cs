@@ -18,6 +18,7 @@ public class GameManagerMarble : MonoBehaviour
     private bool winnerChosen = false;
 
     private int eligiblePlayers = 0;
+    public string winningPlayerId;
 
     private float stuckCheckInterval = 1.0f;
     private float stuckCheckTimer = 0f;
@@ -213,26 +214,33 @@ public class GameManagerMarble : MonoBehaviour
 
         winnerChosen = true;
 
-        int winningPlayer = -1;
+        int winningPlayerIndex = -1;
+        string winnerId = null;
 
+        // Find which player picked this marble
         for (int i = 0; i < totalPlayers; i++)
         {
             if (playerMarbleChoices[i] == marbleIndex)
             {
-                winningPlayer = i;
+                winningPlayerIndex = i;
                 break;
             }
         }
 
-        playerTurnText.gameObject.SetActive(true);
-
-        if (winningPlayer != -1)
+        if (winningPlayerIndex != -1)
         {
-            playerTurnText.text = "Player " + (winningPlayer + 1) + " wins!";
-            AwardTrashToPlayer(winningPlayer);
+            // Map player index → playerId using BoardStateSaver or a known mapping
+            winnerId = "Player" + (winningPlayerIndex + 1); // if you use "Player1", "Player2", etc.
+            winningPlayerId = winnerId;
+
+            playerTurnText.gameObject.SetActive(true);
+            playerTurnText.text = "Player " + (winningPlayerIndex + 1) + " wins!";
+
+            AwardTrashToPlayerId(winnerId);
         }
         else
         {
+            playerTurnText.gameObject.SetActive(true);
             playerTurnText.text = "No one wins!";
         }
 
@@ -240,16 +248,23 @@ public class GameManagerMarble : MonoBehaviour
         Invoke(nameof(ReturnToBoard), 2f);
     }
 
-    private void AwardTrashToPlayer(int playerIndex)
+
+    private void AwardTrashToPlayerId(string playerId)
     {
         DiceController dice = FindAnyObjectByType<DiceController>();
         if (dice == null)
             return;
 
-        PlayerMovement player = dice.playersToMove[playerIndex];
+        foreach (var player in dice.playersToMove)
+        {
+            if (player.playerId == playerId)
+            {
+                for (int i = 0; i < 10; i++)
+                    player.IncrementGarbageCount();
 
-        for (int i = 0; i < 10; i++)
-            player.IncrementGarbageCount();
+                break;
+            }
+        }
     }
 
     private void SaveTrashBeforeReturn()
