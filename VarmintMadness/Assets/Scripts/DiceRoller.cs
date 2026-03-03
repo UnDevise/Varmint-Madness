@@ -322,4 +322,36 @@ public class DiceController : MonoBehaviour
 
         SceneManager.LoadScene(selectedMinigame);
     }
+    public void ForceRandomPlayerIntoCage()
+    {
+        if (playersToMove.Count <= 1)
+            return;
+
+        int randomIndex = currentPlayerIndex;
+
+        while (randomIndex == currentPlayerIndex)
+        {
+            randomIndex = Random.Range(0, playersToMove.Count);
+        }
+
+        PlayerMovement target = playersToMove[randomIndex];
+
+        Debug.Log("Random player forced into cage: " + target.playerName);
+
+        target.IsInCage = true;
+
+        // EITHER use a fixed position:
+        target.transform.position = new Vector3(-10f, 0f, 0f);
+
+        // OR, if you added cagePosition to PlayerMovement:
+        // if (target.cagePosition != null)
+        //     target.transform.position = target.cagePosition.position;
+
+        Rigidbody rb = target.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+    }
 }

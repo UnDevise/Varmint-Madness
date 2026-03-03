@@ -115412,6 +115412,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1752894595}
+    - target: {fileID: 1978269045231167749, guid: 5a0374504a2a37a44919107fb98ae281, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1752894595}
+    - target: {fileID: 1978269045231167749, guid: 5a0374504a2a37a44919107fb98ae281, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyForceRandomPlayerIntoCage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978269045231167749, guid: 5a0374504a2a37a44919107fb98ae281, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978269045231167749, guid: 5a0374504a2a37a44919107fb98ae281, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2609787148150905878, guid: 5a0374504a2a37a44919107fb98ae281, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -115509,7 +115525,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1752894594}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1318730072029814556, guid: 5a0374504a2a37a44919107fb98ae281, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a0374504a2a37a44919107fb98ae281, type: 3}

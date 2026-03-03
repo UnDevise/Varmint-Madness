@@ -50,4 +50,23 @@ public class ShopManager : MonoBehaviour
             Debug.Log("Not enough garbage!");
         }
     }
+    public void BuyForceRandomPlayerIntoCage()
+    {
+        Debug.Log("BuyForceRandomPlayerIntoCage BUTTON CLICKED");
+
+        DiceController dice = FindAnyObjectByType<DiceController>();
+        PlayerMovement buyer = dice.playersToMove[dice.currentPlayerIndex];
+
+        if (buyer.GetGarbage() >= 15)
+        {
+            buyer.SpendGarbage(15);
+            dice.ForceRandomPlayerIntoCage();
+            Debug.Log("Forced a random player into a cage!");
+        }
+        else
+        {
+            Debug.Log("Not enough garbage!");
+        }
+    }
+
 }
