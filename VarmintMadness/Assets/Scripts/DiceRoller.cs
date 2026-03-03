@@ -7,17 +7,18 @@ using System.Collections;
 public class DiceController : MonoBehaviour
 {
     public List<PlayerMovement> playersToMove;
-    public int diceSides = 6;
+
+    public int diceSides = 6; // ⭐ Needed for RollAgain()
     public Sprite[] diceSprites;
 
-    public Collider diceCollider; // Dice is a GameObject with a collider
+    public Collider diceCollider;
 
-    public ShopManager shopManager; // ⭐ Added for shop access
+    public ShopManager shopManager;
 
     public TextMeshProUGUI playerGarbageTextPrefab;
     public Transform uiParentPanel;
     public float uiElementSpacing = 50f;
-    public int currentPlayerIndex = 0;
+    public int currentPlayerIndex = 0; // ⭐ Needed for turn logic
 
     public float startXPosition = 0f;
     public float startYPosition = -50f;
@@ -44,11 +45,10 @@ public class DiceController : MonoBehaviour
         {
             Canvas canvas = Object.FindAnyObjectByType<Canvas>();
             if (canvas != null)
-            {
                 uiParentPanel = canvas.transform;
-            }
         }
 
+        // Create UI garbage counters
         for (int i = 0; i < playersToMove.Count; i++)
         {
             PlayerMovement player = playersToMove[i];
@@ -70,11 +70,8 @@ public class DiceController : MonoBehaviour
 
     private void Start()
     {
-        if (CameraController.Instance != null && playersToMove.Count > 0)
-        {
-            CameraController.Instance.FocusOnPlayer(playersToMove[currentPlayerIndex].transform);
-        }
-
+        RestoreBoardState();
+        ApplyMarbleReward();   // ⭐ add this
         StartCoroutine(BeginAfterRestore());
     }
 
@@ -84,29 +81,37 @@ public class DiceController : MonoBehaviour
         StartPlayerTurn();
     }
 
-    // ⭐ SHOP INPUT HANDLING
     private void Update()
     {
-        // Simple debug version – no conditions
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("E pressed in DiceController.Update");
+            PlayerMovement current = playersToMove[currentPlayerIndex];
 
-            if (shopManager != null)
+            if (CameraController.Instance != null)
             {
-                Debug.Log("Toggling shop from DiceController");
-                shopManager.ToggleShop();
-            }
-            else
-            {
-                Debug.LogWarning("shopManager is NOT assigned on DiceController");
+                CameraController.Instance.FollowPlayer(current.transform);
             }
         }
     }
 
-    // ---------------------------------------------------------
-    // TURN ENTRY POINT
-    // ---------------------------------------------------------
+    // ⭐ Restore saved board state
+    private void RestoreBoardState()
+    {
+        if (BoardStateSaver.savedPositions != null)
+        {
+            for (int i = 0; i < playersToMove.Count; i++)
+            {
+                playersToMove[i].transform.position = BoardStateSaver.savedPositions[i];
+                playersToMove[i].IsInCage = BoardStateSaver.playerIsInCage[i];
+                playersToMove[i].garbageCount = BoardStateSaver.savedGarbageCounts[i];
+                playersToMove[i].UpdateGarbageText();
+            }
+
+            currentPlayerIndex = BoardStateSaver.savedCurrentPlayerIndex;
+        }
+    }
+
+    // ⭐ Turn start
     public void StartPlayerTurn()
     {
         CheckForWinner();
@@ -114,61 +119,41 @@ public class DiceController : MonoBehaviour
         DisableDice();
 
         PlayerMovement current = playersToMove[currentPlayerIndex];
+        CameraController.Instance.FollowPlayer(current.transform);
+
+        // ⭐ FIX — force camera to follow the correct player every turn
+        if (CameraController.Instance != null)
+        {
+            CameraController.Instance.StopFollowing();
+            CameraController.Instance.StartFollowing(current.transform);
+        }
 
         if (current.ShouldSkipTurn())
         {
-            Debug.Log($"{current.playerName} skips their turn immediately.");
             current.IsStunned = false;
             OnPlayerTurnFinished();
             return;
         }
 
-        if (CameraController.Instance != null)
-            CameraController.Instance.FocusOnDice(physicsDiceTransform);
-
         EnableDice();
     }
 
-    public bool IsPlayerMoving()
-    {
-        if (playersToMove.Count > 0 && playersToMove[currentPlayerIndex] != null)
-        {
-            Rigidbody playerRb = playersToMove[currentPlayerIndex].GetComponent<Rigidbody>();
 
-            if (playerRb != null)
-            {
-                return playerRb.linearVelocity.sqrMagnitude > MovementThreshold;
-            }
-            return false;
-        }
-        return false;
-    }
-
+    // ⭐ Move player after dice roll
     public void MoveCurrentPlayer(int rollResult)
     {
         PlayerMovement currentPlayer = playersToMove[currentPlayerIndex];
 
-        if (currentPlayer.IsStunned)
-        {
-            Debug.Log($"{currentPlayer.playerName} is stunned and skips their turn.");
-        }
-        else
+        if (!currentPlayer.IsStunned)
         {
             if (spriteRenderer != null && rollResult > 0 && rollResult <= diceSprites.Length)
-            {
                 spriteRenderer.sprite = diceSprites[rollResult - 1];
-            }
         }
 
-        if (currentPlayer != null)
-        {
-            if (CameraController.Instance != null)
-                CameraController.Instance.FocusOnPlayer(currentPlayer.transform);
-
-            currentPlayer.MoveCharacter(rollResult);
-        }
+        currentPlayer.MoveCharacter(rollResult);
     }
 
+    // ⭐ Fix for missing RollAgain()
     public void RollAgain()
     {
         int rollResult = Random.Range(1, diceSides + 1);
@@ -176,6 +161,7 @@ public class DiceController : MonoBehaviour
         MoveCurrentPlayer(rollResult);
     }
 
+    // ⭐ End turn
     public void OnPlayerTurnFinished()
     {
         EnableDice();
@@ -191,9 +177,7 @@ public class DiceController : MonoBehaviour
 
         currentPlayerIndex++;
         if (currentPlayerIndex >= playersToMove.Count)
-        {
             currentPlayerIndex = 0;
-        }
 
         ResetDicePhysics();
         StartPlayerTurn();
@@ -216,26 +200,18 @@ public class DiceController : MonoBehaviour
         }
     }
 
-    private void StartMiniggameRound()
+    // ⭐ Start minigame
+    private void StartMinigameRound()
     {
-        Debug.Log("All players have moved. Starting a random minigame!");
-
         BoardStateSaver.SaveBoardState(playersToMove.Count, this);
 
         currentPlayerIndex = 0;
 
-        if (roundMinigames == null || roundMinigames.Count == 0)
-        {
-            Debug.LogError("No minigames assigned!");
-            return;
-        }
-
         int index = Random.Range(0, roundMinigames.Count);
-        string selectedMinigame = roundMinigames[index];
-
-        SceneManager.LoadScene(selectedMinigame);
+        SceneManager.LoadScene(roundMinigames[index]);
     }
 
+    // ⭐ Winner check
     public void CheckForWinner()
     {
         int activePlayers = 0;
@@ -252,23 +228,16 @@ public class DiceController : MonoBehaviour
 
         if (activePlayers == 1 && lastStanding != null)
         {
-            Debug.Log($"{lastStanding.playerName} WINS THE GAME!");
-
             WinnerData.WinnerName = lastStanding.playerName;
 
             SpriteRenderer sr = lastStanding.GetComponent<SpriteRenderer>();
-            if (sr != null)
-                WinnerData.WinnerSprite = sr.sprite;
-            else
-                WinnerData.WinnerSprite = null;
+            WinnerData.WinnerSprite = sr != null ? sr.sprite : null;
 
             SceneManager.LoadScene("Winner");
         }
     }
 
-    // ---------------------------------------------------------
-    // ⭐ SHOP ABILITY: MOVE RANDOM PLAYER
-    // ---------------------------------------------------------
+    // ⭐ Shop ability: Move random player
     public void MoveRandomPlayer()
     {
         if (playersToMove.Count <= 1)
@@ -277,21 +246,40 @@ public class DiceController : MonoBehaviour
         int randomIndex = currentPlayerIndex;
 
         while (randomIndex == currentPlayerIndex)
-        {
             randomIndex = Random.Range(0, playersToMove.Count);
-        }
 
         PlayerMovement target = playersToMove[randomIndex];
-
-        Debug.Log("Random player chosen: " + target.playerName);
 
         int roll = Random.Range(1, 7);
         target.MoveCharacter(roll);
     }
 
-    // ---------------------------------------------------------
-    // ENABLE / DISABLE DICE
-    // ---------------------------------------------------------
+    // ⭐ Shop ability: Force random player into cage
+    public void ForceRandomPlayerIntoCage()
+    {
+        if (playersToMove.Count <= 1)
+            return;
+
+        int randomIndex = currentPlayerIndex;
+
+        while (randomIndex == currentPlayerIndex)
+            randomIndex = Random.Range(0, playersToMove.Count);
+
+        PlayerMovement target = playersToMove[randomIndex];
+
+        target.IsInCage = true;
+
+        if (target.cageTeleportPoint != null)
+            target.transform.position = target.cageTeleportPoint.position;
+
+        Rigidbody rb = target.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+    }
+
     public void DisableDice()
     {
         if (diceCollider != null)
@@ -303,55 +291,48 @@ public class DiceController : MonoBehaviour
         if (diceCollider != null)
             diceCollider.enabled = true;
     }
-    private void StartMinigameRound()
+    public bool IsPlayerMoving()
     {
-        Debug.Log("All players have moved. Starting a random minigame!");
-
-        BoardStateSaver.SaveBoardState(playersToMove.Count, this);
-
-        currentPlayerIndex = 0;
-
-        if (roundMinigames == null || roundMinigames.Count == 0)
+        if (playersToMove.Count > 0 && playersToMove[currentPlayerIndex] != null)
         {
-            Debug.LogError("No minigames assigned!");
-            return;
+            Rigidbody playerRb = playersToMove[currentPlayerIndex].GetComponent<Rigidbody>();
+
+            if (playerRb != null)
+            {
+                // You can tweak this threshold if needed
+                return playerRb.linearVelocity.sqrMagnitude > 0.01f;
+            }
         }
 
-        int index = Random.Range(0, roundMinigames.Count);
-        string selectedMinigame = roundMinigames[index];
-
-        SceneManager.LoadScene(selectedMinigame);
+        return false;
     }
-    public void ForceRandomPlayerIntoCage()
+    private void RestoreGarbageCounts()
     {
-        if (playersToMove.Count <= 1)
+        if (BoardStateSaver.savedGarbageCounts == null)
             return;
 
-        int randomIndex = currentPlayerIndex;
-
-        while (randomIndex == currentPlayerIndex)
+        for (int i = 0; i < playersToMove.Count; i++)
         {
-            randomIndex = Random.Range(0, playersToMove.Count);
-        }
-
-        PlayerMovement target = playersToMove[randomIndex];
-
-        Debug.Log("Random player forced into cage: " + target.playerName);
-
-        target.IsInCage = true;
-
-        // EITHER use a fixed position:
-        target.transform.position = new Vector3(-10f, 0f, 0f);
-
-        // OR, if you added cagePosition to PlayerMovement:
-        // if (target.cagePosition != null)
-        //     target.transform.position = target.cagePosition.position;
-
-        Rigidbody rb = target.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
+            playersToMove[i].garbageCount = BoardStateSaver.savedGarbageCounts[i];
+            playersToMove[i].UpdateGarbageText();
         }
     }
+    private void ApplyMarbleReward()
+    {
+        if (!MarbleRewardData.WinnerPlayerIndex.HasValue)
+            return;
+
+        int index = MarbleRewardData.WinnerPlayerIndex.Value;
+
+        if (index >= 0 && index < playersToMove.Count)
+        {
+            PlayerMovement winner = playersToMove[index];
+            winner.garbageCount += MarbleRewardData.BonusTrash;
+            winner.UpdateGarbageText();
+        }
+
+        MarbleRewardData.WinnerPlayerIndex = null;
+        MarbleRewardData.BonusTrash = 0;
+    }
+
 }

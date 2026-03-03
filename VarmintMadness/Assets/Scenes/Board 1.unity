@@ -44296,6 +44296,8 @@ MonoBehaviour:
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
+  garbageCount: 0
+  playerId: P2
 --- !u!95 &821826322
 Animator:
   serializedVersion: 7
@@ -47844,6 +47846,8 @@ MonoBehaviour:
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
+  garbageCount: 0
+  playerId: P3
 --- !u!95 &873121441
 Animator:
   serializedVersion: 7
@@ -80292,6 +80296,8 @@ MonoBehaviour:
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
+  garbageCount: 0
+  playerId: P1
 --- !u!95 &1511254934
 Animator:
   serializedVersion: 7
@@ -103952,6 +103958,8 @@ MonoBehaviour:
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
+  garbageCount: 0
+  playerId: P4
 --- !u!95 &1938905689
 Animator:
   serializedVersion: 7

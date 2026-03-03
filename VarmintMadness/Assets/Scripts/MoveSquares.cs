@@ -38,11 +38,12 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [HideInInspector] public TextMeshProUGUI garbageText;
     [HideInInspector] public string playerName;
-    private int garbageCount = 0;
+    public int garbageCount = 0;
     private DiceController diceController;
     private CameraController cameraController;
     private Animator playerAnimator;
     private AudioSource audioSource;
+    public string playerId;
 
     private void Awake()
     {
@@ -494,13 +495,13 @@ public class PlayerMovement : MonoBehaviour
     // ---------------------------------------------------------
     // UI / GARBAGE
     // ---------------------------------------------------------
-    private void UpdateGarbageText()
+    public void UpdateGarbageText()
     {
         if (garbageText != null)
             garbageText.text = $"{playerName}: {garbageCount} garbage";
     }
 
-    private void IncrementGarbageCount()
+    public void IncrementGarbageCount()
     {
         garbageCount++;
         UpdateGarbageText();

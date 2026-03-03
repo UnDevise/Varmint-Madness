@@ -1,6 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class DiceRoller : MonoBehaviour
 {
@@ -29,33 +28,23 @@ public class DiceRoller : MonoBehaviour
     private bool thrown = false;
 
     private Camera mainCamera;
-    public float cameraFollowSpeed = 5f;
     public float diceSpawnOffsetFromCamera = 10f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        if (rb == null) Debug.LogError("Dice object needs a Rigidbody component!");
-
         diceRenderer = GetComponent<Renderer>();
-        if (diceRenderer == null) Debug.LogError("Dice object needs a Renderer component!");
 
         if (diceController == null)
-        {
-            diceController = Object.FindAnyObjectByType<DiceController>();
-            if (diceController == null) Debug.LogError("DiceController reference missing!");
-        }
-
-        if (faces.Length != 6) Debug.LogError("Please configure exactly 6 dice faces in the Inspector!");
+            diceController = FindAnyObjectByType<DiceController>();
 
         rb.useGravity = false;
         rb.isKinematic = true;
-        canRoll = true;
 
-        if (diceRenderer != null) diceRenderer.enabled = false;
+        if (diceRenderer != null)
+            diceRenderer.enabled = false;
 
         mainCamera = Camera.main;
-        if (mainCamera == null) Debug.LogError("Main Camera not found!");
     }
 
     void Update()
@@ -66,57 +55,30 @@ public class DiceRoller : MonoBehaviour
             {
                 RollDice();
             }
-            else
-            {
-                Debug.Log("Cannot roll the dice while the player is moving!");
-            }
         }
 
-        if (thrown && mainCamera != null)
-        {
-            Vector3 targetPos = new Vector3(
-                transform.position.x,
-                transform.position.y,
-                mainCamera.transform.position.z
-            );
-
-            mainCamera.transform.position = Vector3.Lerp(
-                mainCamera.transform.position,
-                targetPos,
-                Time.deltaTime * cameraFollowSpeed
-            );
-        }
+        // ⭐ Dice no longer moves the camera at all
     }
 
     void FixedUpdate()
     {
         if (!rb.isKinematic)
-        {
             rb.AddForce(customGravityDirection, ForceMode.Acceleration);
-        }
     }
 
     void RollDice()
     {
-        if (mainCamera != null)
-        {
-            Vector3 camPos = mainCamera.transform.position;
-
-            Vector3 spawnPos = new Vector3(
-                camPos.x,
-                camPos.y - diceSpawnOffsetFromCamera,
-                transform.position.z
-            );
-
-            transform.position = spawnPos;
-        }
+        // Tell camera to focus on dice
+        if (CameraController.Instance != null)
+            CameraController.Instance.FocusDice(transform);
 
         rb.isKinematic = false;
         canRoll = false;
         thrown = true;
         hasLanded = false;
 
-        if (diceRenderer != null) diceRenderer.enabled = true;
+        if (diceRenderer != null)
+            diceRenderer.enabled = true;
 
         Vector3 force = new Vector3(
             Random.Range(0f, rollForce),
@@ -136,6 +98,7 @@ public class DiceRoller : MonoBehaviour
         StartCoroutine(CheckIfAtRest());
     }
 
+
     IEnumerator CheckIfAtRest()
     {
         yield return new WaitUntil(() =>
@@ -154,15 +117,21 @@ public class DiceRoller : MonoBehaviour
             int rollResult = CalculateDiceResult();
             Debug.Log("Dice landed on: " + rollResult);
 
+            // Move the player
             if (diceController != null)
-            {
                 diceController.MoveCurrentPlayer(rollResult);
+
+            // Switch camera to the player
+            if (CameraController.Instance != null && diceController != null)
+            {
+                PlayerMovement current = diceController.playersToMove[diceController.currentPlayerIndex];
+                CameraController.Instance.FollowPlayer(current.transform);
             }
 
-            if (diceRenderer != null) diceRenderer.enabled = false;
+            if (diceRenderer != null)
+                diceRenderer.enabled = false;
 
             thrown = false;
-
             canRoll = true;
         }
     }
@@ -184,6 +153,7 @@ public class DiceRoller : MonoBehaviour
                 result = face.value;
             }
         }
+
         return result;
     }
 }
