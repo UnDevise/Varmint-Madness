@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e3db7b5568f77d41b664d57a82d9659, type: 3}
-  m_Name: New Character
+  m_Name: JaidynData
   m_EditorClassIdentifier: 
-  characterName: Mouse Warf
-  characterSprite: {fileID: -4792745850796751534, guid: c9b36e341d18cea43b6a6de923a3aef8, type: 3}
-  characterBio: He's a guy
-  backgroundColor: {r: 0.005894661, g: 0, b: 1, a: 0}
+  characterName: Fox Jaidyn
+  characterSprite: {fileID: -1542984525474939529, guid: c387e8b041266654f8faad25f160b0c8, type: 3}
+  characterBio: My computer caught fire
+  backgroundColor: {r: 1, g: 0.38606954, b: 0, a: 0}
