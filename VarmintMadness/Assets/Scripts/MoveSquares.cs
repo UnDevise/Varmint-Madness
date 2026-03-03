@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform layerOutTeleportPoint;
     public float moveSpeed = 5.0f;
     public bool isMoving = false;
+    public int characterId;
 
     public bool IsInCage = false;
     public Transform cageTeleportPoint;

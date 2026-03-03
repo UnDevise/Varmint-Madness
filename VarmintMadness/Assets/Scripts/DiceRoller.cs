@@ -8,10 +8,9 @@ public class DiceController : MonoBehaviour
 {
     public List<PlayerMovement> playersToMove;
 
-    public int diceSides = 6; // ⭐ Needed for RollAgain()
+    public int diceSides = 6;
     public Sprite[] diceSprites;
     public DiceRoller diceRoller;
-
 
     public Collider diceCollider;
 
@@ -20,7 +19,7 @@ public class DiceController : MonoBehaviour
     public TextMeshProUGUI playerGarbageTextPrefab;
     public Transform uiParentPanel;
     public float uiElementSpacing = 50f;
-    public int currentPlayerIndex = 0; // ⭐ Needed for turn logic
+    public int currentPlayerIndex = 0;
 
     public float startXPosition = 0f;
     public float startYPosition = -50f;
@@ -36,7 +35,6 @@ public class DiceController : MonoBehaviour
 
     private int turnsCompleted = 0;
 
-    [Header("Minigame Settings")]
     public List<string> roundMinigames = new List<string>();
 
     private void Awake()
@@ -50,7 +48,6 @@ public class DiceController : MonoBehaviour
                 uiParentPanel = canvas.transform;
         }
 
-        // Create UI garbage counters
         for (int i = 0; i < playersToMove.Count; i++)
         {
             PlayerMovement player = playersToMove[i];
@@ -73,7 +70,7 @@ public class DiceController : MonoBehaviour
     private void Start()
     {
         RestoreBoardState();
-        ApplyMarbleReward();   // ⭐ add this
+        ApplyMarbleReward();
         StartCoroutine(BeginAfterRestore());
     }
 
@@ -112,7 +109,7 @@ public class DiceController : MonoBehaviour
             }
         }
     }
-    // ⭐ Restore saved board state
+
     private void RestoreBoardState()
     {
         if (BoardStateSaver.savedPositions != null)
@@ -129,7 +126,6 @@ public class DiceController : MonoBehaviour
         }
     }
 
-    // ⭐ Turn start
     public void StartPlayerTurn()
     {
         CheckForWinner();
@@ -139,7 +135,6 @@ public class DiceController : MonoBehaviour
         PlayerMovement current = playersToMove[currentPlayerIndex];
         CameraController.Instance.FollowPlayer(current.transform);
 
-        // ⭐ FIX — force camera to follow the correct player every turn
         if (CameraController.Instance != null)
         {
             CameraController.Instance.StopFollowing();
@@ -156,8 +151,6 @@ public class DiceController : MonoBehaviour
         EnableDice();
     }
 
-
-    // ⭐ Move player after dice roll
     public void MoveCurrentPlayer(int rollResult)
     {
         PlayerMovement currentPlayer = playersToMove[currentPlayerIndex];
@@ -171,7 +164,6 @@ public class DiceController : MonoBehaviour
         currentPlayer.MoveCharacter(rollResult);
     }
 
-    // ⭐ Fix for missing RollAgain()
     public void RollAgain()
     {
         int rollResult = Random.Range(1, diceSides + 1);
@@ -179,7 +171,6 @@ public class DiceController : MonoBehaviour
         MoveCurrentPlayer(rollResult);
     }
 
-    // ⭐ End turn
     public void OnPlayerTurnFinished()
     {
         EnableDice();
@@ -218,7 +209,6 @@ public class DiceController : MonoBehaviour
         }
     }
 
-    // ⭐ Start minigame
     private void StartMinigameRound()
     {
         BoardStateSaver.SaveBoardState(playersToMove.Count, this);
@@ -229,7 +219,6 @@ public class DiceController : MonoBehaviour
         SceneManager.LoadScene(roundMinigames[index]);
     }
 
-    // ⭐ Winner check
     public void CheckForWinner()
     {
         int activePlayers = 0;
@@ -255,7 +244,6 @@ public class DiceController : MonoBehaviour
         }
     }
 
-    // ⭐ Shop ability: Move random player
     public void MoveRandomPlayer()
     {
         if (playersToMove.Count <= 1)
@@ -272,7 +260,6 @@ public class DiceController : MonoBehaviour
         target.MoveCharacter(roll);
     }
 
-    // ⭐ Shop ability: Force random player into cage
     public void ForceRandomPlayerIntoCage()
     {
         if (playersToMove.Count <= 1)
@@ -309,6 +296,7 @@ public class DiceController : MonoBehaviour
         if (diceCollider != null)
             diceCollider.enabled = true;
     }
+
     public bool IsPlayerMoving()
     {
         if (playersToMove.Count > 0 && playersToMove[currentPlayerIndex] != null)
@@ -317,13 +305,13 @@ public class DiceController : MonoBehaviour
 
             if (playerRb != null)
             {
-                // You can tweak this threshold if needed
                 return playerRb.linearVelocity.sqrMagnitude > 0.01f;
             }
         }
 
         return false;
     }
+
     private void RestoreGarbageCounts()
     {
         if (BoardStateSaver.savedGarbageCounts == null)
@@ -335,6 +323,7 @@ public class DiceController : MonoBehaviour
             playersToMove[i].UpdateGarbageText();
         }
     }
+
     private void ApplyMarbleReward()
     {
         if (!MarbleRewardData.WinnerPlayerIndex.HasValue)
@@ -352,5 +341,4 @@ public class DiceController : MonoBehaviour
         MarbleRewardData.WinnerPlayerIndex = null;
         MarbleRewardData.BonusTrash = 0;
     }
-
 }

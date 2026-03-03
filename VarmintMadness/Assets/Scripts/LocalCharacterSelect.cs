@@ -8,7 +8,9 @@ public class LocalCharacterSelect : MonoBehaviour
     public Image playerIndicator;       // UI element that shows which player is picking
     public Sprite[] playerIcons;        // 4 sprites: P1, P2, P3, P4
 
-    private int totalPlayers = 4;
+    [Header("Player Settings")]
+    public int totalPlayers = 4;        // You can change this in Inspector
+
     private int currentPlayer = 0;      // 0 = Player 1, 1 = Player 2, etc.
     private int[] playerChoices;        // Stores each player's choice
 
@@ -57,13 +59,18 @@ public class LocalCharacterSelect : MonoBehaviour
 
     void FinishSelection()
     {
-        // Save all choices for the next scene
+        // ⭐ Save number of players
+        PlayerPrefs.SetInt("TotalPlayers", totalPlayers);
+
+        // ⭐ Save all character choices
         for (int i = 0; i < totalPlayers; i++)
         {
             PlayerPrefs.SetInt("P" + (i + 1) + "_Character", playerChoices[i]);
         }
 
-        // Load your 4‑player local multiplayer scene
+        PlayerPrefs.Save();
+
+        // Load your board scene
         SceneManager.LoadScene("Board Select");
     }
 }
