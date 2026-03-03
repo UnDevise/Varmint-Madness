@@ -82,15 +82,13 @@ public class DiceController : MonoBehaviour
 
     private void Update()
     {
-        // ⭐ Shop open key
         if (Input.GetKeyDown(KeyCode.E))
         {
             PlayerMovement current = playersToMove[currentPlayerIndex];
 
             if (CameraController.Instance != null)
             {
-                CameraController.Instance.StopFollowing();
-                CameraController.Instance.StartFollowing(current.transform);
+                CameraController.Instance.FollowPlayer(current.transform);
             }
         }
     }
@@ -120,6 +118,7 @@ public class DiceController : MonoBehaviour
         DisableDice();
 
         PlayerMovement current = playersToMove[currentPlayerIndex];
+        CameraController.Instance.FollowPlayer(current.transform);
 
         // ⭐ FIX — force camera to follow the correct player every turn
         if (CameraController.Instance != null)
