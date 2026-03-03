@@ -10,6 +10,8 @@ public class MarbleMovement : MonoBehaviour
     private float randomSpeed;
     private bool raceStarted = false;
 
+    public string ownerPlayerId;   // must match PlayerMovement.playerId
+
     // ⭐ Stuck detection
     public float stuckVelocityThreshold = 0.05f;
     public float stuckTimeNeeded = 1.0f;
@@ -51,7 +53,6 @@ public class MarbleMovement : MonoBehaviour
         CheckIfStuck();
     }
 
-    // ⭐ Detect if marble is stuck
     public void CheckIfStuck()
     {
         float distanceMoved = Vector3.Distance(transform.position, lastPosition);
@@ -72,7 +73,6 @@ public class MarbleMovement : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    // ⭐ Push marble free
     public void PushFree()
     {
         if (rb == null) return;

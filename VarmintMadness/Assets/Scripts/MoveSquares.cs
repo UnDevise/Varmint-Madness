@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform layerInTeleportPoint;
     public Transform layerOutTeleportPoint;
     public float moveSpeed = 5.0f;
+    public bool isMoving = false;
 
     public bool IsInCage = false;
     public Transform cageTeleportPoint;
@@ -38,11 +39,12 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [HideInInspector] public TextMeshProUGUI garbageText;
     [HideInInspector] public string playerName;
-    private int garbageCount = 0;
+    public int garbageCount = 0;
     private DiceController diceController;
     private CameraController cameraController;
     private Animator playerAnimator;
     private AudioSource audioSource;
+    public string playerId;
 
     private void Awake()
     {
@@ -54,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         if (waypointsParent != null) StoreWaypointData();
         if (CameraController.Instance != null) cameraController = CameraController.Instance;
     }
-
     private void Start()
     {
         string scene = SceneManager.GetActiveScene().name;
@@ -494,13 +495,13 @@ public class PlayerMovement : MonoBehaviour
     // ---------------------------------------------------------
     // UI / GARBAGE
     // ---------------------------------------------------------
-    private void UpdateGarbageText()
+    public void UpdateGarbageText()
     {
         if (garbageText != null)
             garbageText.text = $"{playerName}: {garbageCount} garbage";
     }
 
-    private void IncrementGarbageCount()
+    public void IncrementGarbageCount()
     {
         garbageCount++;
         UpdateGarbageText();
@@ -571,5 +572,4 @@ public class PlayerMovement : MonoBehaviour
         if (garbageCount < 0) garbageCount = 0;
         UpdateGarbageText();
     }
-
 }

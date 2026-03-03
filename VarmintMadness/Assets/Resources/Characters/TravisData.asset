@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e3db7b5568f77d41b664d57a82d9659, type: 3}
-  m_Name: New Character 4
+  m_Name: TravisData
   m_EditorClassIdentifier: 
-  characterName: Alien Jaiden
-  characterSprite: {fileID: -2936059564746517356, guid: 4f41326b7a730404aace2f2277327329, type: 3}
-  characterBio: Rawr X3 *nuzzles* p-please choose me master!
-  backgroundColor: {r: 0, g: 1, b: 0.8384063, a: 0}
+  characterName: Raccoon Travis
+  characterSprite: {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
+  characterBio: I am cooler than everybody else
+  backgroundColor: {r: 0, g: 0.32430172, b: 1, a: 0}

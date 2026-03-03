@@ -16,6 +16,8 @@ public class CameraController : MonoBehaviour
 
     private bool isFollowingPlayer = false;
     private Transform playerToFollow;
+    private bool followDice = false;
+    private Transform diceToFollow;
 
     private void Awake()
     {
@@ -38,7 +40,6 @@ public class CameraController : MonoBehaviour
 
     public CameraMode currentMode = CameraMode.None;
 
-
     private void Start()
     {
         cam = GetComponent<Camera>();
@@ -53,9 +54,13 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (isFollowingPlayer && playerToFollow != null)
+        if (currentMode == CameraMode.FollowPlayer && isFollowingPlayer && playerToFollow != null)
         {
             FollowPlayer();
+        }
+        else if (currentMode == CameraMode.FocusDice && followDice && diceToFollow != null)
+        {
+            FollowDice();
         }
     }
 
@@ -77,6 +82,9 @@ public class CameraController : MonoBehaviour
         );
     }
 
+    // -----------------------------
+    // DICE FOCUS
+    // -----------------------------
     public void FocusOnDice(Transform diceTransform)
     {
         if (diceTransform == null)
@@ -121,6 +129,9 @@ public class CameraController : MonoBehaviour
         cam.orthographicSize = zoomedOrthographicSize;
     }
 
+    // -----------------------------
+    // PLAYER FOLLOW
+    // -----------------------------
     public void FocusOnPlayer(Transform playerTransform)
     {
         if (playerTransform == null)
@@ -165,11 +176,16 @@ public class CameraController : MonoBehaviour
         isFollowingPlayer = true;
     }
 
+    // -----------------------------
+    // STOP FOLLOWING
+    // -----------------------------
     public void StopFollowing()
     {
         isFollowingPlayer = false;
         playerToFollow = null;
+        currentMode = CameraMode.None;
 
+        StopAllCoroutines();
         StartCoroutine(ReturnToFullView());
     }
 
@@ -188,4 +204,56 @@ public class CameraController : MonoBehaviour
 
         cam.orthographicSize = fullViewOrthographicSize;
     }
+
+    // -----------------------------
+    // PUBLIC WRAPPER
+    // -----------------------------
+    public void StartFollowing(Transform target)
+    {
+        FocusOnPlayer(target);
+    }
+    public void FocusDice(Transform dice)
+    {
+        if (dice == null)
+            return;
+
+        currentMode = CameraMode.FocusDice;
+        StopAllCoroutines();
+
+        followDice = true;
+        diceToFollow = dice;
+
+        StartCoroutine(FocusDiceCoroutine(dice));
+    }
+
+
+    public void FollowPlayer(Transform player)
+    {
+        currentMode = CameraMode.FollowPlayer;
+        StopAllCoroutines();
+        StartCoroutine(StartFollowingCoroutine(player));
+    }
+    private void FollowDice()
+    {
+        if (diceToFollow == null)
+            return;
+
+        Vector3 targetPosition = new Vector3(
+            diceToFollow.position.x,
+            diceToFollow.position.y,
+            transform.position.z
+        );
+
+        transform.position = Vector3.Lerp(
+            transform.position,
+            targetPosition,
+            followSpeed * Time.deltaTime
+        );
+    }
+    public void StopDiceFollow()
+    {
+        followDice = false;
+        diceToFollow = null;
+    }
+
 }

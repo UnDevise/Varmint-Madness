@@ -1,53 +1,36 @@
 ﻿using UnityEngine;
 
+
 public class ShopManager : MonoBehaviour
 {
+    [Header("UI")]
     public GameObject shopUI;
 
-    private bool isOpen = false;
+    // Whether the shop is currently open
+    public bool shopOpen = false;
 
-    public void ToggleShop()
+    public void OpenShop()
     {
-        isOpen = !isOpen;
-        shopUI.SetActive(isOpen);
+        if (shopUI != null)
+            shopUI.SetActive(true);
+
+        shopOpen = true;
     }
 
     public void CloseShop()
     {
-        isOpen = false;
-        shopUI.SetActive(false);
+        if (shopUI != null)
+            shopUI.SetActive(false);
+
+        shopOpen = false;
     }
-    public void BuySpeedBoost()
+
+    // Optional: toggle method if you want to call just one function
+    public void ToggleShop()
     {
-        DiceController dice = FindAnyObjectByType<DiceController>();
-        PlayerMovement player = dice.playersToMove[dice.currentPlayerIndex];
-
-        if (player.GetGarbage() >= 5)
-        {
-            player.SpendGarbage(5);
-            player.moveSpeed += 2f;
-            Debug.Log(player.playerName + " + 5 spaces!");
-        }
+        if (shopOpen)
+            CloseShop();
         else
-        {
-            Debug.Log("Not enough garbage!");
-        }
-    }
-    public void BuyMoveRandomPlayer()
-    {
-        DiceController dice = FindAnyObjectByType<DiceController>();
-        PlayerMovement player = dice.playersToMove[dice.currentPlayerIndex];
-
-        if (player.GetGarbage() >= 15)
-        {
-            player.SpendGarbage(15);
-            Debug.Log(player.playerName + " bought Move Random Player!");
-
-            dice.MoveRandomPlayer();   // ⭐ Trigger the ability
-        }
-        else
-        {
-            Debug.Log("Not enough garbage!");
-        }
+            OpenShop();
     }
 }
