@@ -18,7 +18,6 @@ public class GameManagerMarble : MonoBehaviour
     private bool winnerChosen = false;
 
     private int eligiblePlayers = 0;
-    public string winningPlayerId;
 
     private float stuckCheckInterval = 1.0f;
     private float stuckCheckTimer = 0f;
@@ -215,9 +214,7 @@ public class GameManagerMarble : MonoBehaviour
         winnerChosen = true;
 
         int winningPlayerIndex = -1;
-        string winnerId = null;
 
-        // Find which player picked this marble
         for (int i = 0; i < totalPlayers; i++)
         {
             if (playerMarbleChoices[i] == marbleIndex)
@@ -227,56 +224,24 @@ public class GameManagerMarble : MonoBehaviour
             }
         }
 
+        playerTurnText.gameObject.SetActive(true);
+
         if (winningPlayerIndex != -1)
         {
-            // Map player index → playerId using BoardStateSaver or a known mapping
-            winnerId = "Player" + (winningPlayerIndex + 1); // if you use "Player1", "Player2", etc.
-            winningPlayerId = winnerId;
-
-            playerTurnText.gameObject.SetActive(true);
             playerTurnText.text = "Player " + (winningPlayerIndex + 1) + " wins!";
 
-            AwardTrashToPlayerId(winnerId);
+            // ⭐ Save reward for board scene
+            MarbleRewardData.WinnerPlayerIndex = winningPlayerIndex;
+            MarbleRewardData.BonusTrash = 10;
         }
         else
         {
-            playerTurnText.gameObject.SetActive(true);
             playerTurnText.text = "No one wins!";
+            MarbleRewardData.WinnerPlayerIndex = null;
+            MarbleRewardData.BonusTrash = 0;
         }
 
-        SaveTrashBeforeReturn();
         Invoke(nameof(ReturnToBoard), 2f);
-    }
-
-
-    private void AwardTrashToPlayerId(string playerId)
-    {
-        DiceController dice = FindAnyObjectByType<DiceController>();
-        if (dice == null)
-            return;
-
-        foreach (var player in dice.playersToMove)
-        {
-            if (player.playerId == playerId)
-            {
-                for (int i = 0; i < 10; i++)
-                    player.IncrementGarbageCount();
-
-                break;
-            }
-        }
-    }
-
-    private void SaveTrashBeforeReturn()
-    {
-        DiceController dice = FindAnyObjectByType<DiceController>();
-        if (dice == null)
-            return;
-
-        BoardStateSaver.savedGarbageCounts = new int[dice.playersToMove.Count];
-
-        for (int i = 0; i < dice.playersToMove.Count; i++)
-            BoardStateSaver.savedGarbageCounts[i] = dice.playersToMove[i].garbageCount;
     }
 
     private void ReturnToBoard()

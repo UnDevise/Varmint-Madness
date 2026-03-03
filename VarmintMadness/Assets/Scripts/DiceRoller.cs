@@ -71,7 +71,7 @@ public class DiceController : MonoBehaviour
     private void Start()
     {
         RestoreBoardState();
-        RestoreGarbageCounts();   // ⭐ Add this
+        ApplyMarbleReward();   // ⭐ add this
         StartCoroutine(BeginAfterRestore());
     }
 
@@ -316,6 +316,23 @@ public class DiceController : MonoBehaviour
             playersToMove[i].garbageCount = BoardStateSaver.savedGarbageCounts[i];
             playersToMove[i].UpdateGarbageText();
         }
+    }
+    private void ApplyMarbleReward()
+    {
+        if (!MarbleRewardData.WinnerPlayerIndex.HasValue)
+            return;
+
+        int index = MarbleRewardData.WinnerPlayerIndex.Value;
+
+        if (index >= 0 && index < playersToMove.Count)
+        {
+            PlayerMovement winner = playersToMove[index];
+            winner.garbageCount += MarbleRewardData.BonusTrash;
+            winner.UpdateGarbageText();
+        }
+
+        MarbleRewardData.WinnerPlayerIndex = null;
+        MarbleRewardData.BonusTrash = 0;
     }
 
 }
