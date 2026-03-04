@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GrimeyLittleThingBG_0: 5361207819802627113
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
