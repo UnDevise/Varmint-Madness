@@ -198,6 +198,8 @@ GameObject:
   - component: {fileID: 46007918}
   - component: {fileID: 46007917}
   - component: {fileID: 46007916}
+  - component: {fileID: 46007921}
+  - component: {fileID: 46007920}
   m_Layer: 0
   m_Name: FoxJaidynBestImage_0
   m_TagString: Untagged
@@ -312,6 +314,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1072817124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &46007920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46007915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d30d8e13cd8e014f9722a2d67fb74e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodParticlesPrefab: {fileID: 3815446503233724447, guid: 29685dd8e9e00914389cf16a34f966af, type: 3}
+  splatSound: {fileID: 8300000, guid: 53e33d417e855ed4583347a8545bcdb8, type: 3}
+--- !u!61 &46007921
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46007915}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.62, y: 3.82}
+    newSize: {x: 2.62, y: 3.82}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.62, y: 3.82}
+  m_EdgeRadius: 0
 --- !u!1 &61222882
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +735,8 @@ GameObject:
   - component: {fileID: 87837171}
   - component: {fileID: 87837170}
   - component: {fileID: 87837169}
+  - component: {fileID: 87837174}
+  - component: {fileID: 87837173}
   m_Layer: 0
   m_Name: Chipmunk Bella_0
   m_TagString: Untagged
@@ -787,6 +851,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1072817124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &87837173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87837168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d30d8e13cd8e014f9722a2d67fb74e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodParticlesPrefab: {fileID: 3815446503233724447, guid: 29685dd8e9e00914389cf16a34f966af, type: 3}
+  splatSound: {fileID: 8300000, guid: 53e33d417e855ed4583347a8545bcdb8, type: 3}
+--- !u!61 &87837174
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87837168}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.62, y: 3.82}
+    newSize: {x: 2.62, y: 3.82}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.62, y: 3.82}
+  m_EdgeRadius: 0
 --- !u!1 &95538305
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +923,8 @@ GameObject:
   - component: {fileID: 95538308}
   - component: {fileID: 95538307}
   - component: {fileID: 95538306}
+  - component: {fileID: 95538311}
+  - component: {fileID: 95538310}
   m_Layer: 0
   m_Name: Opossum Luke_0
   m_TagString: Untagged
@@ -913,6 +1039,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1072817124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95538310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95538305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d30d8e13cd8e014f9722a2d67fb74e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodParticlesPrefab: {fileID: 3815446503233724447, guid: 29685dd8e9e00914389cf16a34f966af, type: 3}
+  splatSound: {fileID: 8300000, guid: 53e33d417e855ed4583347a8545bcdb8, type: 3}
+--- !u!61 &95538311
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95538305}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.62, y: 3.72}
+    newSize: {x: 2.62, y: 3.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.62, y: 3.72}
+  m_EdgeRadius: 0
 --- !u!1 &103134926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,6 +2188,8 @@ GameObject:
   - component: {fileID: 250679571}
   - component: {fileID: 250679570}
   - component: {fileID: 250679569}
+  - component: {fileID: 250679574}
+  - component: {fileID: 250679573}
   m_Layer: 0
   m_Name: warf car_0
   m_TagString: Untagged
@@ -2116,6 +2304,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1072817124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &250679573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250679568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d30d8e13cd8e014f9722a2d67fb74e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodParticlesPrefab: {fileID: 3815446503233724447, guid: 29685dd8e9e00914389cf16a34f966af, type: 3}
+  splatSound: {fileID: 8300000, guid: 53e33d417e855ed4583347a8545bcdb8, type: 3}
+--- !u!61 &250679574
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250679568}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.32, y: 1.4203467}
+    newSize: {x: 3.32, y: 1.4203467}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.32, y: 1.4203467}
+  m_EdgeRadius: 0
 --- !u!1 &255772317
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,6 +2816,8 @@ GameObject:
   - component: {fileID: 282187590}
   - component: {fileID: 282187589}
   - component: {fileID: 282187592}
+  - component: {fileID: 282187594}
+  - component: {fileID: 282187593}
   m_Layer: 0
   m_Name: Mouse Warf
   m_TagString: Untagged
@@ -2682,6 +2932,66 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &282187593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282187588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d30d8e13cd8e014f9722a2d67fb74e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodParticlesPrefab: {fileID: 3815446503233724447, guid: 29685dd8e9e00914389cf16a34f966af, type: 3}
+  splatSound: {fileID: 8300000, guid: 53e33d417e855ed4583347a8545bcdb8, type: 3}
+--- !u!61 &282187594
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282187588}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 3.21}
+    newSize: {x: 2, y: 3.21}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2, y: 3.21}
+  m_EdgeRadius: 0
 --- !u!1 &286413922
 GameObject:
   m_ObjectHideFlags: 0
@@ -5209,6 +5519,8 @@ GameObject:
   - component: {fileID: 734519103}
   - component: {fileID: 734519102}
   - component: {fileID: 734519101}
+  - component: {fileID: 734519106}
+  - component: {fileID: 734519105}
   m_Layer: 0
   m_Name: Mr. Fat-1.png (1)_0
   m_TagString: Untagged
@@ -5323,6 +5635,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1072817124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &734519105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734519100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d30d8e13cd8e014f9722a2d67fb74e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodParticlesPrefab: {fileID: 3815446503233724447, guid: 29685dd8e9e00914389cf16a34f966af, type: 3}
+  splatSound: {fileID: 8300000, guid: 53e33d417e855ed4583347a8545bcdb8, type: 3}
+--- !u!61 &734519106
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734519100}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.82, y: 3.22}
+    newSize: {x: 2.82, y: 3.22}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.82, y: 3.22}
+  m_EdgeRadius: 0
 --- !u!1 &736283698
 GameObject:
   m_ObjectHideFlags: 0
@@ -9985,6 +10357,8 @@ GameObject:
   - component: {fileID: 1314673377}
   - component: {fileID: 1314673376}
   - component: {fileID: 1314673375}
+  - component: {fileID: 1314673380}
+  - component: {fileID: 1314673379}
   m_Layer: 0
   m_Name: Raccoon Travis (2)_0
   m_TagString: Untagged
@@ -10099,6 +10473,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1072817124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1314673379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314673374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d30d8e13cd8e014f9722a2d67fb74e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodParticlesPrefab: {fileID: 3815446503233724447, guid: 29685dd8e9e00914389cf16a34f966af, type: 3}
+  splatSound: {fileID: 8300000, guid: 53e33d417e855ed4583347a8545bcdb8, type: 3}
+--- !u!61 &1314673380
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314673374}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.22, y: 3.72}
+    newSize: {x: 2.22, y: 3.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.22, y: 3.72}
+  m_EdgeRadius: 0
 --- !u!1 &1327981316
 GameObject:
   m_ObjectHideFlags: 0
@@ -10949,6 +11383,8 @@ GameObject:
   - component: {fileID: 1377817216}
   - component: {fileID: 1377817215}
   - component: {fileID: 1377817214}
+  - component: {fileID: 1377817219}
+  - component: {fileID: 1377817218}
   m_Layer: 0
   m_Name: Buff Scientist Carlos
   m_TagString: Untagged
@@ -11063,6 +11499,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1072817124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377817218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377817213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d30d8e13cd8e014f9722a2d67fb74e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodParticlesPrefab: {fileID: 3815446503233724447, guid: 29685dd8e9e00914389cf16a34f966af, type: 3}
+  splatSound: {fileID: 8300000, guid: 53e33d417e855ed4583347a8545bcdb8, type: 3}
+--- !u!61 &1377817219
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377817213}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.72, y: 4.4210796}
+    newSize: {x: 2.72, y: 4.4210796}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.72, y: 4.4210796}
+  m_EdgeRadius: 0
 --- !u!1 &1391172334
 GameObject:
   m_ObjectHideFlags: 0
@@ -15302,6 +15798,8 @@ GameObject:
   - component: {fileID: 2086816447}
   - component: {fileID: 2086816449}
   - component: {fileID: 2086816451}
+  - component: {fileID: 2086816453}
+  - component: {fileID: 2086816452}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Untagged
@@ -15416,6 +15914,66 @@ MonoBehaviour:
   PointA: {fileID: 586448113}
   PointB: {fileID: 353957260}
   moveSpeed: 4
+--- !u!114 &2086816452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086816446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d30d8e13cd8e014f9722a2d67fb74e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodParticlesPrefab: {fileID: 3815446503233724447, guid: 29685dd8e9e00914389cf16a34f966af, type: 3}
+  splatSound: {fileID: 8300000, guid: 53e33d417e855ed4583347a8545bcdb8, type: 3}
+--- !u!61 &2086816453
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086816446}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.62, y: 5.22}
+    newSize: {x: 2.62, y: 5.22}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.62, y: 5.22}
+  m_EdgeRadius: 0
 --- !u!1 &2112614625
 GameObject:
   m_ObjectHideFlags: 0
