@@ -144,7 +144,10 @@ public class DiceController : MonoBehaviour
         if (current.ShouldSkipTurn())
         {
             current.IsStunned = false;
-            OnPlayerTurnFinished();
+
+            // FIX: Properly advance turn when skipping
+            currentPlayerIndex = (currentPlayerIndex + 1) % playersToMove.Count;
+            StartPlayerTurn();
             return;
         }
 
@@ -213,7 +216,8 @@ public class DiceController : MonoBehaviour
     {
         BoardStateSaver.SaveBoardState(playersToMove.Count, this);
 
-        currentPlayerIndex = 0;
+        // FIX: Removed the line that broke turn order
+        // currentPlayerIndex = 0;
 
         int index = Random.Range(0, roundMinigames.Count);
         SceneManager.LoadScene(roundMinigames[index]);
