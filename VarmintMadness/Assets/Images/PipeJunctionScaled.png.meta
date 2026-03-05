@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a5e361c7440e4ea44944a7b33a231b80
+guid: ab8fac682ee4d1e45a79b648bacf59c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4531193702134982496
-    second: PipeEndScaled_0
+      213: 6776264612298644202
+    second: PipeJunctionScaled_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PipeEndScaled_0
+      name: PipeJunctionScaled_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 69
+        y: 0
         width: 224
-        height: 86
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a8d1cfc557fd11c0800000000000000
-      internalID: -4531193702134982496
+      spriteID: aea5c1043c02a0e50800000000000000
+      internalID: 6776264612298644202
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PipeEndScaled_0: -4531193702134982496
+      PipeJunctionScaled_0: 6776264612298644202
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

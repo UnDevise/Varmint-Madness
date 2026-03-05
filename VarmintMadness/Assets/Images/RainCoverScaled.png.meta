@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4a7ae41981a919848b3df940c5fe817b
+guid: bc791561b8fd3ec43aa94699c6689eda
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2553496245018777969
-    second: PipeCurveScaled_0
+      213: -8283415771063715274
+    second: RainCoverScaled_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PipeCurveScaled_0
+      name: RainCoverScaled_0
       rect:
         serializedVersion: 2
-        x: 69
+        x: 34
         y: 69
-        width: 155
-        height: 155
+        width: 149
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f86ac54b1b8209cd0800000000000000
-      internalID: -2553496245018777969
+      spriteID: 63af0ee5e356b0d80800000000000000
+      internalID: -8283415771063715274
       vertices: []
       indices: 
       edges: []
@@ -135,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PipeCurveScaled_0: -2553496245018777969
+      RainCoverScaled_0: -8283415771063715274
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

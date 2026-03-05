@@ -24,7 +24,7 @@ public class ScissorLift : MonoBehaviour
     public float platformOffset = 0f;
 
     [Header("Bounce Settings")]
-    public float launchForce = 50f;
+    public float launchForce = 25f;   // Increase for stronger launch
 
     private float currentHeight;
     private bool goingUp = false;
@@ -32,7 +32,6 @@ public class ScissorLift : MonoBehaviour
 
     private float spriteHeight;
 
-    // Track marbles currently on the platform
     private List<Rigidbody> marblesOnPlatform = new List<Rigidbody>();
 
     void Start()
@@ -61,7 +60,7 @@ public class ScissorLift : MonoBehaviour
                 goingUp = false;
                 timer = waitAtTop;
 
-                LaunchMarbles(); // ⭐ NEW — bounce marbles upward
+                LaunchMarbles(); // Launch at the top
             }
         }
         else
@@ -92,58 +91,55 @@ public class ScissorLift : MonoBehaviour
         platform.localPosition = pos;
     }
 
-    // ⭐ NEW — Apply upward force to marbles
     void LaunchMarbles()
     {
         foreach (Rigidbody rb in marblesOnPlatform)
         {
             if (rb != null)
-            {
-                // Stop any downward motion
-                rb.linearVelocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-
-                // Apply a strong upward impulse
-                rb.AddForce(Vector3.up * launchForce, ForceMode.Impulse);
-
-                // Optional: small horizontal randomness to prevent straight-up sticking
-                Vector3 randomKick = new Vector3(
-                    Random.Range(-0.5f, 0.5f),
-                    0f,
-                    Random.Range(-0.5f, 0.5f)
-                );
-
-                rb.AddForce(randomKick * (launchForce * 0.3f), ForceMode.Impulse);
-            }
+                StartCoroutine(LaunchRoutine(rb));
         }
     }
 
-    // ⭐ Detect marbles on the platform
+    IEnumerator LaunchRoutine(Rigidbody rb)
+    {
+        Collider col = rb.GetComponent<Collider>();
+
+        // Disable collider so it doesn't stick to the platform
+        if (col != null)
+            col.enabled = false;
+
+        // Reset downward velocity
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        // Apply strong upward impulse
+        rb.AddForce(Vector3.up * launchForce, ForceMode.Impulse);
+
+        // Optional: small sideways randomness
+        rb.AddForce(new Vector3(
+            Random.Range(-1f, 1f),
+            0f,
+            Random.Range(-1f, 1f)
+        ) * (launchForce * 0.2f), ForceMode.Impulse);
+
+        // Wait briefly before re-enabling collider
+        yield return new WaitForSeconds(0.05f);
+
+        if (col != null)
+            col.enabled = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Rigidbody rb = other.attachedRigidbody;
         if (rb != null && !marblesOnPlatform.Contains(rb))
-        {
             marblesOnPlatform.Add(rb);
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         Rigidbody rb = other.attachedRigidbody;
-        if (rb != null && marblesOnPlatform.Contains(rb))
-        {
+        if (rb != null)
             marblesOnPlatform.Remove(rb);
-        }
-    }
-    IEnumerator Unstick(Rigidbody rb)
-    {
-        Collider col = rb.GetComponent<Collider>();
-        if (col != null)
-        {
-            col.enabled = false;
-            yield return new WaitForSeconds(0.05f);
-            col.enabled = true;
-        }
     }
 }
