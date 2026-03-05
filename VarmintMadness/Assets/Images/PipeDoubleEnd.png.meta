@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e182dd9ee6e2bed41a406ad3f4515aa4
+guid: 000b2fbbe62357a418de1bd7544bb1e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2944511037763619049
-    second: LadderStraightScaled_0
+      213: -3207385077677461978
+    second: PipeDoubleEnd_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LadderStraightScaled_0
+      name: PipeDoubleEnd_0
       rect:
         serializedVersion: 2
-        x: 76
-        y: 0
-        width: 72
-        height: 224
+        x: 0
+        y: 9
+        width: 32
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e80e1b20310dd820800000000000000
-      internalID: 2944511037763619049
+      spriteID: 62e652be3441d73d0800000000000000
+      internalID: -3207385077677461978
       vertices: []
       indices: 
       edges: []
@@ -135,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LadderStraightScaled_0: 2944511037763619049
+      PipeDoubleEnd_0: -3207385077677461978
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

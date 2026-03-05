@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8ad83c8b595681f498a1a13869e79d3e
+guid: c09b82878db43d74e8b33cc174578792
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5912194942049663412
-    second: LiftHolderScaled_0
+      213: 8375321750173741959
+    second: CrackedBG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LiftHolderScaled_0
+      name: CrackedBG_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 69
-        width: 163
-        height: 86
+        x: 0
+        y: 0
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c46c44c360aa3fda0800000000000000
-      internalID: -5912194942049663412
+      spriteID: 78375b6e1ce1b3470800000000000000
+      internalID: 8375321750173741959
       vertices: []
       indices: 
       edges: []
@@ -135,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LiftHolderScaled_0: -5912194942049663412
+      CrackedBG_0: 8375321750173741959
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

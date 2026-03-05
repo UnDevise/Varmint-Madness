@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9a47616a7efbd3742a5ce46351622a97
+guid: ea0572231544c9244955160266228931
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4749473080192737458
-    second: PipeMidsectionScaled_0
+      213: -8112712987813222594
+    second: PipeTScaled_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PipeMidsectionScaled_0
+      name: PipeTScaled_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 76
+        y: 69
         width: 224
-        height: 72
+        height: 155
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4fd4d8b56b761eb0800000000000000
-      internalID: -4749473080192737458
+      spriteID: e37e1b4458ad96f80800000000000000
+      internalID: -8112712987813222594
       vertices: []
       indices: 
       edges: []
@@ -135,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PipeMidsectionScaled_0: -4749473080192737458
+      PipeTScaled_0: -8112712987813222594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
