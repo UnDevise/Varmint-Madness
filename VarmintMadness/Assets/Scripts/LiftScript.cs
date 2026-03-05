@@ -1,4 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 public class ScissorLift : MonoBehaviour
 {
@@ -19,13 +21,18 @@ public class ScissorLift : MonoBehaviour
     public float waitAtTop = 1f;
 
     [Header("Platform Alignment")]
-    public float platformOffset = 0f; // lets you fine tune platform position
+    public float platformOffset = 0f;
+
+    [Header("Bounce Settings")]
+    public float launchForce = 25f;   // Increase for stronger launch
 
     private float currentHeight;
     private bool goingUp = false;
     private float timer;
 
     private float spriteHeight;
+
+    private List<Rigidbody> marblesOnPlatform = new List<Rigidbody>();
 
     void Start()
     {
@@ -52,6 +59,8 @@ public class ScissorLift : MonoBehaviour
                 currentHeight = maxHeight;
                 goingUp = false;
                 timer = waitAtTop;
+
+                LaunchMarbles(); // Launch at the top
             }
         }
         else
@@ -78,7 +87,59 @@ public class ScissorLift : MonoBehaviour
         float height = spriteHeight * currentHeight;
 
         Vector3 pos = platform.localPosition;
-        pos.y = height + platformOffset; // adjustable alignment
+        pos.y = height + platformOffset;
         platform.localPosition = pos;
+    }
+
+    void LaunchMarbles()
+    {
+        foreach (Rigidbody rb in marblesOnPlatform)
+        {
+            if (rb != null)
+                StartCoroutine(LaunchRoutine(rb));
+        }
+    }
+
+    IEnumerator LaunchRoutine(Rigidbody rb)
+    {
+        Collider col = rb.GetComponent<Collider>();
+
+        // Disable collider so it doesn't stick to the platform
+        if (col != null)
+            col.enabled = false;
+
+        // Reset downward velocity
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        // Apply strong upward impulse
+        rb.AddForce(Vector3.up * launchForce, ForceMode.Impulse);
+
+        // Optional: small sideways randomness
+        rb.AddForce(new Vector3(
+            Random.Range(-1f, 1f),
+            0f,
+            Random.Range(-1f, 1f)
+        ) * (launchForce * 0.2f), ForceMode.Impulse);
+
+        // Wait briefly before re-enabling collider
+        yield return new WaitForSeconds(0.05f);
+
+        if (col != null)
+            col.enabled = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Rigidbody rb = other.attachedRigidbody;
+        if (rb != null && !marblesOnPlatform.Contains(rb))
+            marblesOnPlatform.Add(rb);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Rigidbody rb = other.attachedRigidbody;
+        if (rb != null)
+            marblesOnPlatform.Remove(rb);
     }
 }
