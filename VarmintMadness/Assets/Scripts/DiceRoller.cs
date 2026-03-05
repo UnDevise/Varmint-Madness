@@ -71,6 +71,11 @@ public class DiceController : MonoBehaviour
     {
         RestoreBoardState();
         ApplyMarbleReward();
+
+        // Option B: Player 1 always starts after minigame
+        // But skip if in cage
+        SetFirstAvailablePlayer();
+
         StartCoroutine(BeginAfterRestore());
     }
 
@@ -121,9 +126,21 @@ public class DiceController : MonoBehaviour
                 playersToMove[i].garbageCount = BoardStateSaver.savedGarbageCounts[i];
                 playersToMove[i].UpdateGarbageText();
             }
-
-            currentPlayerIndex = BoardStateSaver.savedCurrentPlayerIndex;
         }
+    }
+
+    private void SetFirstAvailablePlayer()
+    {
+        for (int i = 0; i < playersToMove.Count; i++)
+        {
+            if (!playersToMove[i].IsInCage)
+            {
+                currentPlayerIndex = i;
+                return;
+            }
+        }
+
+        currentPlayerIndex = 0;
     }
 
     public void StartPlayerTurn()
@@ -148,6 +165,12 @@ public class DiceController : MonoBehaviour
             return;
         }
 
+        if (current.IsInCage)
+        {
+            OnPlayerTurnFinished();
+            return;
+        }
+
         EnableDice();
     }
 
@@ -167,7 +190,6 @@ public class DiceController : MonoBehaviour
     public void RollAgain()
     {
         int rollResult = Random.Range(1, diceSides + 1);
-        Debug.Log($"Roll Again triggered! Rolled a {rollResult}");
         MoveCurrentPlayer(rollResult);
     }
 
@@ -184,9 +206,7 @@ public class DiceController : MonoBehaviour
             return;
         }
 
-        currentPlayerIndex++;
-        if (currentPlayerIndex >= playersToMove.Count)
-            currentPlayerIndex = 0;
+        currentPlayerIndex = (currentPlayerIndex + 1) % playersToMove.Count;
 
         ResetDicePhysics();
         StartPlayerTurn();
@@ -213,7 +233,8 @@ public class DiceController : MonoBehaviour
     {
         BoardStateSaver.SaveBoardState(playersToMove.Count, this);
 
-        currentPlayerIndex = 0;
+        // Option B: Reset turn order after minigame
+        SetFirstAvailablePlayer();
 
         int index = Random.Range(0, roundMinigames.Count);
         SceneManager.LoadScene(roundMinigames[index]);
