@@ -115350,6 +115350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player turn UI
       objectReference: {fileID: 0}
+    - target: {fileID: 5314333668209917648, guid: 33a9ae2deb90b644291ab35b6a66d404, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 7225382471906886912, guid: 33a9ae2deb90b644291ab35b6a66d404, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
