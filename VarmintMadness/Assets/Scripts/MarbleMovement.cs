@@ -2,20 +2,17 @@
 
 public class MarbleMovement : MonoBehaviour
 {
-    public int marbleIndex;          // Set in Inspector (0,1,2,...)
+    public int marbleIndex; // Set in Inspector (0,1,2,...)
     public float minSpeed = 5f;
     public float maxSpeed = 12f;
-
     private Rigidbody2D rb;
     private float randomSpeed;
     private bool raceStarted = false;
-
-    public string ownerPlayerId;   // must match PlayerMovement.playerId
+    public string ownerPlayerId; // must match PlayerMovement.playerId
 
     // ⭐ Stuck detection
     public float stuckVelocityThreshold = 0.05f;
     public float stuckTimeNeeded = 1.0f;
-
     private float stuckTimer = 0f;
     private Vector3 lastPosition;
     public bool IsStuck { get; private set; } = false;
@@ -24,7 +21,6 @@ public class MarbleMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-
         randomSpeed = Random.Range(minSpeed, maxSpeed);
         lastPosition = transform.position;
     }
@@ -32,13 +28,10 @@ public class MarbleMovement : MonoBehaviour
     public void StartRace()
     {
         raceStarted = true;
-
         float randomX = Random.Range(-2f, 2f);
         rb.AddForce(new Vector2(randomX, 0f), ForceMode2D.Impulse);
-
         float randomTorque = Random.Range(-5f, 5f);
         rb.AddTorque(randomTorque, ForceMode2D.Impulse);
-
         rb.gravityScale = 0.8f;
     }
 
@@ -60,9 +53,10 @@ public class MarbleMovement : MonoBehaviour
         if (distanceMoved < stuckVelocityThreshold)
         {
             stuckTimer += Time.deltaTime;
-
             if (stuckTimer >= stuckTimeNeeded)
+            {
                 IsStuck = true;
+            }
         }
         else
         {
