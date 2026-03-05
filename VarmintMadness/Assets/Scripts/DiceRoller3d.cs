@@ -18,9 +18,7 @@ public class DiceRoller : MonoBehaviour
     public float waitTimeBeforeResult = 1.0f;
     public bool IsRolling => isRolling;
 
-    [Header("Result Calculation")]
     public Vector3 targetCalculationPlaneDirection = Vector3.up;
-
     public DiceFace[] faces;
 
     private Rigidbody rb;
@@ -43,8 +41,7 @@ public class DiceRoller : MonoBehaviour
         rb.useGravity = false;
         rb.isKinematic = true;
 
-        if (diceRenderer != null)
-            diceRenderer.enabled = false;
+        // ❌ REMOVED: diceRenderer.enabled = false;
 
         mainCamera = Camera.main;
     }
@@ -58,8 +55,6 @@ public class DiceRoller : MonoBehaviour
                 RollDice();
             }
         }
-
-        // ⭐ Dice no longer moves the camera at all
     }
 
     void FixedUpdate()
@@ -70,7 +65,6 @@ public class DiceRoller : MonoBehaviour
 
     void RollDice()
     {
-        // Tell camera to focus on dice
         if (CameraController.Instance != null)
             CameraController.Instance.FocusDice(transform);
 
@@ -79,8 +73,7 @@ public class DiceRoller : MonoBehaviour
         thrown = true;
         hasLanded = false;
 
-        if (diceRenderer != null)
-            diceRenderer.enabled = true;
+        // ❌ REMOVED: diceRenderer.enabled = true;
 
         Vector3 force = new Vector3(
             Random.Range(0f, rollForce),
@@ -100,7 +93,6 @@ public class DiceRoller : MonoBehaviour
         StartCoroutine(CheckIfAtRest());
     }
 
-
     IEnumerator CheckIfAtRest()
     {
         yield return new WaitUntil(() =>
@@ -119,19 +111,16 @@ public class DiceRoller : MonoBehaviour
             int rollResult = CalculateDiceResult();
             Debug.Log("Dice landed on: " + rollResult);
 
-            // Move the player
             if (diceController != null)
                 diceController.MoveCurrentPlayer(rollResult);
 
-            // Switch camera to the player
             if (CameraController.Instance != null && diceController != null)
             {
                 PlayerMovement current = diceController.playersToMove[diceController.currentPlayerIndex];
                 CameraController.Instance.FollowPlayer(current.transform);
             }
 
-            if (diceRenderer != null)
-                diceRenderer.enabled = false;
+            // ❌ REMOVED: diceRenderer.enabled = false;
 
             thrown = false;
             canRoll = true;
