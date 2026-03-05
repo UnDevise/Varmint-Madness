@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6536d225159a5254ba70b4bebd1a9113
+guid: dca55d906fd75a949a52f72e884479e4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6469571583556318834
-    second: PipeMidsection_0
+      213: -3611958248312302315
+    second: AdvertisementBillboardScaled_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PipeMidsection_0
+      name: AdvertisementBillboardScaled_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 10
-        width: 32
-        height: 12
+        y: 55
+        width: 218
+        height: 121
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 276f5d6f31988c950800000000000000
-      internalID: 6469571583556318834
+      spriteID: 5159dc13c1fbfddc0800000000000000
+      internalID: -3611958248312302315
       vertices: []
       indices: 
       edges: []
@@ -135,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PipeMidsection_0: 6469571583556318834
+      AdvertisementBillboardScaled_0: -3611958248312302315
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
