@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI; // Necessary for UI Image
 
 public class DiceController : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class DiceController : MonoBehaviour
     public float startXPosition = 0f;
     public float startYPosition = -50f;
     public float textSize = 24f;
+
+    [Header("Fade Settings")]
+    public Image fadeImage; // Drag your UI Image here
+    public float fadeSpeed = 1f;
 
     [Header("Systems")]
     public ShopManager shopManager;
@@ -63,6 +68,15 @@ public class DiceController : MonoBehaviour
         {
             originalDicePosition = physicsDiceTransform.position;
             originalDiceRotation = physicsDiceTransform.rotation;
+        }
+
+        // Ensure fade image starts invisible
+        if (fadeImage != null)
+        {
+            Color c = fadeImage.color;
+            c.a = 0f;
+            fadeImage.color = c;
+            fadeImage.raycastTarget = false;
         }
     }
 
@@ -109,7 +123,6 @@ public class DiceController : MonoBehaviour
             turnNotificationText.text = message;
     }
 
-    // Call this for Special Squares to ensure the turn doesn't switch too fast
     public void UpdateTurnTextWithDelay(string message, float delaySeconds = 2.0f)
     {
         StartCoroutine(ShowSpecialMessage(message, delaySeconds));
@@ -121,7 +134,7 @@ public class DiceController : MonoBehaviour
         UpdateTurnText(message);
         yield return new WaitForSeconds(delay);
         isWaitingForSpecialSquare = false;
-        OnPlayerTurnFinished(); // Manually trigger turn end after the message
+        OnPlayerTurnFinished();
     }
 
     public void StartPlayerTurn()
@@ -177,9 +190,7 @@ public class DiceController : MonoBehaviour
 
     public void OnPlayerTurnFinished()
     {
-        // Don't auto-switch if we are currently showing a special square message
         if (isWaitingForSpecialSquare) return;
-
         StartCoroutine(DelayedTurnTransition());
     }
 
@@ -200,6 +211,30 @@ public class DiceController : MonoBehaviour
         currentPlayerIndex = (currentPlayerIndex + 1) % playersToMove.Count;
         ResetDicePhysics();
         StartPlayerTurn();
+    }
+
+    // --- FADE LOGIC ---
+
+    private IEnumerator FadeAndLoad(string sceneName)
+    {
+        if (fadeImage == null)
+        {
+            SceneManager.LoadScene(sceneName);
+            yield break;
+        }
+
+        fadeImage.raycastTarget = true;
+        float alpha = 0;
+        while (alpha < 1)
+        {
+            alpha += Time.deltaTime * fadeSpeed;
+            Color c = fadeImage.color;
+            c.a = alpha;
+            fadeImage.color = c;
+            yield return null;
+        }
+
+        SceneManager.LoadScene(sceneName);
     }
 
     // --- NECESSARY METHODS FOR OTHER SCRIPTS ---
@@ -239,7 +274,7 @@ public class DiceController : MonoBehaviour
         BoardStateSaver.SaveBoardState(playersToMove.Count, this);
         SetFirstAvailablePlayer();
         int index = Random.Range(0, roundMinigames.Count);
-        SceneManager.LoadScene(roundMinigames[index]);
+        StartCoroutine(FadeAndLoad(roundMinigames[index]));
     }
 
     public void CheckForWinner()
@@ -255,7 +290,7 @@ public class DiceController : MonoBehaviour
             WinnerData.WinnerName = lastStanding.playerName;
             SpriteRenderer sr = lastStanding.GetComponent<SpriteRenderer>();
             WinnerData.WinnerSprite = sr != null ? sr.sprite : null;
-            SceneManager.LoadScene("Winner");
+            StartCoroutine(FadeAndLoad("Winner"));
         }
     }
 
