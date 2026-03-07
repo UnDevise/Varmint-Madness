@@ -5842,7 +5842,7 @@ GameObject:
   - component: {fileID: 761149371}
   - component: {fileID: 761149370}
   m_Layer: 0
-  m_Name: New Piskel (1)_0
+  m_Name: TitleBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
