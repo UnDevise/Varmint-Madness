@@ -1151,6 +1151,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
+--- !u!64 &72899397 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 970924504629417480, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
+  m_PrefabInstance: {fileID: 72899396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &79306359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3756,6 +3761,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: D1
       objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: diceRoller
+      value: 
+      objectReference: {fileID: 431978043}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: diceCollider
+      value: 
+      objectReference: {fileID: 72899397}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: physicsDiceTransform
+      value: 
+      objectReference: {fileID: 431978044}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: playersToMove.Array.size
       value: 4
@@ -6870,6 +6887,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+--- !u!114 &431978043 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+  m_PrefabInstance: {fileID: 431978042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0ab8577c0e9814b9a8d1646dc3e355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &431978044 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 205349506661111621, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+  m_PrefabInstance: {fileID: 431978042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &434699859
 GameObject:
   m_ObjectHideFlags: 0
