@@ -41,7 +41,9 @@ public class DiceRoller : MonoBehaviour
         rb.useGravity = false;
         rb.isKinematic = true;
 
-        // ❌ REMOVED: diceRenderer.enabled = false;
+        // Hide dice until a roll starts
+        if (diceRenderer != null)
+            diceRenderer.enabled = false;
 
         mainCamera = Camera.main;
     }
@@ -72,8 +74,11 @@ public class DiceRoller : MonoBehaviour
         canRoll = false;
         thrown = true;
         hasLanded = false;
+        isRolling = true;
 
-        // ❌ REMOVED: diceRenderer.enabled = true;
+        // Show dice when rolling
+        if (diceRenderer != null)
+            diceRenderer.enabled = true;
 
         Vector3 force = new Vector3(
             Random.Range(0f, rollForce),
@@ -120,10 +125,13 @@ public class DiceRoller : MonoBehaviour
                 CameraController.Instance.FollowPlayer(current.transform);
             }
 
-            // ❌ REMOVED: diceRenderer.enabled = false;
+            // Hide dice after result
+            if (diceRenderer != null)
+                diceRenderer.enabled = false;
 
             thrown = false;
             canRoll = true;
+            isRolling = false;
         }
     }
 
