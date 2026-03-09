@@ -378,6 +378,7 @@ MonoBehaviour:
   maxBlowAmount: 0.15
   popSize: 9.5
   growSpeed: 5
+  maxPumpsPerTurn: 3
 --- !u!1 &275400430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,7 +1161,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1860561441}
-  - component: {fileID: 1860561440}
   - component: {fileID: 1860561442}
   m_Layer: 0
   m_Name: Minigame Manager
@@ -1169,22 +1169,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1860561440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860561439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed9dd153e5142224cb93538b9edc9ee9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  balloon: {fileID: 211881560}
-  playerCount: 4
-  currentPlayer: 0
-  gameOver: 0
 --- !u!4 &1860561441
 Transform:
   m_ObjectHideFlags: 0

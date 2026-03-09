@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BalloonBlowMinigameManager : MonoBehaviour
@@ -12,14 +12,11 @@ public class BalloonBlowMinigameManager : MonoBehaviour
 
     private int currentPlayer = 0;
     private bool waitingForInput = false;
+    private bool playerAtPump = false;
     private bool gameOver = false;
-
-    private int pumpsThisTurn = 0;
-    private const int maxPumps = 3;
 
     void Start()
     {
-        // Place players at their starting spots
         for (int i = 0; i < players.Length; i++)
             players[i].transform.position = playerStartPoints[i].position;
 
@@ -28,38 +25,36 @@ public class BalloonBlowMinigameManager : MonoBehaviour
 
     void Update()
     {
-        if (gameOver || !waitingForInput) return;
+        if (gameOver || !waitingForInput || !playerAtPump)
+            return;
 
         // Pump
         if (Input.GetKeyDown(KeyCode.Space))
-            PumpBalloon();
+        {
+            HandlePump();
+        }
 
-        // Skip (only allowed after at least 1 pump)
-        if (Input.GetKeyDown(KeyCode.Q) && pumpsThisTurn > 0)
+        // Skip (only if pumped at least once)
+        if (Input.GetKeyDown(KeyCode.Q) && balloon.CanSkip())
+        {
             EndTurn();
+        }
     }
 
-    void StartPlayerTurn()
+    void HandlePump()
     {
-        waitingForInput = false;
-        pumpsThisTurn = 0;
+        // If no pumps left, end turn
+        if (!balloon.HasPumpsLeft())
+        {
+            EndTurn();
+            return;
+        }
 
-        players[currentPlayer].MoveTo(
-            pumpPoint.position,
-            () => waitingForInput = true
-        );
-    }
-
-    void PumpBalloon()
-    {
-        pumpsThisTurn++;
-
-        bool popped = balloon.Blow();
+        bool popped = balloon.Pump();
 
         if (popped)
         {
             gameOver = true;
-            Debug.Log("Player " + (currentPlayer + 1) + " popped the balloon!");
 
             int winner = GetWinnerIndex();
             MarbleRewardData.WinnerPlayerIndex = winner;
@@ -69,16 +64,33 @@ public class BalloonBlowMinigameManager : MonoBehaviour
             return;
         }
 
-        // If they used all pumps, end turn automatically
-        if (pumpsThisTurn >= maxPumps)
+        // After pumping, check again
+        if (!balloon.HasPumpsLeft())
         {
             EndTurn();
         }
     }
 
+    void StartPlayerTurn()
+    {
+        waitingForInput = false;
+        playerAtPump = false;
+        balloon.ResetTurn();
+
+        players[currentPlayer].MoveTo(
+            pumpPoint.position,
+            () =>
+            {
+                playerAtPump = true;
+                waitingForInput = true;
+            }
+        );
+    }
+
     void EndTurn()
     {
         waitingForInput = false;
+        playerAtPump = false;
 
         players[currentPlayer].MoveTo(
             playerStartPoints[currentPlayer].position,
