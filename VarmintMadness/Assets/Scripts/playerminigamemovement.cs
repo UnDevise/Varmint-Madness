@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+using System;
 
 public class PlayerMinigameMovement : MonoBehaviour
 {
@@ -7,13 +7,23 @@ public class PlayerMinigameMovement : MonoBehaviour
 
     private Vector3 targetPos;
     private bool moving = false;
-    private System.Action onArrive;
+    private Action onArrive;
 
-    public void MoveTo(Vector3 pos, System.Action callback = null)
+    private Animator anim;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
+    public void MoveTo(Vector3 pos, Action callback = null)
     {
         targetPos = pos;
         onArrive = callback;
         moving = true;
+
+        if (anim != null)
+            anim.SetBool("IsWalking", true);
     }
 
     void Update()
@@ -29,6 +39,10 @@ public class PlayerMinigameMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPos) < 0.05f)
         {
             moving = false;
+
+            if (anim != null)
+                anim.SetBool("IsWalking", false);
+
             onArrive?.Invoke();
         }
     }
