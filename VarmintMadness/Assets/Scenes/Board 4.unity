@@ -8096,7 +8096,7 @@ GameObject:
   - component: {fileID: 1532649682}
   m_Layer: 0
   m_Name: Nothing space_0 (47)
-  m_TagString: Nothing Space
+  m_TagString: Bomb changer space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

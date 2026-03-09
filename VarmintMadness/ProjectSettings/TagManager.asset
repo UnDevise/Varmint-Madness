@@ -24,6 +24,7 @@ TagManager:
   - Skip Turn Space
   - Change route Space
   - Sewer space
+  - Bomb changer space
   layers:
   - Default
   - TransparentFX
