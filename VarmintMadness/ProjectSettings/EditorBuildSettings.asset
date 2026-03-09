@@ -45,7 +45,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MarbleMinigame2.unity
     guid: e496acedf2767c84f941dc083643dc53
   - enabled: 1
-    path: Assets/Scenes/MarbleMinigame 3.unity
+    path: Assets/Scenes/MarbleMinigame3.unity
     guid: 84c8d2c865ab0e240907f89f421a72ea
   - enabled: 1
     path: Assets/Scenes/MinigameBalloon.unity
