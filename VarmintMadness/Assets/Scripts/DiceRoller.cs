@@ -330,4 +330,30 @@ public class DiceController : MonoBehaviour
         MarbleRewardData.WinnerPlayerIndex = null;
         MarbleRewardData.BonusTrash = 0;
     }
+    public void SaveBoardStateBeforeMinigame()
+    {
+        // Save scene name
+        BoardStateSaver.lastBoardSceneName = SceneManager.GetActiveScene().name;
+
+        // Save board layer, tile index, cage, stun, etc.
+        int count = playersToMove.Count;
+
+        BoardStateSaver.playerBoardLayer = new int[count];
+        BoardStateSaver.playerTileIndex = new int[count];
+        BoardStateSaver.playerIsStunned = new bool[count];
+        BoardStateSaver.playerIsInCage = new bool[count];
+
+        for (int i = 0; i < count; i++)
+        {
+            PlayerMovement p = playersToMove[i];
+
+            BoardStateSaver.playerBoardLayer[i] =
+                (p.waypointsParent == p.alternativeWaypointsParent) ? 1 : 0;
+
+            BoardStateSaver.playerTileIndex[i] = p.GetCurrentTileIndex();
+            BoardStateSaver.playerIsStunned[i] = p.IsStunned;
+            BoardStateSaver.playerIsInCage[i] = p.IsInCage;
+        }
+    }
+
 }

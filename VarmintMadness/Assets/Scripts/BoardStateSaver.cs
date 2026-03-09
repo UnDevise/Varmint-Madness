@@ -6,6 +6,7 @@ public static class BoardStateSaver
     public static bool[] playerIsInCage;
     public static int[] savedGarbageCounts;
     public static int savedCurrentPlayerIndex;
+    public static string lastBoardSceneName;
 
     // ⭐ These were missing — PlayerMovement requires them
     public static int[] playerBoardLayer;
@@ -37,4 +38,5 @@ public static class BoardStateSaver
 
         savedCurrentPlayerIndex = dice.currentPlayerIndex;
     }
+
 }
