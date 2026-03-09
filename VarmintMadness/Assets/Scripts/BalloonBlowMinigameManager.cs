@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections;
 
 public class BalloonBlowMinigameManager : MonoBehaviour
 {
@@ -9,6 +11,13 @@ public class BalloonBlowMinigameManager : MonoBehaviour
     public Transform[] playerStartPoints;
 
     public PlayerMinigameMovement[] players;
+
+    [Header("UI")]
+    public TextMeshProUGUI[] playerPointTexts;
+
+    [Header("Audio")]
+    public AudioSource minigameMusic;   // background music
+    public AudioSource winAudioSource;  // winner song
 
     private int currentPlayer = 0;
     private bool waitingForInput = false;
@@ -20,6 +29,8 @@ public class BalloonBlowMinigameManager : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
             players[i].transform.position = playerStartPoints[i].position;
 
+        balloon.InitializePlayers(players.Length);
+        UpdatePointUI();
         StartPlayerTurn();
     }
 
@@ -28,47 +39,54 @@ public class BalloonBlowMinigameManager : MonoBehaviour
         if (gameOver || !waitingForInput || !playerAtPump)
             return;
 
-        // Pump
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             HandlePump();
-        }
 
-        // Skip (only if pumped at least once)
         if (Input.GetKeyDown(KeyCode.Q) && balloon.CanSkip())
-        {
             EndTurn();
-        }
     }
 
     void HandlePump()
     {
-        // If no pumps left, end turn
         if (!balloon.HasPumpsLeft())
         {
             EndTurn();
             return;
         }
 
-        bool popped = balloon.Pump();
+        bool popped = balloon.Pump(currentPlayer);
+        UpdatePointUI();
 
         if (popped)
         {
             gameOver = true;
 
-            int winner = GetWinnerIndex();
+            int winner = GetHighestScorePlayer();
             MarbleRewardData.WinnerPlayerIndex = winner;
-            MarbleRewardData.BonusTrash = 3;
+            MarbleRewardData.BonusTrash = 10;
 
-            SceneManager.LoadScene("Board 1");
+            StartCoroutine(PlayWinAndReturn());
             return;
         }
 
-        // After pumping, check again
         if (!balloon.HasPumpsLeft())
-        {
             EndTurn();
+    }
+
+    IEnumerator PlayWinAndReturn()
+    {
+        // ⭐ Stop minigame music immediately
+        if (minigameMusic != null)
+            minigameMusic.Stop();
+
+        // ⭐ Play winner song
+        if (winAudioSource != null && winAudioSource.clip != null)
+        {
+            winAudioSource.Play();
+            yield return new WaitForSeconds(winAudioSource.clip.length);
         }
+
+        SceneManager.LoadScene("BoardScene");
     }
 
     void StartPlayerTurn()
@@ -107,10 +125,29 @@ public class BalloonBlowMinigameManager : MonoBehaviour
         StartPlayerTurn();
     }
 
-    int GetWinnerIndex()
+    int GetHighestScorePlayer()
     {
-        int winner = currentPlayer - 1;
-        if (winner < 0) winner = players.Length - 1;
-        return winner;
+        int bestPlayer = 0;
+        int bestScore = balloon.playerPoints[0];
+
+        for (int i = 1; i < balloon.playerPoints.Length; i++)
+        {
+            if (balloon.playerPoints[i] > bestScore)
+            {
+                bestScore = balloon.playerPoints[i];
+                bestPlayer = i;
+            }
+        }
+
+        return bestPlayer;
+    }
+
+    void UpdatePointUI()
+    {
+        for (int i = 0; i < playerPointTexts.Length; i++)
+        {
+            playerPointTexts[i].text =
+                $"Player {i + 1} Points: {balloon.playerPoints[i]}";
+        }
     }
 }

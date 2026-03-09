@@ -5,17 +5,20 @@ public class BalloonController : MonoBehaviour
     [Header("Balloon Settings")]
     public float minBlowAmount = 0.05f;
     public float maxBlowAmount = 0.15f;
-
     public float popSize = 2.5f;
     public float growSpeed = 5f;
 
     [Header("Pump Rules")]
     public int maxPumpsPerTurn = 3;
 
+    [Header("Points")]
+    public int pointsPerPump = 10;
+
     private int pumpsThisTurn = 0;
     private Vector3 targetScale;
 
     public bool IsPopped { get; private set; }
+    public int[] playerPoints;
 
     void Start()
     {
@@ -31,9 +34,12 @@ public class BalloonController : MonoBehaviour
         );
     }
 
-    // Called when player presses SPACE
-    // Returns true if balloon popped
-    public bool Pump()
+    public void InitializePlayers(int playerCount)
+    {
+        playerPoints = new int[playerCount];
+    }
+
+    public bool Pump(int playerIndex)
     {
         if (IsPopped) return true;
         if (pumpsThisTurn >= maxPumpsPerTurn) return false;
@@ -43,9 +49,11 @@ public class BalloonController : MonoBehaviour
         float blowAmount = Random.Range(minBlowAmount, maxBlowAmount);
         targetScale += Vector3.one * blowAmount;
 
+        playerPoints[playerIndex] += pointsPerPump;
+
         if (targetScale.x >= popSize)
         {
-            Pop();
+            Pop(playerIndex);
             return true;
         }
 
@@ -67,10 +75,10 @@ public class BalloonController : MonoBehaviour
         pumpsThisTurn = 0;
     }
 
-    void Pop()
+    void Pop(int playerIndex)
     {
         IsPopped = true;
-        // TODO: pop sound, particles, animation
+        playerPoints[playerIndex] = 0;
         Destroy(gameObject, 0.1f);
     }
 }
