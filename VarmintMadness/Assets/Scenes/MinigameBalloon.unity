@@ -374,8 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f19ec2b6ac489e4db86858c48bbf6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minBlowAmount: 0.05
-  maxBlowAmount: 0.15
+  minBlowAmount: 0.1
+  maxBlowAmount: 0.35
   popSize: 9.5
   growSpeed: 5
   maxPumpsPerTurn: 3

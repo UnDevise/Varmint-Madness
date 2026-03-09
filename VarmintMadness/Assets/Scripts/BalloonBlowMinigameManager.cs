@@ -60,7 +60,7 @@ public class BalloonBlowMinigameManager : MonoBehaviour
             MarbleRewardData.WinnerPlayerIndex = winner;
             MarbleRewardData.BonusTrash = 3;
 
-            SceneManager.LoadScene("BoardScene");
+            SceneManager.LoadScene("Board 1");
             return;
         }
 
