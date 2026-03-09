@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 252752}
   m_Layer: 0
   m_Name: Cage Space_0 (4)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1610,7 +1610,7 @@ GameObject:
   - component: {fileID: 102696492}
   m_Layer: 0
   m_Name: Cage Space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2915,7 +2915,7 @@ GameObject:
   - component: {fileID: 186510055}
   m_Layer: 0
   m_Name: Skip turn_0 (8)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3089,7 +3089,7 @@ GameObject:
   - component: {fileID: 204799734}
   m_Layer: 0
   m_Name: Lose Trash space_0 (6)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5135,6 +5135,93 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &292799109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 292799110}
+  - component: {fileID: 292799111}
+  m_Layer: 0
+  m_Name: Roll again space_0 (6)
+  m_TagString: Roll again space
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &292799110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292799109}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 100.95, y: -2.4085975, z: 3.5778804}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341944198}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &292799111
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292799109}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -8722917424802222386, guid: d25d6ad3b8e22294ab51e94eca21fcee, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.12, y: 1.17}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &298546740
 GameObject:
   m_ObjectHideFlags: 0
@@ -5756,7 +5843,7 @@ GameObject:
   - component: {fileID: 309904300}
   m_Layer: 0
   m_Name: Skip turn_0 (2)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7260,7 +7347,7 @@ GameObject:
   - component: {fileID: 375821018}
   m_Layer: 0
   m_Name: Trash Space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7608,7 +7695,7 @@ GameObject:
   - component: {fileID: 403351213}
   m_Layer: 0
   m_Name: Trap space_0
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7869,7 +7956,7 @@ GameObject:
   - component: {fileID: 405595538}
   m_Layer: 0
   m_Name: Skip turn_0
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10694,6 +10781,93 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &578200611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 578200612}
+  - component: {fileID: 578200613}
+  m_Layer: 0
+  m_Name: Nothing space_0 (46)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &578200612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578200611}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 99.28, y: -2.4085975, z: 3.5778804}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341944198}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &578200613
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578200611}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -7017349228787969616, guid: 2a335b5f072f08e4388e403f210996ef, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.77, y: 1.82}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &582079443
 GameObject:
   m_ObjectHideFlags: 0
@@ -11117,6 +11291,93 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &600006039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 600006040}
+  - component: {fileID: 600006041}
+  m_Layer: 0
+  m_Name: Cage Space_0 (7)
+  m_TagString: Cage Space
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &600006040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600006039}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 97.48, y: -2.4085975, z: 3.5778804}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1341944198}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &600006041
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600006039}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -8617929100628791996, guid: 113666798a93b1f44b35c659a22c11cd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.53, y: 0.56}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &602848791
 GameObject:
   m_ObjectHideFlags: 0
@@ -11477,7 +11738,7 @@ GameObject:
   - component: {fileID: 607928251}
   m_Layer: 0
   m_Name: Lose Trash space_0
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11651,7 +11912,7 @@ GameObject:
   - component: {fileID: 621785379}
   m_Layer: 0
   m_Name: Roll again space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12510,7 +12771,7 @@ GameObject:
   - component: {fileID: 690933609}
   m_Layer: 0
   m_Name: Cage Space_0 (5)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13981,7 +14242,7 @@ GameObject:
   - component: {fileID: 779566394}
   m_Layer: 0
   m_Name: Roll again space_0
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14155,7 +14416,7 @@ GameObject:
   - component: {fileID: 782820605}
   m_Layer: 0
   m_Name: Skip turn_0 (6)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15373,7 +15634,7 @@ GameObject:
   - component: {fileID: 842825579}
   m_Layer: 0
   m_Name: Roll again space_0 (5)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17129,7 +17390,7 @@ GameObject:
   - component: {fileID: 942246767}
   m_Layer: 0
   m_Name: Trap space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18417,7 +18678,7 @@ GameObject:
   - component: {fileID: 1034012972}
   m_Layer: 0
   m_Name: Gamble Space_0
-  m_TagString: Untagged
+  m_TagString: Gambling Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18504,7 +18765,7 @@ GameObject:
   - component: {fileID: 1037254160}
   m_Layer: 0
   m_Name: Trap space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Player Mover Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19287,7 +19548,7 @@ GameObject:
   - component: {fileID: 1104234392}
   m_Layer: 0
   m_Name: Cage Space_0 (6)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19374,7 +19635,7 @@ GameObject:
   - component: {fileID: 1106386573}
   m_Layer: 0
   m_Name: Skip turn_0 (3)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20230,7 +20491,7 @@ GameObject:
   - component: {fileID: 1175500938}
   m_Layer: 0
   m_Name: Cage Space_0 (3)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20491,7 +20752,7 @@ GameObject:
   - component: {fileID: 1184641166}
   m_Layer: 0
   m_Name: Nothing space_0 (3)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22120,6 +22381,9 @@ Transform:
   - {fileID: 1354702379}
   - {fileID: 358597917}
   - {fileID: 1104234391}
+  - {fileID: 600006040}
+  - {fileID: 578200612}
+  - {fileID: 292799110}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1344785277
@@ -23091,7 +23355,7 @@ GameObject:
   - component: {fileID: 1407366897}
   m_Layer: 0
   m_Name: Trash Space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23961,7 +24225,7 @@ GameObject:
   - component: {fileID: 1460286478}
   m_Layer: 0
   m_Name: Nothing space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26223,7 +26487,7 @@ GameObject:
   - component: {fileID: 1639733640}
   m_Layer: 0
   m_Name: Cage Space_0
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26677,7 +26941,7 @@ GameObject:
   - component: {fileID: 1690442441}
   m_Layer: 0
   m_Name: Cage Space_0 (2)
-  m_TagString: Untagged
+  m_TagString: Cage Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27025,7 +27289,7 @@ GameObject:
   - component: {fileID: 1695517641}
   m_Layer: 0
   m_Name: Nothing space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27547,7 +27811,7 @@ GameObject:
   - component: {fileID: 1712886267}
   m_Layer: 0
   m_Name: Roll again space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Roll again space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29296,7 +29560,7 @@ GameObject:
   - component: {fileID: 1775160298}
   m_Layer: 0
   m_Name: Lose Trash space_0 (1)
-  m_TagString: Untagged
+  m_TagString: Lose Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30427,7 +30691,7 @@ GameObject:
   - component: {fileID: 1852506327}
   m_Layer: 0
   m_Name: Trash Space_0
-  m_TagString: Untagged
+  m_TagString: Trash Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30949,7 +31213,7 @@ GameObject:
   - component: {fileID: 1873283112}
   m_Layer: 0
   m_Name: Skip turn_0 (1)
-  m_TagString: Untagged
+  m_TagString: Skip Turn Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31615,7 +31879,7 @@ GameObject:
   - component: {fileID: 1913056422}
   m_Layer: 0
   m_Name: Nothing space_0
-  m_TagString: Untagged
+  m_TagString: Nothing Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

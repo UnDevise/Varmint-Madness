@@ -39,7 +39,7 @@ public class BalloonBlowMinigameManager : MonoBehaviour
         if (gameOver || !waitingForInput || !playerAtPump)
             return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
             HandlePump();
 
         if (Input.GetKeyDown(KeyCode.Q) && balloon.CanSkip())
