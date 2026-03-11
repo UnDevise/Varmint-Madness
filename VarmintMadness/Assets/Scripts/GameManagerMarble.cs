@@ -230,7 +230,6 @@ public class GameManagerMarble : MonoBehaviour
         {
             playerTurnText.text = "Player " + (winningPlayerIndex + 1) + " wins!";
 
-            // ⭐ Save reward for board scene
             MarbleRewardData.WinnerPlayerIndex = winningPlayerIndex;
             MarbleRewardData.BonusTrash = 10;
         }
@@ -246,6 +245,17 @@ public class GameManagerMarble : MonoBehaviour
 
     private void ReturnToBoard()
     {
-        SceneManager.LoadScene(BoardStateSaver.lastBoardSceneName);
+        string sceneToLoad = BoardStateSaver.lastBoardSceneName;
+
+        // ⭐ SAFETY FIX — prevent invalid scene load
+        if (string.IsNullOrEmpty(sceneToLoad))
+        {
+            Debug.LogWarning("BoardStateSaver.lastBoardSceneName was NULL — using fallback board scene!");
+
+            // ❗ CHANGE THIS TO YOUR REAL BOARD SCENE NAME
+            sceneToLoad = "YOUR_DEFAULT_BOARD_SCENE_NAME_HERE";
+        }
+
+        SceneManager.LoadScene(sceneToLoad);
     }
 }
