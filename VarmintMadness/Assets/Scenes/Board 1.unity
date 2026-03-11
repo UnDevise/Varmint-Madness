@@ -44392,6 +44392,8 @@ MonoBehaviour:
   marbleMinigameScenes:
   - MarbleMinigame
   - MarbleMinigame2
+  - MarbleMinigame3
+  - MinigameBalloon
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -47961,6 +47963,8 @@ MonoBehaviour:
   marbleMinigameScenes:
   - MarbleMinigame
   - MarbleMinigame2
+  - MarbleMinigame3
+  - MinigameBalloon
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -80449,6 +80453,8 @@ MonoBehaviour:
   marbleMinigameScenes:
   - MarbleMinigame
   - MarbleMinigame2
+  - MarbleMinigame3
+  - MinigameBalloon
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -104197,6 +104203,8 @@ MonoBehaviour:
   marbleMinigameScenes:
   - MarbleMinigame
   - MarbleMinigame2
+  - MarbleMinigame3
+  - MinigameBalloon
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}

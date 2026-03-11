@@ -3135,7 +3135,7 @@ MonoBehaviour:
   - MarbleMinigame
   - MarbleMinigame2
   - MarbleMinigame3
-  - MarbleBalloon
+  - MinigameBalloon
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -4802,7 +4802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'roundMinigames.Array.data[3]'
-      value: MarbleBalloon
+      value: MinigameBalloon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24248,7 +24248,7 @@ MonoBehaviour:
   - MarbleMinigame
   - MarbleMinigame2
   - MarbleMinigame3
-  - MarbleBalloon
+  - MinigameBalloon
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -24651,7 +24651,7 @@ MonoBehaviour:
   - MarbleMinigame
   - MarbleMinigame2
   - MarbleMinigame3
-  - MarbleBalloon
+  - MinigameBalloon
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -27089,7 +27089,7 @@ MonoBehaviour:
   - MarbleMinigame
   - MarbleMinigame2
   - MarbleMinigame3
-  - MarbleBalloon
+  - MinigameBalloon
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
