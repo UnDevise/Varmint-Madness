@@ -230,13 +230,13 @@ public class GameManagerMarble : MonoBehaviour
         {
             playerTurnText.text = "Player " + (winningPlayerIndex + 1) + " wins!";
 
-            MarbleRewardData.WinnerPlayerIndex = winningPlayerIndex;
-            MarbleRewardData.BonusTrash = 10;
+            MarbleRewardData.WinnerPlayerIndices.Clear();
+            MarbleRewardData.WinnerPlayerIndices.Add(winningPlayerIndex);
         }
         else
         {
             playerTurnText.text = "No one wins!";
-            MarbleRewardData.WinnerPlayerIndex = null;
+            MarbleRewardData.WinnerPlayerIndices = null;
             MarbleRewardData.BonusTrash = 0;
         }
 

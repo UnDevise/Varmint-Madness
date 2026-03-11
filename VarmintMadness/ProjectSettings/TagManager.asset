@@ -25,6 +25,7 @@ TagManager:
   - Change route Space
   - Sewer space
   - Bomb changer space
+  - Train Mover
   layers:
   - Default
   - TransparentFX

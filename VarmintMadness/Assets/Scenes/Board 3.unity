@@ -1450,6 +1450,9 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  bombExplodeSound: {fileID: 0}
+  bombExplosionFX: {fileID: 0}
+  bombExplodeChance: 0.5
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
@@ -2477,6 +2480,9 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  bombExplodeSound: {fileID: 0}
+  bombExplosionFX: {fileID: 0}
+  bombExplodeChance: 0.5
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
@@ -3779,6 +3785,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: roundMinigames.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'playersToMove.Array.data[0]'
       value: 
       objectReference: {fileID: 160574404}
@@ -3794,6 +3804,22 @@ PrefabInstance:
       propertyPath: 'playersToMove.Array.data[3]'
       value: 
       objectReference: {fileID: 1687259123}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[0]'
+      value: MarbleMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[1]'
+      value: MarbleMinigame2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[2]'
+      value: MarbleMinigame3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[3]'
+      value: MinigameBalloon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4898,6 +4924,9 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  bombExplodeSound: {fileID: 0}
+  bombExplosionFX: {fileID: 0}
+  bombExplodeChance: 0.5
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
@@ -18892,6 +18921,9 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  bombExplodeSound: {fileID: 0}
+  bombExplosionFX: {fileID: 0}
+  bombExplodeChance: 0.5
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
