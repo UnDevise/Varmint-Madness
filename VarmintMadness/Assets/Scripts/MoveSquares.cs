@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip garbageRemoveSound;
     public AudioClip cageSound;
     public AudioClip stunSound;
+    public AudioClip trainSound;
 
     [Header("Bomb Space")]
     public AudioClip bombExplodeSound;
@@ -48,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     public int garbageCount = 0;
     private DiceController diceController;
     private CameraController cameraController;
+    public TrainController trainController;
     private Animator playerAnimator;
     private AudioSource audioSource;
     public string playerId;
@@ -309,6 +311,16 @@ public class PlayerMovement : MonoBehaviour
             HandleBombSpace();
             return true;
         }
+        else if (currentWaypointTag == "Train Mover")
+        {
+            PlaySquareSound(trainSound);
+
+            if (trainController != null)
+                trainController.StartTrainEvent(this);
+
+            return true;
+        }
+
 
         return false;
     }
@@ -557,5 +569,18 @@ public class PlayerMovement : MonoBehaviour
         garbageCount -= amount;
         if (garbageCount < 0) garbageCount = 0;
         UpdateGarbageText();
+    }
+    public void ForceMoveToTile(int tileIndex)
+    {
+        if (tileIndex < 0 || tileIndex >= targetWaypoints.Count)
+            return;
+
+        currentPositionIndex = tileIndex;
+
+        Vector3 pos = targetWaypoints[tileIndex].Position;
+        pos.z = spriteZPosition;
+
+        FaceTowards(pos);
+        transform.position = pos;
     }
 }
