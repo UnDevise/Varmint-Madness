@@ -3144,7 +3144,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
-  bombExplodeSound: {fileID: 0}
+  bombExplodeSound: {fileID: 8300000, guid: b9e4e7485d9b334489e1d68d1bc916ba, type: 3}
   bombExplosionFX: {fileID: 1447399470}
   bombExplodeChance: 0.5
   spriteZPosition: -5
@@ -3656,6 +3656,7 @@ Transform:
   - {fileID: 378465264}
   - {fileID: 782381487}
   - {fileID: 1458464024}
+  - {fileID: 1106687332}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &507726870
@@ -11338,12 +11339,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106687330}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.84, y: 15.189277, z: -3}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.615559, y: 15.794216, z: -1.3262244}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 500696271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1125226368
 GameObject:
@@ -24170,7 +24171,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
-  bombExplodeSound: {fileID: 0}
+  bombExplodeSound: {fileID: 8300000, guid: b9e4e7485d9b334489e1d68d1bc916ba, type: 3}
   bombExplosionFX: {fileID: 1447399470}
   bombExplodeChance: 0.5
   spriteZPosition: -5
@@ -24573,7 +24574,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
-  bombExplodeSound: {fileID: 0}
+  bombExplodeSound: {fileID: 8300000, guid: b9e4e7485d9b334489e1d68d1bc916ba, type: 3}
   bombExplosionFX: {fileID: 1447399470}
   bombExplodeChance: 0.5
   spriteZPosition: -5
@@ -27098,7 +27099,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
-  bombExplodeSound: {fileID: 0}
+  bombExplodeSound: {fileID: 8300000, guid: b9e4e7485d9b334489e1d68d1bc916ba, type: 3}
   bombExplosionFX: {fileID: 1447399470}
   bombExplodeChance: 0.5
   spriteZPosition: -5
@@ -27647,7 +27648,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 777650350}
   - {fileID: 989216897}
-  - {fileID: 1106687332}
   - {fileID: 1664142889}
   - {fileID: 2066857060}
   - {fileID: 1657174518}
