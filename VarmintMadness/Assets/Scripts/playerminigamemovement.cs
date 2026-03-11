@@ -23,7 +23,7 @@ public class PlayerMinigameMovement : MonoBehaviour
         moving = true;
 
         if (anim != null)
-            anim.SetBool("IsWalking", true);
+            anim.SetBool("Running", true);
     }
 
     void Update()
