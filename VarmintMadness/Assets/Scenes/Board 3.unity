@@ -3909,6 +3909,10 @@ PrefabInstance:
       value: D1
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: textSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: diceRoller
       value: 
       objectReference: {fileID: 431978043}
@@ -3916,6 +3920,10 @@ PrefabInstance:
       propertyPath: diceCollider
       value: 
       objectReference: {fileID: 72899397}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: startXPosition
+      value: -730
+      objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: physicsDiceTransform
       value: 

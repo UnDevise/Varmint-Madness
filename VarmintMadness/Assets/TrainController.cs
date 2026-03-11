@@ -38,7 +38,8 @@ public class TrainController : MonoBehaviour
 
         foreach (var p in diceController.playersToMove)
         {
-            if (p != triggeringPlayer && p.GetCurrentTileIndex() > triggerIndex)
+            // Anyone at or ahead of the triggering player is a target
+            if (p.GetCurrentTileIndex() >= triggerIndex)
                 result.Add(p);
         }
 
