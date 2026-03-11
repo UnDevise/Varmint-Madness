@@ -253,7 +253,7 @@ public class GameManagerMarble : MonoBehaviour
             Debug.LogWarning("BoardStateSaver.lastBoardSceneName was NULL — using fallback board scene!");
 
             // ❗ CHANGE THIS TO YOUR REAL BOARD SCENE NAME
-            sceneToLoad = "YOUR_DEFAULT_BOARD_SCENE_NAME_HERE";
+            sceneToLoad = "Board 1";
         }
 
         SceneManager.LoadScene(sceneToLoad);
