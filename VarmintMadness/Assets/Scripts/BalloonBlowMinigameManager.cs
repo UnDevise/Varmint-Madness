@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BalloonBlowMinigameManager : MonoBehaviour
 {
@@ -16,8 +17,8 @@ public class BalloonBlowMinigameManager : MonoBehaviour
     public TextMeshProUGUI[] playerPointTexts;
 
     [Header("Audio")]
-    public AudioSource minigameMusic;   // background music
-    public AudioSource winAudioSource;  // winner song
+    public AudioSource minigameMusic;
+    public AudioSource winAudioSource;
 
     private int currentPlayer = 0;
     private bool waitingForInput = false;
@@ -61,8 +62,9 @@ public class BalloonBlowMinigameManager : MonoBehaviour
         {
             gameOver = true;
 
-            int winner = GetHighestScorePlayer();
-            MarbleRewardData.WinnerPlayerIndex = winner;
+            List<int> winners = GetAllHighestScoringPlayers();
+
+            MarbleRewardData.WinnerPlayerIndices = winners;
             MarbleRewardData.BonusTrash = 10;
 
             StartCoroutine(PlayWinAndReturn());
@@ -75,11 +77,9 @@ public class BalloonBlowMinigameManager : MonoBehaviour
 
     IEnumerator PlayWinAndReturn()
     {
-        // ⭐ Stop minigame music immediately
         if (minigameMusic != null)
             minigameMusic.Stop();
 
-        // ⭐ Play winner song
         if (winAudioSource != null && winAudioSource.clip != null)
         {
             winAudioSource.Play();
@@ -125,21 +125,28 @@ public class BalloonBlowMinigameManager : MonoBehaviour
         StartPlayerTurn();
     }
 
-    int GetHighestScorePlayer()
+    // ⭐ NEW — returns ALL tied winners
+    List<int> GetAllHighestScoringPlayers()
     {
-        int bestPlayer = 0;
+        List<int> winners = new List<int>();
+
         int bestScore = balloon.playerPoints[0];
 
+        // Find highest score
         for (int i = 1; i < balloon.playerPoints.Length; i++)
         {
             if (balloon.playerPoints[i] > bestScore)
-            {
                 bestScore = balloon.playerPoints[i];
-                bestPlayer = i;
-            }
         }
 
-        return bestPlayer;
+        // Add all players who match highest score
+        for (int i = 0; i < balloon.playerPoints.Length; i++)
+        {
+            if (balloon.playerPoints[i] == bestScore)
+                winners.Add(i);
+        }
+
+        return winners;
     }
 
     void UpdatePointUI()

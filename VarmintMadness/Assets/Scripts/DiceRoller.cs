@@ -319,15 +319,24 @@ public class DiceController : MonoBehaviour
 
     private void ApplyMarbleReward()
     {
-        if (!MarbleRewardData.WinnerPlayerIndex.HasValue) return;
-        int index = MarbleRewardData.WinnerPlayerIndex.Value;
-        if (index >= 0 && index < playersToMove.Count)
+        // No winners? Nothing to apply.
+        if (MarbleRewardData.WinnerPlayerIndices == null ||
+            MarbleRewardData.WinnerPlayerIndices.Count == 0)
+            return;
+
+        // Apply reward to ALL winners (supports ties)
+        foreach (int index in MarbleRewardData.WinnerPlayerIndices)
         {
-            PlayerMovement winner = playersToMove[index];
-            winner.garbageCount += MarbleRewardData.BonusTrash;
-            winner.UpdateGarbageText();
+            if (index >= 0 && index < playersToMove.Count)
+            {
+                PlayerMovement winner = playersToMove[index];
+                winner.garbageCount += MarbleRewardData.BonusTrash;
+                winner.UpdateGarbageText();
+            }
         }
-        MarbleRewardData.WinnerPlayerIndex = null;
+
+        // Reset reward data
+        MarbleRewardData.WinnerPlayerIndices.Clear();
         MarbleRewardData.BonusTrash = 0;
     }
     public void SaveBoardStateBeforeMinigame()
