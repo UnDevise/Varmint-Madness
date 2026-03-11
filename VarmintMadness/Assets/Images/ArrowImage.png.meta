@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c2be010ed12a4a742988a00acc88af99
+guid: 536ab1d5bd512114b8ca27c665807061
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2663718695377798014
-    second: ArrowImageColorable_0
+      213: -4357247987165764276
+    second: ArrowImage_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArrowImageColorable_0
+      name: ArrowImage_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 8
-        width: 144
-        height: 218
+        x: 52
+        y: 27
+        width: 121
+        height: 171
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e738f8b5a0e67f420800000000000000
-      internalID: 2663718695377798014
+      spriteID: c45e2b69a02f783c0800000000000000
+      internalID: -4357247987165764276
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ArrowImageColorable_0: 2663718695377798014
+      ArrowImage_0: -4357247987165764276
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

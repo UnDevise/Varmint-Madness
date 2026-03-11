@@ -3,13 +3,14 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using UnityEngine.UI; // Necessary for UI Image
+using UnityEngine.UI;
 
 public class DiceController : MonoBehaviour
 {
     [Header("Player Settings")]
     public List<PlayerMovement> playersToMove;
     public int currentPlayerIndex = 0;
+    public int startingGarbage = 10; // User-defined starting amount
 
     [Header("Dice Settings")]
     public int diceSides = 6;
@@ -28,7 +29,7 @@ public class DiceController : MonoBehaviour
     public float textSize = 24f;
 
     [Header("Fade Settings")]
-    public Image fadeImage; // Drag your UI Image here
+    public Image fadeImage;
     public float fadeSpeed = 1f;
 
     [Header("Systems")]
@@ -39,11 +40,18 @@ public class DiceController : MonoBehaviour
     private Quaternion originalDiceRotation;
     private SpriteRenderer spriteRenderer;
     private int turnsCompleted = 0;
-    private bool isWaitingForSpecialSquare = false; // Prevents turn skipping too early
+    private bool isWaitingForSpecialSquare = false;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // --- GARBAGE VALIDATION ---
+        if (startingGarbage <= 0)
+        {
+            Debug.LogWarning("Starting Garbage was 0 or less. Defaulting to 5.");
+            startingGarbage = 5;
+        }
 
         if (uiParentPanel == null)
         {
@@ -55,12 +63,17 @@ public class DiceController : MonoBehaviour
         for (int i = 0; i < playersToMove.Count; i++)
         {
             PlayerMovement player = playersToMove[i];
+
+            // Set initial garbage
+            player.garbageCount = startingGarbage;
+
             TextMeshProUGUI newText = Instantiate(playerGarbageTextPrefab, uiParentPanel);
             newText.fontSize = textSize;
             newText.rectTransform.anchoredPosition = new Vector2(startXPosition, startYPosition - i * uiElementSpacing);
             player.playerName = player.gameObject.name;
-            newText.text = $"{player.playerName}: 0 Garbage";
+
             player.garbageText = newText;
+            player.UpdateGarbageText();
             player.SetDiceController(this);
         }
 
@@ -70,7 +83,6 @@ public class DiceController : MonoBehaviour
             originalDiceRotation = physicsDiceTransform.rotation;
         }
 
-        // Ensure fade image starts invisible
         if (fadeImage != null)
         {
             Color c = fadeImage.color;
@@ -115,8 +127,6 @@ public class DiceController : MonoBehaviour
         }
     }
 
-    // --- UPDATED TEXT SYSTEM ---
-
     public void UpdateTurnText(string message)
     {
         if (turnNotificationText != null)
@@ -143,6 +153,16 @@ public class DiceController : MonoBehaviour
         DisableDice();
 
         PlayerMovement current = playersToMove[currentPlayerIndex];
+
+        // Skip player if out of garbage OR in cage
+        if (current.garbageCount <= 0 || current.IsInCage)
+        {
+            string reason = current.garbageCount <= 0 ? "is out of garbage" : "is in the cage";
+            UpdateTurnText($"{current.playerName} {reason} and is skipped!");
+            OnPlayerTurnFinished();
+            return;
+        }
+
         UpdateTurnText($"{current.playerName} is rolling...");
 
         if (CameraController.Instance != null)
@@ -155,13 +175,6 @@ public class DiceController : MonoBehaviour
         {
             current.IsStunned = false;
             UpdateTurnTextWithDelay($"{current.playerName} is stunned and skips a turn!");
-            return;
-        }
-
-        if (current.IsInCage)
-        {
-            UpdateTurnText($"{current.playerName} is in the cage!");
-            OnPlayerTurnFinished();
             return;
         }
 
@@ -213,8 +226,6 @@ public class DiceController : MonoBehaviour
         StartPlayerTurn();
     }
 
-    // --- FADE LOGIC ---
-
     private IEnumerator FadeAndLoad(string sceneName)
     {
         if (fadeImage == null)
@@ -236,8 +247,6 @@ public class DiceController : MonoBehaviour
 
         SceneManager.LoadScene(sceneName);
     }
-
-    // --- NECESSARY METHODS FOR OTHER SCRIPTS ---
 
     public bool IsPlayerMoving()
     {
@@ -281,10 +290,17 @@ public class DiceController : MonoBehaviour
     {
         int activePlayers = 0;
         PlayerMovement lastStanding = null;
+
         foreach (PlayerMovement p in playersToMove)
         {
-            if (!p.IsInCage) { activePlayers++; lastStanding = p; }
+            // A player is ONLY active if they are NOT in a cage AND have garbage
+            if (!p.IsInCage && p.garbageCount > 0)
+            {
+                activePlayers++;
+                lastStanding = p;
+            }
         }
+
         if (activePlayers == 1 && lastStanding != null)
         {
             WinnerData.WinnerName = lastStanding.playerName;
@@ -312,7 +328,12 @@ public class DiceController : MonoBehaviour
     {
         for (int i = 0; i < playersToMove.Count; i++)
         {
-            if (!playersToMove[i].IsInCage) { currentPlayerIndex = i; return; }
+            // Set the first player who isn't already "out"
+            if (!playersToMove[i].IsInCage && playersToMove[i].garbageCount > 0)
+            {
+                currentPlayerIndex = i;
+                return;
+            }
         }
         currentPlayerIndex = 0;
     }
@@ -330,30 +351,26 @@ public class DiceController : MonoBehaviour
         MarbleRewardData.WinnerPlayerIndex = null;
         MarbleRewardData.BonusTrash = 0;
     }
+
     public void SaveBoardStateBeforeMinigame()
     {
-        // Save scene name
         BoardStateSaver.lastBoardSceneName = SceneManager.GetActiveScene().name;
-
-        // Save board layer, tile index, cage, stun, etc.
         int count = playersToMove.Count;
 
         BoardStateSaver.playerBoardLayer = new int[count];
         BoardStateSaver.playerTileIndex = new int[count];
         BoardStateSaver.playerIsStunned = new bool[count];
         BoardStateSaver.playerIsInCage = new bool[count];
+        BoardStateSaver.savedGarbageCounts = new int[count];
 
         for (int i = 0; i < count; i++)
         {
             PlayerMovement p = playersToMove[i];
-
-            BoardStateSaver.playerBoardLayer[i] =
-                (p.waypointsParent == p.alternativeWaypointsParent) ? 1 : 0;
-
+            BoardStateSaver.playerBoardLayer[i] = (p.waypointsParent == p.alternativeWaypointsParent) ? 1 : 0;
             BoardStateSaver.playerTileIndex[i] = p.GetCurrentTileIndex();
             BoardStateSaver.playerIsStunned[i] = p.IsStunned;
             BoardStateSaver.playerIsInCage[i] = p.IsInCage;
+            BoardStateSaver.savedGarbageCounts[i] = p.garbageCount;
         }
     }
-
 }
