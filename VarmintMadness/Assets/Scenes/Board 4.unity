@@ -3136,6 +3136,7 @@ MonoBehaviour:
   - MarbleMinigame2
   - MarbleMinigame3
   - MinigameBalloon
+  - MinigameBlast
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -3144,6 +3145,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  trainSound: {fileID: 0}
   bombExplodeSound: {fileID: 8300000, guid: b9e4e7485d9b334489e1d68d1bc916ba, type: 3}
   bombExplosionFX: {fileID: 1447399470}
   bombExplodeChance: 0.5
@@ -3151,6 +3153,7 @@ MonoBehaviour:
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
+  trainController: {fileID: 0}
   playerId: 4
 --- !u!82 &441857164
 AudioSource:
@@ -4771,7 +4774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: roundMinigames.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'playersToMove.Array.data[0]'
@@ -4804,6 +4807,10 @@ PrefabInstance:
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'roundMinigames.Array.data[3]'
       value: MinigameBalloon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[4]'
+      value: MinigameBlast
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24163,6 +24170,7 @@ MonoBehaviour:
   - MarbleMinigame2
   - MarbleMinigame3
   - MinigameBalloon
+  - MinigameBlast
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -24171,6 +24179,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  trainSound: {fileID: 0}
   bombExplodeSound: {fileID: 8300000, guid: b9e4e7485d9b334489e1d68d1bc916ba, type: 3}
   bombExplosionFX: {fileID: 1447399470}
   bombExplodeChance: 0.5
@@ -24178,6 +24187,7 @@ MonoBehaviour:
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
+  trainController: {fileID: 0}
   playerId: 3
 --- !u!82 &1657174521
 AudioSource:
@@ -24566,6 +24576,7 @@ MonoBehaviour:
   - MarbleMinigame2
   - MarbleMinigame3
   - MinigameBalloon
+  - MinigameBlast
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -24574,6 +24585,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  trainSound: {fileID: 0}
   bombExplodeSound: {fileID: 8300000, guid: b9e4e7485d9b334489e1d68d1bc916ba, type: 3}
   bombExplosionFX: {fileID: 1447399470}
   bombExplodeChance: 0.5
@@ -24581,6 +24593,7 @@ MonoBehaviour:
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
+  trainController: {fileID: 0}
   playerId: 1
 --- !u!82 &1664142892
 AudioSource:
@@ -27091,6 +27104,7 @@ MonoBehaviour:
   - MarbleMinigame2
   - MarbleMinigame3
   - MinigameBalloon
+  - MinigameBlast
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -27099,6 +27113,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  trainSound: {fileID: 0}
   bombExplodeSound: {fileID: 8300000, guid: b9e4e7485d9b334489e1d68d1bc916ba, type: 3}
   bombExplosionFX: {fileID: 1447399470}
   bombExplodeChance: 0.5
@@ -27106,6 +27121,7 @@ MonoBehaviour:
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
+  trainController: {fileID: 0}
   playerId: 2
 --- !u!82 &2066857063
 AudioSource:

@@ -42291,9 +42291,17 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: diceRoller
+      value: 
+      objectReference: {fileID: 8464305261823313714}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: shopManager
       value: 
       objectReference: {fileID: 1752894595}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: diceCollider
+      value: 
+      objectReference: {fileID: 3510499295614883847}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: uiParentPanel
       value: 
@@ -42328,7 +42336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: roundMinigames.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'playersToMove.Array.data[0]'
@@ -42361,6 +42369,10 @@ PrefabInstance:
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'roundMinigames.Array.data[3]'
       value: MinigameBalloon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[4]'
+      value: MinigameBlast
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44398,6 +44410,7 @@ MonoBehaviour:
   - MarbleMinigame2
   - MarbleMinigame3
   - MinigameBalloon
+  - MinigameBlast
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -44406,6 +44419,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  trainSound: {fileID: 0}
   bombExplodeSound: {fileID: 0}
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
@@ -44413,6 +44427,7 @@ MonoBehaviour:
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
+  trainController: {fileID: 0}
   playerId: P2
 --- !u!95 &821826322
 Animator:
@@ -47969,6 +47984,7 @@ MonoBehaviour:
   - MarbleMinigame2
   - MarbleMinigame3
   - MinigameBalloon
+  - MinigameBlast
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -47977,6 +47993,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  trainSound: {fileID: 0}
   bombExplodeSound: {fileID: 0}
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
@@ -47984,6 +48001,7 @@ MonoBehaviour:
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
+  trainController: {fileID: 0}
   playerId: P3
 --- !u!95 &873121441
 Animator:
@@ -80459,6 +80477,7 @@ MonoBehaviour:
   - MarbleMinigame2
   - MarbleMinigame3
   - MinigameBalloon
+  - MinigameBlast
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -80467,6 +80486,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  trainSound: {fileID: 0}
   bombExplodeSound: {fileID: 0}
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
@@ -80474,6 +80494,7 @@ MonoBehaviour:
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
+  trainController: {fileID: 0}
   playerId: P1
 --- !u!95 &1511254934
 Animator:
@@ -104209,6 +104230,7 @@ MonoBehaviour:
   - MarbleMinigame2
   - MarbleMinigame3
   - MinigameBalloon
+  - MinigameBlast
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -104217,6 +104239,7 @@ MonoBehaviour:
   garbageRemoveSound: {fileID: 0}
   cageSound: {fileID: 0}
   stunSound: {fileID: 0}
+  trainSound: {fileID: 0}
   bombExplodeSound: {fileID: 0}
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
@@ -104224,6 +104247,7 @@ MonoBehaviour:
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
+  trainController: {fileID: 0}
   playerId: P4
 --- !u!95 &1938905689
 Animator:
@@ -115766,6 +115790,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
+--- !u!64 &3510499295614883847 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 970924504629417480, guid: 649f0810797dc754daa1ced6d627cd2c, type: 3}
+  m_PrefabInstance: {fileID: 3510499295614883846}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5067217809983306184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116192,6 +116221,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+--- !u!114 &8464305261823313714 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+  m_PrefabInstance: {fileID: 8464305261823313713}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0ab8577c0e9814b9a8d1646dc3e355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
