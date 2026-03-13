@@ -5,27 +5,72 @@ public class PlayerMovementBlast : MonoBehaviour
     public float moveSpeed = 5f;
 
     private Transform[] buttonPositions;
+    private Transform spawnPoint;
+
     private int currentIndex = 0;
-    private bool canChoose = false;
+
     private bool walkingToStart = false;
+    private bool walkingBack = false;
+    private bool canChoose = false;
+
     private BowserBlastMinigameManager manager;
 
-    public int playerIndex; // used for reward system
+    public int playerIndex;
 
-    public void Initialize(BowserBlastMinigameManager mgr, Transform spawnPoint, Transform[] positions)
+    public void Initialize(BowserBlastMinigameManager mgr, Transform spawn, Transform[] positions)
     {
         manager = mgr;
+        spawnPoint = spawn;
         buttonPositions = positions;
 
-        transform.position = spawnPoint.position;
+        transform.position = spawn.position;
 
-        currentIndex = 0;
-        walkingToStart = true;
+        walkingToStart = false;
+        walkingBack = false;
+        canChoose = false;
     }
 
-    public void EnableInput(bool enable)
+    public void UpdateButtonPositions(Transform[] newPositions)
     {
-        canChoose = enable;
+        buttonPositions = newPositions;
+
+        if (currentIndex >= buttonPositions.Length)
+            currentIndex = buttonPositions.Length - 1;
+    }
+
+    public void BeginTurn()
+    {
+        currentIndex = 0;
+        walkingToStart = true;
+        walkingBack = false;
+        canChoose = false;
+    }
+
+    public void EndTurn()
+    {
+        walkingToStart = false;
+        walkingBack = false;
+        canChoose = false;
+    }
+
+    public void StartWalkingBack()
+    {
+        walkingBack = true;
+        walkingToStart = false;
+        canChoose = false;
+    }
+
+    public void ReturnToSpawnInstant()
+    {
+        transform.position = spawnPoint.position;
+        walkingBack = false;
+        walkingToStart = false;
+        canChoose = false;
+    }
+
+    public void ExplodeAndRemove()
+    {
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -39,6 +84,19 @@ public class PlayerMovementBlast : MonoBehaviour
             {
                 walkingToStart = false;
                 canChoose = true;
+            }
+
+            return;
+        }
+
+        if (walkingBack)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, spawnPoint.position, moveSpeed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, spawnPoint.position) < 0.05f)
+            {
+                walkingBack = false;
+                manager.StartPlayerTurn();
             }
 
             return;
@@ -63,6 +121,7 @@ public class PlayerMovementBlast : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             canChoose = false;
+            walkingBack = true;
             manager.OnPlayerSelectedButton(currentIndex);
         }
     }

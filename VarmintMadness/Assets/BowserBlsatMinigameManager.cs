@@ -13,40 +13,23 @@ public class BowserBlastMinigameManager : MonoBehaviour
 
     public AudioSource explosionSound;
 
+    private ButtonSpriteController[] originalButtons;
+    private Transform[] originalButtonPositions;
+
     private int currentPlayer = 0;
     private int dangerButtonIndex;
     private bool gameOver = false;
 
     void Start()
     {
-        if (buttons == null || buttons.Length == 0)
-        {
-            Debug.LogError("BowserBlastMinigameManager: No buttons assigned.");
-            return;
-        }
-
-        if (buttonPositions == null || buttonPositions.Length == 0)
-        {
-            Debug.LogError("BowserBlastMinigameManager: No buttonPositions assigned.");
-            return;
-        }
-
-        if (players == null || players.Length == 0)
-        {
-            Debug.LogError("BowserBlastMinigameManager: No players assigned.");
-            return;
-        }
-
-        if (playerSpawnPositions == null || playerSpawnPositions.Length < players.Length)
-        {
-            Debug.LogError("BowserBlastMinigameManager: Not enough playerSpawnPositions for all players.");
-            return;
-        }
+        // Store originals for full reset
+        originalButtons = (ButtonSpriteController[])buttons.Clone();
+        originalButtonPositions = (Transform[])buttonPositions.Clone();
 
         dangerButtonIndex = Random.Range(0, buttons.Length);
 
-        int count = Mathf.Min(players.Length, playerSpawnPositions.Length);
-        for (int i = 0; i < count; i++)
+        // Initialize players at spawn
+        for (int i = 0; i < players.Length; i++)
         {
             players[i].Initialize(this, playerSpawnPositions[i], buttonPositions);
         }
@@ -54,18 +37,22 @@ public class BowserBlastMinigameManager : MonoBehaviour
         StartPlayerTurn();
     }
 
-    void StartPlayerTurn()
+    public void StartPlayerTurn()
     {
         if (gameOver) return;
 
-        // If only one player left → winner
         if (players.Length == 1)
         {
             EndGameWithWinner(players[0]);
             return;
         }
 
-        players[currentPlayer].EnableInput(true);
+        // Disable all players
+        for (int i = 0; i < players.Length; i++)
+            players[i].EndTurn();
+
+        // Begin current player's turn
+        players[currentPlayer].BeginTurn();
     }
 
     public void OnPlayerSelectedButton(int index)
@@ -78,42 +65,54 @@ public class BowserBlastMinigameManager : MonoBehaviour
         buttons[buttonIndex].PlayPressAnimation();
         yield return new WaitForSeconds(1f);
 
-        if (buttonIndex == dangerButtonIndex)
+        bool isBomb = (buttonIndex == dangerButtonIndex);
+
+        if (isBomb)
         {
-            // Player explodes and is removed
             explosionSound.Play();
             buttons[buttonIndex].PlayExplosionFX();
-
             yield return new WaitForSeconds(1.5f);
 
-            RemovePlayer(currentPlayer);
-            RemoveButton(buttonIndex);
+            int eliminatedPlayer = currentPlayer;
 
-            // Re-roll danger button among remaining buttons
-            dangerButtonIndex = Random.Range(0, buttons.Length);
+            RemovePlayer(eliminatedPlayer);
 
-            // Adjust currentPlayer index
+            ResetButtonsAndPositions();
+
+            if (players.Length == 1)
+            {
+                EndGameWithWinner(players[0]);
+                yield break;
+            }
+
+            // Next round starts with the player AFTER the eliminated one
+            currentPlayer = eliminatedPlayer;
             if (currentPlayer >= players.Length)
                 currentPlayer = 0;
 
             StartPlayerTurn();
+            yield break;
         }
         else
         {
-            // Safe button removed
             RemoveButton(buttonIndex);
 
-            // Next player
-            currentPlayer++;
-            if (currentPlayer >= players.Length)
-                currentPlayer = 0;
-
-            StartPlayerTurn();
+            if (buttons.Length == 1)
+                dangerButtonIndex = 0;
         }
+
+        // Walk back then next player
+        players[currentPlayer].StartWalkingBack();
+
+        currentPlayer++;
+        if (currentPlayer >= players.Length)
+            currentPlayer = 0;
     }
 
     void RemovePlayer(int index)
     {
+        players[index].ExplodeAndRemove();
+
         List<PlayerMovementBlast> list = new List<PlayerMovementBlast>(players);
         list.RemoveAt(index);
         players = list.ToArray();
@@ -121,17 +120,45 @@ public class BowserBlastMinigameManager : MonoBehaviour
 
     void RemoveButton(int index)
     {
+        buttons[index].DisableButton();
+
         List<ButtonSpriteController> list = new List<ButtonSpriteController>(buttons);
-        list[index].DisableButton();
         list.RemoveAt(index);
         buttons = list.ToArray();
+
+        List<Transform> posList = new List<Transform>(buttonPositions);
+        posList.RemoveAt(index);
+        buttonPositions = posList.ToArray();
+
+        foreach (var p in players)
+            p.UpdateButtonPositions(buttonPositions);
+    }
+
+    void ResetButtonsAndPositions()
+    {
+        // Reactivate all buttons
+        for (int i = 0; i < originalButtons.Length; i++)
+            originalButtons[i].gameObject.SetActive(true);
+
+        // Restore arrays
+        buttons = (ButtonSpriteController[])originalButtons.Clone();
+        buttonPositions = (Transform[])originalButtonPositions.Clone();
+
+        // Update players
+        foreach (var p in players)
+        {
+            p.UpdateButtonPositions(buttonPositions);
+            p.ReturnToSpawnInstant();
+        }
+
+        // New bomb each round
+        dangerButtonIndex = Random.Range(0, buttons.Length);
     }
 
     void EndGameWithWinner(PlayerMovementBlast winner)
     {
         gameOver = true;
 
-        // Winner gets reward
         MarbleRewardData.WinnerPlayerIndices.Clear();
         MarbleRewardData.WinnerPlayerIndices.Add(winner.playerIndex);
         MarbleRewardData.BonusTrash = 20;
