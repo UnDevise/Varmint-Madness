@@ -40,12 +40,6 @@ public class BowserBlastMinigameManager : MonoBehaviour
     {
         if (gameOver) return;
 
-        if (players.Length == 1)
-        {
-            EndGameWithWinner(players[0]);
-            return;
-        }
-
         for (int i = 0; i < players.Length; i++)
             players[i].EndTurn();
 
