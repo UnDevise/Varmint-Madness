@@ -6349,6 +6349,7 @@ MonoBehaviour:
   - {fileID: 2048889348}
   explosionSound: {fileID: 1898248839}
   victorySound: {fileID: 1898248839}
+  backgroundMusic: {fileID: 324805690}
 --- !u!4 &1391517422
 Transform:
   m_ObjectHideFlags: 0

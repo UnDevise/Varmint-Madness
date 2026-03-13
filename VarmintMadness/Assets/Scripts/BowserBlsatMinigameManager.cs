@@ -20,6 +20,7 @@ public class BowserBlastMinigameManager : MonoBehaviour
     private int currentPlayer = 0;
     private int dangerButtonIndex;
     private bool gameOver = false;
+    public AudioSource backgroundMusic; // NEW
 
     void Start()
     {
@@ -146,16 +147,22 @@ public class BowserBlastMinigameManager : MonoBehaviour
         MarbleRewardData.WinnerPlayerIndices.Clear();
         MarbleRewardData.WinnerPlayerIndices.Add(winner.playerIndex);
 
-        MarbleRewardData.BonusTrash = 10; // NEW: matches balloon minigame
+        MarbleRewardData.BonusTrash = 10;
 
         StartCoroutine(PlayWinAndReturn());
     }
 
     IEnumerator PlayWinAndReturn()
     {
+        // Stop background music
+        if (backgroundMusic != null)
+            backgroundMusic.Stop();
+
+        // Play victory jingle
         if (victorySound != null)
             victorySound.Play();
 
+        // Wait for the jingle to finish (or 2 seconds)
         yield return new WaitForSeconds(2f);
 
         SceneManager.LoadScene(BoardStateSaver.lastBoardSceneName);
