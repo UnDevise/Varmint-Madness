@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d055c7ffd95180e4e8fc00c13fd8a3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   playerIndex: 1
 --- !u!1 &274189432
 GameObject:
@@ -1343,7 +1343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d055c7ffd95180e4e8fc00c13fd8a3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   playerIndex: 2
 --- !u!1 &947308636
 GameObject:
@@ -6347,7 +6347,7 @@ MonoBehaviour:
   - {fileID: 629716213}
   - {fileID: 2020388699}
   - {fileID: 2048889348}
-  explosionSound: {fileID: 1898248839}
+  explosionSound: {fileID: 54741457}
   victorySound: {fileID: 1898248839}
   backgroundMusic: {fileID: 324805690}
 --- !u!4 &1391517422
@@ -6614,7 +6614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d055c7ffd95180e4e8fc00c13fd8a3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   playerIndex: 4
 --- !u!1 &1895824955
 GameObject:
@@ -6716,7 +6716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d055c7ffd95180e4e8fc00c13fd8a3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   playerIndex: 3
 --- !u!1 &1898248838
 GameObject:
