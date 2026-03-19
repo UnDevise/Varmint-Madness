@@ -162,6 +162,14 @@ public class BowserBlastMinigameManager : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        SceneManager.LoadScene(BoardStateSaver.lastBoardSceneName);
+        if (!string.IsNullOrEmpty(BoardStateSaver.lastBoardSceneName))
+        {
+            SceneManager.LoadScene(BoardStateSaver.lastBoardSceneName);
+        }
+        else
+        {
+            Debug.LogWarning("BoardStateSaver.lastBoardSceneName was empty! Loading default board scene.");
+            SceneManager.LoadScene("Board 1"); // your default board scene
+        }
     }
 }
