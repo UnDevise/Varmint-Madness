@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSelectManager : MonoBehaviour
 {
-    private CharacterData[] characters;
+    private CharacterData2[] characters;
     private int currentIndex = 0;
     private bool isAnimating = false;
     private Coroutine backgroundFadeCoroutine;
@@ -41,7 +41,7 @@ public class CharacterSelectManager : MonoBehaviour
 
     void Start()
     {
-        characters = Resources.LoadAll<CharacterData>("Characters");
+        characters = Resources.LoadAll<CharacterData2>("Characters");
         playerCountPanel.SetActive(true);
 
         if (characters.Length > 0)
@@ -58,10 +58,9 @@ public class CharacterSelectManager : MonoBehaviour
         UpdateStatusUI();
     }
 
-    // THIS IS THE MAIN BUTTON FUNCTION
+    // UPDATED: This function now saves data before changing scenes
     public void OnActionButtonPressed()
     {
-
         if (totalPlayersToSelect == 0) return;
 
         if (lockedCharacterIndices.Count < totalPlayersToSelect)
@@ -74,6 +73,15 @@ public class CharacterSelectManager : MonoBehaviour
         }
         else
         {
+            // --- DATA SAVING START ---
+            // Save the total player count
+            PlayerDataBridge.TotalPlayers = totalPlayersToSelect;
+
+            // Save the list of chosen characters in the exact order they were selected
+            // Player 1 is index 0, Player 2 is index 1, etc.
+            PlayerDataBridge.SelectedCharacterIndices = new List<int>(lockedCharacterIndices);
+            // --- DATA SAVING END ---
+
             SceneManager.LoadScene("Board Picker");
         }
     }
