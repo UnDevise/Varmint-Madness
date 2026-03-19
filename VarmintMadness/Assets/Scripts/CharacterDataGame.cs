@@ -1,13 +1,11 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewCharacter", menuName = "Character Data")]
-public class CharacterData2 : ScriptableObject
+public class CharacterData : ScriptableObject
 {
     public string characterName;
-    [TextArea] public string characterBio;
     public Sprite characterSprite;
+    public GameObject characterPrefab; // <--- MAKE SURE THIS LINE EXISTS
     public Color backgroundColor;
-
-    // ADD THIS LINE:
-    public RuntimeAnimatorController characterAnimatorController;
+    public string characterBio;
 }

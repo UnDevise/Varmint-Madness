@@ -10,7 +10,7 @@ public class DiceController : MonoBehaviour
     [Header("Player Settings")]
     public List<PlayerMovement> playersToMove;
     public int currentPlayerIndex = 0;
-    public int startingGarbage = 10; // User-defined starting amount
+    public int startingGarbage = 10;
 
     [Header("Dice Settings")]
     public int diceSides = 6;
@@ -46,31 +46,78 @@ public class DiceController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // --- GARBAGE VALIDATION ---
-        if (startingGarbage <= 0)
+        // --- CHARACTER SYNC LOGIC ---
+        CharacterData2[] allCharacterData = Resources.LoadAll<CharacterData2>("Characters");
+        int selectedCount = PlayerDataBridge.SelectedCharacterIndices.Count;
+
+        if (selectedCount > 0)
         {
-            Debug.LogWarning("Starting Garbage was 0 or less. Defaulting to 5.");
-            startingGarbage = 5;
+            List<PlayerMovement> activePlayers = new List<PlayerMovement>();
+
+            for (int i = 0; i < playersToMove.Count; i++)
+            {
+                if (i < selectedCount)
+                {
+                    // 1. Get the Character Data for this selection slot
+                    int charIndex = PlayerDataBridge.SelectedCharacterIndices[i];
+                    CharacterData2 data = allCharacterData[charIndex];
+
+                    // 2. Assign basic data
+                    playersToMove[i].playerName = data.characterName;
+
+                    // 3. Update the Visual Sprite (for the Player GameObject)
+                    SpriteRenderer playerSR = playersToMove[i].GetComponent<SpriteRenderer>();
+                    if (playerSR == null) playerSR = playersToMove[i].GetComponentInChildren<SpriteRenderer>();
+                    if (playerSR != null) playerSR.sprite = data.characterSprite;
+
+                    // 4. Update the Animator (for 2D animations)
+                    Animator anim = playersToMove[i].GetComponent<Animator>();
+                    if (anim == null) anim = playersToMove[i].GetComponentInChildren<Animator>();
+                    if (anim != null && data.characterAnimatorController != null)
+                    {
+                        anim.runtimeAnimatorController = data.characterAnimatorController;
+                    }
+
+                    // 5. Update the Indicator (Sprite & Color sync)
+                    // We pass the data directly so the offscreen UI matches the character exactly
+                    IndicatorTarget indicator = playersToMove[i].GetComponent<IndicatorTarget>();
+                    if (indicator != null)
+                    {
+                        indicator.InitializeIndicator(data.characterSprite, data.backgroundColor);
+                    }
+
+                    activePlayers.Add(playersToMove[i]);
+                }
+                else
+                {
+                    // Disable extra players not chosen in character select
+                    playersToMove[i].gameObject.SetActive(false);
+                }
+            }
+            playersToMove = activePlayers;
         }
+
+        // --- GARBAGE VALIDATION ---
+        if (startingGarbage <= 0) startingGarbage = 5;
 
         if (uiParentPanel == null)
         {
             Canvas canvas = Object.FindAnyObjectByType<Canvas>();
-            if (canvas != null)
-                uiParentPanel = canvas.transform;
+            if (canvas != null) uiParentPanel = canvas.transform;
         }
 
+        // Initialize UI for ACTIVE players
         for (int i = 0; i < playersToMove.Count; i++)
         {
             PlayerMovement player = playersToMove[i];
-
-            // Set initial garbage
             player.garbageCount = startingGarbage;
 
             TextMeshProUGUI newText = Instantiate(playerGarbageTextPrefab, uiParentPanel);
             newText.fontSize = textSize;
             newText.rectTransform.anchoredPosition = new Vector2(startXPosition, startYPosition - i * uiElementSpacing);
-            player.playerName = player.gameObject.name;
+
+            if (string.IsNullOrEmpty(player.playerName))
+                player.playerName = player.gameObject.name;
 
             player.garbageText = newText;
             player.UpdateGarbageText();
@@ -154,7 +201,6 @@ public class DiceController : MonoBehaviour
 
         PlayerMovement current = playersToMove[currentPlayerIndex];
 
-        // Skip player if out of garbage OR in cage
         if (current.garbageCount <= 0 || current.IsInCage)
         {
             string reason = current.garbageCount <= 0 ? "is out of garbage" : "is in the cage";
@@ -293,7 +339,6 @@ public class DiceController : MonoBehaviour
 
         foreach (PlayerMovement p in playersToMove)
         {
-            // A player is ONLY active if they are NOT in a cage AND have garbage
             if (!p.IsInCage && p.garbageCount > 0)
             {
                 activePlayers++;
@@ -328,7 +373,6 @@ public class DiceController : MonoBehaviour
     {
         for (int i = 0; i < playersToMove.Count; i++)
         {
-            // Set the first player who isn't already "out"
             if (!playersToMove[i].IsInCage && playersToMove[i].garbageCount > 0)
             {
                 currentPlayerIndex = i;
@@ -340,12 +384,9 @@ public class DiceController : MonoBehaviour
 
     private void ApplyMarbleReward()
     {
-        // No winners? Nothing to apply.
-        if (MarbleRewardData.WinnerPlayerIndices == null ||
-            MarbleRewardData.WinnerPlayerIndices.Count == 0)
+        if (MarbleRewardData.WinnerPlayerIndices == null || MarbleRewardData.WinnerPlayerIndices.Count == 0)
             return;
 
-        // Apply reward to ALL winners (supports ties)
         foreach (int index in MarbleRewardData.WinnerPlayerIndices)
         {
             if (index >= 0 && index < playersToMove.Count)
@@ -356,7 +397,6 @@ public class DiceController : MonoBehaviour
             }
         }
 
-        // Reset reward data
         MarbleRewardData.WinnerPlayerIndices.Clear();
         MarbleRewardData.BonusTrash = 0;
     }
