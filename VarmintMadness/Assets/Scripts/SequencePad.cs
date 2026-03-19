@@ -5,6 +5,9 @@ public class SequencePad : MonoBehaviour
     public int padID;
     public SpriteRenderer sprite;
 
+    public AudioSource audioSource;   // NEW: sound player
+    public AudioClip glowSound;       // NEW: sound clip
+
     private Color baseColor;
     private Color glowColor;
 
@@ -15,12 +18,16 @@ public class SequencePad : MonoBehaviour
         manager = FindObjectOfType<SecretSequenceManager>();
 
         baseColor = sprite.color;
-        glowColor = baseColor * 2.5f; // medium glow
+        glowColor = baseColor * 2.5f;
     }
 
     public void LightUp()
     {
         sprite.color = glowColor;
+
+        // NEW: play sound when glowing
+        if (audioSource != null && glowSound != null)
+            audioSource.PlayOneShot(glowSound);
     }
 
     public void Dim()

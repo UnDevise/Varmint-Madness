@@ -5,8 +5,10 @@ using System.Collections.Generic;
 
 public class SecretSequenceManager : MonoBehaviour
 {
-    public SequencePad[] pads; // 0–3 in a 2×2 grid
+    public SequencePad[] pads;
     public PlayerSequenceInput[] players;
+
+    public Transform turnPosition;
 
     public AudioSource backgroundMusic;
     public AudioSource victorySound;
@@ -15,6 +17,7 @@ public class SecretSequenceManager : MonoBehaviour
     private int currentPlayer = 0;
     private bool inputEnabled = false;
     private bool gameOver = false;
+    private bool waitingForMovement = false;
 
     void Start()
     {
@@ -45,7 +48,18 @@ public class SecretSequenceManager : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
 
+        waitingForMovement = true;
+        players[currentPlayer].MoveToTurnPosition(turnPosition.position);
+    }
+
+    public void OnPlayerFinishedMoving()
+    {
+        if (!waitingForMovement) return;
+
+        waitingForMovement = false;
+
         players[currentPlayer].BeginInput(sequence.Count);
+
         inputEnabled = true;
     }
 
@@ -71,10 +85,19 @@ public class SecretSequenceManager : MonoBehaviour
     {
         inputEnabled = false;
 
+        players[currentPlayer].ReturnToStartPosition();
+
         currentPlayer++;
         if (currentPlayer >= players.Length)
             currentPlayer = 0;
 
+        // NEW: delay before next round so audio doesn't overlap
+        StartCoroutine(DelayNextRound());
+    }
+
+    IEnumerator DelayNextRound()
+    {
+        yield return new WaitForSeconds(1.2f); // adjust delay as needed
         StartNewRound();
     }
 
