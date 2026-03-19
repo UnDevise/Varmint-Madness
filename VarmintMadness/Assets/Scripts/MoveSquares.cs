@@ -320,7 +320,24 @@ public class PlayerMovement : MonoBehaviour
 
             return true;
         }
+        else if (currentWaypointTag == "Minigame Space")
+        {
+            PlaySquareSound(MinigameSound);
 
+            // NEW: Load minigame through MinigameLoader
+            MinigameLoader loader = FindObjectOfType<MinigameLoader>();
+            if (loader != null)
+            {
+                // Waypoint Name MUST match the minigame scene name
+                loader.LoadMinigame(currentWaypointName);
+            }
+            else
+            {
+                Debug.LogError("MinigameLoader not found in scene! Add it to the board scene.");
+            }
+
+            return true;
+        }
 
         return false;
     }

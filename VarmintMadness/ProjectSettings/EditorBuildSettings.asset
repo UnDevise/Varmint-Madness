@@ -54,8 +54,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MinigameBlast.unity
     guid: 40d42bf9625a73148b2afa1096e35b90
   - enabled: 1
-    path: Assets/Scenes/Game Concept.unity
-    guid: 726ccf35191468c49a7365f9336185cd
+    path: Assets/Scenes/MinigameSecretSequence.unity
+    guid: 126058ba3ced79f4aace7dfbbe9d18eb
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 181140cafe271d943b9907ea6c54d1cd

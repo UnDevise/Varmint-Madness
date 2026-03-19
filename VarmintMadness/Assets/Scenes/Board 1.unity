@@ -42336,7 +42336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: roundMinigames.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'playersToMove.Array.data[0]'
@@ -42373,6 +42373,10 @@ PrefabInstance:
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'roundMinigames.Array.data[4]'
       value: MinigameBlast
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[5]'
+      value: MinigameSecretSequence
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44411,6 +44415,7 @@ MonoBehaviour:
   - MarbleMinigame3
   - MinigameBalloon
   - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -47985,6 +47990,7 @@ MonoBehaviour:
   - MarbleMinigame3
   - MinigameBalloon
   - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -80478,6 +80484,7 @@ MonoBehaviour:
   - MarbleMinigame3
   - MinigameBalloon
   - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -104231,6 +104238,7 @@ MonoBehaviour:
   - MarbleMinigame3
   - MinigameBalloon
   - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -116112,6 +116120,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e869630145f8c774698a799d4bb36295, type: 3}
+--- !u!1001 &6989680466814932383
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2143383704230624090, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -31.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143383704230624090, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143383704230624090, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.997134
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143383704230624090, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143383704230624090, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143383704230624090, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143383704230624090, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143383704230624090, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143383704230624090, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143383704230624090, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930703841951740958, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
+      propertyPath: m_Name
+      value: MinigameLoader
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6be7118569e78e048b0d4a5c3cd8e60a, type: 3}
 --- !u!1001 &8464305261823313713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116256,3 +116321,4 @@ SceneRoots:
   - {fileID: 5891643448587882207}
   - {fileID: 1747077736}
   - {fileID: 6550247151647844586}
+  - {fileID: 6989680466814932383}
