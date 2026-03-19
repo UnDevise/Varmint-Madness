@@ -51,6 +51,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MinigameBalloon.unity
     guid: 3666c28bb400f7a4880b5be4de1b69b7
   - enabled: 1
+    path: Assets/Scenes/MinigameBlast.unity
+    guid: 40d42bf9625a73148b2afa1096e35b90
+  - enabled: 1
     path: Assets/Scenes/Game Concept.unity
     guid: 726ccf35191468c49a7365f9336185cd
   - enabled: 1

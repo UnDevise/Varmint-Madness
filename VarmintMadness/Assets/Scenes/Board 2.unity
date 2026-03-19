@@ -12680,6 +12680,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: roundMinigames.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'playersToMove.Array.data[0]'
       value: 
       objectReference: {fileID: 469768950}
@@ -12695,6 +12699,10 @@ PrefabInstance:
       propertyPath: 'playersToMove.Array.data[3]'
       value: 
       objectReference: {fileID: 364677212}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[4]'
+      value: MinigameBlast
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
