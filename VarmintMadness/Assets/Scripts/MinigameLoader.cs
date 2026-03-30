@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class MinigameLoader : MonoBehaviour
 {
+    public MinigameInfo blastInfo;
+    public MinigameInfo secretSequenceInfo;
+
+    public static MinigameInfo nextMinigameInfo;
+
     // Saves the board scene name before loading a minigame
     private void SaveBoardScene()
     {

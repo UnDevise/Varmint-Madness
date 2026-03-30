@@ -325,7 +325,7 @@ public class PlayerMovement : MonoBehaviour
             PlaySquareSound(MinigameSound);
 
             // NEW: Load minigame through MinigameLoader
-            MinigameLoader loader = FindObjectOfType<MinigameLoader>();
+            MinigameLoader loader = Object.FindFirstObjectByType<MinigameLoader>();
             if (loader != null)
             {
                 // Waypoint Name MUST match the minigame scene name
