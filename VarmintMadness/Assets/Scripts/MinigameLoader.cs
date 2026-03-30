@@ -45,7 +45,7 @@ public class MinigameLoader : MonoBehaviour
     }
     public void TriggerMinigame(string minigameName)
     {
-        FindObjectOfType<MinigameLoader>().LoadMinigame(minigameName);
+        Object.FindFirstObjectByType<MinigameLoader>().LoadMinigame(minigameName);
     }
 
 }
