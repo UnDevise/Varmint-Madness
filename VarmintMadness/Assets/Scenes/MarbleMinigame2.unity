@@ -5877,7 +5877,7 @@ MonoBehaviour:
   waitAtBottom: 1
   waitAtTop: 1
   platformOffset: 1
-  launchForce: 8
+  launchForce: 1000
 --- !u!4 &2023609422
 Transform:
   m_ObjectHideFlags: 0
