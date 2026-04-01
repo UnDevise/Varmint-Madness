@@ -4,15 +4,23 @@ public class CreditsScript : MonoBehaviour
 {
     public float scrollSpeed = 40f;
 
-    private RectTransform rectTransform;
+    private RectTransform parentRectTransform;
+
     void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
+        // This gets the RectTransform of the parent object
+        if (transform.parent != null)
+        {
+            parentRectTransform = transform.parent.GetComponent<RectTransform>();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        rectTransform.anchoredPosition += new Vector2(0, scrollSpeed * Time.deltaTime);
+        // Moves the parent if it exists
+        if (parentRectTransform != null)
+        {
+            parentRectTransform.anchoredPosition += new Vector2(0, scrollSpeed * Time.deltaTime);
+        }
     }
 }
