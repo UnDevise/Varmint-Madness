@@ -145,6 +145,6 @@ public class SecretSequenceManager : MonoBehaviour
     IEnumerator ReturnToBoard()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(BoardStateSaver.lastBoardSceneName);
+        SceneManager.LoadScene("LoadingScene");
     }
 }
