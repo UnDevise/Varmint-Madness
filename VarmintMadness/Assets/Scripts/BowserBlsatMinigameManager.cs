@@ -164,7 +164,7 @@ public class BowserBlastMinigameManager : MonoBehaviour
 
         if (!string.IsNullOrEmpty(BoardStateSaver.lastBoardSceneName))
         {
-            SceneManager.LoadScene(BoardStateSaver.lastBoardSceneName);
+            SceneManager.LoadScene("LoadingScene");
         }
         else
         {

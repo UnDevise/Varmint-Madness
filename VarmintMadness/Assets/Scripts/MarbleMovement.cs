@@ -48,15 +48,33 @@ public class MarbleMovement : MonoBehaviour
 
     public void CheckIfStuck()
     {
+        // 1. If the marble is still moving at a reasonable speed, it's not stuck
+        if (rb.linearVelocity.magnitude > 0.2f)
+        {
+            stuckTimer = 0f;
+            IsStuck = false;
+            lastPosition = transform.position;
+            return;
+        }
+
+        // 2. If the marble is not touching anything, it's not stuck
+        if (rb.IsTouchingLayers() == false)
+        {
+            stuckTimer = 0f;
+            IsStuck = false;
+            lastPosition = transform.position;
+            return;
+        }
+
+        // 3. If the marble is barely moving AND touching something, start counting
         float distanceMoved = Vector3.Distance(transform.position, lastPosition);
 
-        if (distanceMoved < stuckVelocityThreshold)
+        if (distanceMoved < 0.01f)
         {
             stuckTimer += Time.deltaTime;
+
             if (stuckTimer >= stuckTimeNeeded)
-            {
                 IsStuck = true;
-            }
         }
         else
         {

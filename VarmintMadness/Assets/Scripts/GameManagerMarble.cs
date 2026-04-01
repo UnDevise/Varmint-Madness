@@ -245,17 +245,14 @@ public class GameManagerMarble : MonoBehaviour
 
     private void ReturnToBoard()
     {
-        string sceneToLoad = BoardStateSaver.lastBoardSceneName;
-
-        // ⭐ SAFETY FIX — prevent invalid scene load
-        if (string.IsNullOrEmpty(sceneToLoad))
+        // Safety check: ensure the board scene name is valid
+        if (string.IsNullOrEmpty(BoardStateSaver.lastBoardSceneName))
         {
             Debug.LogWarning("BoardStateSaver.lastBoardSceneName was NULL — using fallback board scene!");
-
-            // ❗ CHANGE THIS TO YOUR REAL BOARD SCENE NAME
-            sceneToLoad = "Board 1";
+            BoardStateSaver.lastBoardSceneName = "Board 1"; // your real board scene
         }
 
-        SceneManager.LoadScene(sceneToLoad);
+        // Always go through the loading scene
+        SceneManager.LoadScene("LoadingScene");
     }
 }

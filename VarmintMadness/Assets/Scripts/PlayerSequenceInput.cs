@@ -17,7 +17,7 @@ public class PlayerSequenceInput : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-        manager = FindObjectOfType<SecretSequenceManager>();
+        manager = Object.FindFirstObjectByType<SecretSequenceManager>();
     }
 
     public void BeginInput(int count)

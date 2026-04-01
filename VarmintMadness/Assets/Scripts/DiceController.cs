@@ -326,7 +326,8 @@ public class DiceController : MonoBehaviour
 
     private void StartMinigameRound()
     {
-        BoardStateSaver.SaveBoardState(playersToMove.Count, this);
+        BoardStateSaver.SavePlayerPositions();
+        BoardStateSaver.SaveBoardState();
         SetFirstAvailablePlayer();
         int index = Random.Range(0, roundMinigames.Count);
         StartCoroutine(FadeAndLoad(roundMinigames[index]));
@@ -357,13 +358,13 @@ public class DiceController : MonoBehaviour
 
     private void RestoreBoardState()
     {
-        if (BoardStateSaver.savedPositions != null)
+        if (BoardStateSaver.playerPositions != null)
         {
             for (int i = 0; i < playersToMove.Count; i++)
             {
-                playersToMove[i].transform.position = BoardStateSaver.savedPositions[i];
+                playersToMove[i].transform.position = BoardStateSaver.playerPositions[i];
                 playersToMove[i].IsInCage = BoardStateSaver.playerIsInCage[i];
-                playersToMove[i].garbageCount = BoardStateSaver.savedGarbageCounts[i];
+                playersToMove[i].garbageCount = BoardStateSaver.playerGarbageCounts[i];
                 playersToMove[i].UpdateGarbageText();
             }
         }
@@ -404,22 +405,36 @@ public class DiceController : MonoBehaviour
     public void SaveBoardStateBeforeMinigame()
     {
         BoardStateSaver.lastBoardSceneName = SceneManager.GetActiveScene().name;
+
         int count = playersToMove.Count;
 
         BoardStateSaver.playerBoardLayer = new int[count];
         BoardStateSaver.playerTileIndex = new int[count];
         BoardStateSaver.playerIsStunned = new bool[count];
         BoardStateSaver.playerIsInCage = new bool[count];
-        BoardStateSaver.savedGarbageCounts = new int[count];
+        BoardStateSaver.playerGarbageCounts = new int[count];
+        BoardStateSaver.playerPositions = new Vector3[count];
 
         for (int i = 0; i < count; i++)
         {
             PlayerMovement p = playersToMove[i];
-            BoardStateSaver.playerBoardLayer[i] = (p.waypointsParent == p.alternativeWaypointsParent) ? 1 : 0;
-            BoardStateSaver.playerTileIndex[i] = p.GetCurrentTileIndex();
+
+            // Save position
+            BoardStateSaver.playerPositions[i] = p.transform.position;
+
+            // Save board layer (0 = normal, 1 = alternative)
+            BoardStateSaver.playerBoardLayer[i] =
+                (p.waypointsParent == p.alternativeWaypointsParent) ? 1 : 0;
+
+            // Save tile index
+            BoardStateSaver.playerTileIndex[i] = p.CurrentPositionIndex;
+
+            // Save status flags
             BoardStateSaver.playerIsStunned[i] = p.IsStunned;
             BoardStateSaver.playerIsInCage[i] = p.IsInCage;
-            BoardStateSaver.savedGarbageCounts[i] = p.garbageCount;
+
+            // Save garbage
+            BoardStateSaver.playerGarbageCounts[i] = p.garbageCount;
         }
     }
 }

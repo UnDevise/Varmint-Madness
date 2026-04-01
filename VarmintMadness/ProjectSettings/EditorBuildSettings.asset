@@ -57,6 +57,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MinigameSecretSequence.unity
     guid: 126058ba3ced79f4aace7dfbbe9d18eb
   - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 21a2a8c6db515ee4fb8da7c058500f88
+  - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 181140cafe271d943b9907ea6c54d1cd
   - enabled: 1

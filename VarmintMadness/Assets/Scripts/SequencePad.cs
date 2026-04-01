@@ -15,7 +15,7 @@ public class SequencePad : MonoBehaviour
 
     void Start()
     {
-        manager = FindObjectOfType<SecretSequenceManager>();
+        manager = Object.FindFirstObjectByType<SecretSequenceManager>();
 
         baseColor = sprite.color;
         glowColor = baseColor * 2.5f;

@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public float bombExplodeChance = 0.5f;
 
     private List<WaypointData> targetWaypoints = new List<WaypointData>();
-    private int currentPositionIndex = 0;
+    public int currentPositionIndex = 0;
     private Transform originalWaypointsParent;
     public bool IsMoving { get; private set; } = false;
     public bool IsStunned { get; set; } = false;
@@ -53,6 +53,15 @@ public class PlayerMovement : MonoBehaviour
     private Animator playerAnimator;
     private AudioSource audioSource;
     public string playerId;
+    public int CurrentBoardLayer { get; set; } = 0;
+
+    // Expose the tile index safely
+    public int CurrentPositionIndex
+    {
+        get => currentPositionIndex;
+        set => currentPositionIndex = value;
+    }
+
 
     private void Awake()
     {
@@ -325,7 +334,7 @@ public class PlayerMovement : MonoBehaviour
             PlaySquareSound(MinigameSound);
 
             // NEW: Load minigame through MinigameLoader
-            MinigameLoader loader = FindObjectOfType<MinigameLoader>();
+            MinigameLoader loader = Object.FindFirstObjectByType<MinigameLoader>();
             if (loader != null)
             {
                 // Waypoint Name MUST match the minigame scene name

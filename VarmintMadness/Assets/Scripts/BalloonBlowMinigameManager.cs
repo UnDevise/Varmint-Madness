@@ -86,7 +86,7 @@ public class BalloonBlowMinigameManager : MonoBehaviour
             yield return new WaitForSeconds(winAudioSource.clip.length);
         }
 
-        SceneManager.LoadScene(BoardStateSaver.lastBoardSceneName);
+        SceneManager.LoadScene("LoadingScene");
     }
 
     void StartPlayerTurn()

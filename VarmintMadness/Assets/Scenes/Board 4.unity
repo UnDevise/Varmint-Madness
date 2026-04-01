@@ -3137,6 +3137,7 @@ MonoBehaviour:
   - MarbleMinigame3
   - MinigameBalloon
   - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -4774,7 +4775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: roundMinigames.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'playersToMove.Array.data[0]'
@@ -4811,6 +4812,10 @@ PrefabInstance:
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'roundMinigames.Array.data[4]'
       value: MinigameBlast
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[5]'
+      value: MinigameSecretSequence
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23858,6 +23863,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2126598952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1632198965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1632198967}
+  - component: {fileID: 1632198966}
+  m_Layer: 0
+  m_Name: BoardSceneID
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1632198966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632198965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94351cdf62d8864a9e8d71b758aa8ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1632198967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632198965}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 35.02792, y: 12.710916, z: -10.4700575}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1637944829
 GameObject:
   m_ObjectHideFlags: 0
@@ -24171,6 +24220,7 @@ MonoBehaviour:
   - MarbleMinigame3
   - MinigameBalloon
   - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -24577,6 +24627,7 @@ MonoBehaviour:
   - MarbleMinigame3
   - MinigameBalloon
   - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -27105,6 +27156,7 @@ MonoBehaviour:
   - MarbleMinigame3
   - MinigameBalloon
   - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -27737,3 +27789,4 @@ SceneRoots:
   - {fileID: 97696189}
   - {fileID: 1662571198}
   - {fileID: 2131408538}
+  - {fileID: 1632198967}
