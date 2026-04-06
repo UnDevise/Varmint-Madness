@@ -306,7 +306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e76e1b17dafba64cbbb065f51f3ffd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterButtons: []
+  characterButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   playerIndicator: {fileID: 0}
   playerIcons:
   - {fileID: 0}

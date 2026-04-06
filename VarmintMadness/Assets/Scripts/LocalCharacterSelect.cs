@@ -33,6 +33,8 @@ public class LocalCharacterSelect : MonoBehaviour
 
     void SelectCharacter(int index)
     {
+        Debug.Log($"Player {currentPlayer + 1} selected index {index}");
+
         // Save the choice for the current player
         playerChoices[currentPlayer] = index;
 
@@ -59,18 +61,15 @@ public class LocalCharacterSelect : MonoBehaviour
 
     void FinishSelection()
     {
-        // ⭐ Save number of players
         PlayerPrefs.SetInt("TotalPlayers", totalPlayers);
 
-        // ⭐ Save all character choices
         for (int i = 0; i < totalPlayers; i++)
         {
             PlayerPrefs.SetInt("P" + (i + 1) + "_Character", playerChoices[i]);
+            Debug.Log($"Saved P{i + 1}_Character = {playerChoices[i]}");
         }
 
         PlayerPrefs.Save();
-
-        // Load your board scene
         SceneManager.LoadScene("Board Select");
     }
 }

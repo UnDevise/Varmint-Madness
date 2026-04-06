@@ -16,6 +16,14 @@ public class PlayerMovement : MonoBehaviour
     public bool isMoving = false;
     public int characterId;
 
+    [Header("Character Appearance")]
+    public Sprite[] characterSprites; // Assign in Inspector
+    public SpriteRenderer characterRenderer; // Assign in Inspector
+
+    [Header("Character Models")]
+    public GameObject[] characterModels; // assign all character prefabs or child objects
+
+
     public bool IsInCage = false;
     public Transform cageTeleportPoint;
 
@@ -608,5 +616,24 @@ public class PlayerMovement : MonoBehaviour
 
         FaceTowards(pos);
         transform.position = pos;
+    }
+
+    public void ApplyCharacter(int characterIndex)
+    {
+        characterId = characterIndex;
+        Debug.Log($"{name} ApplyCharacter({characterIndex})");
+
+        if (characterRenderer != null &&
+            characterSprites != null &&
+            characterIndex >= 0 &&
+            characterIndex < characterSprites.Length)
+        {
+            characterRenderer.sprite = characterSprites[characterIndex];
+            Debug.Log($"{name}: renderer sprite AFTER = {characterRenderer.sprite}");
+        }
+        else
+        {
+            Debug.LogWarning($"{name}: invalid characterIndex {characterIndex} or missing sprites/renderer");
+        }
     }
 }

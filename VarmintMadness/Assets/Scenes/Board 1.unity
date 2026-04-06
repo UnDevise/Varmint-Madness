@@ -30594,6 +30594,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1535759404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &553675647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 553675649}
+  - component: {fileID: 553675648}
+  m_Layer: 0
+  m_Name: PlayerAssignment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &553675648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553675647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19e864d6634dc241896a7dd9f3e8a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 1511254933}
+  - {fileID: 821826321}
+  - {fileID: 873121440}
+  - {fileID: 1938905688}
+--- !u!4 &553675649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553675647}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.97, y: 0, z: -4.042433}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &556337489
 GameObject:
   m_ObjectHideFlags: 0
@@ -44452,6 +44501,13 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 2
+  characterSprites:
+  - {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
+  - {fileID: -1712074998796499465, guid: 3424f5820c6bcb143b4d169a034188db, type: 3}
+  - {fileID: -4660275902620348432, guid: 16d5e6a5fc1bd49468d5d10291b95551, type: 3}
+  - {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
+  characterRenderer: {fileID: 821826319}
+  characterModels: []
   IsInCage: 0
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
@@ -48028,6 +48084,13 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 3
+  characterSprites:
+  - {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
+  - {fileID: -1712074998796499465, guid: 3424f5820c6bcb143b4d169a034188db, type: 3}
+  - {fileID: -4660275902620348432, guid: 16d5e6a5fc1bd49468d5d10291b95551, type: 3}
+  - {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
+  characterRenderer: {fileID: 873121438}
+  characterModels: []
   IsInCage: 0
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
@@ -80522,6 +80585,13 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 1
+  characterSprites:
+  - {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
+  - {fileID: -1712074998796499465, guid: 3424f5820c6bcb143b4d169a034188db, type: 3}
+  - {fileID: -4660275902620348432, guid: 16d5e6a5fc1bd49468d5d10291b95551, type: 3}
+  - {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
+  characterRenderer: {fileID: 1511254931}
+  characterModels: []
   IsInCage: 0
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
@@ -104261,6 +104331,13 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 4
+  characterSprites:
+  - {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
+  - {fileID: -1712074998796499465, guid: 3424f5820c6bcb143b4d169a034188db, type: 3}
+  - {fileID: -4660275902620348432, guid: 16d5e6a5fc1bd49468d5d10291b95551, type: 3}
+  - {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
+  characterRenderer: {fileID: 1938905686}
+  characterModels: []
   IsInCage: 0
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
@@ -116149,3 +116226,4 @@ SceneRoots:
   - {fileID: 6550247151647844586}
   - {fileID: 6989680466814932383}
   - {fileID: 169257792}
+  - {fileID: 553675649}
