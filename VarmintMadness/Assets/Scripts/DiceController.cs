@@ -33,7 +33,6 @@ public class DiceController : MonoBehaviour
     public float fadeSpeed = 1f;
 
     [Header("Systems")]
-    public ShopManager shopManager;
     public List<string> roundMinigames = new List<string>();
 
     private Vector3 originalDicePosition;
@@ -153,26 +152,6 @@ public class DiceController : MonoBehaviour
         StartPlayerTurn();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (shopManager != null && shopManager.shopOpen)
-            {
-                shopManager.CloseShop();
-                return;
-            }
-
-            PlayerMovement current = playersToMove[currentPlayerIndex];
-            if (diceRoller != null && diceRoller.IsRolling) return;
-            if (current != null && current.IsMoving) return;
-
-            if (CameraController.Instance != null)
-                CameraController.Instance.FollowPlayer(current.transform);
-
-            if (shopManager != null) shopManager.OpenShop();
-        }
-    }
 
     public void UpdateTurnText(string message)
     {
