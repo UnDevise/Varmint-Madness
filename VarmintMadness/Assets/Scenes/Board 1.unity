@@ -44507,7 +44507,11 @@ MonoBehaviour:
   - {fileID: -4660275902620348432, guid: 16d5e6a5fc1bd49468d5d10291b95551, type: 3}
   - {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
   characterRenderer: {fileID: 821826319}
-  characterModels: []
+  characterModels:
+  - {fileID: 1511254930}
+  - {fileID: 1938905685}
+  - {fileID: 821826318}
+  - {fileID: 873121437}
   IsInCage: 0
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
@@ -48090,7 +48094,11 @@ MonoBehaviour:
   - {fileID: -4660275902620348432, guid: 16d5e6a5fc1bd49468d5d10291b95551, type: 3}
   - {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
   characterRenderer: {fileID: 873121438}
-  characterModels: []
+  characterModels:
+  - {fileID: 1511254930}
+  - {fileID: 1938905685}
+  - {fileID: 821826318}
+  - {fileID: 873121437}
   IsInCage: 0
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
@@ -80591,7 +80599,11 @@ MonoBehaviour:
   - {fileID: -4660275902620348432, guid: 16d5e6a5fc1bd49468d5d10291b95551, type: 3}
   - {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
   characterRenderer: {fileID: 1511254931}
-  characterModels: []
+  characterModels:
+  - {fileID: 1511254930}
+  - {fileID: 1938905685}
+  - {fileID: 821826318}
+  - {fileID: 873121437}
   IsInCage: 0
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:
@@ -104337,7 +104349,11 @@ MonoBehaviour:
   - {fileID: -4660275902620348432, guid: 16d5e6a5fc1bd49468d5d10291b95551, type: 3}
   - {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
   characterRenderer: {fileID: 1938905686}
-  characterModels: []
+  characterModels:
+  - {fileID: 1511254930}
+  - {fileID: 1938905685}
+  - {fileID: 821826318}
+  - {fileID: 873121437}
   IsInCage: 0
   cageTeleportPoint: {fileID: 1311555914}
   marbleMinigameScenes:

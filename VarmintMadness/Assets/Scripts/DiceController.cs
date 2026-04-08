@@ -37,14 +37,11 @@ public class DiceController : MonoBehaviour
 
     private Vector3 originalDicePosition;
     private Quaternion originalDiceRotation;
-    private SpriteRenderer spriteRenderer;
     private int turnsCompleted = 0;
     private bool isWaitingForSpecialSquare = false;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
         // --- CHARACTER SYNC LOGIC ---
         CharacterData2[] allCharacterData = Resources.LoadAll<CharacterData2>("Characters");
         int selectedCount = PlayerDataBridge.SelectedCharacterIndices.Count;
@@ -57,19 +54,15 @@ public class DiceController : MonoBehaviour
             {
                 if (i < selectedCount)
                 {
-                    // 1. Get the Character Data for this selection slot
                     int charIndex = PlayerDataBridge.SelectedCharacterIndices[i];
                     CharacterData2 data = allCharacterData[charIndex];
 
-                    // 2. Assign basic data
+                    // Assign player name only
                     playersToMove[i].playerName = data.characterName;
 
-                    // 3. Update the Visual Sprite (for the Player GameObject)
-                    SpriteRenderer playerSR = playersToMove[i].GetComponent<SpriteRenderer>();
-                    if (playerSR == null) playerSR = playersToMove[i].GetComponentInChildren<SpriteRenderer>();
-                    if (playerSR != null) playerSR.sprite = data.characterSprite;
+                    // DO NOT override sprites here anymore
 
-                    // 4. Update the Animator (for 2D animations)
+                    // Update animator if needed
                     Animator anim = playersToMove[i].GetComponent<Animator>();
                     if (anim == null) anim = playersToMove[i].GetComponentInChildren<Animator>();
                     if (anim != null && data.characterAnimatorController != null)
@@ -77,8 +70,7 @@ public class DiceController : MonoBehaviour
                         anim.runtimeAnimatorController = data.characterAnimatorController;
                     }
 
-                    // 5. Update the Indicator (Sprite & Color sync)
-                    // We pass the data directly so the offscreen UI matches the character exactly
+                    // Update indicator
                     IndicatorTarget indicator = playersToMove[i].GetComponent<IndicatorTarget>();
                     if (indicator != null)
                     {
@@ -89,10 +81,10 @@ public class DiceController : MonoBehaviour
                 }
                 else
                 {
-                    // Disable extra players not chosen in character select
                     playersToMove[i].gameObject.SetActive(false);
                 }
             }
+
             playersToMove = activePlayers;
         }
 
@@ -152,7 +144,6 @@ public class DiceController : MonoBehaviour
         StartPlayerTurn();
     }
 
-
     public void UpdateTurnText(string message)
     {
         if (turnNotificationText != null)
@@ -211,11 +202,7 @@ public class DiceController : MonoBehaviour
         PlayerMovement currentPlayer = playersToMove[currentPlayerIndex];
         UpdateTurnText($"{currentPlayer.playerName} rolled {rollResult}!");
 
-        if (!currentPlayer.IsStunned)
-        {
-            if (spriteRenderer != null && rollResult > 0 && rollResult <= diceSprites.Length)
-                spriteRenderer.sprite = diceSprites[rollResult - 1];
-        }
+        // DO NOT modify player sprites here anymore
 
         currentPlayer.MoveCharacter(rollResult);
     }
@@ -398,21 +385,12 @@ public class DiceController : MonoBehaviour
         {
             PlayerMovement p = playersToMove[i];
 
-            // Save position
             BoardStateSaver.playerPositions[i] = p.transform.position;
-
-            // Save board layer (0 = normal, 1 = alternative)
             BoardStateSaver.playerBoardLayer[i] =
                 (p.waypointsParent == p.alternativeWaypointsParent) ? 1 : 0;
-
-            // Save tile index
             BoardStateSaver.playerTileIndex[i] = p.CurrentPositionIndex;
-
-            // Save status flags
             BoardStateSaver.playerIsStunned[i] = p.IsStunned;
             BoardStateSaver.playerIsInCage[i] = p.IsInCage;
-
-            // Save garbage
             BoardStateSaver.playerGarbageCounts[i] = p.garbageCount;
         }
     }

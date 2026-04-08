@@ -58,29 +58,36 @@ public class CharacterSelectManager : MonoBehaviour
         UpdateStatusUI();
     }
 
-    // UPDATED: This function now saves data before changing scenes
+    // SELECT BUTTON LOGIC
     public void OnActionButtonPressed()
     {
         if (totalPlayersToSelect == 0) return;
 
+        // If players are still selecting
         if (lockedCharacterIndices.Count < totalPlayersToSelect)
         {
+            // Prevent duplicate character picks
             if (!lockedCharacterIndices.Contains(currentIndex))
             {
                 lockedCharacterIndices.Add(currentIndex);
+                Debug.Log($"Player {lockedCharacterIndices.Count} selected index {currentIndex}");
+
                 UpdateCharacterDisplays();
             }
         }
         else
         {
-            // --- DATA SAVING START ---
-            // Save the total player count
-            PlayerDataBridge.TotalPlayers = totalPlayersToSelect;
+            // --- SAVE DATA FOR BOARD SCENE ---
+            PlayerPrefs.SetInt("TotalPlayers", totalPlayersToSelect);
 
-            // Save the list of chosen characters in the exact order they were selected
-            // Player 1 is index 0, Player 2 is index 1, etc.
-            PlayerDataBridge.SelectedCharacterIndices = new List<int>(lockedCharacterIndices);
-            // --- DATA SAVING END ---
+            for (int i = 0; i < lockedCharacterIndices.Count; i++)
+            {
+                PlayerPrefs.SetInt("P" + (i + 1) + "_Character", lockedCharacterIndices[i]);
+                Debug.Log($"Saved P{i + 1}_Character = {lockedCharacterIndices[i]}");
+            }
+
+            PlayerPrefs.Save();
+            // --- END SAVE ---
 
             SceneManager.LoadScene("Board Picker");
         }

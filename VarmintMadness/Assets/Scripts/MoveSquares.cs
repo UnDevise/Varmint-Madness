@@ -51,7 +51,6 @@ public class PlayerMovement : MonoBehaviour
     public bool IsMoving { get; private set; } = false;
     public bool IsStunned { get; set; } = false;
     public float spriteZPosition = -5.0f;
-    private SpriteRenderer spriteRenderer;
     [HideInInspector] public TextMeshProUGUI garbageText;
     [HideInInspector] public string playerName;
     public int garbageCount = 0;
@@ -74,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         originalWaypointsParent = waypointsParent;
-        spriteRenderer = GetComponent<SpriteRenderer>();
         playerAnimator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
@@ -171,9 +169,9 @@ public class PlayerMovement : MonoBehaviour
         float direction = targetPos.x - transform.position.x;
 
         if (direction > 0.01f)
-            spriteRenderer.flipX = false;
+            characterRenderer.flipX = false;
         else if (direction < -0.01f)
-            spriteRenderer.flipX = true;
+            characterRenderer.flipX = true;
     }
 
     public bool ShouldSkipTurn()
@@ -512,9 +510,9 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Fade(float targetAlpha, float duration)
     {
-        if (spriteRenderer == null) yield break;
+        if (characterRenderer == null) yield break;
 
-        Color startColor = spriteRenderer.color;
+        Color startColor = characterRenderer.color;
         Color endColor = new Color(startColor.r, startColor.g, startColor.b, targetAlpha);
 
         float elapsedTime = 0;
@@ -522,11 +520,11 @@ public class PlayerMovement : MonoBehaviour
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
-            spriteRenderer.color = Color.Lerp(startColor, endColor, elapsedTime / duration);
+            characterRenderer.color = Color.Lerp(startColor, endColor, elapsedTime / duration);
             yield return null;
         }
 
-        spriteRenderer.color = endColor;
+        characterRenderer.color = endColor;
     }
 
     public void UpdateGarbageText()
