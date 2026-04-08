@@ -2,9 +2,11 @@
 
 public static class BoardStateSaver
 {
-    public static string lastBoardSceneName;
-    public static string nextMinigameScene;
+    // --- GENERAL STATE ---
+    public static string lastBoardSceneName = "";
+    public static bool returningFromMinigame = false;
 
+    // --- PLAYER STATE ---
     public static Vector3[] playerPositions;
     public static int[] playerBoardLayer;
     public static int[] playerTileIndex;
@@ -12,28 +14,25 @@ public static class BoardStateSaver
     public static bool[] playerIsInCage;
     public static int[] playerGarbageCounts;
 
-    public static void SavePlayerPositions()
+    // ⭐ NEW: Character index for each player
+    public static int[] playerCharacterIndices;
+
+    // --- CLEAR ALL SAVED DATA ---
+    public static void Clear()
     {
-        PlayerMovement[] players = GameObject.FindObjectsOfType<PlayerMovement>();
-        int count = players.Length;
+        lastBoardSceneName = "";
+        returningFromMinigame = false;
 
-        playerPositions = new Vector3[count];
-        playerBoardLayer = new int[count];
-        playerTileIndex = new int[count];
-        playerIsStunned = new bool[count];
-        playerIsInCage = new bool[count];
-
-        for (int i = 0; i < count; i++)
-        {
-            playerPositions[i] = players[i].transform.position;
-            playerBoardLayer[i] = players[i].CurrentBoardLayer;
-            playerTileIndex[i] = players[i].CurrentPositionIndex;
-            playerIsStunned[i] = players[i].IsStunned;
-            playerIsInCage[i] = players[i].IsInCage;
-        }
+        playerPositions = null;
+        playerBoardLayer = null;
+        playerTileIndex = null;
+        playerIsStunned = null;
+        playerIsInCage = null;
+        playerGarbageCounts = null;
+        playerCharacterIndices = null;
     }
 
-    public static void RestorePlayerPositions()
+public static void RestorePlayerPositions()
     {
         if (playerPositions == null) return;
 

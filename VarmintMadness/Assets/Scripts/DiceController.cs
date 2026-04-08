@@ -42,48 +42,6 @@ public class DiceController : MonoBehaviour
 
     private void Awake()
     {
-        // --- CHARACTER SYNC LOGIC ---
-        CharacterData2[] allCharacterData = Resources.LoadAll<CharacterData2>("Characters");
-        int selectedCount = PlayerDataBridge.SelectedCharacterIndices.Count;
-
-        if (selectedCount > 0)
-        {
-            List<PlayerMovement> activePlayers = new List<PlayerMovement>();
-
-            for (int i = 0; i < playersToMove.Count; i++)
-            {
-                if (i < selectedCount)
-                {
-                    int charIndex = PlayerDataBridge.SelectedCharacterIndices[i];
-                    CharacterData2 data = allCharacterData[charIndex];
-
-                    // Update animator if needed
-                    Animator anim = playersToMove[i].GetComponent<Animator>();
-                    if (anim == null) anim = playersToMove[i].GetComponentInChildren<Animator>();
-                    if (anim != null && data.characterAnimatorController != null)
-                    {
-                        anim.runtimeAnimatorController = data.characterAnimatorController;
-                    }
-
-                    // Update indicator
-                    IndicatorTarget indicator = playersToMove[i].GetComponent<IndicatorTarget>();
-                    if (indicator != null)
-                    {
-                        indicator.InitializeIndicator(data.characterSprite, data.backgroundColor);
-                    }
-
-                    activePlayers.Add(playersToMove[i]);
-                }
-                else
-                {
-                    playersToMove[i].gameObject.SetActive(false);
-                }
-            }
-
-            playersToMove = activePlayers;
-        }
-
-        // --- GARBAGE VALIDATION ---
         if (startingGarbage <= 0) startingGarbage = 5;
 
         if (uiParentPanel == null)
@@ -92,15 +50,43 @@ public class DiceController : MonoBehaviour
             if (canvas != null) uiParentPanel = canvas.transform;
         }
 
-        // Initialize UI for ACTIVE players
+        // If we are returning from a minigame, we don't reassign characters/garbage here.
+        if (!BoardStateSaver.returningFromMinigame)
+        {
+            // Initial character assignment from PlayerPrefs
+            for (int i = 0; i < playersToMove.Count; i++)
+            {
+                PlayerMovement player = playersToMove[i];
+
+                int charIndex = PlayerPrefs.GetInt($"P{i + 1}_Character", 0);
+                player.ApplyCharacter(charIndex);
+
+                if (player.characterNames != null &&
+                    charIndex >= 0 &&
+                    charIndex < player.characterNames.Length)
+                {
+                    player.playerName = player.characterNames[charIndex];
+                    player.currentCharacterName = player.characterNames[charIndex];
+                }
+                else
+                {
+                    player.playerName = player.gameObject.name;
+                    player.currentCharacterName = player.playerName;
+                }
+
+                player.garbageCount = startingGarbage;
+            }
+        }
+
+        // UI setup
         for (int i = 0; i < playersToMove.Count; i++)
         {
             PlayerMovement player = playersToMove[i];
-            player.garbageCount = startingGarbage;
 
             TextMeshProUGUI newText = Instantiate(playerGarbageTextPrefab, uiParentPanel);
             newText.fontSize = textSize;
-            newText.rectTransform.anchoredPosition = new Vector2(startXPosition, startYPosition - i * uiElementSpacing);
+            newText.rectTransform.anchoredPosition =
+                new Vector2(startXPosition, startYPosition - i * uiElementSpacing);
 
             if (string.IsNullOrEmpty(player.playerName))
                 player.playerName = player.gameObject.name;
@@ -127,7 +113,12 @@ public class DiceController : MonoBehaviour
 
     private void Start()
     {
-        RestoreBoardState();
+        if (BoardStateSaver.returningFromMinigame)
+        {
+            RestoreBoardState();
+            BoardStateSaver.returningFromMinigame = false;
+        }
+
         ApplyMarbleReward();
         SetFirstAvailablePlayer();
         StartCoroutine(BeginAfterRestore());
@@ -196,9 +187,6 @@ public class DiceController : MonoBehaviour
     {
         PlayerMovement currentPlayer = playersToMove[currentPlayerIndex];
         UpdateTurnText($"{currentPlayer.playerName} rolled {rollResult}!");
-
-        // DO NOT modify player sprites here anymore
-
         currentPlayer.MoveCharacter(rollResult);
     }
 
@@ -287,8 +275,9 @@ public class DiceController : MonoBehaviour
 
     private void StartMinigameRound()
     {
-        BoardStateSaver.SavePlayerPositions();
-        BoardStateSaver.SaveBoardState();
+        SaveBoardStateBeforeMinigame();
+        BoardStateSaver.returningFromMinigame = true;
+
         SetFirstAvailablePlayer();
         int index = Random.Range(0, roundMinigames.Count);
         StartCoroutine(FadeAndLoad(roundMinigames[index]));
@@ -319,15 +308,33 @@ public class DiceController : MonoBehaviour
 
     private void RestoreBoardState()
     {
-        if (BoardStateSaver.playerPositions != null)
+        if (BoardStateSaver.playerPositions == null) return;
+
+        for (int i = 0; i < playersToMove.Count; i++)
         {
-            for (int i = 0; i < playersToMove.Count; i++)
+            PlayerMovement p = playersToMove[i];
+
+            p.transform.position = BoardStateSaver.playerPositions[i];
+            p.IsInCage = BoardStateSaver.playerIsInCage[i];
+            p.IsStunned = BoardStateSaver.playerIsStunned[i];
+            p.garbageCount = BoardStateSaver.playerGarbageCounts[i];
+            p.CurrentPositionIndex = BoardStateSaver.playerTileIndex[i];
+
+            // Restore board layer
+            if (BoardStateSaver.playerBoardLayer[i] == 1)
+                p.MoveToSewerBoard();
+            else
+                p.MoveToTopBoard();
+
+            // Restore character
+            if (BoardStateSaver.playerCharacterIndices != null &&
+                i < BoardStateSaver.playerCharacterIndices.Length)
             {
-                playersToMove[i].transform.position = BoardStateSaver.playerPositions[i];
-                playersToMove[i].IsInCage = BoardStateSaver.playerIsInCage[i];
-                playersToMove[i].garbageCount = BoardStateSaver.playerGarbageCounts[i];
-                playersToMove[i].UpdateGarbageText();
+                int charIndex = BoardStateSaver.playerCharacterIndices[i];
+                p.ApplyCharacter(charIndex);
             }
+
+            p.UpdateGarbageText();
         }
     }
 
@@ -346,7 +353,8 @@ public class DiceController : MonoBehaviour
 
     private void ApplyMarbleReward()
     {
-        if (MarbleRewardData.WinnerPlayerIndices == null || MarbleRewardData.WinnerPlayerIndices.Count == 0)
+        if (MarbleRewardData.WinnerPlayerIndices == null ||
+            MarbleRewardData.WinnerPlayerIndices.Count == 0)
             return;
 
         foreach (int index in MarbleRewardData.WinnerPlayerIndices)
@@ -375,6 +383,7 @@ public class DiceController : MonoBehaviour
         BoardStateSaver.playerIsInCage = new bool[count];
         BoardStateSaver.playerGarbageCounts = new int[count];
         BoardStateSaver.playerPositions = new Vector3[count];
+        BoardStateSaver.playerCharacterIndices = new int[count];
 
         for (int i = 0; i < count; i++)
         {
@@ -387,6 +396,7 @@ public class DiceController : MonoBehaviour
             BoardStateSaver.playerIsStunned[i] = p.IsStunned;
             BoardStateSaver.playerIsInCage[i] = p.IsInCage;
             BoardStateSaver.playerGarbageCounts[i] = p.garbageCount;
+            BoardStateSaver.playerCharacterIndices[i] = p.characterId;
         }
     }
 }

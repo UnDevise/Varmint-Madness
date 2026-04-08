@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private List<WaypointData> targetWaypoints = new List<WaypointData>();
     public int currentPositionIndex = 0;
-    private Transform originalWaypointsParent;
+    public Transform originalWaypointsParent;
     public bool IsMoving { get; private set; } = false;
     public bool IsStunned { get; set; } = false;
     public float spriteZPosition = -5.0f;
@@ -420,12 +420,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void StartMarbleMinigame()
     {
+        // Save board state BEFORE leaving the board
         if (diceController != null)
             diceController.SaveBoardStateBeforeMinigame();
 
+        // Tell the board scene we will return after the minigame
+        BoardStateSaver.returningFromMinigame = true;
+
+        // Pick a random marble minigame
         int index = Random.Range(0, marbleMinigameScenes.Count);
         string selectedScene = marbleMinigameScenes[index];
 
+        // Load the minigame
         SceneManager.LoadScene(selectedScene);
     }
 
@@ -627,7 +633,7 @@ public class PlayerMovement : MonoBehaviour
     {
         characterId = characterIndex;
 
-        // Set sprite
+        // Sprite
         if (characterRenderer != null &&
             characterSprites != null &&
             characterIndex >= 0 &&
@@ -636,7 +642,7 @@ public class PlayerMovement : MonoBehaviour
             characterRenderer.sprite = characterSprites[characterIndex];
         }
 
-        // Set animator controller
+        // Animator
         if (playerAnimator != null &&
             characterAnimators != null &&
             characterIndex >= 0 &&
@@ -645,18 +651,14 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.runtimeAnimatorController = characterAnimators[characterIndex];
         }
 
-        // Set character name
+        // Name
         if (characterNames != null &&
             characterIndex >= 0 &&
             characterIndex < characterNames.Length)
         {
             currentCharacterName = characterNames[characterIndex];
-            playerName = currentCharacterName;   // IMPORTANT for DiceController
-        }
-        else
-        {
-            currentCharacterName = "Unknown";
             playerName = currentCharacterName;
         }
     }
+
 }
