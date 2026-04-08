@@ -30625,9 +30625,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players:
   - {fileID: 1511254933}
+  - {fileID: 1938905688}
   - {fileID: 821826321}
   - {fileID: 873121440}
-  - {fileID: 1938905688}
 --- !u!4 &553675649
 Transform:
   m_ObjectHideFlags: 0
@@ -44456,7 +44456,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4660275902620348432, guid: 30d8fb137b126b244bb42c29f8954883, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -44464,7 +44464,7 @@ SpriteRenderer:
   m_Size: {x: 2.62, y: 3.72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &821826320
@@ -44475,8 +44475,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821826318}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.48, y: 0.8, z: -4}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.48, y: 0.7999999, z: -4}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44540,6 +44540,17 @@ MonoBehaviour:
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: P2
+  characterAnimators:
+  - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
+  - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
+  - {fileID: 9100000, guid: bb60b1f62294c8f408359bd17b42d721, type: 2}
+  - {fileID: 9100000, guid: 76ecc09e8abb0c045b0e3ab4339e60ae, type: 2}
+  characterNames:
+  - Chipmunk Bella
+  - Fox Jaidyn
+  - Opossum Luke
+  - Raccoon Travis
+  currentCharacterName: 
 --- !u!95 &821826322
 Animator:
   serializedVersion: 7
@@ -44550,7 +44561,7 @@ Animator:
   m_GameObject: {fileID: 821826318}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bb60b1f62294c8f408359bd17b42d721, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -48043,7 +48054,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -48051,7 +48062,7 @@ SpriteRenderer:
   m_Size: {x: 2.22, y: 3.72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &873121439
@@ -48127,6 +48138,17 @@ MonoBehaviour:
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: P3
+  characterAnimators:
+  - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
+  - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
+  - {fileID: 9100000, guid: bb60b1f62294c8f408359bd17b42d721, type: 2}
+  - {fileID: 9100000, guid: 76ecc09e8abb0c045b0e3ab4339e60ae, type: 2}
+  characterNames:
+  - Chipmunk Bella
+  - Fox Jaidyn
+  - Opossum Luke
+  - Raccoon Travis
+  currentCharacterName: 
 --- !u!95 &873121441
 Animator:
   serializedVersion: 7
@@ -48137,7 +48159,7 @@ Animator:
   m_GameObject: {fileID: 873121437}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 76ecc09e8abb0c045b0e3ab4339e60ae, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -80548,7 +80570,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -80556,7 +80578,7 @@ SpriteRenderer:
   m_Size: {x: 2.62, y: 3.82}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1511254932
@@ -80632,6 +80654,17 @@ MonoBehaviour:
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: P1
+  characterAnimators:
+  - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
+  - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
+  - {fileID: 9100000, guid: bb60b1f62294c8f408359bd17b42d721, type: 2}
+  - {fileID: 9100000, guid: 76ecc09e8abb0c045b0e3ab4339e60ae, type: 2}
+  characterNames:
+  - Chipmunk Bella
+  - Fox Jaidyn
+  - Opossum Luke
+  - Raccoon Travis
+  currentCharacterName: 
 --- !u!95 &1511254934
 Animator:
   serializedVersion: 7
@@ -80642,7 +80675,7 @@ Animator:
   m_GameObject: {fileID: 1511254930}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -104298,7 +104331,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1712074998796499465, guid: 3424f5820c6bcb143b4d169a034188db, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104306,7 +104339,7 @@ SpriteRenderer:
   m_Size: {x: 2.62, y: 3.82}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1938905687
@@ -104382,6 +104415,17 @@ MonoBehaviour:
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: P4
+  characterAnimators:
+  - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
+  - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
+  - {fileID: 9100000, guid: bb60b1f62294c8f408359bd17b42d721, type: 2}
+  - {fileID: 9100000, guid: 76ecc09e8abb0c045b0e3ab4339e60ae, type: 2}
+  characterNames:
+  - Chipmunk Bella
+  - Fox Jaidyn
+  - Opossum Luke
+  - Raccoon Travis
+  currentCharacterName: 
 --- !u!95 &1938905689
 Animator:
   serializedVersion: 7
@@ -104392,7 +104436,7 @@ Animator:
   m_GameObject: {fileID: 1938905685}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

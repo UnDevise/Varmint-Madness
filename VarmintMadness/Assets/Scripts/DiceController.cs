@@ -57,11 +57,6 @@ public class DiceController : MonoBehaviour
                     int charIndex = PlayerDataBridge.SelectedCharacterIndices[i];
                     CharacterData2 data = allCharacterData[charIndex];
 
-                    // Assign player name only
-                    playersToMove[i].playerName = data.characterName;
-
-                    // DO NOT override sprites here anymore
-
                     // Update animator if needed
                     Animator anim = playersToMove[i].GetComponent<Animator>();
                     if (anim == null) anim = playersToMove[i].GetComponentInChildren<Animator>();

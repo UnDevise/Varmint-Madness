@@ -60,7 +60,13 @@ public class PlayerMovement : MonoBehaviour
     private Animator playerAnimator;
     private AudioSource audioSource;
     public string playerId;
+    public RuntimeAnimatorController[] characterAnimators;
     public int CurrentBoardLayer { get; set; } = 0;
+
+    [Header("Character Data")]
+    public string[] characterNames;
+    public string currentCharacterName;
+
 
     // Expose the tile index safely
     public int CurrentPositionIndex
@@ -82,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log($"{name} START sprite BEFORE ApplyCharacter = {characterRenderer.sprite}");
         string scene = SceneManager.GetActiveScene().name;
         if (scene.Contains("Marble") || scene.Contains("Minigame"))
             return;
@@ -619,19 +626,37 @@ public class PlayerMovement : MonoBehaviour
     public void ApplyCharacter(int characterIndex)
     {
         characterId = characterIndex;
-        Debug.Log($"{name} ApplyCharacter({characterIndex})");
 
+        // Set sprite
         if (characterRenderer != null &&
             characterSprites != null &&
             characterIndex >= 0 &&
             characterIndex < characterSprites.Length)
         {
             characterRenderer.sprite = characterSprites[characterIndex];
-            Debug.Log($"{name}: renderer sprite AFTER = {characterRenderer.sprite}");
+        }
+
+        // Set animator controller
+        if (playerAnimator != null &&
+            characterAnimators != null &&
+            characterIndex >= 0 &&
+            characterIndex < characterAnimators.Length)
+        {
+            playerAnimator.runtimeAnimatorController = characterAnimators[characterIndex];
+        }
+
+        // Set character name
+        if (characterNames != null &&
+            characterIndex >= 0 &&
+            characterIndex < characterNames.Length)
+        {
+            currentCharacterName = characterNames[characterIndex];
+            playerName = currentCharacterName;   // IMPORTANT for DiceController
         }
         else
         {
-            Debug.LogWarning($"{name}: invalid characterIndex {characterIndex} or missing sprites/renderer");
+            currentCharacterName = "Unknown";
+            playerName = currentCharacterName;
         }
     }
 }
