@@ -10,23 +10,7 @@ public class MinigameLoader : MonoBehaviour
     // This is read by the minigame intro screen
     public static MinigameInfo nextMinigameInfo;
 
-    // Saves the current board scene name
-    private void SaveBoardScene()
-    {
-        string sceneName = SceneManager.GetActiveScene().name;
-        BoardStateSaver.lastBoardSceneName = sceneName;
-
-        Debug.Log("MinigameLoader: Saved board scene → " + sceneName);
-    }
-
-    // Saves board state before leaving
-    private void SaveBoardState()
-    {
-        BoardStateSaver.SavePlayerPositions();
-        BoardStateSaver.SaveBoardState();
-    }
-
-    // Generic loader for any minigame
+    // Load a minigame by name
     public void LoadMinigame(string minigameSceneName)
     {
         if (string.IsNullOrEmpty(minigameSceneName))
@@ -35,16 +19,22 @@ public class MinigameLoader : MonoBehaviour
             return;
         }
 
-        SaveBoardScene();
-        SaveBoardState();
+        // Save which board scene we came from
+        BoardStateSaver.lastBoardSceneName = SceneManager.GetActiveScene().name;
+
+        // Save full board state (positions, garbage, cage, stun, tile, character)
+        DiceController dice = FindFirstObjectByType<DiceController>();
+        if (dice != null)
+            dice.SaveBoardStateBeforeMinigame();
+
+        // Mark that we are returning after the minigame
+        BoardStateSaver.returningFromMinigame = true;
 
         Debug.Log("MinigameLoader: Loading minigame → " + minigameSceneName);
 
-        // Instead of loading the minigame directly,
-        // we load the LoadingScene which will load the minigame.
-        BoardStateSaver.nextMinigameScene = minigameSceneName;
-
-        SceneManager.LoadScene("LoadingScene");
+        // If you use a loading screen, load that instead
+        // Otherwise load the minigame directly
+        SceneManager.LoadScene(minigameSceneName);
     }
 
     // Convenience functions for specific minigames
@@ -58,5 +48,18 @@ public class MinigameLoader : MonoBehaviour
     {
         nextMinigameInfo = secretSequenceInfo;
         LoadMinigame("SecretSequence");
+    }
+
+    // Called by minigames when finished
+    public void ReturnToBoard()
+    {
+        if (!string.IsNullOrEmpty(BoardStateSaver.lastBoardSceneName))
+        {
+            SceneManager.LoadScene(BoardStateSaver.lastBoardSceneName);
+        }
+        else
+        {
+            Debug.LogWarning("MinigameLoader: No board scene saved!");
+        }
     }
 }
