@@ -88,36 +88,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log($"{name} START sprite BEFORE ApplyCharacter = {characterRenderer.sprite}");
-
         string scene = SceneManager.GetActiveScene().name;
 
         // Do nothing inside minigames
         if (scene.Contains("Marble") || scene.Contains("Minigame"))
             return;
 
-        // ❗ CRITICAL FIX:
-        // When returning from a minigame, DO NOT restore ANY state here.
-        // DiceController.RestoreBoardState() already restored:
-        // - position
-        // - tile index
-        // - board layer
-        // - cage
-        // - stun
-        // - character
-        // - garbage
+        // When returning from a minigame, DiceController already restored everything.
         if (BoardStateSaver.returningFromMinigame)
         {
             UpdateGarbageText();
             return;
         }
 
-        // --- NEW GAME ONLY BELOW THIS LINE ---
-
+        // NEW GAME ONLY
         if (targetWaypoints.Count == 0)
             return;
 
-        // New game: place players at their starting waypoint
         if (currentPositionIndex >= 0 && currentPositionIndex < targetWaypoints.Count)
         {
             Vector3 pos = targetWaypoints[currentPositionIndex].Position;

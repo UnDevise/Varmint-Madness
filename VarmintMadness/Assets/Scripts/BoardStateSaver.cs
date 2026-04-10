@@ -2,22 +2,17 @@
 
 public static class BoardStateSaver
 {
-    // --- GENERAL STATE ---
     public static string lastBoardSceneName = "";
     public static bool returningFromMinigame = false;
 
-    // --- PLAYER STATE ---
     public static Vector3[] playerPositions;
     public static int[] playerBoardLayer;
     public static int[] playerTileIndex;
     public static bool[] playerIsStunned;
     public static bool[] playerIsInCage;
     public static int[] playerGarbageCounts;
-
-    // ⭐ NEW: Character index for each player
     public static int[] playerCharacterIndices;
 
-    // --- CLEAR ALL SAVED DATA ---
     public static void Clear()
     {
         lastBoardSceneName = "";
