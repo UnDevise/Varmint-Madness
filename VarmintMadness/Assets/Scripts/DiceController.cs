@@ -10,7 +10,7 @@ public class DiceController : MonoBehaviour
     [Header("Player Settings")]
     public List<PlayerMovement> playersToMove;
     public int currentPlayerIndex = 0;
-    public int startingGarbage = 10;
+    public int startingGarbage = 1;
 
     [Header("Dice Settings")]
     public int diceSides = 6;
@@ -56,26 +56,44 @@ public class DiceController : MonoBehaviour
             // Initial character assignment from PlayerPrefs
             for (int i = 0; i < playersToMove.Count; i++)
             {
-                PlayerMovement player = playersToMove[i];
-
                 int charIndex = PlayerPrefs.GetInt($"P{i + 1}_Character", 0);
-                player.ApplyCharacter(charIndex);
+                playersToMove[i].ApplyCharacter(charIndex);
 
-                if (player.characterNames != null &&
+                if (playersToMove[i].characterNames != null &&
                     charIndex >= 0 &&
-                    charIndex < player.characterNames.Length)
+                    charIndex < playersToMove[i].characterNames.Length)
                 {
-                    player.playerName = player.characterNames[charIndex];
-                    player.currentCharacterName = player.characterNames[charIndex];
+                    playersToMove[i].playerName = playersToMove[i].characterNames[charIndex];
+                    playersToMove[i].currentCharacterName = playersToMove[i].characterNames[charIndex];
                 }
                 else
                 {
-                    player.playerName = player.gameObject.name;
-                    player.currentCharacterName = player.playerName;
+                    playersToMove[i].playerName = playersToMove[i].gameObject.name;
+                    playersToMove[i].currentCharacterName = playersToMove[i].playerName;
                 }
 
-                player.garbageCount = startingGarbage;
             }
+
+            // ⭐ FIX: Assign starting garbage on NEW GAME
+            for (int i = 0; i < playersToMove.Count; i++)
+            {
+                playersToMove[i].garbageCount = startingGarbage;
+            }
+
+            if (!BoardStateSaver.returningFromMinigame)
+            {
+                BoardStateSaver.playerCharacterIndices = new int[playersToMove.Count];
+
+                for (int i = 0; i < playersToMove.Count; i++)
+                {
+                    int charIndex = PlayerPrefs.GetInt($"P{i + 1}_Character", 0);
+
+                    playersToMove[i].ApplyCharacter(charIndex);
+
+                    BoardStateSaver.playerCharacterIndices[i] = charIndex; // ⭐ NEW
+                }
+            }
+
         }
 
         // UI setup
@@ -94,35 +112,45 @@ public class DiceController : MonoBehaviour
             player.garbageText = newText;
             player.UpdateGarbageText();
             player.SetDiceController(this);
-        }
 
-        if (physicsDiceTransform != null)
-        {
-            originalDicePosition = physicsDiceTransform.position;
-            originalDiceRotation = physicsDiceTransform.rotation;
-        }
 
-        if (fadeImage != null)
-        {
-            Color c = fadeImage.color;
-            c.a = 0f;
-            fadeImage.color = c;
-            fadeImage.raycastTarget = false;
+            if (physicsDiceTransform != null)
+            {
+                originalDicePosition = physicsDiceTransform.position;
+                originalDiceRotation = physicsDiceTransform.rotation;
+            }
+
+            if (fadeImage != null)
+            {
+                Color c = fadeImage.color;
+                c.a = 0f;
+                fadeImage.color = c;
+                fadeImage.raycastTarget = false;
+            }
         }
     }
 
     private void Start()
     {
+        // If this is a NEW GAME, wipe old save data
+        if (!BoardStateSaver.returningFromMinigame)
+        {
+            Debug.Log("NEW GAME — Clearing BoardStateSaver");
+            BoardStateSaver.Clear();
+        }
+
+        // Only restore if we actually came from a minigame
         if (BoardStateSaver.returningFromMinigame)
         {
+            Debug.Log("RETURNING FROM MINIGAME — Restoring state");
             RestoreBoardState();
-            BoardStateSaver.returningFromMinigame = false;
         }
 
         ApplyMarbleReward();
         SetFirstAvailablePlayer();
         StartCoroutine(BeginAfterRestore());
     }
+
 
     private IEnumerator BeginAfterRestore()
     {
@@ -308,7 +336,17 @@ public class DiceController : MonoBehaviour
 
     private void RestoreBoardState()
     {
-        if (BoardStateSaver.playerPositions == null) return;
+        // Prevent restore unless ALL data exists
+        if (BoardStateSaver.playerPositions == null ||
+            BoardStateSaver.playerGarbageCounts == null ||
+            BoardStateSaver.playerTileIndex == null ||
+            BoardStateSaver.playerBoardLayer == null)
+        {
+            Debug.Log("Restore skipped — incomplete data.");
+            return;
+        }
+
+        Debug.Log("RESTORING BOARD STATE...");
 
         for (int i = 0; i < playersToMove.Count; i++)
         {
@@ -320,19 +358,13 @@ public class DiceController : MonoBehaviour
             p.garbageCount = BoardStateSaver.playerGarbageCounts[i];
             p.CurrentPositionIndex = BoardStateSaver.playerTileIndex[i];
 
-            // Restore board layer
             if (BoardStateSaver.playerBoardLayer[i] == 1)
                 p.MoveToSewerBoard();
             else
                 p.MoveToTopBoard();
 
-            // Restore character
-            if (BoardStateSaver.playerCharacterIndices != null &&
-                i < BoardStateSaver.playerCharacterIndices.Length)
-            {
-                int charIndex = BoardStateSaver.playerCharacterIndices[i];
-                p.ApplyCharacter(charIndex);
-            }
+            if (BoardStateSaver.playerCharacterIndices != null)
+                p.ApplyCharacter(BoardStateSaver.playerCharacterIndices[i]);
 
             p.UpdateGarbageText();
         }
@@ -396,7 +428,7 @@ public class DiceController : MonoBehaviour
             BoardStateSaver.playerIsStunned[i] = p.IsStunned;
             BoardStateSaver.playerIsInCage[i] = p.IsInCage;
             BoardStateSaver.playerGarbageCounts[i] = p.garbageCount;
-            BoardStateSaver.playerCharacterIndices[i] = p.characterId;
+            BoardStateSaver.playerCharacterIndices[p.playerID] = p.characterId;
         }
     }
 }

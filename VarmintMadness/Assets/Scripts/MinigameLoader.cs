@@ -3,14 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class MinigameLoader : MonoBehaviour
 {
-    // Optional: assign MinigameInfo assets in the Inspector
+    // Optional: MinigameInfo assets (if your minigames use intro screens)
     public MinigameInfo blastInfo;
     public MinigameInfo secretSequenceInfo;
 
-    // This is read by the minigame intro screen
+    // Read by minigame intro screens
     public static MinigameInfo nextMinigameInfo;
 
-    // Load a minigame by name
+    // Load any minigame by name
     public void LoadMinigame(string minigameSceneName)
     {
         if (string.IsNullOrEmpty(minigameSceneName))
@@ -22,18 +22,19 @@ public class MinigameLoader : MonoBehaviour
         // Save which board scene we came from
         BoardStateSaver.lastBoardSceneName = SceneManager.GetActiveScene().name;
 
-        // Save full board state (positions, garbage, cage, stun, tile, character)
+        // Save full board state (positions, garbage, tile index, character, cage, stun)
         DiceController dice = FindFirstObjectByType<DiceController>();
         if (dice != null)
+        {
             dice.SaveBoardStateBeforeMinigame();
+        }
 
-        // Mark that we are returning after the minigame
+        // Mark that we are returning from a minigame
         BoardStateSaver.returningFromMinigame = true;
 
         Debug.Log("MinigameLoader: Loading minigame → " + minigameSceneName);
 
-        // If you use a loading screen, load that instead
-        // Otherwise load the minigame directly
+        // Load the minigame directly
         SceneManager.LoadScene(minigameSceneName);
     }
 

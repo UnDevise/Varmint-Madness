@@ -80,13 +80,19 @@ public class CharacterSelectManager : MonoBehaviour
             // --- SAVE DATA FOR BOARD SCENE ---
             PlayerPrefs.SetInt("TotalPlayers", totalPlayersToSelect);
 
+            // Save only the number of players actually selected
             for (int i = 0; i < lockedCharacterIndices.Count; i++)
             {
-                PlayerPrefs.SetInt("P" + (i + 1) + "_Character", lockedCharacterIndices[i]);
+                PlayerPrefs.SetInt($"P{i + 1}_Character", lockedCharacterIndices[i]);
                 Debug.Log($"Saved P{i + 1}_Character = {lockedCharacterIndices[i]}");
             }
 
             PlayerPrefs.Save();
+
+            // Reset board state so garbage doesn't get overwritten
+            BoardStateSaver.Clear();
+            BoardStateSaver.returningFromMinigame = false;
+
             // --- END SAVE ---
 
             SceneManager.LoadScene("Board Picker");

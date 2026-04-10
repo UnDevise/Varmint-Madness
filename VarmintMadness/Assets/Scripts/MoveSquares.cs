@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Character Data")]
     public string[] characterNames;
     public string currentCharacterName;
-
+    public int playerID;
 
     // Expose the tile index safely
     public int CurrentPositionIndex
@@ -89,69 +89,45 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         Debug.Log($"{name} START sprite BEFORE ApplyCharacter = {characterRenderer.sprite}");
+
         string scene = SceneManager.GetActiveScene().name;
+
+        // Do nothing inside minigames
         if (scene.Contains("Marble") || scene.Contains("Minigame"))
             return;
 
-        if (targetWaypoints.Count == 0) return;
-
-        if (BoardStateSaver.playerBoardLayer != null)
+        // ❗ CRITICAL FIX:
+        // When returning from a minigame, DO NOT restore ANY state here.
+        // DiceController.RestoreBoardState() already restored:
+        // - position
+        // - tile index
+        // - board layer
+        // - cage
+        // - stun
+        // - character
+        // - garbage
+        if (BoardStateSaver.returningFromMinigame)
         {
-            int index = diceController.playersToMove.IndexOf(this);
-
-            if (index >= 0)
-            {
-                bool shouldBeOnSewer = BoardStateSaver.playerBoardLayer[index] == 1;
-
-                if (shouldBeOnSewer)
-                    MoveToSewerBoard();
-                else
-                    MoveToTopBoard();
-            }
+            UpdateGarbageText();
+            return;
         }
 
-        if (BoardStateSaver.playerTileIndex != null)
+        // --- NEW GAME ONLY BELOW THIS LINE ---
+
+        if (targetWaypoints.Count == 0)
+            return;
+
+        // New game: place players at their starting waypoint
+        if (currentPositionIndex >= 0 && currentPositionIndex < targetWaypoints.Count)
         {
-            int index = diceController.playersToMove.IndexOf(this);
-
-            if (index >= 0)
-            {
-                currentPositionIndex = BoardStateSaver.playerTileIndex[index];
-
-                if (currentPositionIndex >= 0 && currentPositionIndex < targetWaypoints.Count)
-                {
-                    Vector3 pos = targetWaypoints[currentPositionIndex].Position;
-                    pos.z = spriteZPosition;
-                    transform.position = pos;
-                }
-            }
+            Vector3 pos = targetWaypoints[currentPositionIndex].Position;
+            pos.z = spriteZPosition;
+            transform.position = pos;
         }
 
-        if (BoardStateSaver.playerIsStunned != null)
-        {
-            int index = diceController.playersToMove.IndexOf(this);
-
-            if (index >= 0)
-                IsStunned = BoardStateSaver.playerIsStunned[index];
-        }
-
-        if (BoardStateSaver.playerIsInCage != null)
-        {
-            int index = diceController.playersToMove.IndexOf(this);
-
-            if (index >= 0)
-                IsInCage = BoardStateSaver.playerIsInCage[index];
-        }
-
-        if (IsInCage && cageTeleportPoint != null)
-        {
-            transform.position = cageTeleportPoint.position;
-            currentPositionIndex = -1;
-        }
-
-        diceController.CheckForWinner();
         UpdateGarbageText();
     }
+
 
     private void PlaySquareSound(AudioClip clip)
     {
