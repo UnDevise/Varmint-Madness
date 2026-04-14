@@ -1720,6 +1720,9 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 0
+  characterSprites: []
+  characterRenderer: {fileID: 0}
+  characterModels: []
   IsInCage: 0
   cageTeleportPoint: {fileID: 1032690125}
   marbleMinigameScenes: []
@@ -1736,12 +1739,17 @@ MonoBehaviour:
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
   currentPositionIndex: 0
+  originalWaypointsParent: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: 
+  characterAnimators: []
+  characterNames: []
+  currentCharacterName: 
+  playerID: 0
 --- !u!82 &115195885
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2753,6 +2761,9 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 0
+  characterSprites: []
+  characterRenderer: {fileID: 0}
+  characterModels: []
   IsInCage: 0
   cageTeleportPoint: {fileID: 1032690125}
   marbleMinigameScenes: []
@@ -2769,12 +2780,17 @@ MonoBehaviour:
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
   currentPositionIndex: 0
+  originalWaypointsParent: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: 
+  characterAnimators: []
+  characterNames: []
+  currentCharacterName: 
+  playerID: 0
 --- !u!82 &160574405
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5487,6 +5503,9 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 0
+  characterSprites: []
+  characterRenderer: {fileID: 0}
+  characterModels: []
   IsInCage: 0
   cageTeleportPoint: {fileID: 1032690125}
   marbleMinigameScenes: []
@@ -5503,12 +5522,17 @@ MonoBehaviour:
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
   currentPositionIndex: 0
+  originalWaypointsParent: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: 
+  characterAnimators: []
+  characterNames: []
+  currentCharacterName: 
+  playerID: 0
 --- !u!82 &316360536
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7484,6 +7508,10 @@ PrefabInstance:
     - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
       propertyPath: waitTimeBeforeResult
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+      propertyPath: diceSpawnOffsetFromCamera
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7938712182316308869, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
       propertyPath: m_Name
@@ -20531,6 +20559,9 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 0
+  characterSprites: []
+  characterRenderer: {fileID: 0}
+  characterModels: []
   IsInCage: 0
   cageTeleportPoint: {fileID: 1032690125}
   marbleMinigameScenes: []
@@ -20547,12 +20578,17 @@ MonoBehaviour:
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
   currentPositionIndex: 0
+  originalWaypointsParent: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: 
+  characterAnimators: []
+  characterNames: []
+  currentCharacterName: 
+  playerID: 0
 --- !u!82 &1687259124
 AudioSource:
   m_ObjectHideFlags: 0

@@ -4520,12 +4520,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+      propertyPath: diceController
+      value: 
+      objectReference: {fileID: 656428799}
+    - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
       propertyPath: diceResetPoint
       value: 
       objectReference: {fileID: 292431976}
     - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
       propertyPath: waitTimeBeforeResult
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+      propertyPath: diceSpawnOffsetFromCamera
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7938712182316308869, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
       propertyPath: m_Name
