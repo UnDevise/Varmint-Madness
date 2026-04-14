@@ -31,7 +31,7 @@ public class DebugOverlay : MonoBehaviour
 
         System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
-        sb.AppendLine("<b>=== DEBUG OVERLAY ===</b>\n");
+        sb.AppendLine("<b>=== DEBUG ===</b>\n");
 
         for (int i = 0; i < diceController.playersToMove.Count; i++)
         {
