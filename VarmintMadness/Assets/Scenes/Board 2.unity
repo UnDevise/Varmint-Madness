@@ -7135,9 +7135,26 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 4
+  characterSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterRenderer: {fileID: 364677209}
+  characterModels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   IsInCage: 0
   cageTeleportPoint: {fileID: 594161608}
-  marbleMinigameScenes: []
+  marbleMinigameScenes:
+  - MarbleMinigame
+  - MarbleMinigame2
+  - MarbleMinigame3
+  - MinigameBalloon
+  - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -7151,12 +7168,25 @@ MonoBehaviour:
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
   currentPositionIndex: 0
+  originalWaypointsParent: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: 
+  characterAnimators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterNames:
+  - 
+  - 
+  - 
+  - 
+  currentCharacterName: 
+  playerID: 0
 --- !u!82 &364677213
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7776,6 +7806,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &399554292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4208231884547995512, guid: 33a9ae2deb90b644291ab35b6a66d404, type: 3}
+  m_PrefabInstance: {fileID: 1963083210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &403351212
 GameObject:
   m_ObjectHideFlags: 0
@@ -9543,9 +9584,26 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 1
+  characterSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterRenderer: {fileID: 469768947}
+  characterModels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   IsInCage: 0
   cageTeleportPoint: {fileID: 594161608}
-  marbleMinigameScenes: []
+  marbleMinigameScenes:
+  - MarbleMinigame
+  - MarbleMinigame2
+  - MarbleMinigame3
+  - MinigameBalloon
+  - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -9559,12 +9617,17 @@ MonoBehaviour:
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
   currentPositionIndex: 0
+  originalWaypointsParent: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: 
+  characterAnimators: []
+  characterNames: []
+  currentCharacterName: 
+  playerID: 0
 --- !u!82 &469768951
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11496,9 +11559,26 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 2
+  characterSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterRenderer: {fileID: 599887787}
+  characterModels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   IsInCage: 0
   cageTeleportPoint: {fileID: 594161608}
-  marbleMinigameScenes: []
+  marbleMinigameScenes:
+  - MarbleMinigame
+  - MarbleMinigame2
+  - MarbleMinigame3
+  - MinigameBalloon
+  - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -11512,12 +11592,17 @@ MonoBehaviour:
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
   currentPositionIndex: 0
+  originalWaypointsParent: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: 
+  characterAnimators: []
+  characterNames: []
+  currentCharacterName: 
+  playerID: 0
 --- !u!82 &599887791
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12712,6 +12797,10 @@ PrefabInstance:
       value: D1
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: textSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: diceRoller
       value: 
       objectReference: {fileID: 1140524391}
@@ -12720,16 +12809,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 438404052}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: uiParentPanel
+      value: 
+      objectReference: {fileID: 1963083211}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: startXPosition
+      value: -800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: startYPosition
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: startingGarbage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: physicsDiceTransform
       value: 
       objectReference: {fileID: 1140524390}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: turnNotificationText
+      value: 
+      objectReference: {fileID: 399554292}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: playersToMove.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: roundMinigames.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'playersToMove.Array.data[0]'
@@ -12748,8 +12857,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 364677212}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[0]'
+      value: MarbleMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[1]'
+      value: MarbleMinigame2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[2]'
+      value: MarbleMinigame3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[3]'
+      value: MinigameBalloon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'roundMinigames.Array.data[4]'
       value: MinigameBlast
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[5]'
+      value: MinigameSecretSequence
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13035,7 +13164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1539248830295179926, guid: effcc2e51083b3c4985828e3c4ef913f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 1539248830295179926, guid: effcc2e51083b3c4985828e3c4ef913f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18536,9 +18665,26 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 3
+  characterSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterRenderer: {fileID: 1002477520}
+  characterModels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   IsInCage: 0
   cageTeleportPoint: {fileID: 594161608}
-  marbleMinigameScenes: []
+  marbleMinigameScenes:
+  - MarbleMinigame
+  - MarbleMinigame2
+  - MarbleMinigame3
+  - MinigameBalloon
+  - MinigameBlast
+  - MinigameSecretSequence
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -18552,12 +18698,17 @@ MonoBehaviour:
   bombExplosionFX: {fileID: 0}
   bombExplodeChance: 0.5
   currentPositionIndex: 0
+  originalWaypointsParent: {fileID: 0}
   spriteZPosition: -5
   garbageText: {fileID: 0}
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
   playerId: 
+  characterAnimators: []
+  characterNames: []
+  currentCharacterName: 
+  playerID: 0
 --- !u!82 &1002477524
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20587,7 +20738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 205349506661111621, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.31
+      value: -6.4
       objectReference: {fileID: 0}
     - target: {fileID: 205349506661111621, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20616,6 +20767,14 @@ PrefabInstance:
     - target: {fileID: 205349506661111621, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+      propertyPath: diceController
+      value: 
+      objectReference: {fileID: 1809600208}
+    - target: {fileID: 6659696158569363351, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
+      propertyPath: waitTimeBeforeResult
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7938712182316308869, guid: 5aa9d5a9a7a8aa5499a20dd52055320e, type: 3}
       propertyPath: m_Name
@@ -30567,6 +30726,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1809600208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+  m_PrefabInstance: {fileID: 645049781}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d8426127d9b9641a4eb41be4a1e99a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1814389430
 GameObject:
   m_ObjectHideFlags: 0
@@ -33975,6 +34145,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &2014514589
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1956804404998298147, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.73952
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956804404998298147, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.625489
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956804404998298147, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956804404998298147, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956804404998298147, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956804404998298147, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956804404998298147, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956804404998298147, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956804404998298147, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956804404998298147, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827794580662246441, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
+      propertyPath: m_Name
+      value: DiceResetPoint
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5df0261a03bb9de49a9765291eb3d13c, type: 3}
 --- !u!1 &2023432736
 GameObject:
   m_ObjectHideFlags: 0
@@ -35473,3 +35700,4 @@ SceneRoots:
   - {fileID: 1140524389}
   - {fileID: 645049781}
   - {fileID: 524569053}
+  - {fileID: 2014514589}
