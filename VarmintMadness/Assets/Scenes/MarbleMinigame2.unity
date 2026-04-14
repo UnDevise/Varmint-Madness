@@ -5829,9 +5829,9 @@ MonoBehaviour:
   ascendSpeed: 10
   waitAtBottom: 1
   waitAtTop: 1
-  platformOffset: 1
+  platformOffset: -1.5
   launchForce: 60
-  platformCollider2D: {fileID: 1412933266}
+  platformCollider2D: {fileID: 652298}
 --- !u!4 &2023609422
 Transform:
   m_ObjectHideFlags: 0
@@ -5841,7 +5841,7 @@ Transform:
   m_GameObject: {fileID: 2023609420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.9, y: 28.61, z: -0.016333215}
+  m_LocalPosition: {x: 43.92, y: 29, z: -0.016333215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
