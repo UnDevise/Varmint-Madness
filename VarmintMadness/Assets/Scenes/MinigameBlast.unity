@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 114698371}
   - component: {fileID: 114698370}
   - component: {fileID: 114698372}
+  - component: {fileID: 114698373}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -350,6 +351,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   playerIndex: 1
+--- !u!95 &114698373
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114698369}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &274189432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,6 +1277,7 @@ GameObject:
   - component: {fileID: 853298647}
   - component: {fileID: 853298646}
   - component: {fileID: 853298648}
+  - component: {fileID: 853298649}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Untagged
@@ -1345,6 +1369,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   playerIndex: 2
+--- !u!95 &853298649
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853298645}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb60b1f62294c8f408359bd17b42d721, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1003092487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,6 +1738,7 @@ GameObject:
   - component: {fileID: 1605964159}
   - component: {fileID: 1605964158}
   - component: {fileID: 1605964160}
+  - component: {fileID: 1605964161}
   m_Layer: 0
   m_Name: Player (3)
   m_TagString: Untagged
@@ -1783,6 +1830,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   playerIndex: 4
+--- !u!95 &1605964161
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605964157}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1895824955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,6 +1863,7 @@ GameObject:
   - component: {fileID: 1895824957}
   - component: {fileID: 1895824956}
   - component: {fileID: 1895824958}
+  - component: {fileID: 1895824959}
   m_Layer: 0
   m_Name: Player (2)
   m_TagString: Untagged
@@ -1885,6 +1955,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   playerIndex: 3
+--- !u!95 &1895824959
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895824955}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a598e54daa911614cbcd16f251591689, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1898248838
 GameObject:
   m_ObjectHideFlags: 0

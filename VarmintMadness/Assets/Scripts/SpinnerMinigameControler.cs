@@ -7,6 +7,18 @@ public class SpinnerMinigameController : MonoBehaviour
     public Rigidbody2D spinnerRb;
     public float minSpinForce = 500f;
     public float maxSpinForce = 1200f;
+    private bool hasSpun = false;
+    public List<string> availableColors = new List<string>();
+    public GameObject colorBoxPrefab;
+    public Transform canvasParent; // assign your Canvas here
+
+
+    void Start()
+    {
+        AssignRandomColorsToPlayers();
+    }
+
+
 
     // Player picks a color → store it here
     private Dictionary<string, string> playerColorChoice = new Dictionary<string, string>();
@@ -21,13 +33,18 @@ public class SpinnerMinigameController : MonoBehaviour
     {
         float randomForce = Random.Range(minSpinForce, maxSpinForce);
         spinnerRb.AddTorque(randomForce);
+
+        hasSpun = true; // <-- IMPORTANT
     }
+
     public PointerDetector pointer;
     public float stopThreshold = 5f; // how slow the wheel must be to count as stopped
     private bool resultChecked = false;
 
     void Update()
     {
+        if (!hasSpun) return; // don't check until spun
+
         if (!resultChecked && Mathf.Abs(spinnerRb.angularVelocity) < stopThreshold)
         {
             resultChecked = true;
@@ -71,5 +88,30 @@ public class SpinnerMinigameController : MonoBehaviour
     {
         SceneManager.LoadScene("LoadingScene");
     }
+    public void AssignRandomColorsToPlayers()
+    {
+        playerColorChoice.Clear();
 
+        PlayerMovement[] players = FindObjectsOfType<PlayerMovement>();
+
+        foreach (var p in players)
+        {
+            string randomColorName = availableColors[Random.Range(0, availableColors.Count)];
+            playerColorChoice[p.playerId] = randomColorName;
+
+            // Convert string → Unity Color
+            Color colorValue;
+            if (!ColorUtility.TryParseHtmlString(randomColorName, out colorValue))
+                colorValue = Color.white;
+
+            // Spawn UI box
+            GameObject box = Instantiate(colorBoxPrefab, canvasParent);
+            PlayerColorBoxUI ui = box.GetComponent<PlayerColorBoxUI>();
+
+            ui.target = p.transform; // follow the player
+            ui.SetColor(colorValue);
+
+            Debug.Log($"{p.playerName} assigned color: {randomColorName}");
+        }
+    }
 }
