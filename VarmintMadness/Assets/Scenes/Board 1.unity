@@ -116243,6 +116243,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebugOverlayText
       objectReference: {fileID: 0}
+    - target: {fileID: 3623517817999987701, guid: fa003e35cd0a6d34186ff90849415d5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211038995874888225, guid: fa003e35cd0a6d34186ff90849415d5d, type: 3}
+      propertyPath: m_fontSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211038995874888225, guid: fa003e35cd0a6d34186ff90849415d5d, type: 3}
+      propertyPath: m_margin.w
+      value: -749.88885
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211038995874888225, guid: fa003e35cd0a6d34186ff90849415d5d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7001932963828395044, guid: fa003e35cd0a6d34186ff90849415d5d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

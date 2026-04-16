@@ -35,6 +35,12 @@ public class DebugOverlay : MonoBehaviour
 
         for (int i = 0; i < diceController.playersToMove.Count; i++)
         {
+            float fps = 1f / Time.deltaTime;
+            sb.AppendLine($"FPS: {fps:F1}");
+
+            long mem = System.GC.GetTotalMemory(false) / (1024 * 1024);
+            sb.AppendLine($"Memory: {mem} MB");
+
             PlayerMovement p = diceController.playersToMove[i];
 
             sb.AppendLine($"<b>Player {i + 1}</b>");
