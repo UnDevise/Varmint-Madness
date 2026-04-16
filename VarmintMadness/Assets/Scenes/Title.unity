@@ -15189,6 +15189,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 811705675}
     m_Modifications:
+    - target: {fileID: 2002433187328189090, guid: 6f6d703bcdb04f24f8121dc91af0092a, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3135181257190820258, guid: 6f6d703bcdb04f24f8121dc91af0092a, type: 3}
       propertyPath: m_Name
       value: TitleText
