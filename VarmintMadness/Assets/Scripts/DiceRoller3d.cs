@@ -26,6 +26,7 @@ public class DiceRoller : MonoBehaviour
     private bool canRoll = true;
     private bool hasLanded = false;
     private bool thrown = false;
+    public Transform diceResetPoint;
 
     private Camera mainCamera;
     public float diceSpawnOffsetFromCamera = 10f;
@@ -132,6 +133,7 @@ public class DiceRoller : MonoBehaviour
             thrown = false;
             canRoll = true;
             isRolling = false;
+            ResetDice();
         }
     }
 
@@ -155,4 +157,27 @@ public class DiceRoller : MonoBehaviour
 
         return result;
     }
+    public void ResetDice()
+    {
+        rb.isKinematic = true;
+        rb.useGravity = false;
+
+        // Reset position & rotation
+        transform.position = diceResetPoint.position;
+        transform.rotation = diceResetPoint.rotation;
+
+        // Reset physics
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        // Hide dice until next roll
+        if (diceRenderer != null)
+            diceRenderer.enabled = false;
+
+        thrown = false;
+        hasLanded = false;
+        isRolling = false;
+        canRoll = true;
+    }
+
 }

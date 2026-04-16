@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.Audio;
+using System.Linq;
 
 public class ScissorLift : MonoBehaviour
 {
@@ -24,15 +26,17 @@ public class ScissorLift : MonoBehaviour
     public float platformOffset = 0f;
 
     [Header("Bounce Settings")]
-    public float launchForce = 25f;   // Increase for stronger launch
+    public float launchForce = 60f;
 
     private float currentHeight;
     private bool goingUp = false;
     private float timer;
+    public Collider2D platformCollider2D;
+
 
     private float spriteHeight;
 
-    private List<Rigidbody> marblesOnPlatform = new List<Rigidbody>();
+    private List<Rigidbody2D> marblesOnPlatform = new List<Rigidbody2D>();
 
     void Start()
     {
@@ -41,6 +45,10 @@ public class ScissorLift : MonoBehaviour
 
         currentHeight = maxHeight;
         UpdateLift();
+    }
+    private void Awake()
+    {
+        FindPlatformCollider();
     }
 
     void Update()
@@ -93,53 +101,90 @@ public class ScissorLift : MonoBehaviour
 
     void LaunchMarbles()
     {
-        foreach (Rigidbody rb in marblesOnPlatform)
-        {
-            if (rb != null)
-                StartCoroutine(LaunchRoutine(rb));
-        }
+        if (platformCollider2D != null)
+            platformCollider2D.enabled = false;
+
+        foreach (Rigidbody2D rb in marblesOnPlatform)
+            StartCoroutine(LaunchRoutine(rb));
+
+        StartCoroutine(ReenablePlatformCollider());
     }
 
-    IEnumerator LaunchRoutine(Rigidbody rb)
+    IEnumerator ReenablePlatformCollider()
     {
-        Collider col = rb.GetComponent<Collider>();
+        yield return new WaitForSeconds(0.2f);
 
-        // Disable collider so it doesn't stick to the platform
-        if (col != null)
-            col.enabled = false;
-
-        // Reset downward velocity
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-
-        // Apply strong upward impulse
-        rb.AddForce(Vector3.up * launchForce, ForceMode.Impulse);
-
-        // Optional: small sideways randomness
-        rb.AddForce(new Vector3(
-            Random.Range(-1f, 1f),
-            0f,
-            Random.Range(-1f, 1f)
-        ) * (launchForce * 0.2f), ForceMode.Impulse);
-
-        // Wait briefly before re-enabling collider
-        yield return new WaitForSeconds(0.05f);
-
-        if (col != null)
-            col.enabled = true;
+        if (platformCollider2D != null)
+            platformCollider2D.enabled = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    IEnumerator LaunchRoutine(Rigidbody2D rb)
     {
-        Rigidbody rb = other.attachedRigidbody;
+        // Disable ALL marble colliders
+        foreach (var c in rb.GetComponents<Collider2D>())
+            c.enabled = false;
+
+        // Move marble up slightly so it's not touching anything
+        rb.position += Vector2.up * 0.2f;
+        yield return null; // wait 1 frame
+
+        // Reset velocity
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+
+        // Launch
+        rb.AddForce(Vector2.up * launchForce, ForceMode2D.Impulse);
+
+        // Re-enable colliders after short delay
+        yield return new WaitForSeconds(0.15f);
+
+        foreach (var c in rb.GetComponents<Collider2D>())
+            c.enabled = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Rigidbody2D rb = other.attachedRigidbody;
         if (rb != null && !marblesOnPlatform.Contains(rb))
             marblesOnPlatform.Add(rb);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        Rigidbody rb = other.attachedRigidbody;
+        Rigidbody2D rb = other.attachedRigidbody;
         if (rb != null)
             marblesOnPlatform.Remove(rb);
+    }
+
+    private void FindPlatformCollider()
+    {
+        Transform holder = transform.Find("LiftHolderScaled");
+
+        if (holder == null)
+        {
+            Debug.LogError("ScissorLift: Could not find LiftHolderScaled in children!");
+            return;
+        }
+
+        Collider2D[] cols = holder.GetComponents<Collider2D>();
+
+        if (cols.Length == 0)
+        {
+            Debug.LogError("ScissorLift: LiftHolderScaled has no 2D colliders!");
+            return;
+        }
+
+        foreach (Collider2D c in cols)
+        {
+            if (!c.isTrigger)
+            {
+                platformCollider2D = c;
+                Debug.Log("ScissorLift: Found platform solid collider: " + c.name);
+                return;
+            }
+        }
+
+        Debug.LogError("ScissorLift: No solid 2D collider found on LiftHolderScaled!");
     }
 }

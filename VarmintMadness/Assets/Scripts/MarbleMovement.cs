@@ -39,8 +39,12 @@ public class MarbleMovement : MonoBehaviour
     {
         if (!raceStarted)
         {
-            rb.linearVelocity = Vector2.zero;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
             return;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
         }
 
         CheckIfStuck();
