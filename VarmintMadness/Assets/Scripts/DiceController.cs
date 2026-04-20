@@ -64,48 +64,24 @@ public class DiceController : MonoBehaviour
             for (int i = 0; i < playersToMove.Count; i++)
             {
                 PlayerMovement p = playersToMove[i];
-                int id = p.playerID;   // id = 0,1,2,3
+                int id = p.playerID;
 
-                // ⭐ Load correct character for this player
                 int charIndex = PlayerPrefs.GetInt($"P{id + 1}_Character", 0);
 
-                // ⭐ Apply character ONCE here (PlayerMovement.Start no longer does it)
                 p.ApplyCharacter(charIndex);
 
-                // Save for board restore
                 BoardStateSaver.playerCharacterIndices[id] = charIndex;
 
-                // Starting garbage
                 p.garbageCount = startingGarbage;
             }
 
-            // Debug check
             for (int i = 0; i < playersToMove.Count; i++)
             {
                 Debug.Log($"PLAYER OBJECT CHECK: index={i}, name={playersToMove[i].name}, playerID={playersToMove[i].playerID}");
             }
         }
 
-        // UI setup
-        for (int i = 0; i < playersToMove.Count; i++)
-        {
-            PlayerMovement player = playersToMove[i];
-
-            TextMeshProUGUI newText = Instantiate(playerGarbageTextPrefab, uiParentPanel);
-            newText.fontSize = textSize;
-            newText.rectTransform.anchoredPosition =
-                new Vector2(startXPosition, startYPosition - i * uiElementSpacing);
-
-            if (string.IsNullOrEmpty(player.playerName))
-                player.playerName = player.gameObject.name;
-
-            player.garbageText = newText;
-            player.UpdateGarbageText();
-            player.SetDiceController(this);
-        }
-
-
-        // UI setup
+        // ⭐ UI setup (ONLY ONCE)
         for (int i = 0; i < playersToMove.Count; i++)
         {
             PlayerMovement player = playersToMove[i];
@@ -123,7 +99,6 @@ public class DiceController : MonoBehaviour
             player.SetDiceController(this);
         }
     }
-
 
     private void Start()
     {

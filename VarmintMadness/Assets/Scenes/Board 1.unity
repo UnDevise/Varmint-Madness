@@ -44422,7 +44422,7 @@ GameObject:
   - component: {fileID: 821826323}
   - component: {fileID: 821826324}
   m_Layer: 0
-  m_Name: Opossum Luke
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44556,7 +44556,6 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  playerId: 1
   characterAnimators:
   - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
   - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
@@ -48022,7 +48021,7 @@ GameObject:
   - component: {fileID: 873121442}
   - component: {fileID: 873121443}
   m_Layer: 0
-  m_Name: Raccoon Travis
+  m_Name: Player3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48156,7 +48155,6 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  playerId: 2
   characterAnimators:
   - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
   - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
@@ -80541,7 +80539,7 @@ GameObject:
   - component: {fileID: 1511254935}
   - component: {fileID: 1511254936}
   m_Layer: 0
-  m_Name: Chipmunk Bella
+  m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80675,7 +80673,6 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  playerId: 0
   characterAnimators:
   - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
   - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
@@ -104304,7 +104301,7 @@ GameObject:
   - component: {fileID: 1938905690}
   - component: {fileID: 1938905691}
   m_Layer: 0
-  m_Name: Fox Jaidyn
+  m_Name: Player4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104438,7 +104435,6 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  playerId: 3
   characterAnimators:
   - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
   - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
