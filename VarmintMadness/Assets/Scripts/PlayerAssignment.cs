@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerAssignment : MonoBehaviour
 {
@@ -16,24 +16,24 @@ public class PlayerAssignment : MonoBehaviour
 
         for (int i = 0; i < totalPlayers; i++)
         {
+            // Load saved character
             int characterIndex = PlayerPrefs.GetInt("P" + (i + 1) + "_Character", -1);
 
             PlayerMovement pm = players[i];
 
             Debug.Log($"{pm.name}: characterIndex = {characterIndex}, renderer = {pm.characterRenderer}");
 
-            pm.playerId = "P" + (i + 1);
-            pm.ApplyCharacter(characterIndex);
+            // ⭐ Assign correct numeric playerID (0,1,2,3)
+            pm.playerID = i;
 
             if (characterIndex == -1)
             {
-                Debug.LogWarning($"Player {i + 1} has no saved character � skipping ApplyCharacter.");
+                Debug.LogWarning($"Player {i + 1} has no saved character — skipping ApplyCharacter.");
             }
             else
             {
                 pm.ApplyCharacter(characterIndex);
             }
-
         }
     }
 }

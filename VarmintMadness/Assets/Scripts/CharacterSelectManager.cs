@@ -199,4 +199,5 @@ public class CharacterSelectManager : MonoBehaviour
         }
         backgroundPanel.color = targetColor;
     }
+
 }

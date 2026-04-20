@@ -59,7 +59,6 @@ public class PlayerMovement : MonoBehaviour
     public TrainController trainController;
     private Animator playerAnimator;
     private AudioSource audioSource;
-    public string playerId;
     public RuntimeAnimatorController[] characterAnimators;
     public int CurrentBoardLayer { get; set; } = 0;
 
@@ -90,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
     {
         string scene = SceneManager.GetActiveScene().name;
 
-        // Do nothing inside minigames
+        // Skip initialization inside minigames
         if (scene.Contains("Marble") || scene.Contains("Minigame"))
             return;
 
@@ -105,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
         if (targetWaypoints.Count == 0)
             return;
 
+        // Position player at correct tile
         if (currentPositionIndex >= 0 && currentPositionIndex < targetWaypoints.Count)
         {
             Vector3 pos = targetWaypoints[currentPositionIndex].Position;
@@ -114,7 +114,6 @@ public class PlayerMovement : MonoBehaviour
 
         UpdateGarbageText();
     }
-
 
     private void PlaySquareSound(AudioClip clip)
     {

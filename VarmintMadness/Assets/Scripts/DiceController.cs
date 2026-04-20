@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
+using System.Linq;
 
 public class DiceController : MonoBehaviour
 {
@@ -42,13 +43,18 @@ public class DiceController : MonoBehaviour
 
     private void Awake()
     {
-        if (startingGarbage <= 0) startingGarbage = 5;
+        if (startingGarbage <= 0)
+            startingGarbage = 5;
 
         if (uiParentPanel == null)
         {
             Canvas canvas = Object.FindAnyObjectByType<Canvas>();
-            if (canvas != null) uiParentPanel = canvas.transform;
+            if (canvas != null)
+                uiParentPanel = canvas.transform;
         }
+
+        // ⭐ SORT PLAYERS BY playerID BEFORE DOING ANYTHING
+        playersToMove = playersToMove.OrderBy(p => p.playerID).ToList();
 
         // NEW GAME ONLY
         if (!BoardStateSaver.returningFromMinigame)
@@ -58,21 +64,26 @@ public class DiceController : MonoBehaviour
             for (int i = 0; i < playersToMove.Count; i++)
             {
                 PlayerMovement p = playersToMove[i];
-                int id = p.playerID;
+                int id = p.playerID;   // id = 0,1,2,3
 
+                // ⭐ Load correct character for this player
                 int charIndex = PlayerPrefs.GetInt($"P{id + 1}_Character", 0);
 
+                // ⭐ Apply character ONCE here (PlayerMovement.Start no longer does it)
                 p.ApplyCharacter(charIndex);
+
+                // Save for board restore
                 BoardStateSaver.playerCharacterIndices[id] = charIndex;
 
+                // Starting garbage
                 p.garbageCount = startingGarbage;
             }
 
+            // Debug check
             for (int i = 0; i < playersToMove.Count; i++)
             {
                 Debug.Log($"PLAYER OBJECT CHECK: index={i}, name={playersToMove[i].name}, playerID={playersToMove[i].playerID}");
             }
-
         }
 
         // UI setup
@@ -92,7 +103,27 @@ public class DiceController : MonoBehaviour
             player.UpdateGarbageText();
             player.SetDiceController(this);
         }
+
+
+        // UI setup
+        for (int i = 0; i < playersToMove.Count; i++)
+        {
+            PlayerMovement player = playersToMove[i];
+
+            TextMeshProUGUI newText = Instantiate(playerGarbageTextPrefab, uiParentPanel);
+            newText.fontSize = textSize;
+            newText.rectTransform.anchoredPosition =
+                new Vector2(startXPosition, startYPosition - i * uiElementSpacing);
+
+            if (string.IsNullOrEmpty(player.playerName))
+                player.playerName = player.gameObject.name;
+
+            player.garbageText = newText;
+            player.UpdateGarbageText();
+            player.SetDiceController(this);
+        }
     }
+
 
     private void Start()
     {

@@ -16,7 +16,7 @@ public class SpinnerMinigameController : MonoBehaviour
     private bool canSpin = true;    // <-- prevents double spins
 
     // Player → assigned color
-    private Dictionary<string, string> playerColorChoice = new Dictionary<string, string>();
+    Dictionary<int, string> playerColorChoice = new Dictionary<int, string>();
 
     void Start()
     {
@@ -57,7 +57,9 @@ public class SpinnerMinigameController : MonoBehaviour
         foreach (var p in players)
         {
             string randomColor = pointer.availableColors[Random.Range(0, pointer.availableColors.Count)];
-            playerColorChoice[p.playerId] = randomColor;
+
+            // ✅ key is int now
+            playerColorChoice[p.playerID] = randomColor;
 
             Debug.Log($"{p.playerName} assigned color: {randomColor}");
         }
@@ -70,26 +72,27 @@ public class SpinnerMinigameController : MonoBehaviour
 
         foreach (var entry in playerColorChoice)
         {
+            // entry.Key is int, entry.Value is string
             if (entry.Value == winningColor)
             {
-                AwardGarbage(entry.Key);
+                AwardGarbage(entry.Key);   // ✅ entry.Key is int
             }
         }
 
         ReturnToBoard();
     }
 
-    void AwardGarbage(string playerId)
+    void AwardGarbage(int playerID)
     {
         PlayerMovement[] players = FindObjectsOfType<PlayerMovement>();
 
         foreach (var p in players)
         {
-            if (p.playerId == playerId)
+            if (p.playerID == playerID)   // ✅ int == int
             {
                 p.garbageCount += 10;
                 p.UpdateGarbageText();
-                Debug.Log(playerId + " won 10 garbage!");
+                Debug.Log($"Player {playerID} won 10 garbage!");
             }
         }
     }
