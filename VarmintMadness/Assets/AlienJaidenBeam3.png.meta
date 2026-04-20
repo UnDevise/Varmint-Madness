@@ -148,6 +148,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -472,7 +485,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AlienJaidenBeam3_0: 1465457411031498151
+      AlienJaidenBeam3_1: 6803285398186285400
+      AlienJaidenBeam3_10: -6728069565880017841
+      AlienJaidenBeam3_11: 2007760288497446373
+      AlienJaidenBeam3_12: 4045317401371868255
+      AlienJaidenBeam3_13: -1207715398818242258
+      AlienJaidenBeam3_2: 7941537044093557227
+      AlienJaidenBeam3_3: -7807232774930924666
+      AlienJaidenBeam3_4: -1768413068585484401
+      AlienJaidenBeam3_5: 4466655435789738156
+      AlienJaidenBeam3_6: -8599306161927689872
+      AlienJaidenBeam3_7: -5842329552711219449
+      AlienJaidenBeam3_8: 2572813361939517540
+      AlienJaidenBeam3_9: 6098279436464707763
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
