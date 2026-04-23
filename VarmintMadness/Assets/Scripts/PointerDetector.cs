@@ -1,18 +1,59 @@
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PointerDetector : MonoBehaviour
 {
-    public List<string> availableColors;
-    public string currentColor;
+    public Color[] availableColors;
+    public SpriteRenderer spinner;
 
+    private int currentColorIndex = 0;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Start()
     {
-        SpinnerSlice slice = collision.GetComponent<SpinnerSlice>();
-        if (slice != null)
+        if (spinner == null)
         {
-            currentColor = slice.sliceColor;
+            Debug.LogError("PointerDetector: Spinner SpriteRenderer is not assigned.");
+            return;
         }
+
+        if (availableColors == null || availableColors.Length == 0)
+        {
+            Debug.LogError("PointerDetector: No colors assigned in availableColors.");
+            return;
+        }
+
+        ApplyColor();
     }
+
+    public void NextColor()
+    {
+        if (availableColors == null || availableColors.Length == 0) return;
+
+        currentColorIndex++;
+        if (currentColorIndex >= availableColors.Length)
+            currentColorIndex = 0;
+
+        ApplyColor();
+    }
+
+    public void PreviousColor()
+    {
+        if (availableColors == null || availableColors.Length == 0) return;
+
+        currentColorIndex--;
+        if (currentColorIndex < 0)
+            currentColorIndex = availableColors.Length - 1;
+
+        ApplyColor();
+    }
+
+    private void ApplyColor()
+    {
+        if (spinner == null) return;
+        if (availableColors == null || availableColors.Length == 0) return;
+
+        spinner.color = availableColors[currentColorIndex];
+    }
+
+    // ⭐ THIS is what SpinnerMinigameController is trying to use
+    public Color CurrentColor => availableColors[currentColorIndex];
 }

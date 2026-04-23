@@ -12,11 +12,11 @@ public class SpinnerMinigameController : MonoBehaviour
     public float stopThreshold = 5f;
 
     private bool resultChecked = false;
-    private bool hasSpun = false;   // <-- prevents instant finish
-    private bool canSpin = true;    // <-- prevents double spins
+    private bool hasSpun = false;
+    private bool canSpin = true;
 
     // Player → assigned color
-    Dictionary<int, string> playerColorChoice = new Dictionary<int, string>();
+    Dictionary<int, Color> playerColorChoice = new Dictionary<int, Color>();
 
     void Start()
     {
@@ -31,7 +31,6 @@ public class SpinnerMinigameController : MonoBehaviour
         hasSpun = true;
 
         float randomForce = Random.Range(minSpinForce, maxSpinForce);
-
         spinnerRb.AddTorque(randomForce, ForceMode2D.Impulse);
 
         Debug.Log("SPIN BUTTON CLICKED — torque applied: " + randomForce);
@@ -56,9 +55,8 @@ public class SpinnerMinigameController : MonoBehaviour
 
         foreach (var p in players)
         {
-            string randomColor = pointer.availableColors[Random.Range(0, pointer.availableColors.Count)];
+            Color randomColor = pointer.availableColors[Random.Range(0, pointer.availableColors.Length)];
 
-            // ✅ key is int now
             playerColorChoice[p.playerID] = randomColor;
 
             Debug.Log($"{p.playerName} assigned color: {randomColor}");
@@ -67,15 +65,14 @@ public class SpinnerMinigameController : MonoBehaviour
 
     void CheckWinner()
     {
-        string winningColor = pointer.currentColor;
+        Color winningColor = pointer.CurrentColor;
         Debug.Log("Spinner landed on: " + winningColor);
 
         foreach (var entry in playerColorChoice)
         {
-            // entry.Key is int, entry.Value is string
             if (entry.Value == winningColor)
             {
-                AwardGarbage(entry.Key);   // ✅ entry.Key is int
+                AwardGarbage(entry.Key);
             }
         }
 
@@ -88,7 +85,7 @@ public class SpinnerMinigameController : MonoBehaviour
 
         foreach (var p in players)
         {
-            if (p.playerID == playerID)   // ✅ int == int
+            if (p.playerID == playerID)
             {
                 p.garbageCount += 10;
                 p.UpdateGarbageText();
