@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WinnerThemePlayer : MonoBehaviour
 {
@@ -8,28 +8,47 @@ public class WinnerThemePlayer : MonoBehaviour
     public AudioClip[] characterThemes;
     // 0 = Chipmunk, 1 = Fox, 2 = Opossum, 3 = Raccoon
 
-    private int winnerCharacter;
     private bool hasPlayed = false;
 
     void Awake()
     {
         Instance = this;
-        winnerCharacter = PlayerPrefs.GetInt("WinnerCharacter", 0);
     }
 
     public void PlayWinnerTheme()
     {
         if (hasPlayed) return;
 
-        if (winnerCharacter >= 0 && winnerCharacter < characterThemes.Length)
+        string winnerName = WinnerData.WinnerName;
+
+        // ⭐ ADD THIS LINE
+        Debug.Log("Winner name is: " + winnerName);
+
+        switch (winnerName)
         {
-            musicSource.clip = characterThemes[winnerCharacter];
-            musicSource.Play();
-            hasPlayed = true;
+            case "Chipmunk":
+                musicSource.clip = characterThemes[0];
+                break;
+
+            case "Fox":
+                musicSource.clip = characterThemes[1];
+                break;
+
+            case "Opossum":
+                musicSource.clip = characterThemes[2];
+                break;
+
+            case "Raccoon":
+                musicSource.clip = characterThemes[3];
+                break;
+
+            default:
+                Debug.LogWarning("Unknown winner name: " + winnerName);
+                return;
         }
-        else
-        {
-            Debug.LogWarning("Winner character index out of range!");
-        }
+
+        musicSource.Play();
+        hasPlayed = true;
     }
+
 }
