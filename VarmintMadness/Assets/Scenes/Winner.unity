@@ -473,7 +473,7 @@ MonoBehaviour:
   musicSource: {fileID: 1189847835}
   characterThemes:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 2d7b2b5e42771dd4b83adff70f6a1e40, type: 3}
   - {fileID: 8300000, guid: d98eb79feb4217b4d83f4920567f1e4e, type: 3}
   - {fileID: 8300000, guid: dbbdc49dfabc98543ae7027a3c6898d7, type: 3}
 --- !u!4 &859243494
