@@ -2,36 +2,37 @@
 
 public class PlayerAssignment : MonoBehaviour
 {
-    public PlayerMovement[] players;
+    public PlayerMovement[] players; // Assign all 4 in Inspector
 
     void Start()
     {
-        Debug.Log("Loaded P1_Character = " + PlayerPrefs.GetInt("P1_Character", -1));
-        Debug.Log("Loaded P2_Character = " + PlayerPrefs.GetInt("P2_Character", -1));
-        Debug.Log("Loaded P3_Character = " + PlayerPrefs.GetInt("P3_Character", -1));
-        Debug.Log("Loaded P4_Character = " + PlayerPrefs.GetInt("P4_Character", -1));
-
         int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
         Debug.Log($"TotalPlayers = {totalPlayers}");
 
-        for (int i = 0; i < totalPlayers; i++)
+        for (int i = 0; i < players.Length; i++)
         {
-            int characterIndex = PlayerPrefs.GetInt("P" + (i + 1) + "_Character", -1);
-
             PlayerMovement pm = players[i];
 
-            Debug.Log($"{pm.name}: characterIndex = {characterIndex}, renderer = {pm.characterRenderer}");
-
-            // ⭐ FIXED: Player IDs start at 1, not 0
-            pm.playerID = i + 1;
-
-            if (characterIndex == -1)
+            if (i < totalPlayers)
             {
-                Debug.LogWarning($"Player {i + 1} has no saved character — skipping ApplyCharacter.");
+                // ENABLE active players
+                pm.gameObject.SetActive(true);
+
+                // Correct playerID (1–4)
+                pm.playerID = i + 1;
+
+                // Load saved character
+                int characterIndex = PlayerPrefs.GetInt($"P{pm.playerID}_Character", -1);
+
+                Debug.Log($"Assigning Player {pm.playerID} → Character {characterIndex}");
+
+                if (characterIndex != -1)
+                    pm.ApplyCharacter(characterIndex);
             }
             else
             {
-                pm.ApplyCharacter(characterIndex);
+                // DISABLE unused players
+                pm.gameObject.SetActive(false);
             }
         }
     }
