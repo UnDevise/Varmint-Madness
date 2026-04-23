@@ -1011,6 +1011,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &249624539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249624541}
+  - component: {fileID: 249624540}
+  m_Layer: 0
+  m_Name: Marble Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &249624540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249624539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04023a1a748290e48b8ed20310645fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableSkins:
+  - skinName: Red
+    sprite: {fileID: -3574360717247113170, guid: bee30513f8888a34b89aa82078dec90b, type: 3}
+    weight: 50
+    animatorOverride: {fileID: 0}
+  - skinName: Orange
+    sprite: {fileID: 3102294440668106547, guid: be56092567dfed845ab8c46fda86d75d, type: 3}
+    weight: 50
+    animatorOverride: {fileID: 0}
+  - skinName: Yellow
+    sprite: {fileID: 5624660707494180916, guid: 4dafa72f74c6c7442b45a9661af405fe, type: 3}
+    weight: 40
+    animatorOverride: {fileID: 0}
+  - skinName: Green
+    sprite: {fileID: 7849475948709918922, guid: 9df39807e5af44d4193593d9952eb19d, type: 3}
+    weight: 50
+    animatorOverride: {fileID: 0}
+  - skinName: Blue
+    sprite: {fileID: 1707634081799944506, guid: 0a599f9334fdfdd4a84c2f66643c5056, type: 3}
+    weight: 50
+    animatorOverride: {fileID: 0}
+  - skinName: Purple
+    sprite: {fileID: 4681298122119101741, guid: a41affe0921fb1747b2ace2ddae480c3, type: 3}
+    weight: 50
+    animatorOverride: {fileID: 0}
+  - skinName: Pink
+    sprite: {fileID: 917236320976184656, guid: 34435ed49ef4d6c448488e7dde398a07, type: 3}
+    weight: 30
+    animatorOverride: {fileID: 0}
+  - skinName: Brown
+    sprite: {fileID: -5367484962772181297, guid: fd033d59182213a419c9567b0bc76868, type: 3}
+    weight: 30
+    animatorOverride: {fileID: 0}
+  - skinName: White
+    sprite: {fileID: 7380079543642953642, guid: d3f2b887037899d4a868b734dee1e128, type: 3}
+    weight: 10
+    animatorOverride: {fileID: 0}
+  - skinName: Black
+    sprite: {fileID: 6160400986772552846, guid: 4672546752cb0ba4ca58c2282cbb858d, type: 3}
+    weight: 10
+    animatorOverride: {fileID: 0}
+  - skinName: Rainbow
+    sprite: {fileID: 490453033987246171, guid: eb6c960f89ffa9c4e92479824b1ff213, type: 3}
+    weight: 5
+    animatorOverride: {fileID: 22100000, guid: 49920ed78914db744974ddad44170977, type: 2}
+  marbleSelectors:
+  - {fileID: 1510578647}
+  - {fileID: 1255119666}
+  - {fileID: 335499107}
+  - {fileID: 86931200}
+  - {fileID: 904514813}
+  overrideScale: 1
+  marbleScale: 0.65
+--- !u!4 &249624541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249624539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.73596054, y: 34.662205, z: -0.06843864}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &255301760
 GameObject:
   m_ObjectHideFlags: 0
@@ -5120,6 +5217,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1499882323}
   - {fileID: 1003267625}
+  - {fileID: 249624541}
   - {fileID: 1510578646}
   - {fileID: 1255119663}
   - {fileID: 335499104}

@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AnimatedMarbleOverride
+  m_Controller: {fileID: 9100000, guid: d92a303e698f708469dd5d94657d99cb, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5d41853b74b867c4999bc1c465c45a03, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5d41853b74b867c4999bc1c465c45a03, type: 2}
