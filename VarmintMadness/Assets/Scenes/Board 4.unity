@@ -3128,7 +3128,7 @@ MonoBehaviour:
   layerOutTeleportPoint: {fileID: 0}
   moveSpeed: 5
   isMoving: 0
-  characterId: 0
+  characterId: -1
   characterSprites:
   - {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
   - {fileID: -1712074998796499465, guid: 3424f5820c6bcb143b4d169a034188db, type: 3}
@@ -3168,7 +3168,6 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  playerId: 4
   characterAnimators:
   - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
   - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
@@ -3180,7 +3179,7 @@ MonoBehaviour:
   - Opossum Luke
   - Raccoon Travis
   currentCharacterName: 
-  playerID: 0
+  playerID: 3
 --- !u!82 &441857164
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24397,7 +24396,7 @@ MonoBehaviour:
   layerOutTeleportPoint: {fileID: 0}
   moveSpeed: 5
   isMoving: 0
-  characterId: 0
+  characterId: -1
   characterSprites:
   - {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
   - {fileID: -1712074998796499465, guid: 3424f5820c6bcb143b4d169a034188db, type: 3}
@@ -24437,7 +24436,6 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  playerId: 3
   characterAnimators:
   - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
   - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
@@ -24449,7 +24447,7 @@ MonoBehaviour:
   - Opossum Luke
   - Raccoon Travis
   currentCharacterName: 
-  playerID: 0
+  playerID: 2
 --- !u!82 &1657174521
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24829,7 +24827,7 @@ MonoBehaviour:
   layerOutTeleportPoint: {fileID: 0}
   moveSpeed: 5
   isMoving: 0
-  characterId: 0
+  characterId: -1
   characterSprites:
   - {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
   - {fileID: -1712074998796499465, guid: 3424f5820c6bcb143b4d169a034188db, type: 3}
@@ -24869,7 +24867,6 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  playerId: 1
   characterAnimators:
   - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
   - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
@@ -27326,7 +27323,7 @@ MonoBehaviour:
   layerOutTeleportPoint: {fileID: 0}
   moveSpeed: 5
   isMoving: 0
-  characterId: 0
+  characterId: -1
   characterSprites:
   - {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
   - {fileID: -1712074998796499465, guid: 3424f5820c6bcb143b4d169a034188db, type: 3}
@@ -27366,7 +27363,6 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  playerId: 2
   characterAnimators:
   - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
   - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
@@ -27378,7 +27374,7 @@ MonoBehaviour:
   - Opossum Luke
   - Raccoon Travis
   currentCharacterName: 
-  playerID: 0
+  playerID: 1
 --- !u!82 &2066857063
 AudioSource:
   m_ObjectHideFlags: 0

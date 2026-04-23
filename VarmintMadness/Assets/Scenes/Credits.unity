@@ -509,7 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointA: {fileID: 312325669}
   PointB: {fileID: 972351119}
-  moveSpeed: 2
+  moveSpeed: 1
 --- !u!1 &708736627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PointA: {fileID: 339051359}
   PointB: {fileID: 1394242330}
-  moveSpeed: 2
+  moveSpeed: 1
 --- !u!95 &1397067538
 Animator:
   serializedVersion: 7
