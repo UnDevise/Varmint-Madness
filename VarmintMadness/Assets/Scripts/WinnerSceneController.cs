@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class WinnerSceneController : MonoBehaviour
@@ -9,6 +9,8 @@ public class WinnerSceneController : MonoBehaviour
     private GameObject winnerInstance;
     private Vector3 targetPosition;
 
+    [SerializeField] private string winnerName; // visible in Inspector during Play Mode
+
     private void Start()
     {
         Camera cam = Camera.main;
@@ -18,20 +20,22 @@ public class WinnerSceneController : MonoBehaviour
             return;
         }
 
-        // Show winner name
-        winnerNameText.text = WinnerData.WinnerName + " Wins!";
+        // Load winner name
+        winnerName = WinnerData.WinnerName;
+        winnerNameText.text = winnerName + " Wins!";
 
+        // Load winner sprite
         if (WinnerData.WinnerSprite == null)
         {
-            Debug.LogError("WinnerData.WinnerSprite is null.");
+            Debug.LogError("WinnerData.WinnerSprite is null. Did you forget to set it before loading the scene?");
             return;
         }
 
-        // World positions based on camera viewport
+        // Spawn and target positions
         Vector3 spawnWorld = cam.ViewportToWorldPoint(new Vector3(0.5f, -0.2f, 10f));
         targetPosition = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.3f, 10f));
 
-        // Create a new object for the winner sprite
+        // Create winner sprite object
         winnerInstance = new GameObject("WinnerSprite");
         var sr = winnerInstance.AddComponent<SpriteRenderer>();
         sr.sprite = WinnerData.WinnerSprite;
@@ -39,6 +43,8 @@ public class WinnerSceneController : MonoBehaviour
 
         winnerInstance.transform.position = spawnWorld;
     }
+
+    private bool themePlayed = false;
 
     private void Update()
     {
@@ -49,5 +55,16 @@ public class WinnerSceneController : MonoBehaviour
             targetPosition,
             moveSpeed * Time.deltaTime
         );
+
+        // ⭐ Check if winner reached the target
+        if (!themePlayed &&
+            Vector3.Distance(winnerInstance.transform.position, targetPosition) < 0.05f)
+        {
+            themePlayed = true;
+
+            Debug.Log("Winner reached target — triggering theme");
+
+            WinnerThemePlayer.Instance.PlayWinnerTheme();
+        }
     }
 }
