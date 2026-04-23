@@ -30641,9 +30641,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players:
   - {fileID: 1511254933}
-  - {fileID: 1938905688}
   - {fileID: 821826321}
   - {fileID: 873121440}
+  - {fileID: 1938905688}
 --- !u!4 &553675649
 Transform:
   m_ObjectHideFlags: 0

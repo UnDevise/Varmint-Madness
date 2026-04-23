@@ -16,15 +16,14 @@ public class PlayerAssignment : MonoBehaviour
 
         for (int i = 0; i < totalPlayers; i++)
         {
-            // Load saved character
             int characterIndex = PlayerPrefs.GetInt("P" + (i + 1) + "_Character", -1);
 
             PlayerMovement pm = players[i];
 
             Debug.Log($"{pm.name}: characterIndex = {characterIndex}, renderer = {pm.characterRenderer}");
 
-            // ⭐ Assign correct numeric playerID (0,1,2,3)
-            pm.playerID = i;
+            // ⭐ FIXED: Player IDs start at 1, not 0
+            pm.playerID = i + 1;
 
             if (characterIndex == -1)
             {

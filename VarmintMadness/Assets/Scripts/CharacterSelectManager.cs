@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +17,7 @@ public class CharacterSelectManager : MonoBehaviour
     public TextMeshProUGUI statusText;
     public Button actionButton;
     public TextMeshProUGUI actionButtonText;
+    private int currentPlayer = 1;
 
     private int totalPlayersToSelect = 0;
     private List<int> lockedCharacterIndices = new List<int>();
@@ -66,15 +67,16 @@ public class CharacterSelectManager : MonoBehaviour
         // If players are still selecting
         if (lockedCharacterIndices.Count < totalPlayersToSelect)
         {
-            // Prevent duplicate character picks
             if (!lockedCharacterIndices.Contains(currentIndex))
             {
                 lockedCharacterIndices.Add(currentIndex);
-                Debug.Log($"Player {lockedCharacterIndices.Count} selected index {currentIndex}");
+                Debug.Log($"Player {currentPlayer} selected index {currentIndex}");
+
+                currentPlayer++;  // ⭐ Move to next player
 
                 UpdateCharacterDisplays();
             }
-        }
+}
         else
         {
             // --- SAVE DATA FOR BOARD SCENE ---
@@ -141,7 +143,7 @@ public class CharacterSelectManager : MonoBehaviour
 
         if (lockedCharacterIndices.Count < totalPlayersToSelect)
         {
-            statusText.text = "Player " + (lockedCharacterIndices.Count + 1) + " Selecting...";
+            statusText.text = "Player " + currentPlayer + " Selecting...";
             bool isTaken = lockedCharacterIndices.Contains(currentIndex);
             actionButtonText.text = isTaken ? "TAKEN" : "SELECT";
             actionButton.interactable = !isTaken;
