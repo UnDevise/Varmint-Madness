@@ -183,7 +183,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.00004863739}
-  m_SizeDelta: {x: 0, y: 550}
+  m_SizeDelta: {x: 0, y: 750}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &23133849
 GameObject:
@@ -3001,7 +3001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -24}
+  m_AnchoredPosition: {x: 0, y: -63.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &376865634
@@ -6276,7 +6276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -254}
+  m_AnchoredPosition: {x: 0, y: -376.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &841353600
@@ -7167,7 +7167,12 @@ MonoBehaviour:
 
     -Credits background
 
-    -Marble minigame'
+    -Marble Minigame 1 and 2 retextures
+
+    -Title
+    text
+
+    -Issues with character selection'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4b775fd2e279fd04a962470b83154b52, type: 2}
   m_sharedMaterial: {fileID: -7489765113027175155, guid: 4b775fd2e279fd04a962470b83154b52, type: 2}
@@ -9881,7 +9886,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 864812913}
   m_HandleRect: {fileID: 864812912}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -11151,8 +11156,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 392926907}
   m_HandleRect: {fileID: 392926906}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.67818177
+  m_Value: 1.0000001
+  m_Size: 0.4973334
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12377,8 +12382,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentArea: {fileID: 21851982}
   textToMove: {fileID: 1710538845}
-  yOffset: 80
-  contentHeight: 550
+  yOffset: 160
+  contentHeight: 700
 --- !u!1 &1723208945
 GameObject:
   m_ObjectHideFlags: 0
@@ -14293,7 +14298,10 @@ MonoBehaviour:
 
     -New scripts to edit update text
 
-    -Loading screen'
+    -Loading screen
+
+    -New
+    assets and textures'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4b775fd2e279fd04a962470b83154b52, type: 2}
   m_sharedMaterial: {fileID: -7489765113027175155, guid: 4b775fd2e279fd04a962470b83154b52, type: 2}
