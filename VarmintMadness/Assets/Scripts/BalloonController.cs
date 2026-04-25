@@ -8,6 +8,10 @@ public class BalloonController : MonoBehaviour
     public float popSize = 2.5f;
     public float growSpeed = 5f;
 
+    [Header("Position Offset")]
+    public Vector3 offsetDirection = new Vector3(0, 1, 0); // Direction balloon shifts (default = up)
+    public float offsetMultiplier = 1f; // How much it moves as it grows
+
     [Header("Pump Rules")]
     public int maxPumpsPerTurn = 3;
 
@@ -17,21 +21,35 @@ public class BalloonController : MonoBehaviour
     private int pumpsThisTurn = 0;
     private Vector3 targetScale;
 
+    private Vector3 startPosition;
+    private Vector3 startScale;
+
     public bool IsPopped { get; private set; }
     public int[] playerPoints;
 
     void Start()
     {
         targetScale = transform.localScale;
+
+        startScale = transform.localScale;
+        startPosition = transform.position;
     }
 
     void Update()
     {
+        // Smooth scale
         transform.localScale = Vector3.Lerp(
             transform.localScale,
             targetScale,
             Time.deltaTime * growSpeed
         );
+
+        // Calculate how much we've grown relative to start
+        float growthAmount = transform.localScale.x - startScale.x;
+
+        // Apply offset based on growth
+        Vector3 offset = offsetDirection.normalized * growthAmount * offsetMultiplier;
+        transform.position = startPosition + offset;
     }
 
     public void InitializePlayers(int playerCount)
