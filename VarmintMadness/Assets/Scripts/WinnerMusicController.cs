@@ -21,34 +21,37 @@ public class WinnerThemePlayer : MonoBehaviour
 
         string winnerName = WinnerData.WinnerName;
 
-        // ⭐ ADD THIS LINE
         Debug.Log("Winner name is: " + winnerName);
 
-        switch (winnerName)
+        // Normalize and extract first word
+        winnerName = winnerName.Trim().ToLower();
+        string[] parts = winnerName.Split(' ');
+        string characterKey = parts[0]; // "chipmunk" from "Chipmunk Bella"
+
+        switch (characterKey)
         {
-            case "Chipmunk":
+            case "chipmunk":
                 musicSource.clip = characterThemes[0];
                 break;
 
-            case "Fox":
+            case "fox":
                 musicSource.clip = characterThemes[1];
                 break;
 
-            case "Opossum":
+            case "opossum":
                 musicSource.clip = characterThemes[2];
                 break;
 
-            case "Raccoon":
+            case "raccoon":
                 musicSource.clip = characterThemes[3];
                 break;
 
             default:
-                Debug.LogWarning("Unknown winner name: " + winnerName);
+                Debug.LogWarning("Unknown winner character key: " + characterKey);
                 return;
         }
 
         musicSource.Play();
         hasPlayed = true;
     }
-
 }
