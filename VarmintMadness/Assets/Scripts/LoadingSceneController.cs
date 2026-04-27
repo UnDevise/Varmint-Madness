@@ -22,7 +22,7 @@ public class LoadingSceneController : MonoBehaviour
         if (string.IsNullOrEmpty(boardScene))
         {
             Debug.LogWarning("BoardStateSaver.lastBoardSceneName was empty! Using fallback.");
-            boardScene = "BoardScene"; // Replace with your default board
+            boardScene = "Board 1"; // Replace with your default board
         }
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(boardScene);
