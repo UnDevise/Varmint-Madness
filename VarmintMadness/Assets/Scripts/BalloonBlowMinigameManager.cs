@@ -13,6 +13,12 @@ public class BalloonBlowMinigameManager : MonoBehaviour
 
     public PlayerMinigameMovement[] players;
 
+    [Header("Pump Animation Settings")]
+    public GameObject pumpHandle; // Drag the pump handle sprite here
+    public float pumpDistance = 0.5f; // How far down it moves
+    public float pumpSpeed = 5f; // How fast it moves
+    public float pauseDuration = 0.1f; // Pause at the bottom
+
     [Header("UI")]
     public TextMeshProUGUI[] playerPointTexts;
 
@@ -24,6 +30,7 @@ public class BalloonBlowMinigameManager : MonoBehaviour
     private bool waitingForInput = false;
     private bool playerAtPump = false;
     private bool gameOver = false;
+    private bool isPumping = false; // Prevents spamming during animation
 
     void Start()
     {
@@ -37,14 +44,55 @@ public class BalloonBlowMinigameManager : MonoBehaviour
 
     void Update()
     {
-        if (gameOver || !waitingForInput || !playerAtPump)
+        // Added !isPumping check to block input during animation
+        if (gameOver || !waitingForInput || !playerAtPump || isPumping)
             return;
 
         if (Input.GetKeyDown(KeyCode.E))
-            HandlePump();
+            StartCoroutine(AnimatePump());
 
         if (Input.GetKeyDown(KeyCode.Q) && balloon.CanSkip())
             EndTurn();
+    }
+
+    IEnumerator AnimatePump()
+    {
+        isPumping = true;
+
+        if (pumpHandle != null)
+        {
+            Vector3 startPos = pumpHandle.transform.localPosition;
+            Vector3 targetPos = startPos + Vector3.down * pumpDistance;
+
+            // Move Down
+            while (Vector3.Distance(pumpHandle.transform.localPosition, targetPos) > 0.01f)
+            {
+                pumpHandle.transform.localPosition = Vector3.MoveTowards(pumpHandle.transform.localPosition, targetPos, pumpSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            // Pause at bottom
+            yield return new WaitForSeconds(pauseDuration);
+
+            // Logic trigger (the actual balloon pump happens here)
+            HandlePump();
+
+            // Move Up
+            while (Vector3.Distance(pumpHandle.transform.localPosition, startPos) > 0.01f)
+            {
+                pumpHandle.transform.localPosition = Vector3.MoveTowards(pumpHandle.transform.localPosition, startPos, pumpSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            pumpHandle.transform.localPosition = startPos; // Ensure precise reset
+        }
+        else
+        {
+            // Fallback if no handle is assigned
+            HandlePump();
+        }
+
+        isPumping = false;
     }
 
     void HandlePump()
@@ -61,12 +109,9 @@ public class BalloonBlowMinigameManager : MonoBehaviour
         if (popped)
         {
             gameOver = true;
-
             List<int> winners = GetAllHighestScoringPlayers();
-
             MarbleRewardData.WinnerPlayerIndices = winners;
             MarbleRewardData.BonusTrash = 10;
-
             StartCoroutine(PlayWinAndReturn());
             return;
         }
@@ -74,6 +119,8 @@ public class BalloonBlowMinigameManager : MonoBehaviour
         if (!balloon.HasPumpsLeft())
             EndTurn();
     }
+
+    // ... [Rest of your existing methods: PlayWinAndReturn, StartPlayerTurn, EndTurn, NextPlayer, etc. remain the same]
 
     IEnumerator PlayWinAndReturn()
     {
@@ -125,21 +172,17 @@ public class BalloonBlowMinigameManager : MonoBehaviour
         StartPlayerTurn();
     }
 
-    // ⭐ NEW — returns ALL tied winners
     List<int> GetAllHighestScoringPlayers()
     {
         List<int> winners = new List<int>();
-
         int bestScore = balloon.playerPoints[0];
 
-        // Find highest score
         for (int i = 1; i < balloon.playerPoints.Length; i++)
         {
             if (balloon.playerPoints[i] > bestScore)
                 bestScore = balloon.playerPoints[i];
         }
 
-        // Add all players who match highest score
         for (int i = 0; i < balloon.playerPoints.Length; i++)
         {
             if (balloon.playerPoints[i] == bestScore)
