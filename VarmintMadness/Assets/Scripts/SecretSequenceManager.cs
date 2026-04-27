@@ -1,23 +1,35 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
 public class SecretSequenceManager : MonoBehaviour
 {
-    public SequencePad[] pads;
     public PlayerSequenceInput[] players;
-
     public Transform turnPosition;
 
     public AudioSource backgroundMusic;
     public AudioSource victorySound;
 
+    public SequencePad[] pads; // Assign in Inspector
+
     private List<int> sequence = new List<int>();
     private int currentPlayer = 0;
+
     private bool inputEnabled = false;
     private bool gameOver = false;
     private bool waitingForMovement = false;
+
+    // ⭐ NEW: Expose the actual player ID for SequencePad
+    public int currentPlayerID
+    {
+        get
+        {
+            if (players == null || players.Length == 0) return -1;
+            if (currentPlayer < 0 || currentPlayer >= players.Length) return -1;
+            return players[currentPlayer].playerIndex; // PlayerSequenceInput has playerIndex
+        }
+    }
 
     void Start()
     {
@@ -27,6 +39,10 @@ public class SecretSequenceManager : MonoBehaviour
     void StartNewRound()
     {
         inputEnabled = false;
+
+        // Pads cannot be pressed while showing pattern
+        SetPadsPressable(false);
+        SetPadsShowingPattern(true);
 
         int newStep = Random.Range(0, pads.Length);
         sequence.Add(newStep);
@@ -40,6 +56,7 @@ public class SecretSequenceManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
+        // ⭐ Show the pattern
         foreach (int step in sequence)
         {
             pads[step].LightUp();
@@ -48,6 +65,10 @@ public class SecretSequenceManager : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
 
+        // Pattern finished
+        SetPadsShowingPattern(false);
+
+        // Move current player to turn position
         waitingForMovement = true;
         players[currentPlayer].MoveToTurnPosition(turnPosition.position);
     }
@@ -60,7 +81,13 @@ public class SecretSequenceManager : MonoBehaviour
 
         players[currentPlayer].BeginInput(sequence.Count);
 
+        // ⭐ Now pads can be pressed
+        SetPadsPressable(true);
         inputEnabled = true;
+
+        // ⭐ Only this player can press pads
+        foreach (var pad in pads)
+            pad.allowedPlayerID = currentPlayerID;
     }
 
     public void OnPadClicked(int padID)
@@ -84,6 +111,7 @@ public class SecretSequenceManager : MonoBehaviour
     void AdvanceTurn()
     {
         inputEnabled = false;
+        SetPadsPressable(false);
 
         players[currentPlayer].ReturnToStartPosition();
 
@@ -91,13 +119,12 @@ public class SecretSequenceManager : MonoBehaviour
         if (currentPlayer >= players.Length)
             currentPlayer = 0;
 
-        // NEW: delay before next round so audio doesn't overlap
         StartCoroutine(DelayNextRound());
     }
 
     IEnumerator DelayNextRound()
     {
-        yield return new WaitForSeconds(1.2f); // adjust delay as needed
+        yield return new WaitForSeconds(1.2f);
         StartNewRound();
     }
 
@@ -146,5 +173,18 @@ public class SecretSequenceManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("LoadingScene");
+    }
+
+    // ⭐ Pad control helpers
+    public void SetPadsPressable(bool value)
+    {
+        foreach (var pad in pads)
+            pad.canBePressed = value;
+    }
+
+    public void SetPadsShowingPattern(bool value)
+    {
+        foreach (var pad in pads)
+            pad.isShowingPattern = value;
     }
 }
