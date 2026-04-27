@@ -1720,12 +1720,26 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 0
-  characterSprites: []
-  characterRenderer: {fileID: 0}
-  characterModels: []
+  characterSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterRenderer: {fileID: 115195881}
+  characterModels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   IsInCage: 0
   cageTeleportPoint: {fileID: 1032690125}
-  marbleMinigameScenes: []
+  marbleMinigameScenes:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -1745,8 +1759,16 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  characterAnimators: []
-  characterNames: []
+  characterAnimators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterNames:
+  - 
+  - 
+  - 
+  - 
   currentCharacterName: 
   playerID: 0
 --- !u!82 &115195885
@@ -2760,12 +2782,26 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 0
-  characterSprites: []
-  characterRenderer: {fileID: 0}
-  characterModels: []
+  characterSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterRenderer: {fileID: 160574401}
+  characterModels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   IsInCage: 0
   cageTeleportPoint: {fileID: 1032690125}
-  marbleMinigameScenes: []
+  marbleMinigameScenes:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -2785,8 +2821,16 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  characterAnimators: []
-  characterNames: []
+  characterAnimators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterNames:
+  - 
+  - 
+  - 
+  - 
   currentCharacterName: 
   playerID: 0
 --- !u!82 &160574405
@@ -5501,12 +5545,26 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 0
-  characterSprites: []
-  characterRenderer: {fileID: 0}
-  characterModels: []
+  characterSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterRenderer: {fileID: 316360532}
+  characterModels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   IsInCage: 0
   cageTeleportPoint: {fileID: 1032690125}
-  marbleMinigameScenes: []
+  marbleMinigameScenes:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -5526,8 +5584,16 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  characterAnimators: []
-  characterNames: []
+  characterAnimators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterNames:
+  - 
+  - 
+  - 
+  - 
   currentCharacterName: 
   playerID: 0
 --- !u!82 &316360536
@@ -20605,12 +20671,26 @@ MonoBehaviour:
   moveSpeed: 5
   isMoving: 0
   characterId: 0
-  characterSprites: []
-  characterRenderer: {fileID: 0}
-  characterModels: []
+  characterSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterRenderer: {fileID: 1687259120}
+  characterModels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   IsInCage: 0
   cageTeleportPoint: {fileID: 1032690125}
-  marbleMinigameScenes: []
+  marbleMinigameScenes:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 0}
   switchLayerSound: {fileID: 0}
@@ -20630,8 +20710,16 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  characterAnimators: []
-  characterNames: []
+  characterAnimators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterNames:
+  - 
+  - 
+  - 
+  - 
   currentCharacterName: 
   playerID: 0
 --- !u!82 &1687259124
