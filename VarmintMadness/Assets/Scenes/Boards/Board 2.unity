@@ -9622,8 +9622,16 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  characterAnimators: []
-  characterNames: []
+  characterAnimators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterNames:
+  - 
+  - 
+  - 
+  - 
   currentCharacterName: 
   playerID: 0
 --- !u!82 &469768951
@@ -11596,8 +11604,16 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  characterAnimators: []
-  characterNames: []
+  characterAnimators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterNames:
+  - 
+  - 
+  - 
+  - 
   currentCharacterName: 
   playerID: 0
 --- !u!82 &599887791
@@ -18746,8 +18762,16 @@ MonoBehaviour:
   playerName: 
   garbageCount: 0
   trainController: {fileID: 0}
-  characterAnimators: []
-  characterNames: []
+  characterAnimators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  characterNames:
+  - 
+  - 
+  - 
+  - 
   currentCharacterName: 
   playerID: 0
 --- !u!82 &1002477524
