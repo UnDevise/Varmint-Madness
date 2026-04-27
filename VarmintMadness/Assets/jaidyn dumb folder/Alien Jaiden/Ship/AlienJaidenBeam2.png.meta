@@ -1,49 +1,49 @@
 fileFormatVersion: 2
-guid: edebb1a2ba7a7314f8e9c483c7f49aee
+guid: 9bb10655dc526c245b0800311857dce4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1465457411031498151
-    second: AlienJaidenBeam3_0
+      213: -189829537439724316
+    second: AlienJaidenBeam2_0
   - first:
-      213: 6803285398186285400
-    second: AlienJaidenBeam3_1
+      213: 5319365879158806406
+    second: AlienJaidenBeam2_1
   - first:
-      213: 7941537044093557227
-    second: AlienJaidenBeam3_2
+      213: 148894281241809784
+    second: AlienJaidenBeam2_2
   - first:
-      213: -7807232774930924666
-    second: AlienJaidenBeam3_3
+      213: -5964572863977006245
+    second: AlienJaidenBeam2_3
   - first:
-      213: -1768413068585484401
-    second: AlienJaidenBeam3_4
+      213: -5032662590413490070
+    second: AlienJaidenBeam2_4
   - first:
-      213: 4466655435789738156
-    second: AlienJaidenBeam3_5
+      213: 5191994291649617612
+    second: AlienJaidenBeam2_5
   - first:
-      213: -8599306161927689872
-    second: AlienJaidenBeam3_6
+      213: 6624029464873562613
+    second: AlienJaidenBeam2_6
   - first:
-      213: -5842329552711219449
-    second: AlienJaidenBeam3_7
+      213: 998676776026231744
+    second: AlienJaidenBeam2_7
   - first:
-      213: 2572813361939517540
-    second: AlienJaidenBeam3_8
+      213: 5393483922669299443
+    second: AlienJaidenBeam2_8
   - first:
-      213: 6098279436464707763
-    second: AlienJaidenBeam3_9
+      213: -3276431763049195623
+    second: AlienJaidenBeam2_9
   - first:
-      213: -6728069565880017841
-    second: AlienJaidenBeam3_10
+      213: 1694325260688202963
+    second: AlienJaidenBeam2_10
   - first:
-      213: 2007760288497446373
-    second: AlienJaidenBeam3_11
+      213: 4329359690665077850
+    second: AlienJaidenBeam2_11
   - first:
-      213: 4045317401371868255
-    second: AlienJaidenBeam3_12
+      213: 2157478484963182685
+    second: AlienJaidenBeam2_12
   - first:
-      213: -1207715398818242258
-    second: AlienJaidenBeam3_13
+      213: -17911184908851445
+    second: AlienJaidenBeam2_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -114,7 +114,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -165,7 +165,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AlienJaidenBeam3_0
+      name: AlienJaidenBeam2_0
       rect:
         serializedVersion: 2
         x: 509
@@ -180,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7adfef140c9565410800000000000000
-      internalID: 1465457411031498151
+      spriteID: 4ec470d9a079d5df0800000000000000
+      internalID: -189829537439724316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_1
+      name: AlienJaidenBeam2_1
       rect:
         serializedVersion: 2
         x: 2009
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 859de7836002a6e50800000000000000
-      internalID: 6803285398186285400
+      spriteID: 6871899751f22d940800000000000000
+      internalID: 5319365879158806406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_2
+      name: AlienJaidenBeam2_2
       rect:
         serializedVersion: 2
         x: 3509
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be95dc39dd1063e60800000000000000
-      internalID: 7941537044093557227
+      spriteID: 87351865f8af01200800000000000000
+      internalID: 148894281241809784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_3
+      name: AlienJaidenBeam2_3
       rect:
         serializedVersion: 2
         x: 5009
@@ -246,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68b747bd72327a390800000000000000
-      internalID: -7807232774930924666
+      spriteID: b5b57b5f494993da0800000000000000
+      internalID: -5964572863977006245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_4
+      name: AlienJaidenBeam2_4
       rect:
         serializedVersion: 2
         x: 509
@@ -268,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f8fbdcefea55577e0800000000000000
-      internalID: -1768413068585484401
+      spriteID: a68b108c904682ab0800000000000000
+      internalID: -5032662590413490070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_5
+      name: AlienJaidenBeam2_5
       rect:
         serializedVersion: 2
         x: 2009
@@ -290,14 +290,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca0a058147fbcfd30800000000000000
-      internalID: 4466655435789738156
+      spriteID: cce91a5cc4bad0840800000000000000
+      internalID: 5191994291649617612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_6
+      name: AlienJaidenBeam2_6
       rect:
         serializedVersion: 2
         x: 3509
@@ -312,14 +312,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 079e8775b9029a880800000000000000
-      internalID: -8599306161927689872
+      spriteID: 5f17283e3b74deb50800000000000000
+      internalID: 6624029464873562613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_7
+      name: AlienJaidenBeam2_7
       rect:
         serializedVersion: 2
         x: 5009
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 70781edc930ebeea0800000000000000
-      internalID: -5842329552711219449
+      spriteID: 0c3d9709c330cdd00800000000000000
+      internalID: 998676776026231744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_8
+      name: AlienJaidenBeam2_8
       rect:
         serializedVersion: 2
         x: 509
@@ -356,14 +356,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 46098cf0f1874b320800000000000000
-      internalID: 2572813361939517540
+      spriteID: 3f6eb704d0189da40800000000000000
+      internalID: 5393483922669299443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_9
+      name: AlienJaidenBeam2_9
       rect:
         serializedVersion: 2
         x: 2009
@@ -378,14 +378,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b85c8f56d071a450800000000000000
-      internalID: 6098279436464707763
+      spriteID: 99755a8bba6c782d0800000000000000
+      internalID: -3276431763049195623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_10
+      name: AlienJaidenBeam2_10
       rect:
         serializedVersion: 2
         x: 3509
@@ -400,14 +400,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4cda9d606811a2a0800000000000000
-      internalID: -6728069565880017841
+      spriteID: 3dc9a4109d3738710800000000000000
+      internalID: 1694325260688202963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_11
+      name: AlienJaidenBeam2_11
       rect:
         serializedVersion: 2
         x: 5009
@@ -422,14 +422,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5eda606485ffcdb10800000000000000
-      internalID: 2007760288497446373
+      spriteID: a5cacf263b9f41c30800000000000000
+      internalID: 4329359690665077850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_12
+      name: AlienJaidenBeam2_12
       rect:
         serializedVersion: 2
         x: 509
@@ -444,14 +444,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5cf9785ebad32830800000000000000
-      internalID: 4045317401371868255
+      spriteID: d5847c25047e0fd10800000000000000
+      internalID: 2157478484963182685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlienJaidenBeam3_13
+      name: AlienJaidenBeam2_13
       rect:
         serializedVersion: 2
         x: 2009
@@ -466,8 +466,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e216ba75e355d3fe0800000000000000
-      internalID: -1207715398818242258
+      spriteID: b07600a4fdd50cff0800000000000000
+      internalID: -17911184908851445
       vertices: []
       indices: 
       edges: []
@@ -486,20 +486,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AlienJaidenBeam3_0: 1465457411031498151
-      AlienJaidenBeam3_1: 6803285398186285400
-      AlienJaidenBeam3_10: -6728069565880017841
-      AlienJaidenBeam3_11: 2007760288497446373
-      AlienJaidenBeam3_12: 4045317401371868255
-      AlienJaidenBeam3_13: -1207715398818242258
-      AlienJaidenBeam3_2: 7941537044093557227
-      AlienJaidenBeam3_3: -7807232774930924666
-      AlienJaidenBeam3_4: -1768413068585484401
-      AlienJaidenBeam3_5: 4466655435789738156
-      AlienJaidenBeam3_6: -8599306161927689872
-      AlienJaidenBeam3_7: -5842329552711219449
-      AlienJaidenBeam3_8: 2572813361939517540
-      AlienJaidenBeam3_9: 6098279436464707763
+      AlienJaidenBeam2_0: -189829537439724316
+      AlienJaidenBeam2_1: 5319365879158806406
+      AlienJaidenBeam2_10: 1694325260688202963
+      AlienJaidenBeam2_11: 4329359690665077850
+      AlienJaidenBeam2_12: 2157478484963182685
+      AlienJaidenBeam2_13: -17911184908851445
+      AlienJaidenBeam2_2: 148894281241809784
+      AlienJaidenBeam2_3: -5964572863977006245
+      AlienJaidenBeam2_4: -5032662590413490070
+      AlienJaidenBeam2_5: 5191994291649617612
+      AlienJaidenBeam2_6: 6624029464873562613
+      AlienJaidenBeam2_7: 998676776026231744
+      AlienJaidenBeam2_8: 5393483922669299443
+      AlienJaidenBeam2_9: -3276431763049195623
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
