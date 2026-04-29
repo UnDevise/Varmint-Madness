@@ -41,6 +41,22 @@ public class DiceController : MonoBehaviour
     private int turnsCompleted = 0;
     private bool isWaitingForSpecialSquare = false;
 
+    // ⭐ NEW: Prevent index-out-of-range errors
+    private void ClampCurrentPlayerIndex()
+    {
+        if (playersToMove == null || playersToMove.Count == 0)
+        {
+            currentPlayerIndex = 0;
+            return;
+        }
+
+        if (currentPlayerIndex >= playersToMove.Count)
+            currentPlayerIndex = 0;
+
+        if (currentPlayerIndex < 0)
+            currentPlayerIndex = playersToMove.Count - 1;
+    }
+
     private void Awake()
     {
         if (startingGarbage <= 0)
@@ -53,10 +69,8 @@ public class DiceController : MonoBehaviour
                 uiParentPanel = canvas.transform;
         }
 
-        // ⭐ SORT PLAYERS BY playerID BEFORE DOING ANYTHING
         playersToMove = playersToMove.OrderBy(p => p.playerID).ToList();
 
-        // NEW GAME ONLY
         if (!BoardStateSaver.returningFromMinigame)
         {
             BoardStateSaver.playerCharacterIndices = new int[playersToMove.Count];
@@ -74,14 +88,8 @@ public class DiceController : MonoBehaviour
 
                 p.garbageCount = startingGarbage;
             }
-
-            for (int i = 0; i < playersToMove.Count; i++)
-            {
-                Debug.Log($"PLAYER OBJECT CHECK: index={i}, name={playersToMove[i].name}, playerID={playersToMove[i].playerID}");
-            }
         }
 
-        // ⭐ UI setup (ONLY ONCE)
         for (int i = 0; i < playersToMove.Count; i++)
         {
             PlayerMovement player = playersToMove[i];
@@ -102,25 +110,22 @@ public class DiceController : MonoBehaviour
 
     private void Start()
     {
-        // If this is a NEW GAME, wipe old save data
         if (!BoardStateSaver.returningFromMinigame)
         {
-            Debug.Log("NEW GAME — Clearing BoardStateSaver");
             BoardStateSaver.Clear();
         }
 
-        // Only restore if we actually came from a minigame
         if (BoardStateSaver.returningFromMinigame)
         {
-            Debug.Log("RETURNING FROM MINIGAME — Restoring state");
             RestoreBoardState();
+            ClampCurrentPlayerIndex();   // ⭐ FIX #1
         }
 
         ApplyMarbleReward();
         SetFirstAvailablePlayer();
+        ClampCurrentPlayerIndex();       // ⭐ FIX #2
         StartCoroutine(BeginAfterRestore());
     }
-
 
     private IEnumerator BeginAfterRestore()
     {
@@ -150,6 +155,8 @@ public class DiceController : MonoBehaviour
 
     public void StartPlayerTurn()
     {
+        ClampCurrentPlayerIndex();   // ⭐ FIX #3
+
         CheckForWinner();
         DisableDice();
 
@@ -215,6 +222,8 @@ public class DiceController : MonoBehaviour
         }
 
         currentPlayerIndex = (currentPlayerIndex + 1) % playersToMove.Count;
+        ClampCurrentPlayerIndex();   // ⭐ FIX #4
+
         ResetDicePhysics();
         StartPlayerTurn();
     }
@@ -277,6 +286,8 @@ public class DiceController : MonoBehaviour
         BoardStateSaver.returningFromMinigame = true;
 
         SetFirstAvailablePlayer();
+        ClampCurrentPlayerIndex();   // ⭐ FIX #5
+
         int index = Random.Range(0, roundMinigames.Count);
         StartCoroutine(FadeAndLoad(roundMinigames[index]));
     }
