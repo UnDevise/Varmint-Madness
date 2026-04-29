@@ -12,6 +12,13 @@ public class CharacterSelectManager : MonoBehaviour
     private bool isAnimating = false;
     private Coroutine backgroundFadeCoroutine;
 
+    [Header("Round Settings")]
+    public TextMeshProUGUI roundCountText;
+    public Slider roundSlider;
+    public int minRounds = 1;
+    public int maxRounds = 20;
+    private int selectedRounds = 5;
+
     [Header("Multiplayer Settings")]
     public GameObject playerCountPanel;
     public TextMeshProUGUI statusText;
@@ -44,12 +51,37 @@ public class CharacterSelectManager : MonoBehaviour
     {
         characters = Resources.LoadAll<CharacterData2>("Characters");
         playerCountPanel.SetActive(true);
+        selectedRounds = 5;
+
+        // Set up slider
+        if (roundSlider != null)
+        {
+            roundSlider.minValue = minRounds;
+            roundSlider.maxValue = maxRounds;
+            roundSlider.wholeNumbers = true;
+            roundSlider.value = selectedRounds;
+            roundSlider.onValueChanged.AddListener(OnRoundSliderChanged);
+        }
+
+        UpdateRoundText();
 
         if (characters.Length > 0)
         {
             UpdateCharacterDisplays();
             backgroundPanel.color = characters[currentIndex].backgroundColor;
         }
+    }
+
+    private void OnRoundSliderChanged(float value)
+    {
+        selectedRounds = Mathf.RoundToInt(value);
+        UpdateRoundText();
+    }
+
+    private void UpdateRoundText()
+    {
+        if (roundCountText != null)
+            roundCountText.text = selectedRounds.ToString();
     }
 
     public void SetPlayerCount(int count)
@@ -94,6 +126,8 @@ public class CharacterSelectManager : MonoBehaviour
             // Reset board state so garbage doesn't get overwritten
             BoardStateSaver.Clear();
             BoardStateSaver.returningFromMinigame = false;
+            BoardStateSaver.totalRounds = selectedRounds;
+            BoardStateSaver.ResetRounds();
 
             // --- END SAVE ---
 

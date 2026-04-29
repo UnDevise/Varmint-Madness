@@ -13,6 +13,10 @@ public static class BoardStateSaver
     public static int[] playerGarbageCounts;
     public static int[] playerCharacterIndices;
 
+    // Round tracking
+    public static int totalRounds = 5;   // Set from character select
+    public static int currentRound = 0;  // Increments each minigame round
+
     public static void Clear()
     {
         lastBoardSceneName = "";
@@ -25,6 +29,13 @@ public static class BoardStateSaver
         playerIsInCage = null;
         playerGarbageCounts = null;
         playerCharacterIndices = null;
+
+        // Don't clear round data here - it needs to persist across minigame trips
+    }
+
+    public static void ResetRounds()
+    {
+        currentRound = 0;
     }
 
 public static void RestorePlayerPositions()
