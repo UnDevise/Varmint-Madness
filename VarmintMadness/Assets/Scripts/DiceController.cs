@@ -331,21 +331,19 @@ public class DiceController : MonoBehaviour
         for (int i = 0; i < playersToMove.Count; i++)
         {
             PlayerMovement p = playersToMove[i];
-            int id = p.playerID;
 
-            p.transform.position = BoardStateSaver.playerPositions[id];
-            p.IsInCage = BoardStateSaver.playerIsInCage[id];
-            p.IsStunned = BoardStateSaver.playerIsStunned[id];
-            p.garbageCount = BoardStateSaver.playerGarbageCounts[id];
-            p.CurrentPositionIndex = BoardStateSaver.playerTileIndex[id];
+            p.transform.position = BoardStateSaver.playerPositions[i];
+            p.IsInCage = BoardStateSaver.playerIsInCage[i];
+            p.IsStunned = BoardStateSaver.playerIsStunned[i];
+            p.garbageCount = BoardStateSaver.playerGarbageCounts[i];
+            p.CurrentPositionIndex = BoardStateSaver.playerTileIndex[i];
 
-            if (BoardStateSaver.playerBoardLayer[id] == 1)
+            if (BoardStateSaver.playerBoardLayer[i] == 1)
                 p.MoveToSewerBoard();
             else
                 p.MoveToTopBoard();
 
-            p.ApplyCharacter(BoardStateSaver.playerCharacterIndices[id]);
-
+            p.ApplyCharacter(BoardStateSaver.playerCharacterIndices[i]);
             p.UpdateGarbageText();
         }
     }
@@ -400,16 +398,16 @@ public class DiceController : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             PlayerMovement p = playersToMove[i];
-            int id = p.playerID;
 
-            BoardStateSaver.playerPositions[id] = p.transform.position;
-            BoardStateSaver.playerBoardLayer[id] =
+            // ⭐ USE i, NOT p.playerID
+            BoardStateSaver.playerPositions[i] = p.transform.position;
+            BoardStateSaver.playerBoardLayer[i] =
                 (p.waypointsParent == p.alternativeWaypointsParent) ? 1 : 0;
-            BoardStateSaver.playerTileIndex[id] = p.CurrentPositionIndex;
-            BoardStateSaver.playerIsStunned[id] = p.IsStunned;
-            BoardStateSaver.playerIsInCage[id] = p.IsInCage;
-            BoardStateSaver.playerGarbageCounts[id] = p.garbageCount;
-            BoardStateSaver.playerCharacterIndices[id] = p.characterId;
+            BoardStateSaver.playerTileIndex[i] = p.CurrentPositionIndex;
+            BoardStateSaver.playerIsStunned[i] = p.IsStunned;
+            BoardStateSaver.playerIsInCage[i] = p.IsInCage;
+            BoardStateSaver.playerGarbageCounts[i] = p.garbageCount;
+            BoardStateSaver.playerCharacterIndices[i] = p.characterId;
         }
     }
 }
