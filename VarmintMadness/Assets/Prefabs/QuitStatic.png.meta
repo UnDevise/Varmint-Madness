@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 3fc3be64df209d64ba7616ab999f2e3d
+guid: 6f970dde774d2da4ba23e23166409575
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8811750866324085345
-    second: StartAnimated_0
-  - first:
-      213: -440185487869114870
-    second: StartAnimated_1
+      213: 4861657773201062877
+    second: QuitStatic_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,33 +109,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StartAnimated_0
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 509
-        width: 382
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f952383164f56b580800000000000000
-      internalID: -8811750866324085345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: StartAnimated_1
+      name: QuitStatic_0
       rect:
         serializedVersion: 2
         x: 9
@@ -153,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a06874881a524e9f0800000000000000
-      internalID: -440185487869114870
+      spriteID: ddb7a2f8cf3187340800000000000000
+      internalID: 4861657773201062877
       vertices: []
       indices: 
       edges: []
@@ -173,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      StartAnimated_0: -8811750866324085345
-      StartAnimated_1: -440185487869114870
+      QuitStatic_0: 4861657773201062877
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
