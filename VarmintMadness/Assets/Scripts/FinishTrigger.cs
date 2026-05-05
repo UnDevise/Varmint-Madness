@@ -6,7 +6,9 @@ public class FinishTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<RunnerController>())
+        RunnerController runner = other.GetComponent<RunnerController>();
+
+        if (runner != null && runner.canFinish)
         {
             controller.PlayerFinished();
         }

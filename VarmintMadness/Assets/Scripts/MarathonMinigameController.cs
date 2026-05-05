@@ -1,71 +1,86 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 
 public class MarathonMinigameController : MonoBehaviour
 {
     [Header("Runner Setup")]
     public Transform startPoint;
-    public RunnerController runnerPrefab;
+    public RunnerController runner;   // Assign the runner in the scene
     public RunnerTimer timer;
 
-    private List<PlayerMovement> boardPlayers = new List<PlayerMovement>();
-    private Dictionary<PlayerMovement, float> finishTimes = new Dictionary<PlayerMovement, float>();
+    [Header("UI")]
+    public TextMeshProUGUI turnAnnouncementText;
 
-    private RunnerController currentRunner;
+    private int[] players = { 0, 1, 2, 3 };
+    private Dictionary<int, float> finishTimes = new Dictionary<int, float>();
+
     private int currentPlayerIndex = 0;
 
     void Start()
     {
-        // Get the 4 players from the board
-        boardPlayers.AddRange(FindObjectsOfType<PlayerMovement>());
+        // Move runner to start
+        runner.ResetRunner(startPoint.position);
 
-        StartNextPlayer();
+        // Camera follow
+        Camera.main.GetComponent<CameraFollow2D>().target = runner.transform;
+
+        StartCoroutine(StartNextPlayerRoutine());
     }
 
-    void StartNextPlayer()
+    IEnumerator StartNextPlayerRoutine()
     {
-        if (currentPlayerIndex >= boardPlayers.Count)
+        if (currentPlayerIndex >= players.Length)
         {
             EndMinigame();
-            return;
+            yield break;
         }
 
-        PlayerMovement p = boardPlayers[currentPlayerIndex];
+        int playerID = players[currentPlayerIndex];
 
-        // Spawn runner
-        currentRunner = Instantiate(runnerPrefab, startPoint.position, Quaternion.identity);
+        // Show announcement
+        turnAnnouncementText.text = $"Player {playerID + 1}'s Turn!";
+        turnAnnouncementText.gameObject.SetActive(true);
 
-        // Assign camera follow target
-        Camera.main.GetComponent<CameraFollow2D>().target = currentRunner.transform;
+        yield return new WaitForSeconds(2f);
 
+        turnAnnouncementText.gameObject.SetActive(false);
 
-        // Copy sprite from board player
-        SpriteRenderer runnerSR = currentRunner.GetComponent<SpriteRenderer>();
-        SpriteRenderer playerSR = p.GetComponent<SpriteRenderer>();
-        runnerSR.sprite = playerSR.sprite;
+        // Reset runner for next player
+        runner.ResetRunner(startPoint.position);
 
-        // Reset timer
+        // Delay before allowing finish
+        StartCoroutine(EnableFinishAfterDelay());
+
+        // Start timer
         timer.StartTimer();
+    }
+
+    IEnumerator EnableFinishAfterDelay()
+    {
+        runner.canFinish = false;
+        yield return new WaitForSeconds(0.5f);
+        runner.canFinish = true;
     }
 
     public void PlayerFinished()
     {
         timer.StopTimer();
 
-        PlayerMovement p = boardPlayers[currentPlayerIndex];
-        finishTimes[p] = timer.currentTime;
-
-        Destroy(currentRunner.gameObject);
+        int playerID = players[currentPlayerIndex];
+        finishTimes[playerID] = timer.currentTime;
 
         currentPlayerIndex++;
-        StartNextPlayer();
+
+        StartCoroutine(StartNextPlayerRoutine());
     }
 
     void EndMinigame()
     {
         float bestTime = float.MaxValue;
-        PlayerMovement winner = null;
+        int winner = 0;
 
         foreach (var entry in finishTimes)
         {
@@ -76,9 +91,8 @@ public class MarathonMinigameController : MonoBehaviour
             }
         }
 
-        // Reward winner
         MarbleRewardData.WinnerPlayerIndices.Clear();
-        MarbleRewardData.WinnerPlayerIndices.Add(winner.playerID);
+        MarbleRewardData.WinnerPlayerIndices.Add(winner);
         MarbleRewardData.BonusTrash = 10;
 
         SceneManager.LoadScene("LoadingScene");
