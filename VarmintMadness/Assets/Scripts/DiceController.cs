@@ -33,6 +33,9 @@ public class DiceController : MonoBehaviour
     public Image fadeImage;
     public float fadeSpeed = 1f;
 
+    [Header("Round Settings")]
+    public TextMeshProUGUI roundCounterText; // Drag a TMP text object into this slot
+
     [Header("Systems")]
     public List<string> roundMinigames = new List<string>();
 
@@ -124,6 +127,7 @@ public class DiceController : MonoBehaviour
         ApplyMarbleReward();
         SetFirstAvailablePlayer();
         ClampCurrentPlayerIndex();       // ⭐ FIX #2
+        UpdateRoundText();
         StartCoroutine(BeginAfterRestore());
     }
 
@@ -280,8 +284,24 @@ public class DiceController : MonoBehaviour
         }
     }
 
+    private void UpdateRoundText()
+    {
+        if (roundCounterText != null)
+            roundCounterText.text = $"Round {BoardStateSaver.currentRound} / {BoardStateSaver.totalRounds}";
+    }
+
     private void StartMinigameRound()
     {
+        BoardStateSaver.currentRound++;
+        UpdateRoundText();
+
+        // Check if all rounds are done - end game by most garbage
+        if (BoardStateSaver.currentRound > BoardStateSaver.totalRounds)
+        {
+            EndGameByMostGarbage();
+            return;
+        }
+
         SaveBoardStateBeforeMinigame();
         BoardStateSaver.returningFromMinigame = true;
 
@@ -290,6 +310,30 @@ public class DiceController : MonoBehaviour
 
         int index = Random.Range(0, roundMinigames.Count);
         StartCoroutine(FadeAndLoad(roundMinigames[index]));
+    }
+
+    private void EndGameByMostGarbage()
+    {
+        PlayerMovement winner = null;
+        int highestGarbage = -1;
+
+        foreach (PlayerMovement p in playersToMove)
+        {
+            if (p.garbageCount > highestGarbage)
+            {
+                highestGarbage = p.garbageCount;
+                winner = p;
+            }
+        }
+
+        if (winner != null)
+        {
+            WinnerData.WinnerName = winner.playerName;
+            SpriteRenderer sr = winner.GetComponent<SpriteRenderer>();
+            WinnerData.WinnerSprite = sr != null ? sr.sprite : null;
+            BoardStateSaver.ResetRounds();
+            StartCoroutine(FadeAndLoad("Winner"));
+        }
     }
 
     public void CheckForWinner()
