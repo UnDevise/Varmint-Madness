@@ -8,7 +8,7 @@ public class MarathonMinigameController : MonoBehaviour
 {
     [Header("Runner Setup")]
     public Transform startPoint;
-    public RunnerController runner;
+    public RunnerController runner;   // Assign the SCENE runner here
     public RunnerTimer timer;
 
     [Header("UI")]
@@ -19,16 +19,19 @@ public class MarathonMinigameController : MonoBehaviour
 
     private int currentPlayerIndex = 0;
 
+    // ⭐ Prevents double-finish calls
+    private bool hasFinishedThisTurn = false;
+
     void Start()
     {
         runner.ResetRunner(startPoint.position);
         Camera.main.GetComponent<CameraFollow2D>().target = runner.transform;
+
         StartCoroutine(StartNextPlayerRoutine());
     }
 
     IEnumerator StartNextPlayerRoutine()
     {
-        Debug.Log("StartNextPlayerRoutine() started for player index: " + currentPlayerIndex);
         if (currentPlayerIndex >= players.Length)
         {
             EndMinigame();
@@ -37,6 +40,10 @@ public class MarathonMinigameController : MonoBehaviour
 
         int playerID = players[currentPlayerIndex];
 
+        // Reset finish lock
+        hasFinishedThisTurn = false;
+
+        // Show announcement
         turnAnnouncementText.text = $"Player {playerID + 1}'s Turn!";
         turnAnnouncementText.gameObject.SetActive(true);
 
@@ -44,10 +51,13 @@ public class MarathonMinigameController : MonoBehaviour
 
         turnAnnouncementText.gameObject.SetActive(false);
 
+        // Reset runner for next player
         runner.ResetRunner(startPoint.position);
 
+        // Delay before allowing finish
         StartCoroutine(EnableFinishAfterDelay());
 
+        // Start timer
         timer.StartTimer();
     }
 
@@ -60,7 +70,11 @@ public class MarathonMinigameController : MonoBehaviour
 
     public void PlayerFinished()
     {
-        Debug.LogError("PlayerFinished() CALLED by: " + new System.Diagnostics.StackTrace());
+        // ⭐ Prevent multiple finish calls
+        if (hasFinishedThisTurn)
+            return;
+
+        hasFinishedThisTurn = true;
 
         timer.StopTimer();
 
