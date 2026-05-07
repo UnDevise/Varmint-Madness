@@ -14,8 +14,9 @@ public static class BoardStateSaver
     public static int[] playerCharacterIndices;
 
     // Round tracking
-    public static int totalRounds = 5;   // Set from character select
-    public static int currentRound = 0;  // Increments each minigame round
+    public static int totalRounds = 5;
+    public static int currentRound = 0;
+    public static bool lastManStanding = false; // If true, play until one player remains
 
     public static void Clear()
     {

@@ -286,7 +286,11 @@ public class DiceController : MonoBehaviour
 
     private void UpdateRoundText()
     {
-        if (roundCounterText != null)
+        if (roundCounterText == null) return;
+
+        if (BoardStateSaver.lastManStanding)
+            roundCounterText.text = $"Round {BoardStateSaver.currentRound} - Last Man Standing";
+        else
             roundCounterText.text = $"Round {BoardStateSaver.currentRound} / {BoardStateSaver.totalRounds}";
     }
 
@@ -295,18 +299,21 @@ public class DiceController : MonoBehaviour
         BoardStateSaver.currentRound++;
         UpdateRoundText();
 
-        // Check if all rounds are done - end game by most garbage
-        if (BoardStateSaver.currentRound > BoardStateSaver.totalRounds)
+        // In Last Man Standing mode, never end by rounds - only CheckForWinner ends the game
+        if (!BoardStateSaver.lastManStanding)
         {
-            EndGameByMostGarbage();
-            return;
+            if (BoardStateSaver.currentRound > BoardStateSaver.totalRounds)
+            {
+                EndGameByMostGarbage();
+                return;
+            }
         }
 
         SaveBoardStateBeforeMinigame();
         BoardStateSaver.returningFromMinigame = true;
 
         SetFirstAvailablePlayer();
-        ClampCurrentPlayerIndex();   // ⭐ FIX #5
+        ClampCurrentPlayerIndex();
 
         int index = Random.Range(0, roundMinigames.Count);
         StartCoroutine(FadeAndLoad(roundMinigames[index]));
