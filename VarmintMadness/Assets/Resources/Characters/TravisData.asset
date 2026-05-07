@@ -16,7 +16,10 @@ MonoBehaviour:
   characterBio: 'Raccoon Travis:
 
 
-    "I Like Shiny Objects"'
+    "I Like Shiny Objects"
+
+
+    -The Idiot'
   characterSprite: {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
   backgroundColor: {r: 0, g: 0.32430172, b: 1, a: 1}
   characterAnimatorController: {fileID: 0}
