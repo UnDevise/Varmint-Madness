@@ -3276,7 +3276,15 @@ MonoBehaviour:
   - {fileID: 2121780147}
   introPanel: {fileID: 0}
   introText: {fileID: 0}
-  questions: []
+  questions:
+  - {fileID: 11400000, guid: ba4f8112045c28f49bf86f205e7f4079, type: 2}
+  - {fileID: 11400000, guid: fbfa7bc82dd1aa542b36c2912bda272d, type: 2}
+  - {fileID: 11400000, guid: 7192d13643794024f8f0a9f7fc7ce7bc, type: 2}
+  - {fileID: 11400000, guid: 98e32c29f6a80fa40a51b5b282b2a763, type: 2}
+  - {fileID: 11400000, guid: 0f4f69d6c771f174ca91e6a78a49aab3, type: 2}
+  - {fileID: 11400000, guid: 7e6bf02a14ea84645b763f88ffa1ed76, type: 2}
+  - {fileID: 11400000, guid: 9f591cd314e6ae9478a6bd61eae72e41, type: 2}
+  - {fileID: 11400000, guid: 054d8d26afad64c4ab20880f28e77675, type: 2}
   greetingMessage: Welcome to the Ultimate Game Show! Let's see who has what it takes
     to win!
 --- !u!4 &1574137735
