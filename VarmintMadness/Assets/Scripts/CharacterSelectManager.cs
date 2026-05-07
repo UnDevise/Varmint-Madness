@@ -24,9 +24,11 @@ public class CharacterSelectManager : MonoBehaviour
     public Button threePlayerButton;
     public Button fourPlayerButton;
     public Button applyButton;
+    public Button lastManStandingButton;
     public Color selectedColor = Color.white;
     public Color unselectedColor = new Color(0.5f, 0.5f, 0.5f, 1f);
-    private int selectedPlayerCount = 0; // 0 means none selected yet
+    private int selectedPlayerCount = 0;
+    private bool lastManStandingSelected = false;
 
     [Header("Multiplayer Settings")]
     public GameObject playerCountPanel;
@@ -76,11 +78,12 @@ public class CharacterSelectManager : MonoBehaviour
         DisableButtonColorTint(twoPlayerButton);
         DisableButtonColorTint(threePlayerButton);
         DisableButtonColorTint(fourPlayerButton);
+        DisableButtonColorTint(lastManStandingButton);
 
         // THEN: Set up player count button click listeners
         if (twoPlayerButton != null)
         {
-            twoPlayerButton.onClick.RemoveAllListeners(); // Clear any existing listeners
+            twoPlayerButton.onClick.RemoveAllListeners();
             twoPlayerButton.onClick.AddListener(() => SelectPlayerCount(2));
         }
         if (threePlayerButton != null)
@@ -92,6 +95,11 @@ public class CharacterSelectManager : MonoBehaviour
         {
             fourPlayerButton.onClick.RemoveAllListeners();
             fourPlayerButton.onClick.AddListener(() => SelectPlayerCount(4));
+        }
+        if (lastManStandingButton != null)
+        {
+            lastManStandingButton.onClick.RemoveAllListeners();
+            lastManStandingButton.onClick.AddListener(ToggleLastManStanding);
         }
 
         // Set up apply button
@@ -105,6 +113,7 @@ public class CharacterSelectManager : MonoBehaviour
         
         // FINALLY: Update visuals after transition is disabled
         UpdatePlayerButtonVisuals();
+        UpdateLastManStandingVisual();
 
         if (characters.Length > 0)
         {
@@ -121,15 +130,40 @@ public class CharacterSelectManager : MonoBehaviour
         button.transition = Selectable.Transition.None;
     }
 
+    private void ToggleLastManStanding()
+    {
+        lastManStandingSelected = !lastManStandingSelected;
+
+        // Disable/enable the round slider based on selection
+        if (roundSlider != null)
+            roundSlider.interactable = !lastManStandingSelected;
+
+        UpdateLastManStandingVisual();
+        UpdateApplyButton();
+    }
+
+    private void UpdateLastManStandingVisual()
+    {
+        if (lastManStandingButton == null) return;
+        Image img = lastManStandingButton.GetComponent<Image>();
+        if (img != null)
+            img.color = lastManStandingSelected ? selectedColor : unselectedColor;
+    }
+
     private void SelectPlayerCount(int count)
     {
         selectedPlayerCount = count;
         Debug.Log($"Selected {count} players");
         UpdatePlayerButtonVisuals();
+        UpdateApplyButton();
+    }
 
-        // Enable apply button once a player count is selected
+    private void UpdateApplyButton()
+    {
+        // Apply is available once a player count is picked
+        // (Last Man Standing doesn't require rounds to be set)
         if (applyButton != null)
-            applyButton.interactable = true;
+            applyButton.interactable = selectedPlayerCount > 0;
     }
 
     private void UpdatePlayerButtonVisuals()
@@ -240,6 +274,7 @@ public class CharacterSelectManager : MonoBehaviour
             BoardStateSaver.Clear();
             BoardStateSaver.returningFromMinigame = false;
             BoardStateSaver.totalRounds = selectedRounds;
+            BoardStateSaver.lastManStanding = lastManStandingSelected;
             BoardStateSaver.ResetRounds();
 
             // --- END SAVE ---
