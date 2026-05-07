@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: TravisData
   m_EditorClassIdentifier: 
   characterName: Raccoon Travis
+  characterBio: 'Raccoon Travis:
+
+
+    "I Like Shiny Objects"'
   characterSprite: {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
-  characterBio: I am cooler than everybody else
-  backgroundColor: {r: 0, g: 0.32430172, b: 1, a: 0}
+  backgroundColor: {r: 0, g: 0.32430172, b: 1, a: 1}
+  characterAnimatorController: {fileID: 0}

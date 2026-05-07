@@ -26,6 +26,7 @@ TagManager:
   - Sewer space
   - Bomb changer space
   - Train Mover
+  - Obstacle
   layers:
   - Default
   - TransparentFX

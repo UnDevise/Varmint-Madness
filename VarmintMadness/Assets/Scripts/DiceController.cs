@@ -72,6 +72,16 @@ public class DiceController : MonoBehaviour
                 uiParentPanel = canvas.transform;
         }
 
+        // Disable unused player GameObjects based on selected player count
+        int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
+        for (int i = 0; i < playersToMove.Count; i++)
+        {
+            if (playersToMove[i] != null)
+                playersToMove[i].gameObject.SetActive(i < totalPlayers);
+        }
+
+        // Remove inactive players from the list entirely
+        playersToMove = playersToMove.Where(p => p != null && p.gameObject.activeSelf).ToList();
         playersToMove = playersToMove.OrderBy(p => p.playerID).ToList();
 
         if (!BoardStateSaver.returningFromMinigame)
@@ -265,8 +275,17 @@ public class DiceController : MonoBehaviour
         return false;
     }
 
-    public void DisableDice() { if (diceCollider != null) diceCollider.enabled = false; }
-    public void EnableDice() { if (diceCollider != null) diceCollider.enabled = true; }
+    public void DisableDice()
+    {
+        if (diceCollider != null) diceCollider.enabled = false;
+        if (diceRoller != null) diceRoller.DisableRoll();
+    }
+
+    public void EnableDice()
+    {
+        if (diceCollider != null) diceCollider.enabled = true;
+        if (diceRoller != null) diceRoller.EnableRoll();
+    }
 
     private void ResetDicePhysics()
     {
@@ -286,7 +305,11 @@ public class DiceController : MonoBehaviour
 
     private void UpdateRoundText()
     {
-        if (roundCounterText != null)
+        if (roundCounterText == null) return;
+
+        if (BoardStateSaver.lastManStanding)
+            roundCounterText.text = $"Round {BoardStateSaver.currentRound} - Last Man Standing";
+        else
             roundCounterText.text = $"Round {BoardStateSaver.currentRound} / {BoardStateSaver.totalRounds}";
     }
 
@@ -295,18 +318,21 @@ public class DiceController : MonoBehaviour
         BoardStateSaver.currentRound++;
         UpdateRoundText();
 
-        // Check if all rounds are done - end game by most garbage
-        if (BoardStateSaver.currentRound > BoardStateSaver.totalRounds)
+        // In Last Man Standing mode, never end by rounds - only CheckForWinner ends the game
+        if (!BoardStateSaver.lastManStanding)
         {
-            EndGameByMostGarbage();
-            return;
+            if (BoardStateSaver.currentRound > BoardStateSaver.totalRounds)
+            {
+                EndGameByMostGarbage();
+                return;
+            }
         }
 
         SaveBoardStateBeforeMinigame();
         BoardStateSaver.returningFromMinigame = true;
 
         SetFirstAvailablePlayer();
-        ClampCurrentPlayerIndex();   // ⭐ FIX #5
+        ClampCurrentPlayerIndex();
 
         int index = Random.Range(0, roundMinigames.Count);
         StartCoroutine(FadeAndLoad(roundMinigames[index]));

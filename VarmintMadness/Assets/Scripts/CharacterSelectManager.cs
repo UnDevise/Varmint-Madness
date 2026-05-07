@@ -19,6 +19,17 @@ public class CharacterSelectManager : MonoBehaviour
     public int maxRounds = 20;
     private int selectedRounds = 5;
 
+    [Header("Player Count Selection")]
+    public Button twoPlayerButton;
+    public Button threePlayerButton;
+    public Button fourPlayerButton;
+    public Button applyButton;
+    public Button lastManStandingButton;
+    public Color selectedColor = Color.white;
+    public Color unselectedColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+    private int selectedPlayerCount = 0;
+    private bool lastManStandingSelected = false;
+
     [Header("Multiplayer Settings")]
     public GameObject playerCountPanel;
     public TextMeshProUGUI statusText;
@@ -63,13 +74,149 @@ public class CharacterSelectManager : MonoBehaviour
             roundSlider.onValueChanged.AddListener(OnRoundSliderChanged);
         }
 
+        // FIRST: Disable color tinting on player buttons so we can control colors manually
+        DisableButtonColorTint(twoPlayerButton);
+        DisableButtonColorTint(threePlayerButton);
+        DisableButtonColorTint(fourPlayerButton);
+        DisableButtonColorTint(lastManStandingButton);
+
+        // THEN: Set up player count button click listeners
+        if (twoPlayerButton != null)
+        {
+            twoPlayerButton.onClick.RemoveAllListeners();
+            twoPlayerButton.onClick.AddListener(() => SelectPlayerCount(2));
+        }
+        if (threePlayerButton != null)
+        {
+            threePlayerButton.onClick.RemoveAllListeners();
+            threePlayerButton.onClick.AddListener(() => SelectPlayerCount(3));
+        }
+        if (fourPlayerButton != null)
+        {
+            fourPlayerButton.onClick.RemoveAllListeners();
+            fourPlayerButton.onClick.AddListener(() => SelectPlayerCount(4));
+        }
+        if (lastManStandingButton != null)
+        {
+            lastManStandingButton.onClick.RemoveAllListeners();
+            lastManStandingButton.onClick.AddListener(ToggleLastManStanding);
+        }
+
+        // Set up apply button
+        if (applyButton != null)
+        {
+            applyButton.onClick.AddListener(OnApplyButtonPressed);
+            applyButton.interactable = false; // Disabled until player count is selected
+        }
+
         UpdateRoundText();
+        
+        // FINALLY: Update visuals after transition is disabled
+        UpdatePlayerButtonVisuals();
+        UpdateLastManStandingVisual();
 
         if (characters.Length > 0)
         {
             UpdateCharacterDisplays();
             backgroundPanel.color = characters[currentIndex].backgroundColor;
         }
+    }
+
+    private void DisableButtonColorTint(Button button)
+    {
+        if (button == null) return;
+        
+        // Disable all visual transitions so button doesn't change colors on interaction
+        button.transition = Selectable.Transition.None;
+    }
+
+    private void ToggleLastManStanding()
+    {
+        lastManStandingSelected = !lastManStandingSelected;
+
+        // Disable/enable the round slider based on selection
+        if (roundSlider != null)
+            roundSlider.interactable = !lastManStandingSelected;
+
+        UpdateLastManStandingVisual();
+        UpdateApplyButton();
+    }
+
+    private void UpdateLastManStandingVisual()
+    {
+        if (lastManStandingButton == null) return;
+        Image img = lastManStandingButton.GetComponent<Image>();
+        if (img != null)
+            img.color = lastManStandingSelected ? selectedColor : unselectedColor;
+    }
+
+    private void SelectPlayerCount(int count)
+    {
+        selectedPlayerCount = count;
+        Debug.Log($"Selected {count} players");
+        UpdatePlayerButtonVisuals();
+        UpdateApplyButton();
+    }
+
+    private void UpdateApplyButton()
+    {
+        // Apply is available once a player count is picked
+        // (Last Man Standing doesn't require rounds to be set)
+        if (applyButton != null)
+            applyButton.interactable = selectedPlayerCount > 0;
+    }
+
+    private void UpdatePlayerButtonVisuals()
+    {
+        Debug.Log($"Updating button visuals. Selected count: {selectedPlayerCount}");
+        
+        // Update 2 player button
+        if (twoPlayerButton != null)
+        {
+            Image buttonImage = twoPlayerButton.GetComponent<Image>();
+            if (buttonImage != null)
+            {
+                Color newColor = (selectedPlayerCount == 2) ? selectedColor : unselectedColor;
+                buttonImage.color = newColor;
+                Debug.Log($"2P button color set to: {newColor}");
+            }
+        }
+
+        // Update 3 player button
+        if (threePlayerButton != null)
+        {
+            Image buttonImage = threePlayerButton.GetComponent<Image>();
+            if (buttonImage != null)
+            {
+                Color newColor = (selectedPlayerCount == 3) ? selectedColor : unselectedColor;
+                buttonImage.color = newColor;
+                Debug.Log($"3P button color set to: {newColor}");
+            }
+        }
+
+        // Update 4 player button
+        if (fourPlayerButton != null)
+        {
+            Image buttonImage = fourPlayerButton.GetComponent<Image>();
+            if (buttonImage != null)
+            {
+                Color newColor = (selectedPlayerCount == 4) ? selectedColor : unselectedColor;
+                buttonImage.color = newColor;
+                Debug.Log($"4P button color set to: {newColor}");
+            }
+        }
+    }
+
+    private void OnApplyButtonPressed()
+    {
+        if (selectedPlayerCount == 0)
+        {
+            Debug.LogWarning("No player count selected!");
+            return;
+        }
+
+        // Now proceed with the original SetPlayerCount logic
+        SetPlayerCount(selectedPlayerCount);
     }
 
     private void OnRoundSliderChanged(float value)
@@ -127,6 +274,7 @@ public class CharacterSelectManager : MonoBehaviour
             BoardStateSaver.Clear();
             BoardStateSaver.returningFromMinigame = false;
             BoardStateSaver.totalRounds = selectedRounds;
+            BoardStateSaver.lastManStanding = lastManStandingSelected;
             BoardStateSaver.ResetRounds();
 
             // --- END SAVE ---

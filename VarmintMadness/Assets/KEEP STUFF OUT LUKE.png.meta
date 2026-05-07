@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 34707ea83cdb6fb4cab0261933367a17
+guid: c2d2e6358c8d7924fa08897b7aedc9c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -989844117741169100
-    second: OptionsStatic_0
+      213: 8913752513525548250
+    second: 5616-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    maxTextureSize: 32
+    resizeAlgorithm: 1
+    textureFormat: 9
+    textureCompression: 3
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OptionsStatic_0
+      name: 5616-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 109
-        width: 382
-        height: 182
+        x: 0
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4361703f40e5342f0800000000000000
-      internalID: -989844117741169100
+      spriteID: ad48f681fa204bb70800000000000000
+      internalID: 8913752513525548250
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      5616-removebg-preview_0: 8913752513525548250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
