@@ -70,9 +70,13 @@ public class MarathonMinigameController : MonoBehaviour
 
     public void PlayerFinished()
     {
-        // ⭐ Prevent multiple finish calls
+        Debug.Log("PlayerFinished() CALLED for player index: " + currentPlayerIndex);
+
         if (hasFinishedThisTurn)
+        {
+            Debug.Log("IGNORED: Already finished this turn");
             return;
+        }
 
         hasFinishedThisTurn = true;
 
@@ -83,6 +87,7 @@ public class MarathonMinigameController : MonoBehaviour
 
         currentPlayerIndex++;
 
+        Debug.Log("Starting next player routine...");
         StartCoroutine(StartNextPlayerRoutine());
     }
 

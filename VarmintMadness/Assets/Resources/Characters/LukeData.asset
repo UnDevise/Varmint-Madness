@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: LukeData
   m_EditorClassIdentifier: 
   characterName: Opossum Luke
+  characterBio: 'Opossum Luke:
+
+
+    "Don''t touch my tail or i''ll kill you"'
   characterSprite: {fileID: -4660275902620348432, guid: 30d8fb137b126b244bb42c29f8954883, type: 3}
-  characterBio: Don't make me angry, my eyes turn red and I transform into an alpha
   backgroundColor: {r: 0.5577565, g: 0, b: 0.8679245, a: 0}
+  characterAnimatorController: {fileID: 0}
