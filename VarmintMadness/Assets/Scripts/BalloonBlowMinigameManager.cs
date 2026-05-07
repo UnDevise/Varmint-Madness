@@ -34,10 +34,22 @@ public class BalloonBlowMinigameManager : MonoBehaviour
 
     void Start()
     {
+        int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
+
+        // Disable unused players and their UI
         for (int i = 0; i < players.Length; i++)
+        {
+            bool isActive = i < totalPlayers;
+            players[i].gameObject.SetActive(isActive);
+
+            if (i < playerPointTexts.Length && playerPointTexts[i] != null)
+                playerPointTexts[i].gameObject.SetActive(isActive);
+        }
+
+        for (int i = 0; i < totalPlayers; i++)
             players[i].transform.position = playerStartPoints[i].position;
 
-        balloon.InitializePlayers(players.Length);
+        balloon.InitializePlayers(totalPlayers);
         UpdatePointUI();
         StartPlayerTurn();
     }
@@ -165,8 +177,9 @@ public class BalloonBlowMinigameManager : MonoBehaviour
 
     void NextPlayer()
     {
+        int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
         currentPlayer++;
-        if (currentPlayer >= players.Length)
+        if (currentPlayer >= totalPlayers)
             currentPlayer = 0;
 
         StartPlayerTurn();

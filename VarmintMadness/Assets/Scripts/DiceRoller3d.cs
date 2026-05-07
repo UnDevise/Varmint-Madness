@@ -51,9 +51,10 @@ public class DiceRoller : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && canRoll)
+        if (Input.GetKeyDown(KeyCode.Space) && canRoll && !isRolling)
         {
-            if (diceController == null || !diceController.IsPlayerMoving())
+            // Only allow roll if dice is enabled by DiceController
+            if (diceController != null && diceController.diceCollider != null && diceController.diceCollider.enabled)
             {
                 RollDice();
             }
@@ -71,7 +72,13 @@ public class DiceRoller : MonoBehaviour
         if (CameraController.Instance != null)
             CameraController.Instance.FocusDice(transform);
 
+        // Full physics reset before every roll so each one has equal power
         rb.isKinematic = false;
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        transform.position = diceResetPoint.position;
+        transform.rotation = diceResetPoint.rotation;
+
         canRoll = false;
         thrown = true;
         hasLanded = false;
@@ -131,8 +138,9 @@ public class DiceRoller : MonoBehaviour
                 diceRenderer.enabled = false;
 
             thrown = false;
-            canRoll = true;
             isRolling = false;
+            // Keep canRoll false - DiceController.EnableDice() will allow the next roll
+            // This prevents rolling again before the player finishes moving
             ResetDice();
         }
     }
@@ -157,6 +165,17 @@ public class DiceRoller : MonoBehaviour
 
         return result;
     }
+
+    public void EnableRoll()
+    {
+        canRoll = true;
+    }
+
+    public void DisableRoll()
+    {
+        canRoll = false;
+    }
+
     public void ResetDice()
     {
         rb.isKinematic = true;
@@ -177,7 +196,7 @@ public class DiceRoller : MonoBehaviour
         thrown = false;
         hasLanded = false;
         isRolling = false;
-        canRoll = true;
+        // Note: canRoll is NOT reset here - DiceController controls when rolling is allowed
     }
 
 }

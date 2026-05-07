@@ -72,6 +72,16 @@ public class DiceController : MonoBehaviour
                 uiParentPanel = canvas.transform;
         }
 
+        // Disable unused player GameObjects based on selected player count
+        int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
+        for (int i = 0; i < playersToMove.Count; i++)
+        {
+            if (playersToMove[i] != null)
+                playersToMove[i].gameObject.SetActive(i < totalPlayers);
+        }
+
+        // Remove inactive players from the list entirely
+        playersToMove = playersToMove.Where(p => p != null && p.gameObject.activeSelf).ToList();
         playersToMove = playersToMove.OrderBy(p => p.playerID).ToList();
 
         if (!BoardStateSaver.returningFromMinigame)
@@ -265,8 +275,17 @@ public class DiceController : MonoBehaviour
         return false;
     }
 
-    public void DisableDice() { if (diceCollider != null) diceCollider.enabled = false; }
-    public void EnableDice() { if (diceCollider != null) diceCollider.enabled = true; }
+    public void DisableDice()
+    {
+        if (diceCollider != null) diceCollider.enabled = false;
+        if (diceRoller != null) diceRoller.DisableRoll();
+    }
+
+    public void EnableDice()
+    {
+        if (diceCollider != null) diceCollider.enabled = true;
+        if (diceRoller != null) diceRoller.EnableRoll();
+    }
 
     private void ResetDicePhysics()
     {
