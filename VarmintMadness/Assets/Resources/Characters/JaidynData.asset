@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: JaidynData
   m_EditorClassIdentifier: 
   characterName: Fox Jaidyn
+  characterBio: "Fox Jaidyn: \n\n\"I loose everytime, don't pick me\""
   characterSprite: {fileID: -1542984525474939529, guid: c387e8b041266654f8faad25f160b0c8, type: 3}
-  characterBio: My computer caught fire
   backgroundColor: {r: 1, g: 0.38606954, b: 0, a: 0}
+  characterAnimatorController: {fileID: 0}

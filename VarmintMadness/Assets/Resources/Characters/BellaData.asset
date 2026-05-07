@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: BellaData
   m_EditorClassIdentifier: 
   characterName: Chipmunk Bella
+  characterBio: 'Chipmunk Bella:
+
+
+    "Do NOT feed wild animals"'
   characterSprite: {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
-  characterBio: Just for two seconds, I'll be a furry
   backgroundColor: {r: 0, g: 1, b: 0.026485443, a: 1}
+  characterAnimatorController: {fileID: 0}
