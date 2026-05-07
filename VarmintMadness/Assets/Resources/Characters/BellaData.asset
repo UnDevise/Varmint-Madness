@@ -18,5 +18,5 @@ MonoBehaviour:
 
     "Do NOT feed wild animals"'
   characterSprite: {fileID: -3181276850585353816, guid: 5b750d5f346bef14faca5990a4db93ed, type: 3}
-  backgroundColor: {r: 0, g: 1, b: 0.026485443, a: 1}
+  backgroundColor: {r: 0, g: 0.8018868, b: 0.022012625, a: 1}
   characterAnimatorController: {fileID: 0}
