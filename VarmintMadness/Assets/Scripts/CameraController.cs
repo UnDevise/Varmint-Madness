@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -58,6 +58,24 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        // -----------------------------
+        // AUTO‑UNLOCK CAMERA IF TARGET IS GONE
+        // -----------------------------
+        if (currentMode == CameraMode.FollowPlayer && playerToFollow == null)
+        {
+            isFollowingPlayer = false;
+            currentMode = CameraMode.None;
+        }
+
+        if (currentMode == CameraMode.FocusDice && diceToFollow == null)
+        {
+            followDice = false;
+            currentMode = CameraMode.None;
+        }
+
+        // -----------------------------
+        // CAMERA MODE BEHAVIOR
+        // -----------------------------
         switch (currentMode)
         {
             case CameraMode.FollowPlayer:
@@ -76,9 +94,16 @@ public class CameraController : MonoBehaviour
                 break;
         }
 
-        // --- LOOK AROUND TOGGLE BUTTON (Q) ---
+        // -----------------------------
+        // Q TOGGLE FOR LOOK‑AROUND MODE
+        // -----------------------------
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            // Disable Q while following player or dice
+            if (currentMode == CameraMode.FollowPlayer || currentMode == CameraMode.FocusDice)
+                return;
+
+            // Toggle LookAround mode
             if (currentMode != CameraMode.LookAround)
                 EnterLookAroundMode();
             else
@@ -186,7 +211,7 @@ public class CameraController : MonoBehaviour
         isFollowingPlayer = true;
     }
 
-    // OLD API � restored
+    // OLD API — restored
     public void StartFollowing(Transform target)
     {
         FocusOnPlayer(target);
@@ -225,8 +250,12 @@ public class CameraController : MonoBehaviour
 
         currentMode = CameraMode.FocusDice;
         StopAllCoroutines();
+
         isFollowingPlayer = false;
         playerToFollow = null;
+
+        followDice = true;                // ⭐ NEW
+        diceToFollow = diceTransform;     // ⭐ NEW
 
         StartCoroutine(FocusDiceCoroutine(diceTransform));
     }

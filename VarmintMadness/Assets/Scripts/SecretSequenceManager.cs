@@ -33,16 +33,14 @@ public class SecretSequenceManager : MonoBehaviour
 
     void Start()
     {
-        int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
-
-        // Disable unused players
-        for (int i = players.Length - 1; i >= totalPlayers; i--)
+        // Build active players list from whoever MinigameCharacterApplier activated
+        List<PlayerSequenceInput> activePlayers = new List<PlayerSequenceInput>();
+        for (int i = 0; i < players.Length; i++)
         {
-            players[i].gameObject.SetActive(false);
+            if (players[i] != null && players[i].gameObject.activeSelf)
+                activePlayers.Add(players[i]);
         }
-
-        // Trim players array to active count
-        System.Array.Resize(ref players, totalPlayers);
+        players = activePlayers.ToArray();
 
         StartNewRound();
     }
