@@ -33,15 +33,29 @@ public class SecretSequenceManager : MonoBehaviour
 
     void Start()
     {
-        // Build active players list from whoever MinigameCharacterApplier activated
-        List<PlayerSequenceInput> activePlayers = new List<PlayerSequenceInput>();
-        for (int i = 0; i < players.Length; i++)
-        {
-            if (players[i] != null && players[i].gameObject.activeSelf)
-                activePlayers.Add(players[i]);
-        }
-        players = activePlayers.ToArray();
+        // Get ordered players from MinigameCharacterApplier
+        MinigameCharacterApplier applier = Object.FindFirstObjectByType<MinigameCharacterApplier>();
 
+        List<PlayerSequenceInput> activePlayers = new List<PlayerSequenceInput>();
+
+        if (applier != null && applier.orderedActivePlayers != null)
+        {
+            foreach (var obj in applier.orderedActivePlayers)
+            {
+                if (obj != null)
+                {
+                    PlayerSequenceInput p = obj.GetComponent<PlayerSequenceInput>();
+                    if (p != null) activePlayers.Add(p);
+                }
+            }
+        }
+        else
+        {
+            foreach (var p in players)
+                if (p != null && p.gameObject.activeSelf) activePlayers.Add(p);
+        }
+
+        players = activePlayers.ToArray();
         StartNewRound();
     }
 

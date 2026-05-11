@@ -28,22 +28,34 @@ public class BowserBlastMinigameManager : MonoBehaviour
         originalButtons = (ButtonSpriteController[])buttons.Clone();
         originalButtonPositions = (Transform[])buttonPositions.Clone();
 
-        // Build active players list from whoever MinigameCharacterApplier activated
+        // Get ordered players from MinigameCharacterApplier
+        MinigameCharacterApplier applier = Object.FindFirstObjectByType<MinigameCharacterApplier>();
+
         List<PlayerMovementBlast> activePlayers = new List<PlayerMovementBlast>();
-        for (int i = 0; i < players.Length; i++)
+
+        if (applier != null && applier.orderedActivePlayers != null)
         {
-            if (players[i] != null && players[i].gameObject.activeSelf)
-                activePlayers.Add(players[i]);
+            foreach (var obj in applier.orderedActivePlayers)
+            {
+                if (obj != null)
+                {
+                    PlayerMovementBlast p = obj.GetComponent<PlayerMovementBlast>();
+                    if (p != null) activePlayers.Add(p);
+                }
+            }
         }
+        else
+        {
+            foreach (var p in players)
+                if (p != null && p.gameObject.activeSelf) activePlayers.Add(p);
+        }
+
         players = activePlayers.ToArray();
 
-        // Pick a random bomb by reference
         dangerButton = buttons[Random.Range(0, buttons.Length)];
 
         for (int i = 0; i < players.Length; i++)
-        {
             players[i].Initialize(this, playerSpawnPositions[i], buttonPositions);
-        }
 
         StartPlayerTurn();
     }

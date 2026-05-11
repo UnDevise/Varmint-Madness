@@ -1,7 +1,8 @@
 using UnityEngine;
 
 // Attach this to a GameObject in each minigame scene.
-// Maps selected characters to their correct player GameObjects by character index.
+// Maps selected characters to their correct player GameObjects by character index,
+// in the order players selected them.
 
 public class MinigameCharacterApplier : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class MinigameCharacterApplier : MonoBehaviour
     [Header("Optional: Animator controllers in character select screen order")]
     public RuntimeAnimatorController[] characterAnimators;
 
+    // Ordered list of active player GameObjects in selection order (Player 1 first)
+    [HideInInspector]
+    public GameObject[] orderedActivePlayers;
+
     void Awake()
     {
         int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
@@ -26,10 +31,21 @@ public class MinigameCharacterApplier : MonoBehaviour
                 obj.SetActive(false);
         }
 
-        // Now enable and apply sprites only for selected characters
+        // Use BoardStateSaver selection order if available, otherwise fall back to PlayerPrefs
+        int[] selectionOrder = BoardStateSaver.playerSelectionOrder;
+
+        orderedActivePlayers = new GameObject[totalPlayers];
+
+        // Enable and apply sprites in player selection order
         for (int playerSlot = 0; playerSlot < totalPlayers; playerSlot++)
         {
-            int charIndex = PlayerPrefs.GetInt($"P{playerSlot + 1}_Character", -1);
+            int charIndex;
+
+            if (selectionOrder != null && playerSlot < selectionOrder.Length)
+                charIndex = selectionOrder[playerSlot];
+            else
+                charIndex = PlayerPrefs.GetInt($"P{playerSlot + 1}_Character", -1);
+
             Debug.Log($"MinigameCharacterApplier: Player slot {playerSlot + 1} → charIndex = {charIndex}");
 
             if (charIndex < 0 || charIndex >= playerObjectsByCharacterIndex.Length)
@@ -46,7 +62,7 @@ public class MinigameCharacterApplier : MonoBehaviour
             }
 
             playerObj.SetActive(true);
-            Debug.Log($"MinigameCharacterApplier: Activated {playerObj.name} for player slot {playerSlot + 1}");
+            orderedActivePlayers[playerSlot] = playerObj;
 
             // Apply sprite
             SpriteRenderer sr = playerObj.GetComponent<SpriteRenderer>();
@@ -60,6 +76,8 @@ public class MinigameCharacterApplier : MonoBehaviour
                 if (anim != null)
                     anim.runtimeAnimatorController = characterAnimators[charIndex];
             }
+
+            Debug.Log($"MinigameCharacterApplier: Activated {playerObj.name} for player slot {playerSlot + 1}");
         }
     }
 }

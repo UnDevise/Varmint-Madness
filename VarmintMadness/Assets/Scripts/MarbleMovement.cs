@@ -14,6 +14,7 @@ public class MarbleMovement : MonoBehaviour
     private float stuckTimer = 0f;
     private Vector3 lastPosition;
     public bool IsStuck { get; private set; } = false;
+    public bool isGhostMarble = false;
 
     void Start()
     {
@@ -30,7 +31,9 @@ public class MarbleMovement : MonoBehaviour
         rb.AddForce(new Vector2(randomX, 0f), ForceMode2D.Impulse);
         float randomTorque = Random.Range(-5f, 5f);
         rb.AddTorque(randomTorque, ForceMode2D.Impulse);
-        rb.gravityScale = 0.8f;
+
+        // Ghost marble gets boosted gravity to fall straight through everything
+        rb.gravityScale = isGhostMarble ? 5f : 0.8f;
     }
 
     void Update()
