@@ -14,119 +14,129 @@ public class CameraController : MonoBehaviour
     public float zoomSpeed = 2.0f;
     public float followSpeed = 5.0f;
 
+    [Header("Look Around Settings")]
+    public float lookMoveSpeed = 10f;
+    public float lookZoomSpeed = 5f;
+    public float minZoom = 3f;
+    public float maxZoom = 25f;
+
     private bool isFollowingPlayer = false;
     private Transform playerToFollow;
     private bool followDice = false;
     private Transform diceToFollow;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    private Vector3 savedLookPosition;
+    private float savedLookZoom;
 
     public enum CameraMode
     {
         None,
         FollowPlayer,
-        FocusDice
+        FocusDice,
+        LookAround
     }
 
     public CameraMode currentMode = CameraMode.None;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     private void Start()
     {
         cam = GetComponent<Camera>();
 
         if (cam.orthographic)
-        {
             fullViewOrthographicSize = cam.orthographicSize;
-        }
 
         fullViewPosition = transform.position;
     }
 
     private void Update()
     {
-        if (currentMode == CameraMode.FollowPlayer && isFollowingPlayer && playerToFollow != null)
+        switch (currentMode)
         {
-            FollowPlayer();
+            case CameraMode.FollowPlayer:
+                if (isFollowingPlayer && playerToFollow != null)
+                    FollowPlayer();
+                break;
+
+            case CameraMode.FocusDice:
+                if (followDice && diceToFollow != null)
+                    FollowDice();
+                break;
+
+            case CameraMode.LookAround:
+                HandleLookAroundMovement();
+                HandleLookAroundZoom();
+                break;
         }
-        else if (currentMode == CameraMode.FocusDice && followDice && diceToFollow != null)
+
+        // --- LOOK AROUND TOGGLE BUTTON (Q) ---
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            FollowDice();
+            if (currentMode != CameraMode.LookAround)
+                EnterLookAroundMode();
+            else
+                ExitLookAroundMode();
         }
     }
 
-    private void FollowPlayer()
+    // -----------------------------
+    // LOOK AROUND MODE
+    // -----------------------------
+    public void EnterLookAroundMode()
     {
-        if (playerToFollow == null)
+        if (currentMode == CameraMode.LookAround)
             return;
 
-        Vector3 targetPosition = new Vector3(
-            playerToFollow.position.x,
-            playerToFollow.position.y,
-            transform.position.z
-        );
+        savedLookPosition = transform.position;
+        savedLookZoom = cam.orthographicSize;
 
-        transform.position = Vector3.Lerp(
-            transform.position,
-            targetPosition,
-            followSpeed * Time.deltaTime
-        );
-    }
-
-    // -----------------------------
-    // DICE FOCUS
-    // -----------------------------
-    public void FocusOnDice(Transform diceTransform)
-    {
-        if (diceTransform == null)
-            return;
-
-        currentMode = CameraMode.FocusDice;
         StopAllCoroutines();
         isFollowingPlayer = false;
-        playerToFollow = null;
+        followDice = false;
 
-        StartCoroutine(FocusDiceCoroutine(diceTransform));
+        currentMode = CameraMode.LookAround;
     }
 
-    private IEnumerator FocusDiceCoroutine(Transform dice)
+    public void ExitLookAroundMode()
     {
-        if (dice == null)
-            yield break;
+        currentMode = CameraMode.None;
 
-        float startSize = cam.orthographicSize;
-        float elapsed = 0f;
+        transform.position = savedLookPosition;
+        cam.orthographicSize = savedLookZoom;
+    }
 
-        while (elapsed < 1f)
-        {
-            if (dice == null)
-                yield break;
+    private void HandleLookAroundMovement()
+    {
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
 
-            elapsed += Time.deltaTime * zoomSpeed;
+        Vector3 move = new Vector3(h, v, 0f) * lookMoveSpeed * Time.deltaTime;
+        transform.position += move;
+    }
 
-            cam.orthographicSize = Mathf.Lerp(startSize, zoomedOrthographicSize, elapsed);
+    private void HandleLookAroundZoom()
+    {
+        // Scroll wheel zoom
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        cam.orthographicSize -= scroll * lookZoomSpeed;
 
-            Vector3 targetPos = new Vector3(
-                dice.position.x,
-                dice.position.y,
-                transform.position.z
-            );
+        // Left click = zoom in
+        if (Input.GetMouseButton(0))
+            cam.orthographicSize -= lookZoomSpeed * Time.deltaTime;
 
-            transform.position = Vector3.Lerp(transform.position, targetPos, elapsed);
+        // Right click = zoom out
+        if (Input.GetMouseButton(1))
+            cam.orthographicSize += lookZoomSpeed * Time.deltaTime;
 
-            yield return null;
-        }
-
-        cam.orthographicSize = zoomedOrthographicSize;
+        // Clamp zoom
+        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
     }
 
     // -----------------------------
@@ -176,6 +186,111 @@ public class CameraController : MonoBehaviour
         isFollowingPlayer = true;
     }
 
+    // OLD API — restored
+    public void StartFollowing(Transform target)
+    {
+        FocusOnPlayer(target);
+    }
+
+    public void FollowPlayer()
+    {
+        if (playerToFollow == null)
+            return;
+
+        Vector3 targetPosition = new Vector3(
+            playerToFollow.position.x,
+            playerToFollow.position.y,
+            transform.position.z
+        );
+
+        transform.position = Vector3.Lerp(
+            transform.position,
+            targetPosition,
+            followSpeed * Time.deltaTime
+        );
+    }
+
+    public void FollowPlayer(Transform player)
+    {
+        FocusOnPlayer(player);
+    }
+
+    // -----------------------------
+    // DICE FOCUS
+    // -----------------------------
+    public void FocusOnDice(Transform diceTransform)
+    {
+        if (diceTransform == null)
+            return;
+
+        currentMode = CameraMode.FocusDice;
+        StopAllCoroutines();
+        isFollowingPlayer = false;
+        playerToFollow = null;
+
+        StartCoroutine(FocusDiceCoroutine(diceTransform));
+    }
+
+    public void FocusDice(Transform dice)
+    {
+        FocusOnDice(dice);
+    }
+
+    private IEnumerator FocusDiceCoroutine(Transform dice)
+    {
+        if (dice == null)
+            yield break;
+
+        float startSize = cam.orthographicSize;
+        float elapsed = 0f;
+
+        while (elapsed < 1f)
+        {
+            if (dice == null)
+                yield break;
+
+            elapsed += Time.deltaTime * zoomSpeed;
+
+            cam.orthographicSize = Mathf.Lerp(startSize, zoomedOrthographicSize, elapsed);
+
+            Vector3 targetPos = new Vector3(
+                dice.position.x,
+                dice.position.y,
+                transform.position.z
+            );
+
+            transform.position = Vector3.Lerp(transform.position, targetPos, elapsed);
+
+            yield return null;
+        }
+
+        cam.orthographicSize = zoomedOrthographicSize;
+    }
+
+    private void FollowDice()
+    {
+        if (diceToFollow == null)
+            return;
+
+        Vector3 targetPosition = new Vector3(
+            diceToFollow.position.x,
+            diceToFollow.position.y,
+            transform.position.z
+        );
+
+        transform.position = Vector3.Lerp(
+            transform.position,
+            targetPosition,
+            followSpeed * Time.deltaTime
+        );
+    }
+
+    public void StopDiceFollow()
+    {
+        followDice = false;
+        diceToFollow = null;
+    }
+
     // -----------------------------
     // STOP FOLLOWING
     // -----------------------------
@@ -204,56 +319,4 @@ public class CameraController : MonoBehaviour
 
         cam.orthographicSize = fullViewOrthographicSize;
     }
-
-    // -----------------------------
-    // PUBLIC WRAPPER
-    // -----------------------------
-    public void StartFollowing(Transform target)
-    {
-        FocusOnPlayer(target);
-    }
-    public void FocusDice(Transform dice)
-    {
-        if (dice == null)
-            return;
-
-        currentMode = CameraMode.FocusDice;
-        StopAllCoroutines();
-
-        followDice = true;
-        diceToFollow = dice;
-
-        StartCoroutine(FocusDiceCoroutine(dice));
-    }
-
-
-    public void FollowPlayer(Transform player)
-    {
-        currentMode = CameraMode.FollowPlayer;
-        StopAllCoroutines();
-        StartCoroutine(StartFollowingCoroutine(player));
-    }
-    private void FollowDice()
-    {
-        if (diceToFollow == null)
-            return;
-
-        Vector3 targetPosition = new Vector3(
-            diceToFollow.position.x,
-            diceToFollow.position.y,
-            transform.position.z
-        );
-
-        transform.position = Vector3.Lerp(
-            transform.position,
-            targetPosition,
-            followSpeed * Time.deltaTime
-        );
-    }
-    public void StopDiceFollow()
-    {
-        followDice = false;
-        diceToFollow = null;
-    }
-
 }
