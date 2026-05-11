@@ -1,48 +1,63 @@
 using UnityEngine;
 
 // Attach this to a GameObject in each minigame scene.
-// Assign all 4 player GameObjects in order and all character sprites in order.
-// It reads which characters were selected from PlayerPrefs and applies the correct sprites.
+// Maps selected characters to their correct player GameObjects by character index.
 
 public class MinigameCharacterApplier : MonoBehaviour
 {
-    [Header("Assign all 4 player GameObjects in order (Player 1 first)")]
-    public GameObject[] playerObjects;
+    [Header("Assign all 4 player GameObjects matching their CHARACTER index order")]
+    [Tooltip("Slot 0 = character index 0, Slot 1 = character index 1, etc. Match the character select screen order.")]
+    public GameObject[] playerObjectsByCharacterIndex;
 
-    [Header("Assign all character sprites in the same order as the character select screen")]
+    [Header("Assign all character sprites in character select screen order")]
     public Sprite[] characterSprites;
 
-    [Header("Optional: Animator controllers per character (same order as sprites)")]
+    [Header("Optional: Animator controllers in character select screen order")]
     public RuntimeAnimatorController[] characterAnimators;
 
     void Awake()
     {
         int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
 
-        for (int i = 0; i < playerObjects.Length; i++)
+        // First disable ALL player objects
+        foreach (var obj in playerObjectsByCharacterIndex)
         {
-            if (playerObjects[i] == null) continue;
+            if (obj != null)
+                obj.SetActive(false);
+        }
 
-            if (i >= totalPlayers)
+        // Now enable and apply sprites only for selected characters
+        for (int playerSlot = 0; playerSlot < totalPlayers; playerSlot++)
+        {
+            int charIndex = PlayerPrefs.GetInt($"P{playerSlot + 1}_Character", -1);
+            Debug.Log($"MinigameCharacterApplier: Player slot {playerSlot + 1} → charIndex = {charIndex}");
+
+            if (charIndex < 0 || charIndex >= playerObjectsByCharacterIndex.Length)
             {
-                // Disable unused players
-                playerObjects[i].SetActive(false);
+                Debug.LogWarning($"MinigameCharacterApplier: Invalid charIndex {charIndex} for player {playerSlot + 1}");
                 continue;
             }
 
-            // Get the character index this player selected
-            int charIndex = PlayerPrefs.GetInt($"P{i + 1}_Character", 0);
+            GameObject playerObj = playerObjectsByCharacterIndex[charIndex];
+            if (playerObj == null)
+            {
+                Debug.LogWarning($"MinigameCharacterApplier: No GameObject at index {charIndex}");
+                continue;
+            }
+
+            playerObj.SetActive(true);
+            Debug.Log($"MinigameCharacterApplier: Activated {playerObj.name} for player slot {playerSlot + 1}");
 
             // Apply sprite
-            SpriteRenderer sr = playerObjects[i].GetComponent<SpriteRenderer>();
-            if (sr != null && charIndex >= 0 && charIndex < characterSprites.Length)
+            SpriteRenderer sr = playerObj.GetComponent<SpriteRenderer>();
+            if (sr != null && charIndex < characterSprites.Length)
                 sr.sprite = characterSprites[charIndex];
 
             // Apply animator if provided
-            if (characterAnimators != null && characterAnimators.Length > 0)
+            if (characterAnimators != null && characterAnimators.Length > charIndex && characterAnimators[charIndex] != null)
             {
-                Animator anim = playerObjects[i].GetComponent<Animator>();
-                if (anim != null && charIndex >= 0 && charIndex < characterAnimators.Length && characterAnimators[charIndex] != null)
+                Animator anim = playerObj.GetComponent<Animator>();
+                if (anim != null)
                     anim.runtimeAnimatorController = characterAnimators[charIndex];
             }
         }

@@ -3060,7 +3060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcf501b275678f49925af522745eb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObjects:
+  playerObjectsByCharacterIndex:
   - {fileID: 333839454}
   - {fileID: 977471989}
   - {fileID: 1110642476}

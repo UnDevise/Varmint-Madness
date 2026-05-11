@@ -36,20 +36,30 @@ public class BalloonBlowMinigameManager : MonoBehaviour
     {
         int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
 
-        // Disable unused players and their UI
+        // Build active players list from whichever GameObjects are active
+        // (MinigameCharacterApplier already handled enabling the correct ones)
+        List<PlayerMinigameMovement> activePlayers = new List<PlayerMinigameMovement>();
         for (int i = 0; i < players.Length; i++)
         {
-            bool isActive = i < totalPlayers;
-            players[i].gameObject.SetActive(isActive);
-
-            if (i < playerPointTexts.Length && playerPointTexts[i] != null)
-                playerPointTexts[i].gameObject.SetActive(isActive);
+            if (players[i] != null && players[i].gameObject.activeSelf)
+                activePlayers.Add(players[i]);
         }
 
-        for (int i = 0; i < totalPlayers; i++)
+        // Trim to active players only
+        players = activePlayers.ToArray();
+
+        // Disable unused UI
+        for (int i = 0; i < playerPointTexts.Length; i++)
+        {
+            if (playerPointTexts[i] != null)
+                playerPointTexts[i].gameObject.SetActive(i < players.Length);
+        }
+
+        // Move active players to their start points
+        for (int i = 0; i < players.Length; i++)
             players[i].transform.position = playerStartPoints[i].position;
 
-        balloon.InitializePlayers(totalPlayers);
+        balloon.InitializePlayers(players.Length);
         UpdatePointUI();
         StartPlayerTurn();
     }
@@ -177,9 +187,8 @@ public class BalloonBlowMinigameManager : MonoBehaviour
 
     void NextPlayer()
     {
-        int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
         currentPlayer++;
-        if (currentPlayer >= totalPlayers)
+        if (currentPlayer >= players.Length)
             currentPlayer = 0;
 
         StartPlayerTurn();
@@ -207,10 +216,11 @@ public class BalloonBlowMinigameManager : MonoBehaviour
 
     void UpdatePointUI()
     {
-        for (int i = 0; i < playerPointTexts.Length; i++)
+        int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
+        for (int i = 0; i < playerPointTexts.Length && i < totalPlayers; i++)
         {
-            playerPointTexts[i].text =
-                $"Player {i + 1} Points: {balloon.playerPoints[i]}";
+            if (playerPointTexts[i] != null && playerPointTexts[i].gameObject.activeSelf)
+                playerPointTexts[i].text = $"Player {i + 1} Points: {balloon.playerPoints[i]}";
         }
     }
 }
