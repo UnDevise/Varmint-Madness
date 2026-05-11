@@ -77,8 +77,6 @@ public class GameShowManager : MonoBehaviour
 
     private void Start()
     {
-<<<<<<< Updated upstream
-=======
         // Build active players list from whoever MinigameCharacterApplier activated
         List<PlayerController> activePlayers = new List<PlayerController>();
         List<Transform> activeWaypoints = new List<Transform>();
@@ -94,7 +92,6 @@ public class GameShowManager : MonoBehaviour
         players = activePlayers.ToArray();
         playerWaypoints = activeWaypoints.ToArray();
 
->>>>>>> Stashed changes
         ValidateSetup();
         BuildQuestionPool();
 
