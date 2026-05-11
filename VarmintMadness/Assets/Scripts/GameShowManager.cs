@@ -77,18 +77,42 @@ public class GameShowManager : MonoBehaviour
 
     private void Start()
     {
-        // Build active players list from whoever MinigameCharacterApplier activated
+        // Get ordered players from MinigameCharacterApplier
+        MinigameCharacterApplier applier = Object.FindFirstObjectByType<MinigameCharacterApplier>();
+
         List<PlayerController> activePlayers = new List<PlayerController>();
         List<Transform> activeWaypoints = new List<Transform>();
-        for (int i = 0; i < players.Length; i++)
+
+        if (applier != null && applier.orderedActivePlayers != null)
         {
-            if (players[i] != null && players[i].gameObject.activeSelf)
+            for (int i = 0; i < applier.orderedActivePlayers.Length; i++)
             {
-                activePlayers.Add(players[i]);
-                if (i < playerWaypoints.Length)
-                    activeWaypoints.Add(playerWaypoints[i]);
+                GameObject obj = applier.orderedActivePlayers[i];
+                if (obj != null)
+                {
+                    PlayerController p = obj.GetComponent<PlayerController>();
+                    if (p != null)
+                    {
+                        activePlayers.Add(p);
+                        if (i < playerWaypoints.Length)
+                            activeWaypoints.Add(playerWaypoints[i]);
+                    }
+                }
             }
         }
+        else
+        {
+            for (int i = 0; i < players.Length; i++)
+            {
+                if (players[i] != null && players[i].gameObject.activeSelf)
+                {
+                    activePlayers.Add(players[i]);
+                    if (i < playerWaypoints.Length)
+                        activeWaypoints.Add(playerWaypoints[i]);
+                }
+            }
+        }
+
         players = activePlayers.ToArray();
         playerWaypoints = activeWaypoints.ToArray();
 

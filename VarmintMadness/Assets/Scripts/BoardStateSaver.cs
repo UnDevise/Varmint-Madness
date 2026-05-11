@@ -16,7 +16,10 @@ public static class BoardStateSaver
     // Round tracking
     public static int totalRounds = 5;
     public static int currentRound = 0;
-    public static bool lastManStanding = false; // If true, play until one player remains
+    public static bool lastManStanding = false;
+
+    // Player selection order - maps player slot (0-3) to character index
+    public static int[] playerSelectionOrder;
 
     public static void Clear()
     {

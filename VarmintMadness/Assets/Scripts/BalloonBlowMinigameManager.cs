@@ -34,18 +34,30 @@ public class BalloonBlowMinigameManager : MonoBehaviour
 
     void Start()
     {
-        int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
+        // Get ordered players from MinigameCharacterApplier
+        MinigameCharacterApplier applier = Object.FindFirstObjectByType<MinigameCharacterApplier>();
 
-        // Build active players list from whichever GameObjects are active
-        // (MinigameCharacterApplier already handled enabling the correct ones)
         List<PlayerMinigameMovement> activePlayers = new List<PlayerMinigameMovement>();
-        for (int i = 0; i < players.Length; i++)
+
+        if (applier != null && applier.orderedActivePlayers != null)
         {
-            if (players[i] != null && players[i].gameObject.activeSelf)
-                activePlayers.Add(players[i]);
+            // Use selection order from applier
+            foreach (var obj in applier.orderedActivePlayers)
+            {
+                if (obj != null)
+                {
+                    PlayerMinigameMovement p = obj.GetComponent<PlayerMinigameMovement>();
+                    if (p != null) activePlayers.Add(p);
+                }
+            }
+        }
+        else
+        {
+            // Fallback: use whoever is active
+            foreach (var p in players)
+                if (p != null && p.gameObject.activeSelf) activePlayers.Add(p);
         }
 
-        // Trim to active players only
         players = activePlayers.ToArray();
 
         // Disable unused UI

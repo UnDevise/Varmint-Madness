@@ -270,6 +270,11 @@ public class CharacterSelectManager : MonoBehaviour
 
             PlayerPrefs.Save();
 
+            // Save selection order to BoardStateSaver for minigames
+            BoardStateSaver.playerSelectionOrder = new int[lockedCharacterIndices.Count];
+            for (int i = 0; i < lockedCharacterIndices.Count; i++)
+                BoardStateSaver.playerSelectionOrder[i] = lockedCharacterIndices[i];
+
             // Reset board state so garbage doesn't get overwritten
             BoardStateSaver.Clear();
             BoardStateSaver.returningFromMinigame = false;

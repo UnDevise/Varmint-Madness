@@ -16,6 +16,7 @@ public class GameManagerMarble : MonoBehaviour
     private int[] pickedMarblesInOrder;
 
     private bool winnerChosen = false;
+    private int eligiblePlayers = 0;
 
     private float stuckCheckInterval = 1.0f;
     private float stuckCheckTimer = 0f;
@@ -23,11 +24,25 @@ public class GameManagerMarble : MonoBehaviour
 
     void Start()
     {
+        // Read actual player count instead of using hardcoded value
+        totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
+
         playerMarbleChoices = new int[totalPlayers];
         pickedMarblesInOrder = new int[totalPlayers];
 
         foreach (var selector in marbleSelectors)
             selector.EnableMarble();
+
+        // Only calculate eligible players if board state exists
+        if (BoardStateSaver.playerIsInCage != null)
+        {
+            CalculateEligiblePlayers();
+            SkipCagedPlayersAtStart();
+        }
+        else
+        {
+            eligiblePlayers = totalPlayers;
+        }
 
         UpdateTurnText();
     }
@@ -58,7 +73,7 @@ public class GameManagerMarble : MonoBehaviour
 
         playersChosen++;
 
-        if (playersChosen < totalPlayers)
+        if (playersChosen < eligiblePlayers)
         {
             currentPlayer++;
             if (currentPlayer > totalPlayers)
@@ -82,7 +97,7 @@ public class GameManagerMarble : MonoBehaviour
             }
         }
 
-        if (playersChosen < totalPlayers)
+        if (playersChosen < eligiblePlayers)
         {
             foreach (var selector in marbleSelectors)
             {
@@ -91,7 +106,7 @@ public class GameManagerMarble : MonoBehaviour
             }
         }
 
-        if (playersChosen >= totalPlayers)
+        if (playersChosen >= eligiblePlayers)
         {
             StartRace();
             return;
@@ -209,5 +224,30 @@ public class GameManagerMarble : MonoBehaviour
         }
 
         SceneManager.LoadScene("LoadingScene");
+    }
+
+    private void CalculateEligiblePlayers()
+    {
+        eligiblePlayers = 0;
+        for (int i = 0; i < totalPlayers; i++)
+        {
+            if (!BoardStateSaver.playerIsInCage[i])
+                eligiblePlayers++;
+        }
+    }
+
+    private void SkipCagedPlayersAtStart()
+    {
+        int safety = 0;
+        while (BoardStateSaver.playerIsInCage[currentPlayer - 1])
+        {
+            currentPlayer++;
+            if (currentPlayer > totalPlayers)
+                currentPlayer = 1;
+
+            safety++;
+            if (safety > totalPlayers)
+                break;
+        }
     }
 }

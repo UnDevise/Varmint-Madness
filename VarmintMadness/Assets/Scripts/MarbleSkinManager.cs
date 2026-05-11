@@ -14,6 +14,7 @@ public class MarbleSkinManager : MonoBehaviour
         [Range(0.1f, 100f)]
         public float weight = 1f; // Higher = more likely to be chosen
         public AnimatorOverrideController animatorOverride; // Optional: assign if this skin has an animation
+        public bool ghostMarble = false; // If true, marble passes through all obstacles
     }
 
     [Header("Marble Skins")]
@@ -105,6 +106,18 @@ public class MarbleSkinManager : MonoBehaviour
                     // No animation for this skin - disable Animator if one exists
                     if (animator != null)
                         animator.enabled = false;
+                }
+
+                // Handle ghost marble - passes through all obstacles
+                if (chosen.ghostMarble)
+                {
+                    Collider2D col = selector.GetComponent<Collider2D>();
+                    if (col != null)
+                        col.isTrigger = true;
+
+                    MarbleMovement movement = selector.GetComponent<MarbleMovement>();
+                    if (movement != null)
+                        movement.isGhostMarble = true;
                 }
 
             // Remove from pool so it can't be picked again
