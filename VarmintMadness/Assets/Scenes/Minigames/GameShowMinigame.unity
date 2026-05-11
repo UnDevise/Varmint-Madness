@@ -234,8 +234,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -44.24524, y: 0, z: -41.754395, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -320,8 +320,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 230, y: 111}
+  m_AnchoredPosition: {x: -20, y: 0}
+  m_SizeDelta: {x: 270, y: 111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &72950566
 MonoBehaviour:
@@ -669,7 +669,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -45.186646, y: 0, z: -2.8242188, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -716,8 +716,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Fat
-  nameLabel: {fileID: 0}
-  pointsLabel: {fileID: 0}
+  nameLabel: {fileID: 334413241}
+  pointsLabel: {fileID: 1095914882}
   walkBoolParameter: Running
   horizontalParameter: Horizontal
   arrivalThreshold: 0.1
@@ -839,6 +839,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &245392901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 245392902}
+  m_Layer: 0
+  m_Name: WaitingWaypoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &245392902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245392901}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.67, y: -6.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1935770330}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &263946539
 GameObject:
@@ -1100,7 +1131,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -46.128036, y: 0, z: -1.882843, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1236,7 +1267,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -46.128036, y: 0, z: -3.765625, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1812,8 +1843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 230, y: 111}
+  m_AnchoredPosition: {x: -20, y: 0}
+  m_SizeDelta: {x: 270, y: 111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761760240
 MonoBehaviour:
@@ -1886,8 +1917,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Chipmunk Bella
-  nameLabel: {fileID: 0}
-  pointsLabel: {fileID: 0}
+  nameLabel: {fileID: 1795808794}
+  pointsLabel: {fileID: 326353659}
   walkBoolParameter: Running
   horizontalParameter: Horizontal
   arrivalThreshold: 0.1
@@ -2122,8 +2153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Raccoon Travis
-  nameLabel: {fileID: 0}
-  pointsLabel: {fileID: 0}
+  nameLabel: {fileID: 47847061}
+  pointsLabel: {fileID: 1362851656}
   walkBoolParameter: Running
   horizontalParameter: Horizontal
   arrivalThreshold: 0.1
@@ -2662,7 +2693,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -47.069397, y: 0, z: -1.882843, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3092,7 +3123,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -45.186615, y: 0, z: -2.8242188, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3261,7 +3292,7 @@ MonoBehaviour:
   - {fileID: 1226278880}
   - {fileID: 33275698}
   - {fileID: 1762511017}
-  waitingArea: {fileID: 0}
+  waitingArea: {fileID: 245392902}
   hostDialogueText: {fileID: 416423330}
   answerPanel: {fileID: 473591475}
   answerButtons:
@@ -3285,8 +3316,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e6bf02a14ea84645b763f88ffa1ed76, type: 2}
   - {fileID: 11400000, guid: 9f591cd314e6ae9478a6bd61eae72e41, type: 2}
   - {fileID: 11400000, guid: 054d8d26afad64c4ab20880f28e77675, type: 2}
-  greetingMessage: Welcome to the Ultimate Game Show! Let's see who has what it takes
-    to win!
+  - {fileID: 11400000, guid: 8307686743c27aa428b64421e60a50ed, type: 2}
+  - {fileID: 11400000, guid: 965d1b0d970809f4398e62caf3ee7b96, type: 2}
+  - {fileID: 11400000, guid: 68c62bb9e4f048b4183a3a6251862d39, type: 2}
+  - {fileID: 11400000, guid: 64a5bf6584688c0468289958a921efa9, type: 2}
+  - {fileID: 11400000, guid: edb95cd97e8443a4492a94463452e7e4, type: 2}
+  - {fileID: 11400000, guid: 1238bc1ed9f5740488041b0091e1e32c, type: 2}
+  - {fileID: 11400000, guid: 85c9583346535ce4eb2258b7f744c647, type: 2}
+  - {fileID: 11400000, guid: f50650ea8e1fef34a996809fd0e6bbf3, type: 2}
+  - {fileID: 11400000, guid: a97c3298a3d842946a1e27994e83df7e, type: 2}
+  - {fileID: 11400000, guid: 70a20e3caf3b1d94b9b863e380cdc85d, type: 2}
+  greetingMessage: Welcome to the Trivia Gameshow! I am your host Mouse Warf. Lets
+    test your knowledge on animals, the game, Mr.Smith, and much more!
 --- !u!4 &1574137735
 Transform:
   m_ObjectHideFlags: 0
@@ -3423,8 +3464,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 230, y: 111}
+  m_AnchoredPosition: {x: -20, y: 0}
+  m_SizeDelta: {x: 270, y: 111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591995631
 MonoBehaviour:
@@ -3791,7 +3832,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -44.24521, y: 0, z: -4.7070007, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3927,7 +3968,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -44.24524, y: 0, z: -3.765625, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4078,6 +4119,7 @@ Transform:
   - {fileID: 1226278880}
   - {fileID: 33275698}
   - {fileID: 1762511017}
+  - {fileID: 245392902}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1983968962
@@ -4437,8 +4479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Opossum Luke
-  nameLabel: {fileID: 0}
-  pointsLabel: {fileID: 0}
+  nameLabel: {fileID: 1814205445}
+  pointsLabel: {fileID: 180851691}
   walkBoolParameter: Running
   horizontalParameter: Horizontal
   arrivalThreshold: 0.1
@@ -4595,8 +4637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 230, y: 111}
+  m_AnchoredPosition: {x: -20, y: 0}
+  m_SizeDelta: {x: 270, y: 111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049966704
 MonoBehaviour:
