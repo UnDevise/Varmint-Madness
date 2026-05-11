@@ -25,8 +25,19 @@ public class BowserBlastMinigameManager : MonoBehaviour
 
     void Start()
     {
+        int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
+
         originalButtons = (ButtonSpriteController[])buttons.Clone();
         originalButtonPositions = (Transform[])buttonPositions.Clone();
+
+        // Disable unused players
+        for (int i = players.Length - 1; i >= totalPlayers; i--)
+        {
+            players[i].gameObject.SetActive(false);
+        }
+
+        // Trim to active players only
+        System.Array.Resize(ref players, totalPlayers);
 
         // Pick a random bomb by reference
         dangerButton = buttons[Random.Range(0, buttons.Length)];

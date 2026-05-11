@@ -65,6 +65,17 @@ public class GameShowManager : MonoBehaviour
 
     private void Start()
     {
+        int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
+
+        // Disable unused players and trim the array
+        for (int i = players.Length - 1; i >= totalPlayers; i--)
+        {
+            if (players[i] != null)
+                players[i].gameObject.SetActive(false);
+        }
+        System.Array.Resize(ref players, totalPlayers);
+        System.Array.Resize(ref playerWaypoints, totalPlayers);
+
         ValidateSetup();
         answerPanel.SetActive(false);
         StartCoroutine(RunShow());
@@ -244,8 +255,6 @@ public class GameShowManager : MonoBehaviour
 
     private void ValidateSetup()
     {
-        if (players.Length != 4)
-            Debug.LogWarning("[GameShowManager] Expected 4 players in the players array.");
         if (playerWaypoints.Length != players.Length)
             Debug.LogError("[GameShowManager] playerWaypoints count must match players count.");
         if (answerButtons.Length != 4 || answerButtonTexts.Length != 4)
