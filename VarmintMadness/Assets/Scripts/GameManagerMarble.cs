@@ -17,8 +17,6 @@ public class GameManagerMarble : MonoBehaviour
 
     private bool winnerChosen = false;
 
-    private int eligiblePlayers = 0;
-
     private float stuckCheckInterval = 1.0f;
     private float stuckCheckTimer = 0f;
     private bool raceStarted = false;
@@ -31,8 +29,6 @@ public class GameManagerMarble : MonoBehaviour
         foreach (var selector in marbleSelectors)
             selector.EnableMarble();
 
-        CalculateEligiblePlayers();
-        SkipCagedPlayersAtStart();
         UpdateTurnText();
     }
 
@@ -50,49 +46,6 @@ public class GameManagerMarble : MonoBehaviour
         }
     }
 
-    private void CalculateEligiblePlayers()
-    {
-        eligiblePlayers = 0;
-
-        for (int i = 0; i < totalPlayers; i++)
-        {
-            if (!BoardStateSaver.playerIsInCage[i])
-                eligiblePlayers++;
-        }
-    }
-
-    private void SkipCagedPlayersAtStart()
-    {
-        int safety = 0;
-        while (BoardStateSaver.playerIsInCage[currentPlayer - 1])
-        {
-            currentPlayer++;
-            if (currentPlayer > totalPlayers)
-                currentPlayer = 1;
-
-            safety++;
-            if (safety > totalPlayers)
-                break;
-        }
-    }
-
-    private void AdvanceToNextEligiblePlayer()
-    {
-        int safety = 0;
-
-        do
-        {
-            currentPlayer++;
-            if (currentPlayer > totalPlayers)
-                currentPlayer = 1;
-
-            safety++;
-            if (safety > totalPlayers)
-                break;
-
-        } while (BoardStateSaver.playerIsInCage[currentPlayer - 1]);
-    }
-
     public void PlayerPickedMarble(MarbleSelector marbleButton)
     {
         int marbleIndex = marbleButton.marbleIndex;
@@ -105,8 +58,12 @@ public class GameManagerMarble : MonoBehaviour
 
         playersChosen++;
 
-        if (playersChosen < eligiblePlayers)
-            AdvanceToNextEligiblePlayer();
+        if (playersChosen < totalPlayers)
+        {
+            currentPlayer++;
+            if (currentPlayer > totalPlayers)
+                currentPlayer = 1;
+        }
 
         foreach (var selector in marbleSelectors)
             selector.gameObject.SetActive(false);
@@ -125,7 +82,7 @@ public class GameManagerMarble : MonoBehaviour
             }
         }
 
-        if (playersChosen < eligiblePlayers)
+        if (playersChosen < totalPlayers)
         {
             foreach (var selector in marbleSelectors)
             {
@@ -134,7 +91,7 @@ public class GameManagerMarble : MonoBehaviour
             }
         }
 
-        if (playersChosen >= eligiblePlayers)
+        if (playersChosen >= totalPlayers)
         {
             StartRace();
             return;
@@ -245,14 +202,12 @@ public class GameManagerMarble : MonoBehaviour
 
     private void ReturnToBoard()
     {
-        // Safety check: ensure the board scene name is valid
         if (string.IsNullOrEmpty(BoardStateSaver.lastBoardSceneName))
         {
             Debug.LogWarning("BoardStateSaver.lastBoardSceneName was NULL — using fallback board scene!");
-            BoardStateSaver.lastBoardSceneName = "Board 1"; // your real board scene
+            BoardStateSaver.lastBoardSceneName = "Board 1";
         }
 
-        // Always go through the loading scene
         SceneManager.LoadScene("LoadingScene");
     }
 }

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: JaidynData
   m_EditorClassIdentifier: 
   characterName: Fox Jaidyn
-  characterBio: "Fox Jaidyn: \n\n\"I loose everytime, don't pick me\""
+  characterBio: "Fox Jaidyn: \n\n\"I loose everytime, don't pick me\"\n\n-The Punching
+    Bag"
   characterSprite: {fileID: -1542984525474939529, guid: c387e8b041266654f8faad25f160b0c8, type: 3}
   backgroundColor: {r: 1, g: 0, b: 0.037613392, a: 1}
   characterAnimatorController: {fileID: 0}

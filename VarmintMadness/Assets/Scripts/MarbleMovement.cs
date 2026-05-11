@@ -2,15 +2,13 @@
 
 public class MarbleMovement : MonoBehaviour
 {
-    public int marbleIndex; // Set in Inspector (0,1,2,...)
+    public int marbleIndex;
     public float minSpeed = 5f;
     public float maxSpeed = 12f;
     private Rigidbody2D rb;
     private float randomSpeed;
     private bool raceStarted = false;
-    public string ownerPlayerId; // must match PlayerMovement.playerId
 
-    // ⭐ Stuck detection
     public float stuckVelocityThreshold = 0.05f;
     public float stuckTimeNeeded = 1.0f;
     private float stuckTimer = 0f;
@@ -52,7 +50,6 @@ public class MarbleMovement : MonoBehaviour
 
     public void CheckIfStuck()
     {
-        // 1. If the marble is still moving at a reasonable speed, it's not stuck
         if (rb.linearVelocity.magnitude > 0.2f)
         {
             stuckTimer = 0f;
@@ -61,7 +58,6 @@ public class MarbleMovement : MonoBehaviour
             return;
         }
 
-        // 2. If the marble is not touching anything, it's not stuck
         if (rb.IsTouchingLayers() == false)
         {
             stuckTimer = 0f;
@@ -70,7 +66,6 @@ public class MarbleMovement : MonoBehaviour
             return;
         }
 
-        // 3. If the marble is barely moving AND touching something, start counting
         float distanceMoved = Vector3.Distance(transform.position, lastPosition);
 
         if (distanceMoved < 0.01f)
