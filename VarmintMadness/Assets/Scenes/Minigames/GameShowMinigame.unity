@@ -577,20 +577,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObjectsByCharacterIndex:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 813077317}
+  - {fileID: 230806349}
+  - {fileID: 2036897868}
+  - {fileID: 861651564}
   characterSprites:
   - {fileID: 3428814051360944915, guid: 171e877ce588be74ba25c0bb2b0ad34b, type: 3}
+  - {fileID: -1712074998796499465, guid: 3424f5820c6bcb143b4d169a034188db, type: 3}
   - {fileID: -4660275902620348432, guid: 16d5e6a5fc1bd49468d5d10291b95551, type: 3}
   - {fileID: -4660230227726065787, guid: 276fb9745d9643e48a01f98e1f3627a7, type: 3}
-  - {fileID: -1712074998796499465, guid: 3424f5820c6bcb143b4d169a034188db, type: 3}
   characterAnimators:
   - {fileID: 9100000, guid: 99a71d19825ec2149994a719d28e98bd, type: 2}
+  - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
   - {fileID: 9100000, guid: bb60b1f62294c8f408359bd17b42d721, type: 2}
   - {fileID: 9100000, guid: 76ecc09e8abb0c045b0e3ab4339e60ae, type: 2}
-  - {fileID: 9100000, guid: aec7a854027551a46a48195100d527dd, type: 2}
 --- !u!4 &158493569
 Transform:
   m_ObjectHideFlags: 0
