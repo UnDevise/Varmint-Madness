@@ -24,6 +24,14 @@ public class GameShowManager : MonoBehaviour
     [Range(1f, 20f)]
     public float playerWalkSpeed = 4f;
 
+    [Header("── Rounds ──")]
+    [Tooltip("How many questions each player must answer before the game ends.")]
+    [Range(1, 20)]
+    public int questionsPerPlayer = 3;
+
+    [Tooltip("Shuffle the question order randomly every time the game starts.")]
+    public bool randomizeQuestions = true;
+
     [Header("── Scoring ──")]
     [Tooltip("Base points awarded for a correct answer. " +
              "Individual questions can override this via QuestionData.")]
@@ -31,8 +39,8 @@ public class GameShowManager : MonoBehaviour
 
     [Header("── Scene References ──")]
     public PlayerController[] players;          // Drag the 4 player GameObjects here
-    public Transform[] playerWaypoints;         // One waypoint per player (question spot)
-    public Transform waitingArea;               // Where players stand before their turn
+    public Transform[] playerWaypoints;         // One podium waypoint per player
+    public Transform[] playerWaitingSpots;      // One waiting-area spot per player
 
     [Header("── UI References ──")]
     public TextMeshProUGUI hostDialogueText;    // The label where the host speaks
@@ -55,9 +63,13 @@ public class GameShowManager : MonoBehaviour
     // ─────────────────────────────────────────────────────────────────────────
 
     private int currentPlayerIndex = 0;
-    private int currentQuestionIndex = 0;
     private bool waitingForAnswer = false;
     private int correctAnswerIndex = -1;
+
+    // Shuffled working copy of the question list
+    private List<QuestionData> questionPool = new List<QuestionData>();
+    // Advances each time any player is asked a question
+    private int poolIndex = 0;
 
     // ─────────────────────────────────────────────────────────────────────────
     //  UNITY LIFECYCLE
@@ -65,20 +77,51 @@ public class GameShowManager : MonoBehaviour
 
     private void Start()
     {
-        int totalPlayers = PlayerPrefs.GetInt("TotalPlayers", 4);
-
-        // Disable unused players and trim the array
-        for (int i = players.Length - 1; i >= totalPlayers; i--)
-        {
-            if (players[i] != null)
-                players[i].gameObject.SetActive(false);
-        }
-        System.Array.Resize(ref players, totalPlayers);
-        System.Array.Resize(ref playerWaypoints, totalPlayers);
-
         ValidateSetup();
+        BuildQuestionPool();
+
         answerPanel.SetActive(false);
+
+        // Snap every player to their waiting spot instantly at scene start
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (i < playerWaitingSpots.Length && playerWaitingSpots[i] != null)
+                players[i].transform.position = playerWaitingSpots[i].position;
+        }
+
         StartCoroutine(RunShow());
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    //  QUESTION POOL BUILDER
+    // ─────────────────────────────────────────────────────────────────────────
+
+    private void BuildQuestionPool()
+    {
+        int totalNeeded = players.Length * questionsPerPlayer;
+
+        // Fill the pool, looping the question list if there are fewer questions than needed
+        questionPool.Clear();
+        while (questionPool.Count < totalNeeded)
+        {
+            foreach (QuestionData q in questions)
+            {
+                questionPool.Add(q);
+                if (questionPool.Count >= totalNeeded) break;
+            }
+        }
+
+        // Fisher-Yates shuffle
+        if (randomizeQuestions)
+        {
+            for (int i = questionPool.Count - 1; i > 0; i--)
+            {
+                int j = Random.Range(0, i + 1);
+                QuestionData tmp = questionPool[i];
+                questionPool[i] = questionPool[j];
+                questionPool[j] = tmp;
+            }
+        }
     }
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -91,33 +134,48 @@ public class GameShowManager : MonoBehaviour
         yield return StartCoroutine(TypeText(hostDialogueText, greetingMessage));
         yield return new WaitForSeconds(2f);
 
-        // ── 2. Player rounds ─────────────────────────────────────────────────
-        for (currentPlayerIndex = 0; currentPlayerIndex < players.Length; currentPlayerIndex++)
+        // ── 2. Rounds: questionsPerPlayer rounds, each round covers all players
+        for (int round = 0; round < questionsPerPlayer; round++)
         {
-            // Skip if we've run out of questions
-            if (currentQuestionIndex >= questions.Length)
+            for (currentPlayerIndex = 0; currentPlayerIndex < players.Length; currentPlayerIndex++)
             {
+                // Safety: stop if the pool is somehow exhausted
+                if (poolIndex >= questionPool.Count)
+                {
+                    yield return StartCoroutine(TypeText(hostDialogueText,
+                        "We've run out of questions - let's tally the final scores!"));
+                    goto ShowEnd;
+                }
+
+                PlayerController player = players[currentPlayerIndex];
+                QuestionData qData = questionPool[poolIndex];
+                poolIndex++;
+
+                // ── Announce player ──────────────────────────────────────────
                 yield return StartCoroutine(TypeText(hostDialogueText,
-                    "We've run out of questions — let's tally the final scores!"));
-                break;
+                    $"It's your turn, {player.playerName}! Walk up to the podium!"));
+
+                // ── Player walks from waiting spot to podium ─────────────────
+                yield return StartCoroutine(
+                    WalkPlayerTo(player, playerWaypoints[currentPlayerIndex].position));
+
+                // ── Ask the question ─────────────────────────────────────────
+                yield return StartCoroutine(AskQuestion(player, qData));
+
+                // ── Player walks back to their waiting spot ──────────────────
+                if (currentPlayerIndex < playerWaitingSpots.Length &&
+                    playerWaitingSpots[currentPlayerIndex] != null)
+                {
+                    yield return StartCoroutine(TypeText(hostDialogueText,
+                        $"Head back to your spot, {player.playerName}!"));
+
+                    yield return StartCoroutine(
+                        WalkPlayerTo(player, playerWaitingSpots[currentPlayerIndex].position));
+                }
             }
-
-            PlayerController player = players[currentPlayerIndex];
-            QuestionData qData = questions[currentQuestionIndex];
-
-            // ── Announce player ──────────────────────────────────────────────
-            yield return StartCoroutine(TypeText(hostDialogueText,
-                $"It's your turn, {player.playerName}! Walk up to the podium!"));
-
-            // ── Player walks to waypoint ─────────────────────────────────────
-            yield return StartCoroutine(WalkPlayerToWaypoint(player, playerWaypoints[currentPlayerIndex]));
-
-            // ── Ask the question ─────────────────────────────────────────────
-            yield return StartCoroutine(AskQuestion(player, qData));
-
-            currentQuestionIndex++;
         }
 
+    ShowEnd:
         // ── 3. Final results ─────────────────────────────────────────────────
         yield return StartCoroutine(AnnounceWinner());
     }
@@ -126,11 +184,10 @@ public class GameShowManager : MonoBehaviour
     //  WALKING
     // ─────────────────────────────────────────────────────────────────────────
 
-    private IEnumerator WalkPlayerToWaypoint(PlayerController player, Transform waypoint)
+    private IEnumerator WalkPlayerTo(PlayerController player, Vector2 destination)
     {
-        player.StartWalking(waypoint.position, playerWalkSpeed);
+        player.StartWalking(destination, playerWalkSpeed);
 
-        // Wait until the player arrives
         while (!player.HasReachedDestination())
             yield return null;
 
@@ -161,9 +218,10 @@ public class GameShowManager : MonoBehaviour
                 if (qData.answers[i].isCorrect && correctAnswerIndex == -1)
                     correctAnswerIndex = i;
 
-                int capturedIndex = i; // closure capture
+                int capturedIndex = i;
                 answerButtons[i].onClick.RemoveAllListeners();
-                answerButtons[i].onClick.AddListener(() => OnAnswerSelected(capturedIndex, player, pointsThisRound));
+                answerButtons[i].onClick.AddListener(
+                    () => OnAnswerSelected(capturedIndex, player, pointsThisRound, qData));
             }
             else
             {
@@ -174,7 +232,6 @@ public class GameShowManager : MonoBehaviour
         answerPanel.SetActive(true);
         waitingForAnswer = true;
 
-        // Pause show until an answer is chosen
         while (waitingForAnswer)
             yield return null;
 
@@ -186,7 +243,8 @@ public class GameShowManager : MonoBehaviour
     //  ANSWER CALLBACK
     // ─────────────────────────────────────────────────────────────────────────
 
-    private void OnAnswerSelected(int index, PlayerController player, int pointsThisRound)
+    private void OnAnswerSelected(int index, PlayerController player,
+                                  int pointsThisRound, QuestionData qData)
     {
         if (!waitingForAnswer) return;
         waitingForAnswer = false;
@@ -195,12 +253,13 @@ public class GameShowManager : MonoBehaviour
         {
             player.AddPoints(pointsThisRound);
             StartCoroutine(TypeText(hostDialogueText,
-                $"Correct! {player.playerName} earns {pointsThisRound} points! 🎉"));
+                $"Correct! {player.playerName} earns {pointsThisRound} points!"));
         }
         else
         {
-            string correctText = questions[currentQuestionIndex < questions.Length
-                ? currentQuestionIndex : questions.Length - 1].answers[correctAnswerIndex].answerText;
+            string correctText = correctAnswerIndex >= 0
+                ? qData.answers[correctAnswerIndex].answerText
+                : "unknown";
             StartCoroutine(TypeText(hostDialogueText,
                 $"Oh no! That's wrong. The correct answer was: \"{correctText}\"."));
         }
@@ -215,7 +274,7 @@ public class GameShowManager : MonoBehaviour
         PlayerController winner = players[0];
         bool isTie = false;
 
-        foreach (var p in players)
+        foreach (PlayerController p in players)
         {
             if (p.Points > winner.Points)
             {
@@ -229,7 +288,7 @@ public class GameShowManager : MonoBehaviour
         }
 
         string endMessage = isTie
-            ? $"It's a tie! What an incredible show! Everyone gave it their all!"
+            ? "It's a tie! What an incredible show! Everyone gave it their all!"
             : $"And the winner is... {winner.playerName} with {winner.Points} points! Congratulations!";
 
         yield return StartCoroutine(TypeText(hostDialogueText, endMessage));
@@ -255,8 +314,12 @@ public class GameShowManager : MonoBehaviour
 
     private void ValidateSetup()
     {
+        if (players.Length != 4)
+            Debug.LogWarning("[GameShowManager] Expected 4 players in the players array.");
         if (playerWaypoints.Length != players.Length)
             Debug.LogError("[GameShowManager] playerWaypoints count must match players count.");
+        if (playerWaitingSpots.Length != players.Length)
+            Debug.LogError("[GameShowManager] playerWaitingSpots count must match players count.");
         if (answerButtons.Length != 4 || answerButtonTexts.Length != 4)
             Debug.LogError("[GameShowManager] answerButtons and answerButtonTexts must each have exactly 4 elements.");
         if (questions.Length == 0)

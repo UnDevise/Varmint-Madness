@@ -3338,8 +3338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e37a502a1fea0743ba229b5c0a78fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textRevealSpeed: 40
+  textRevealSpeed: 35
   playerWalkSpeed: 4
+  questionsPerPlayer: 3
+  randomizeQuestions: 1
   defaultPointsPerQuestion: 100
   players:
   - {fileID: 813077318}
@@ -3351,7 +3353,11 @@ MonoBehaviour:
   - {fileID: 1226278880}
   - {fileID: 33275698}
   - {fileID: 1762511017}
-  waitingArea: {fileID: 245392902}
+  playerWaitingSpots:
+  - {fileID: 245392902}
+  - {fileID: 245392902}
+  - {fileID: 245392902}
+  - {fileID: 245392902}
   hostDialogueText: {fileID: 416423330}
   answerPanel: {fileID: 473591475}
   answerButtons:
