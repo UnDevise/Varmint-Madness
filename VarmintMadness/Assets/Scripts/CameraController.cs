@@ -58,30 +58,20 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        // -----------------------------
-        // AUTO‑UNLOCK CAMERA IF TARGET IS GONE OR NOT MOVING
-        // -----------------------------
-        if (currentMode == CameraMode.FollowPlayer)
+        // AUTO-UNLOCK IF TARGET IS GONE
+        if (currentMode == CameraMode.FollowPlayer && playerToFollow == null)
         {
-            if (playerToFollow == null)
-            {
-                isFollowingPlayer = false;
-                currentMode = CameraMode.None;
-            }
+            isFollowingPlayer = false;
+            currentMode = CameraMode.None;
         }
 
-        if (currentMode == CameraMode.FocusDice)
+        if (currentMode == CameraMode.FocusDice && diceToFollow == null)
         {
-            if (diceToFollow == null)
-            {
-                followDice = false;
-                currentMode = CameraMode.None;
-            }
+            followDice = false;
+            currentMode = CameraMode.None;
         }
 
-        // -----------------------------
-        // CAMERA MODE BEHAVIOR
-        // -----------------------------
+        // CAMERA BEHAVIOR
         switch (currentMode)
         {
             case CameraMode.FollowPlayer:
@@ -100,16 +90,12 @@ public class CameraController : MonoBehaviour
                 break;
         }
 
-        // -----------------------------
-        // Q TOGGLE FOR LOOK‑AROUND MODE
-        // -----------------------------
+        // Q TOGGLE
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            // Disable Q while following player or dice
             if (currentMode == CameraMode.FollowPlayer || currentMode == CameraMode.FocusDice)
                 return;
 
-            // Toggle LookAround mode
             if (currentMode != CameraMode.LookAround)
                 EnterLookAroundMode();
             else
