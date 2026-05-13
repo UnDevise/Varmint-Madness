@@ -2105,6 +2105,11 @@ MonoBehaviour:
     weight: 0.1
     animatorOverride: {fileID: 22100000, guid: 49920ed78914db744974ddad44170977, type: 2}
     ghostMarble: 1
+  - skinName: Fatish
+    sprite: {fileID: 8234112908468777668, guid: f9af411377eee3a43bbdb3699d48a822, type: 3}
+    weight: 0.1
+    animatorOverride: {fileID: 0}
+    ghostMarble: 1
   marbleSelectors:
   - {fileID: 1510578647}
   - {fileID: 1255119666}
