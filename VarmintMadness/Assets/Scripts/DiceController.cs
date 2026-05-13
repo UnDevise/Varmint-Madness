@@ -217,12 +217,28 @@ public class DiceController : MonoBehaviour
 
     public void OnPlayerTurnFinished()
     {
+        // ⭐ Unlock camera for Q movement
+        if (CameraController.Instance != null)
+        {
+            CameraController.Instance.StopFollowing();
+            CameraController.Instance.StopDiceFollow();
+            CameraController.Instance.currentMode = CameraController.CameraMode.None;
+        }
+
         if (isWaitingForSpecialSquare) return;
         StartCoroutine(DelayedTurnTransition());
     }
 
     private IEnumerator DelayedTurnTransition()
     {
+        // ⭐ Ensure camera is unlocked before next turn
+        if (CameraController.Instance != null)
+        {
+            CameraController.Instance.StopFollowing();
+            CameraController.Instance.StopDiceFollow();
+            CameraController.Instance.currentMode = CameraController.CameraMode.None;
+        }
+
         yield return new WaitForSeconds(1.5f);
 
         EnableDice();
