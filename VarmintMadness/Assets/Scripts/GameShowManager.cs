@@ -65,6 +65,7 @@ public class GameShowManager : MonoBehaviour
     private int currentPlayerIndex = 0;
     private bool waitingForAnswer = false;
     private int correctAnswerIndex = -1;
+    private Coroutine activeTypeCoroutine = null;
 
     // Shuffled working copy of the question list
     private List<QuestionData> questionPool = new List<QuestionData>();
@@ -299,6 +300,12 @@ public class GameShowManager : MonoBehaviour
             string correctText = correctAnswerIndex >= 0
                 ? qData.answers[correctAnswerIndex].answerText
                 : "unknown";
+            // Stop any running TypeText first, then show the correct answer
+            if (activeTypeCoroutine != null)
+            {
+                StopCoroutine(activeTypeCoroutine);
+                activeTypeCoroutine = null;
+            }
             StartCoroutine(TypeText(hostDialogueText,
                 $"Oh no! That's wrong. The correct answer was: \"{correctText}\"."));
         }
@@ -339,12 +346,26 @@ public class GameShowManager : MonoBehaviour
 
     public IEnumerator TypeText(TextMeshProUGUI label, string message)
     {
+        // Stop any currently running TypeText before starting a new one
+        if (activeTypeCoroutine != null)
+        {
+            StopCoroutine(activeTypeCoroutine);
+            activeTypeCoroutine = null;
+        }
+
+        activeTypeCoroutine = StartCoroutine(TypeTextInternal(label, message));
+        yield return activeTypeCoroutine;
+    }
+
+    private IEnumerator TypeTextInternal(TextMeshProUGUI label, string message)
+    {
         label.text = "";
         foreach (char c in message)
         {
             label.text += c;
             yield return new WaitForSeconds(1f / textRevealSpeed);
         }
+        activeTypeCoroutine = null;
     }
 
     // ─────────────────────────────────────────────────────────────────────────
