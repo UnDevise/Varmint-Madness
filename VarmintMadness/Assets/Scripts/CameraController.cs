@@ -59,18 +59,24 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         // -----------------------------
-        // AUTO‑UNLOCK CAMERA IF TARGET IS GONE
+        // AUTO‑UNLOCK CAMERA IF TARGET IS GONE OR NOT MOVING
         // -----------------------------
-        if (currentMode == CameraMode.FollowPlayer && playerToFollow == null)
+        if (currentMode == CameraMode.FollowPlayer)
         {
-            isFollowingPlayer = false;
-            currentMode = CameraMode.None;
+            if (playerToFollow == null)
+            {
+                isFollowingPlayer = false;
+                currentMode = CameraMode.None;
+            }
         }
 
-        if (currentMode == CameraMode.FocusDice && diceToFollow == null)
+        if (currentMode == CameraMode.FocusDice)
         {
-            followDice = false;
-            currentMode = CameraMode.None;
+            if (diceToFollow == null)
+            {
+                followDice = false;
+                currentMode = CameraMode.None;
+            }
         }
 
         // -----------------------------
