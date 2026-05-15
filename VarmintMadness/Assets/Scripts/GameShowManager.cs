@@ -19,6 +19,10 @@ public class GameShowManager : MonoBehaviour
     [Range(5f, 200f)]
     public float textRevealSpeed = 40f;
 
+    [Tooltip("Seconds to pause after the host finishes speaking, so players can read.")]
+    [Range(0f, 10f)]
+    public float readPauseTime = 2f;
+
     [Header("── Player Settings ──")]
     [Tooltip("Walking speed of every player (units per second).")]
     [Range(1f, 20f)]
@@ -66,6 +70,7 @@ public class GameShowManager : MonoBehaviour
     private bool waitingForAnswer = false;
     private int correctAnswerIndex = -1;
     private Coroutine activeTypeCoroutine = null;
+    private bool responseFinished = false;
 
     // Shuffled working copy of the question list
     private List<QuestionData> questionPool = new List<QuestionData>();
@@ -171,8 +176,7 @@ public class GameShowManager : MonoBehaviour
     private IEnumerator RunShow()
     {
         // ── 1. Greeting ──────────────────────────────────────────────────────
-        yield return StartCoroutine(TypeText(hostDialogueText, greetingMessage));
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(SayAndPause(greetingMessage));
 
         // ── 2. Rounds: questionsPerPlayer rounds, each round covers all players
         for (int round = 0; round < questionsPerPlayer; round++)
@@ -182,7 +186,7 @@ public class GameShowManager : MonoBehaviour
                 // Safety: stop if the pool is somehow exhausted
                 if (poolIndex >= questionPool.Count)
                 {
-                    yield return StartCoroutine(TypeText(hostDialogueText,
+                    yield return StartCoroutine(SayAndPause(
                         "We've run out of questions - let's tally the final scores!"));
                     goto ShowEnd;
                 }
@@ -192,7 +196,7 @@ public class GameShowManager : MonoBehaviour
                 poolIndex++;
 
                 // ── Announce player ──────────────────────────────────────────
-                yield return StartCoroutine(TypeText(hostDialogueText,
+                yield return StartCoroutine(SayAndPause(
                     $"It's your turn, {player.playerName}! Walk up to the podium!"));
 
                 // ── Player walks from waiting spot to podium ─────────────────
@@ -206,7 +210,7 @@ public class GameShowManager : MonoBehaviour
                 if (currentPlayerIndex < playerWaitingSpots.Length &&
                     playerWaitingSpots[currentPlayerIndex] != null)
                 {
-                    yield return StartCoroutine(TypeText(hostDialogueText,
+                    yield return StartCoroutine(SayAndPause(
                         $"Head back to your spot, {player.playerName}!"));
 
                     yield return StartCoroutine(
@@ -271,12 +275,16 @@ public class GameShowManager : MonoBehaviour
 
         answerPanel.SetActive(true);
         waitingForAnswer = true;
+        responseFinished = false;
 
         while (waitingForAnswer)
             yield return null;
 
         answerPanel.SetActive(false);
-        yield return new WaitForSeconds(1.5f);
+
+        // Wait for the host's correct/wrong response to finish typing and pause
+        while (!responseFinished)
+            yield return null;
     }
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -292,7 +300,7 @@ public class GameShowManager : MonoBehaviour
         if (index == correctAnswerIndex)
         {
             player.AddPoints(pointsThisRound);
-            StartCoroutine(TypeText(hostDialogueText,
+            StartCoroutine(SayAndPause(
                 $"Correct! {player.playerName} earns {pointsThisRound} points!"));
         }
         else
@@ -300,13 +308,12 @@ public class GameShowManager : MonoBehaviour
             string correctText = correctAnswerIndex >= 0
                 ? qData.answers[correctAnswerIndex].answerText
                 : "unknown";
-            // Stop any running TypeText first, then show the correct answer
             if (activeTypeCoroutine != null)
             {
                 StopCoroutine(activeTypeCoroutine);
                 activeTypeCoroutine = null;
             }
-            StartCoroutine(TypeText(hostDialogueText,
+            StartCoroutine(SayAndPause(
                 $"Oh no! That's wrong. The correct answer was: \"{correctText}\"."));
         }
     }
@@ -355,6 +362,13 @@ public class GameShowManager : MonoBehaviour
 
         activeTypeCoroutine = StartCoroutine(TypeTextInternal(label, message));
         yield return activeTypeCoroutine;
+    }
+
+    // Types text then waits for readPauseTime so players can read it
+    private IEnumerator SayAndPause(string message)
+    {
+        yield return StartCoroutine(TypeText(hostDialogueText, message));
+        yield return new WaitForSeconds(readPauseTime);
     }
 
     private IEnumerator TypeTextInternal(TextMeshProUGUI label, string message)
