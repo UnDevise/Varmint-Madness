@@ -352,7 +352,14 @@ public class GameShowManager : MonoBehaviour
             : $"And the winner is... {winner.playerName} with {winner.Points} points! Congratulations!";
 
         yield return StartCoroutine(TypeText(hostDialogueText, endMessage));
+
+        // ⭐ Pause so players can read the winner message
+        yield return new WaitForSeconds(2f);
+
+        // ⭐ Teleport back to loading scene (same behavior as other minigames)
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene");
     }
+
 
     // ─────────────────────────────────────────────────────────────────────────
     //  TEXT TYPEWRITER EFFECT
