@@ -3492,7 +3492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textRevealSpeed: 25
-  readPauseTime: 2.5
+  readPauseTime: 1
   playerWalkSpeed: 4
   questionsPerPlayer: 3
   randomizeQuestions: 1

@@ -300,7 +300,7 @@ public class GameShowManager : MonoBehaviour
         if (index == correctAnswerIndex)
         {
             player.AddPoints(pointsThisRound);
-            StartCoroutine(SayAndPause(
+            StartCoroutine(SayAndPauseFinished(
                 $"Correct! {player.playerName} earns {pointsThisRound} points!"));
         }
         else
@@ -313,9 +313,16 @@ public class GameShowManager : MonoBehaviour
                 StopCoroutine(activeTypeCoroutine);
                 activeTypeCoroutine = null;
             }
-            StartCoroutine(SayAndPause(
+            StartCoroutine(SayAndPauseFinished(
                 $"Oh no! That's wrong. The correct answer was: \"{correctText}\"."));
         }
+    }
+
+    // Wraps SayAndPause and signals AskQuestion that the response is done
+    private IEnumerator SayAndPauseFinished(string message)
+    {
+        yield return StartCoroutine(SayAndPause(message));
+        responseFinished = true;
     }
 
     // ─────────────────────────────────────────────────────────────────────────
