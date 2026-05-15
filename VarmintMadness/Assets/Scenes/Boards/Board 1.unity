@@ -42586,7 +42586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: roundMinigames.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'playersToMove.Array.data[0]'
@@ -42627,6 +42627,10 @@ PrefabInstance:
     - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
       propertyPath: 'roundMinigames.Array.data[5]'
       value: MinigameSecretSequence
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798792544486351127, guid: e48d8badc3f6e39458ba67279f7b6c10, type: 3}
+      propertyPath: 'roundMinigames.Array.data[6]'
+      value: GameShowMinigame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44677,6 +44681,7 @@ MonoBehaviour:
   - MinigameBalloon
   - MinigameBlast
   - MinigameSecretSequence
+  - GameShowMinigame
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -48276,6 +48281,7 @@ MonoBehaviour:
   - MinigameBalloon
   - MinigameBlast
   - MinigameSecretSequence
+  - GameShowMinigame
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -81098,6 +81104,7 @@ MonoBehaviour:
   - MinigameBalloon
   - MinigameBlast
   - MinigameSecretSequence
+  - GameShowMinigame
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}
@@ -105356,6 +105363,7 @@ MonoBehaviour:
   - MinigameBalloon
   - MinigameBlast
   - MinigameSecretSequence
+  - GameShowMinigame
   moveBackSound: {fileID: 0}
   MinigameSound: {fileID: 8300000, guid: d3e020beaf5cfd34f837152c3c7e80d7, type: 3}
   switchLayerSound: {fileID: 0}

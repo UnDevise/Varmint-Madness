@@ -166,9 +166,12 @@ public class BowserBlastMinigameManager : MonoBehaviour
     {
         gameOver = true;
 
+        // Tell the board who won
         MarbleRewardData.WinnerPlayerIndices.Clear();
         MarbleRewardData.WinnerPlayerIndices.Add(winner.playerIndex);
-        MarbleRewardData.BonusTrash = 10;
+
+        // ❌ REMOVE this so trash isn't given twice
+        // MarbleRewardData.BonusTrash = 10;
 
         StartCoroutine(PlayWinAndReturn());
     }

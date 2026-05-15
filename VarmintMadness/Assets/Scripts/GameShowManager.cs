@@ -332,13 +332,17 @@ public class GameShowManager : MonoBehaviour
     private IEnumerator AnnounceWinner()
     {
         PlayerController winner = players[0];
+        int winnerIndex = 0;
         bool isTie = false;
 
-        foreach (PlayerController p in players)
+        for (int i = 0; i < players.Length; i++)
         {
+            PlayerController p = players[i];
+
             if (p.Points > winner.Points)
             {
                 winner = p;
+                winnerIndex = i;
                 isTie = false;
             }
             else if (p != winner && p.Points == winner.Points)
@@ -347,12 +351,23 @@ public class GameShowManager : MonoBehaviour
             }
         }
 
+        // ⭐ Store winner index for the board
+        WinnerData.WinnerIndex = isTie ? -1 : winnerIndex;
+
+
         string endMessage = isTie
             ? "It's a tie! What an incredible show! Everyone gave it their all!"
             : $"And the winner is... {winner.playerName} with {winner.Points} points! Congratulations!";
 
         yield return StartCoroutine(TypeText(hostDialogueText, endMessage));
+
+        // ⭐ Pause so players can read the winner message
+        yield return new WaitForSeconds(2f);
+
+        // ⭐ Teleport back to loading scene (same behavior as other minigames)
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene");
     }
+
 
     // ─────────────────────────────────────────────────────────────────────────
     //  TEXT TYPEWRITER EFFECT
