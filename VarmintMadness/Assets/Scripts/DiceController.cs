@@ -432,6 +432,9 @@ public class DiceController : MonoBehaviour
             p.ApplyCharacter(BoardStateSaver.playerCharacterIndices[i]);
             p.UpdateGarbageText();
         }
+
+        // ⭐ APPLY MINIGAME REWARD HERE
+        ApplyMarbleReward();
     }
 
     private void SetFirstAvailablePlayer()

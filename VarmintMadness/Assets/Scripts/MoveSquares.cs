@@ -292,7 +292,9 @@ public class PlayerMovement : MonoBehaviour
             PlaySquareSound(MinigameSound);
 
             TeleportToRandomTile();
-            return true;
+
+            // ✅ Let the normal turn flow continue
+            return false;
         }
         else if (currentWaypointTag == "Bomb changer space")
         {
