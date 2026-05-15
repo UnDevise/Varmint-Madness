@@ -143,9 +143,14 @@ public class BalloonBlowMinigameManager : MonoBehaviour
         if (popped)
         {
             gameOver = true;
+
+            // Still tell the board who won…
             List<int> winners = GetAllHighestScoringPlayers();
             MarbleRewardData.WinnerPlayerIndices = winners;
-            MarbleRewardData.BonusTrash = 10;
+
+            // ❌ REMOVE this so trash isn’t given twice
+            // MarbleRewardData.BonusTrash = 10;
+
             StartCoroutine(PlayWinAndReturn());
             return;
         }

@@ -209,7 +209,9 @@ public class GameManagerMarble : MonoBehaviour
         {
             playerTurnText.text = "No one wins!";
             MarbleRewardData.WinnerPlayerIndices = null;
-            MarbleRewardData.BonusTrash = 0;
+
+            // ❌ REMOVE THIS so LoadingSceneController is the ONLY place that sets BonusTrash
+            // MarbleRewardData.BonusTrash = 0;
         }
 
         Invoke(nameof(ReturnToBoard), 2f);

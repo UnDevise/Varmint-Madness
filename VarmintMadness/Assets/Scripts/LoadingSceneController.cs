@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 
 public class LoadingSceneController : MonoBehaviour
@@ -12,7 +13,7 @@ public class LoadingSceneController : MonoBehaviour
     public TextMeshProUGUI errorText;
 
     [Header("Error Display Duration")]
-    public float errorDisplayTime = 3f;   // ⭐ How long the error stays visible
+    public float errorDisplayTime = 3f;
 
     void Start()
     {
@@ -28,7 +29,6 @@ public class LoadingSceneController : MonoBehaviour
         yield return new WaitForSeconds(preLoadDelay);
 
         string boardScene = BoardStateSaver.lastBoardSceneName;
-
         bool usingFallback = false;
 
         if (string.IsNullOrEmpty(boardScene))
@@ -43,8 +43,17 @@ public class LoadingSceneController : MonoBehaviour
                 errorText.text = "Error: This board has made a terrible mistake.\nLoading backup board...";
             }
 
-            // ⭐ Wait so the player can read the message
             yield return new WaitForSeconds(errorDisplayTime);
+        }
+
+        // ⭐ APPLY MINIGAME REWARD (if any)
+        // Minigames should set MarbleRewardData.WinnerPlayerIndices and BonusTrash.
+        // If they didn't, this safely does nothing.
+        if (MarbleRewardData.WinnerPlayerIndices != null &&
+            MarbleRewardData.WinnerPlayerIndices.Count > 0)
+        {
+            Debug.Log("Applying minigame reward: +" + MarbleRewardData.BonusTrash + " trash to player index " +
+                      MarbleRewardData.WinnerPlayerIndices[0]);
         }
 
         // Begin loading the board
