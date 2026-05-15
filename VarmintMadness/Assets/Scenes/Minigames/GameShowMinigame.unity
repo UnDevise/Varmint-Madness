@@ -3494,7 +3494,7 @@ MonoBehaviour:
   textRevealSpeed: 25
   readPauseTime: 1
   playerWalkSpeed: 4
-  questionsPerPlayer: 1
+  questionsPerPlayer: 3
   randomizeQuestions: 1
   defaultPointsPerQuestion: 100
   players:
