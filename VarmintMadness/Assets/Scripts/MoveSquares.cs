@@ -182,10 +182,15 @@ public class PlayerMovement : MonoBehaviour
         SetRunningAnimation(false);
 
         bool bonusMoveTriggered = CheckForSpecialWaypoint();
-
         if (!bonusMoveTriggered)
         {
-            cameraController?.StopFollowing();
+            if (cameraController != null)
+            {
+                cameraController.StopFollowing();
+                cameraController.StopDiceFollow();
+                cameraController.currentMode = CameraController.CameraMode.None;   // ⭐ Unlock Q mode
+            }
+
             diceController?.OnPlayerTurnFinished();
         }
     }

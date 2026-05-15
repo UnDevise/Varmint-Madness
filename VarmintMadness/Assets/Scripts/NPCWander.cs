@@ -13,12 +13,15 @@ public class NPCWander : MonoBehaviour
     private bool isWalking;
 
     private Rigidbody2D rb;
-    private Animator anim;   // ⭐ NEW
+    private Animator anim;
+    private SpriteRenderer sr;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();   // ⭐ NEW
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+
         PickNewState();
     }
 
@@ -32,18 +35,23 @@ public class NPCWander : MonoBehaviour
         if (isWalking)
         {
             rb.linearVelocity = direction * moveSpeed;
-            anim.SetBool("Running", true);   // ⭐ NEW
+            anim.SetBool("Running", true);
+
+            // ⭐ FLIP BASED ON ACTUAL MOVEMENT VELOCITY
+            if (rb.linearVelocity.x > 0.05f)
+                sr.flipX = false;   // moving right
+            else if (rb.linearVelocity.x < -0.05f)
+                sr.flipX = true;    // moving left
         }
         else
         {
             rb.linearVelocity = Vector2.zero;
-            anim.SetBool("Running", false);  // ⭐ NEW
+            anim.SetBool("Running", false);
         }
     }
 
     void PickNewState()
     {
-        // 50% chance to walk, 50% to idle
         isWalking = Random.value > 0.5f;
 
         if (isWalking)
@@ -54,6 +62,22 @@ public class NPCWander : MonoBehaviour
         else
         {
             timer = Random.Range(minIdleTime, maxIdleTime);
+        }
+    }
+
+    // ⭐ NEW: Flip NPC based on dominant movement direction
+    void FlipSpriteBasedOnDirection()
+    {
+        // Horizontal movement dominates
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            sr.flipX = direction.x < 0;   // left = flipped, right = normal
+        }
+        else
+        {
+            // Vertical movement dominates
+            // Optional: If you have up/down animations, trigger them here
+            // For now, we keep horizontal flip only
         }
     }
 }
